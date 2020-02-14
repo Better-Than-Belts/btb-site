@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { H1 } from '../../styles';
 
 const HeroWrapper = styled.div`
@@ -20,12 +21,18 @@ const HeroTitle = styled.div`
 
 `;
 
+const HeroArrow = styled(FontAwesomeIcon)`
+    position: absolute;
+    bottom: 5%;
+`;
+
 const Hero = () => {
     return (
         <HeroWrapper>
         <HeroTitle>
             <H1>Live Better.</H1>
         </HeroTitle>
+        <HeroArrow icon='angle-double-down' />
         </HeroWrapper>
     );
 };
