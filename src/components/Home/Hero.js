@@ -29,10 +29,10 @@ const HeroArrow = styled(FontAwesomeIcon)`
 const Hero = () => {
     return (
         <HeroWrapper>
-        <HeroTitle>
-            <H1>Live Better.</H1>
-        </HeroTitle>
-        <HeroArrow icon='angle-double-down' />
+            <HeroTitle>
+                <H1>Live Better.</H1>
+            </HeroTitle>
+            <HeroArrow icon='angle-double-down' />
         </HeroWrapper>
     );
 };
