@@ -1,0 +1,34 @@
+import React from 'react';
+import styled from 'styled-components';
+import { H1 } from '../../styles';
+
+const HeroWrapper = styled.div`
+    margin: auto;
+    position: relative;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    height: 100vh;
+`;
+
+const HeroTitle = styled.div`
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+`;
+
+const Hero = () => {
+    return (
+        <HeroWrapper>
+        <HeroTitle>
+            <H1>Live Better.</H1>
+        </HeroTitle>
+        </HeroWrapper>
+    );
+};
+
+
+export default Hero;

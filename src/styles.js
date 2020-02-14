@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 import './index.css';
 
 const H1 = styled.h1`
@@ -33,4 +33,16 @@ const P = styled.p`
 
 `;
 
-export { H1, H2, H3, H4, H5, P};
+const Button = styled.div`
+    background: #c4c4c4;
+`;
+
+const Flex = styled.div`
+    display: flex;
+`;
+
+const BGGray = styled.div`
+    background: #E2E2E2;
+`;
+
+export { H1, H2, H3, H4, H5, P, Button, Flex, BGGray };
