@@ -5,11 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { H1 } from '../../styles';
 
 const H1White = styled(H1)`
-    color: white;
+    color: black;
 `;
 
 const HeroBG = styled.div`
-    background-image: url(https://media.giphy.com/media/KWn5YHuCzP3FK/source.gif);
+    background-image: url(${mockImage});
     background-position: center;
     background-size: 100% 100%;
 `;
@@ -41,7 +41,7 @@ const Hero = () => {
         <HeroBG>
         <HeroWrapper>
             <HeroTitle>
-                <H1White>Live Better.</H1White>
+                <H1>Live Better.</H1>
             </HeroTitle>
             <HeroArrow icon='angle-double-down' />
         </HeroWrapper>
