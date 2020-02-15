@@ -1,8 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import mockImage from '../../images/Rectangle.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { H1 } from '../../styles';
 
+
+const HeroBG = styled.div`
+    background-image: url(${mockImage});
+    background-position: center;
+    background-size: 100% 100%;
+`;
 const HeroWrapper = styled.div`
     margin: auto;
     position: relative;
@@ -28,12 +35,14 @@ const HeroArrow = styled(FontAwesomeIcon)`
 
 const Hero = () => {
     return (
+        <HeroBG>
         <HeroWrapper>
             <HeroTitle>
                 <H1>Live Better.</H1>
             </HeroTitle>
             <HeroArrow icon='angle-double-down' />
         </HeroWrapper>
+        </HeroBG>
     );
 };
 

@@ -1,31 +1,26 @@
 import React from 'react';
-import styled from 'styled-components';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons'
-import { H1, H2, H3, P } from './styles';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
 import Hero from './components/Home/Hero';
 import PLPPreview from './components/Home/PLPPreview';
+import ReadyToShop from './components/Home/ReadyToShop';
+import OurStoryPreview from './components/Home/OurStoryPreview';
+import ProductInformation from './components/Home/ProductInformation';
+import CustomerReviews from './components/Home/CustomerReviews';
+import AsSeenIn from './components/Home/AsSeenIn';
 
-
-
-const Wrapper = styled.div`
-  margin-right: auto;
-  margin-left:  auto;
-
-  max-width: 960px;
-
-  padding-right: 10px;
-  padding-left:  10px;
-`;
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <Hero/>
-        <Wrapper>
-          <PLPPreview />
-        </Wrapper>
+        <PLPPreview />
+        <OurStoryPreview />
+        <ProductInformation />
+        <CustomerReviews />
+        <AsSeenIn />
+        <ReadyToShop />
       </header>
     </div>
   );

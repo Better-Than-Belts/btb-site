@@ -1,16 +1,30 @@
 import React from 'react';
-import { BGGray, Button, Flex, H3, P } from '../../styles';
+import styled from 'styled-components';
+import { BGGray, Section, Button, ButtonText, Flex, MockImagePortrait } from '../../styles';
+
+const ShopNow = styled(Button)`
+    margin: 0 auto;
+    margin-top: 50px;
+    display: block;
+`;
+
+const PLPPreviewImage = styled(MockImagePortrait)`
+    width: 545px;
+    height: 630px;
+`;
 
 const PLPPreview = () => {
     return (
         <BGGray>
+            <Section>
             <Flex>
-                <P>This will be a picture</P>
-                <P>This will be a picture</P>
+                <PLPPreviewImage />
+                <PLPPreviewImage />
             </Flex>
-            <Button>
-                <H3>Shop Now</H3>
-            </Button>
+                <ShopNow>
+                    <ButtonText>Shop Now</ButtonText>
+                </ShopNow>
+            </Section>
         </BGGray>
     );
 };
