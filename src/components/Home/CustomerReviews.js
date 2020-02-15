@@ -1,11 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button, ButtonText, H2, Section } from '../../styles';
+import { H2, Section, Flex, P } from '../../styles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const ShopNow = styled(Button)`
+const Stars = styled(Flex)`
+    max-width: 200px;
     margin: 0 auto;
-    margin-top: 50px;
-    display: block;
+    padding-bottom: 10px;
+`;
+
+const Star = styled(FontAwesomeIcon)`
+    font-size: 30px;
+    color: #C4C4C4;
 `;
 
 const TextCenter = styled.div`
@@ -16,14 +22,17 @@ const CustomerReviews = () => {
     return (
         <Section>
             <TextCenter>
-                <H2>Ready to shop?</H2>
-                <ShopNow>
-                    <ButtonText>Shop Now</ButtonText>
-                </ShopNow>
+                <Stars>
+                    <Star icon='star' />
+                    <Star icon='star' />
+                    <Star icon='star' />
+                    <Star icon='star' />
+                </Stars>
+                <P>“I love BTB so much! Their products are high quality and comfortable.”</P>
+                <H2>- Happy Customer</H2>
             </TextCenter>
         </Section>
     );
 };
-
 
 export default CustomerReviews;

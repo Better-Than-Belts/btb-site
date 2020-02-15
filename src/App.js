@@ -1,6 +1,6 @@
 import React from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDoubleDown, faStar } from '@fortawesome/free-solid-svg-icons';
 import Hero from './components/Home/Hero';
 import PLPPreview from './components/Home/PLPPreview';
 import ReadyToShop from './components/Home/ReadyToShop';
@@ -26,6 +26,6 @@ function App() {
   );
 }
 
-library.add(faAngleDoubleDown);
+library.add(faAngleDoubleDown, faStar);
 
 export default App;

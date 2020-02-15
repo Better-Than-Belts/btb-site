@@ -1,7 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import { device } from '../../device';
 import AsSeenInItem from './AsSeenInItem';
-import { Flex, BGGray, Button, ButtonText, H2, Section } from '../../styles';
+import { Flex, BGGray, H2, Section } from '../../styles';
+
+const AsSeenInRow = styled(Flex)`
+    @media ${device.mobileL} {
+        flex-wrap: nowrap;
+
+    }
+`;
 
 const AsSeenInContainer = styled(Section)`
     max-width: 800px;
@@ -17,14 +25,14 @@ const AsSeenIn = () => {
             <AsSeenInContainer>
                 <TextCenter>
                     <H2>As seen in...</H2>
-                    <Flex>
-                        <AsSeenInItem name="News@Northeastern"/>
-                        <AsSeenInItem name="Kickstarter"/>
-                    </Flex>
-                    <Flex>
-                        <AsSeenInItem name="The Boston Globe"/>
-                        <AsSeenInItem name="Lucid"/>
-                    </Flex>
+                    <AsSeenInRow>
+                        <AsSeenInItem/>
+                        <AsSeenInItem/>
+                    </AsSeenInRow>
+                    <AsSeenInRow>
+                        <AsSeenInItem/>
+                        <AsSeenInItem/>
+                    </AsSeenInRow>
                 </TextCenter>
             </AsSeenInContainer>
         </BGGray>

@@ -1,20 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button, ButtonText, Flex, H2, MockImageLandscape, P, Section, MockImageSquare } from '../../styles';
+import { device } from '../../device';
+import { Button, ButtonText, Flex, ImageContainer, H2, MockImageLandscape, P, Section } from '../../styles';
 
-const OurStoryImage = styled.div`
+const OurStoryImage = styled(ImageContainer)`
     flex: 2;
+
+    @media ${device.tablet} {
+        flex: 1;
+
+    }
 `;
 
 const OurStoryTextContainer = styled.div`
-    position: relative;
-    padding-bottom: 100px;
+    margin-top: 15%;
     flex: 1;
+
+    @media ${device.mobileL} {
+        margin-top: 0;
+        flex: auto;
+
+    }
 `;
 
 const OurStoryText = styled.div`
-    position: absolute;
-    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    
 `;
 
 const OurStoryPreview = () => {

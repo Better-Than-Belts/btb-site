@@ -1,22 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BGGray, Button, H2, H3, Section, MockImageLandscape, P } from '../../styles';
-
-const AsSeenInItemImage = styled(MockImageLandscape)`
-    height: 120px;
-    width: 300px;
-`;
+import { MockImageLandscape, ImageContainer } from '../../styles';
 
 const AsSeenInItemContainer = styled.div`
     padding: 15px;
     margin-top: 50px;
+    word-wrap: break-word;
 `;
 
-const AsSeenInItem = (props) => {
+const AsSeenInItem = () => {
     return (
         <AsSeenInItemContainer>
-            <AsSeenInItemImage />
-            <H3>{props.name}</H3>
+            <ImageContainer>
+                <MockImageLandscape />
+            </ImageContainer>
         </AsSeenInItemContainer>
     );
 };

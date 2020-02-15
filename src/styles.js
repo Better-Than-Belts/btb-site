@@ -1,5 +1,8 @@
 import styled from 'styled-components';
-import mockImage from './images/Rectangle.png';
+import { device } from './device';
+import square from './images/Square.png';
+import portrait from './images/Portrait.png'
+import landscape from './images/Landscape.png'
 import './index.css';
 
 const H1 = styled.h1`
@@ -41,6 +44,8 @@ const Button = styled.button`
     padding: 20px 30px;
     margin-top: 10px;
     margin-bottom: 10px;
+    border: none;
+    outline:none;
 `;
 
 const ButtonText = styled(H3)`
@@ -50,6 +55,12 @@ const ButtonText = styled(H3)`
 const Flex = styled.div`
     display: flex;
     justify-content: space-between;
+    flex-wrap: nowrap;
+
+    @media ${device.mobileL} {
+        flex-wrap: wrap;
+
+    }
 `;
 
 const Section = styled.div`
@@ -70,20 +81,23 @@ const BGGray = styled.div`
     background: #E2E2E2;
 `;
 
+const ImageContainer = styled.div`
+    padding: 10px;
+`;
+
 const MockImageSquare = styled.img`
-    content:url(${mockImage});
-    flex-shrink: 0;
-    width: 100%;
+    content: url(${square});
+    max-width: 100%;
+    height: auto;
+
 `;
 
 const MockImagePortrait = styled(MockImageSquare)`
-    height: 600px;
-    width: 400px;
+    content: url(${portrait});
 `;
 
 const MockImageLandscape = styled(MockImageSquare)`
-    height: 400px;
-    width: 600px;
+    content: url(${landscape});
 `;
 
-export { H1, H2, H3, P, Button, ButtonText, Flex, BGGray, Section, MockImageSquare, MockImagePortrait, MockImageLandscape };
+export { H1, H2, H3, P, Button, ButtonText, Flex, ImageContainer, BGGray, Section, MockImageSquare, MockImagePortrait, MockImageLandscape };

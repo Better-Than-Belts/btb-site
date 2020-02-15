@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import mockImage from '../../images/Rectangle.png';
+import mockImage from '../../images/Square.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { H1 } from '../../styles';
 
+const H1White = styled(H1)`
+    color: white;
+`;
 
 const HeroBG = styled.div`
-    background-image: url(${mockImage});
+    background-image: url(https://media.giphy.com/media/KWn5YHuCzP3FK/source.gif);
     background-position: center;
     background-size: 100% 100%;
 `;
@@ -38,7 +41,7 @@ const Hero = () => {
         <HeroBG>
         <HeroWrapper>
             <HeroTitle>
-                <H1>Live Better.</H1>
+                <H1White>Live Better.</H1White>
             </HeroTitle>
             <HeroArrow icon='angle-double-down' />
         </HeroWrapper>

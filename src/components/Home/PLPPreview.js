@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BGGray, Section, Button, ButtonText, Flex, MockImagePortrait } from '../../styles';
+import { BGGray, Section, Button, ButtonText, Flex, ImageContainer, MockImagePortrait } from '../../styles';
 
 const ShopNow = styled(Button)`
     margin: 0 auto;
@@ -8,18 +8,17 @@ const ShopNow = styled(Button)`
     display: block;
 `;
 
-const PLPPreviewImage = styled(MockImagePortrait)`
-    width: 545px;
-    height: 630px;
-`;
-
 const PLPPreview = () => {
     return (
         <BGGray>
             <Section>
             <Flex>
-                <PLPPreviewImage />
-                <PLPPreviewImage />
+                <ImageContainer>
+                    <MockImagePortrait />
+                </ImageContainer>
+                <ImageContainer>
+                    <MockImagePortrait />
+                </ImageContainer>
             </Flex>
                 <ShopNow>
                     <ButtonText>Shop Now</ButtonText>
