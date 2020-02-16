@@ -13,12 +13,9 @@ class App extends React.Component {
 
   componentDidMount() {
     this.props.client.product.fetchAll().then((res) => {
-      console.log("fetching all products");
-      console.log(res);
       this.setState({
         products: res,
       });
-      console.log(this.state.products);
     });
 
     this.props.client.shop.fetchInfo().then((res) => {
@@ -32,20 +29,30 @@ class App extends React.Component {
     return (
       <div className="App" >
         <header className="App-header">
-          <H1>This is an H1</H1>
+          {/* <H1>This is an H1</H1>
           <H2>This is an H2</H2>
           <H3>This is an H3</H3>
-          <P>This is a P</P>
+          <P>This is a P</P> */}
         </header>
         {
           this.state.products.map((product, index) => {
             return (
-              <h3>{product}</h3>
+              // product keys:
+              // {id, availableForSale, createdAt, updatedAt, descriptionHtml, description, handle, productType, title, vendor, publishedAt, onlineStoreUrl, options, images, variants, refetchQuery, type, nextPageQueryAndPath, hasNextPage, hasPreviousPage, variableValues}
+              // product image keys:
+              // {id, src, altText, type, nextPageQueryAndPath, hasNextPage, hasPreviousPage, variableValues}
+              <div>
+                <H1>Product: {product.title}</H1>
+                <H3>{product.productType}</H3>
+                <H3>{product.description}</H3>
+                <img src={product.images[0].src} width="100"></img>
+                <hr></hr>
+              </div>
             )
           })
         }
 
-      </div>
+      </div >
     );
   }
 
