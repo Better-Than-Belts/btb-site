@@ -4,9 +4,6 @@ import './index.css';
 import App from './App';
 import Client from 'shopify-buy';
 import * as serviceWorker from './serviceWorker';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 const client = Client.buildClient({
     storefrontAccessToken: process.env.REACT_APP_SHOPIFY_STOREFRONT_TOKEN,
