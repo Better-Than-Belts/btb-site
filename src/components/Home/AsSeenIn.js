@@ -26,7 +26,7 @@ const AsSeenIn = () => {
 
 // Styles
 const AsSeenInRow = styled(Flex)`
-    @media ${device.mobileL} {
+    @media ${device.mobile} {
         flex-wrap: nowrap;
 
     }

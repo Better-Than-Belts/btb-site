@@ -32,7 +32,7 @@ const ProductInformationFlexNoWrap = styled(Flex)`
 
     }
 
-    @media ${device.mobileL} {
+    @media ${device.mobile} {
         display: none;
 
     }
@@ -41,7 +41,7 @@ const ProductInformationFlexNoWrap = styled(Flex)`
 const ProductInformationCarousel = styled(Flex)`
     display: none;
 
-    @media ${device.mobileL} {
+    @media ${device.mobile} {
         display: block;
 
     }

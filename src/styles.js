@@ -92,6 +92,11 @@ const MockImageSquare = styled.img`
 
 `;
 
+const MockImageCircle = styled(MockImageSquare)`
+    border-radius: 50%;
+    margin-bottom: 15px;
+`;
+
 const MockImagePortrait = styled(MockImageSquare)`
     content: url(${portrait});
 `;
@@ -100,4 +105,4 @@ const MockImageLandscape = styled(MockImageSquare)`
     content: url(${landscape});
 `;
 
-export { H1, H2, H3, P, Button, ButtonText, Flex, ImageContainer, BGGray, Section, MockImageSquare, MockImagePortrait, MockImageLandscape };
+export { H1, H2, H3, P, Button, ButtonText, Flex, ImageContainer, BGGray, Section, MockImageSquare, MockImageCircle, MockImagePortrait, MockImageLandscape };

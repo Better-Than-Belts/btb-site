@@ -40,7 +40,7 @@ const OurStoryTextContainer = styled.div`
     margin-top: 15%;
     flex: 1;
 
-    @media ${device.mobileL} {
+    @media ${device.mobile} {
         margin-top: 0;
         flex: auto;
 

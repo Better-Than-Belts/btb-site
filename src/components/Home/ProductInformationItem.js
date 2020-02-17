@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { device } from '../../device';
-import { ImageContainer, MockImageSquare, P } from '../../styles';
+import { ImageContainer, MockImageCircle, P } from '../../styles';
 
 const ProductInformationItem = () => {
     return (
@@ -15,11 +15,6 @@ const ProductInformationItem = () => {
 };
 
 // Styles
-const MockImageCircle = styled(MockImageSquare)`
-    border-radius: 50%;
-    margin-bottom: 15px;
-`;
-
 const ProductInformationItemContainer = styled.div`
     padding: 15px;
     margin-top: 50px;
