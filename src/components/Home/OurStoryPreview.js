@@ -3,6 +3,30 @@ import styled from 'styled-components';
 import { device } from '../../device';
 import { Button, ButtonText, Flex, ImageContainer, H2, MockImageLandscape, P, Section } from '../../styles';
 
+const OurStoryPreview = () => {
+    return (
+        <Section>
+            <Flex>
+                <OurStoryImage>
+                    <MockImageLandscape />
+                </OurStoryImage>
+                <OurStoryTextContainer>
+                    <OurStoryText>
+                        <H2>Our Story</H2>
+                        <P>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam eius officia amet fugiat labore, assumenda corporis perferendis adipisci fugit, porro voluptas? Sunt, eius? Nemo ex fugiat tempore ad nesciunt libero repudiandae qui ullam modi? Similique modi quo consectetur nostrum veniam error non consequatur, cum quam quibusdam voluptatum dolorum accusamus accusantium.
+                        </P>
+                        <Button>
+                            <ButtonText>Learn More</ButtonText>
+                        </Button>
+                    </OurStoryText>
+                </OurStoryTextContainer>
+            </Flex>
+        </Section>
+    );
+};
+
+// styles
 const OurStoryImage = styled(ImageContainer)`
     flex: 2;
 
@@ -30,29 +54,5 @@ const OurStoryText = styled.div`
     justify-content: flex-end;
     
 `;
-
-const OurStoryPreview = () => {
-    return (
-        <Section>
-            <Flex>
-                <OurStoryImage>
-                    <MockImageLandscape />
-                </OurStoryImage>
-                <OurStoryTextContainer>
-                    <OurStoryText>
-                        <H2>Our Story</H2>
-                        <P>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam eius officia amet fugiat labore, assumenda corporis perferendis adipisci fugit, porro voluptas? Sunt, eius? Nemo ex fugiat tempore ad nesciunt libero repudiandae qui ullam modi? Similique modi quo consectetur nostrum veniam error non consequatur, cum quam quibusdam voluptatum dolorum accusamus accusantium.
-                        </P>
-                        <Button>
-                            <ButtonText>Learn More</ButtonText>
-                        </Button>
-                    </OurStoryText>
-                </OurStoryTextContainer>
-            </Flex>
-        </Section>
-    );
-};
-
 
 export default OurStoryPreview;

@@ -2,11 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { MockImageLandscape, ImageContainer } from '../../styles';
 
-const AsSeenInItemContainer = styled.div`
-    padding: 15px;
-    margin-top: 50px;
-    word-wrap: break-word;
-`;
 
 const AsSeenInItem = () => {
     return (
@@ -17,5 +12,12 @@ const AsSeenInItem = () => {
         </AsSeenInItemContainer>
     );
 };
+
+// Styles
+const AsSeenInItemContainer = styled.div`
+    padding: 15px;
+    margin-top: 50px;
+    word-wrap: break-word;
+`;
 
 export default AsSeenInItem;

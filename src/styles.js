@@ -57,7 +57,7 @@ const Flex = styled.div`
     justify-content: space-between;
     flex-wrap: nowrap;
 
-    @media ${device.mobileL} {
+    @media ${device.mobile} {
         flex-wrap: wrap;
 
     }

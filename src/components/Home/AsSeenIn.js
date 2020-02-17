@@ -4,21 +4,6 @@ import { device } from '../../device';
 import AsSeenInItem from './AsSeenInItem';
 import { Flex, BGGray, H2, Section } from '../../styles';
 
-const AsSeenInRow = styled(Flex)`
-    @media ${device.mobileL} {
-        flex-wrap: nowrap;
-
-    }
-`;
-
-const AsSeenInContainer = styled(Section)`
-    max-width: 800px;
-`;
-
-const TextCenter = styled.div`
-    text-align: center;
-`;
-
 const AsSeenIn = () => {
     return (
         <BGGray>
@@ -38,6 +23,22 @@ const AsSeenIn = () => {
         </BGGray>
     );
 };
+
+// Styles
+const AsSeenInRow = styled(Flex)`
+    @media ${device.mobileL} {
+        flex-wrap: nowrap;
+
+    }
+`;
+
+const AsSeenInContainer = styled(Section)`
+    max-width: 800px;
+`;
+
+const TextCenter = styled.div`
+    text-align: center;
+`;
 
 
 export default AsSeenIn;

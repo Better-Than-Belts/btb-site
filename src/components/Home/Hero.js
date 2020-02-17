@@ -4,10 +4,20 @@ import mockImage from '../../images/Square.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { H1 } from '../../styles';
 
-const H1White = styled(H1)`
-    color: black;
-`;
+const Hero = () => {
+    return (
+        <HeroBG>
+        <HeroWrapper>
+            <HeroTitle>
+                <H1>Live Better.</H1>
+            </HeroTitle>
+            <HeroArrow icon='angle-double-down' />
+        </HeroWrapper>
+        </HeroBG>
+    );
+};
 
+// Styles
 const HeroBG = styled.div`
     background-image: url(${mockImage});
     background-position: center;
@@ -35,19 +45,5 @@ const HeroArrow = styled(FontAwesomeIcon)`
     position: absolute;
     bottom: 5%;
 `;
-
-const Hero = () => {
-    return (
-        <HeroBG>
-        <HeroWrapper>
-            <HeroTitle>
-                <H1>Live Better.</H1>
-            </HeroTitle>
-            <HeroArrow icon='angle-double-down' />
-        </HeroWrapper>
-        </HeroBG>
-    );
-};
-
 
 export default Hero;

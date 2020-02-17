@@ -1,26 +1,22 @@
 import React from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faAngleDoubleDown, faStar } from '@fortawesome/free-solid-svg-icons';
-import Hero from './components/Home/Hero';
-import PLPPreview from './components/Home/PLPPreview';
-import ReadyToShop from './components/Home/ReadyToShop';
-import OurStoryPreview from './components/Home/OurStoryPreview';
-import ProductInformation from './components/Home/ProductInformation';
-import CustomerReviews from './components/Home/CustomerReviews';
-import AsSeenIn from './components/Home/AsSeenIn';
-
+import ShopifyClient from './components/ShopifyClient';
+import Client from 'shopify-buy';
+import Home from './views/Home';
 
 function App() {
+  // Set up Shopify client for BTB
+  const client = Client.buildClient({
+    storefrontAccessToken: process.env.REACT_APP_SHOPIFY_STOREFRONT_TOKEN,
+    domain: 'better-than-belts.myshopify.com'
+  });
+
   return (
     <div className="App">
       <header className="App-header">
-        <Hero/>
-        <PLPPreview />
-        <OurStoryPreview />
-        <ProductInformation />
-        <CustomerReviews />
-        <AsSeenIn />
-        <ReadyToShop />
+        <Home />
+        <ShopifyClient client={client} />
       </header>
     </div>
   );

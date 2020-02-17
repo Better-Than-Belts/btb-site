@@ -2,12 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { BGGray, Section, Button, ButtonText, Flex, ImageContainer, MockImagePortrait } from '../../styles';
 
-const ShopNow = styled(Button)`
-    margin: 0 auto;
-    margin-top: 50px;
-    display: block;
-`;
-
 const PLPPreview = () => {
     return (
         <BGGray>
@@ -28,5 +22,11 @@ const PLPPreview = () => {
     );
 };
 
+// Styles
+const ShopNow = styled(Button)`
+    margin: 0 auto;
+    margin-top: 50px;
+    display: block;
+`;
 
 export default PLPPreview;
