@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { H2, Section, Flex, P } from '../../styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const CustomerReviews = () => {
+const CustomerReviews = (props) => {
     return (
         <Section>
             <TextCenter>
@@ -13,8 +13,8 @@ const CustomerReviews = () => {
                     <Star icon='star' />
                     <Star icon='star' />
                 </Stars>
-                <P>“I love BTB so much! Their products are high quality and comfortable.”</P>
-                <H2>- Happy Customer</H2>
+                <P>“{props.customerReview}”</P>
+                <H2>- {props.customerName}</H2>
             </TextCenter>
         </Section>
     );

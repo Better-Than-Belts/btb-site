@@ -4,12 +4,14 @@ import mockImage from '../../images/Square.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { H1 } from '../../styles';
 
-const Hero = () => {
+const Hero = (props) => {
+    console.log(props);
+
     return (
         <HeroBG>
         <HeroWrapper>
             <HeroTitle>
-                <H1>Live Better.</H1>
+            <H1>{props.heroText}</H1>
             </HeroTitle>
             <HeroArrow icon='angle-double-down' />
         </HeroWrapper>

@@ -4,19 +4,19 @@ import { device } from '../../device';
 import ProductInformationItem from './ProductInformationItem';
 import { BGGray, Section, Flex, H2 } from '../../styles';
 
-const ProductInformation = () => {
+const ProductInformation = (props) => {
     return (
         <BGGray>
             <Section>
-                <H2>Assembled in New York, USA</H2>
+                <H2>{props.productInformationTitle}</H2>
                 <ProductInformationFlexNoWrap>
-                    <ProductInformationItem />
-                    <ProductInformationItem />
-                    <ProductInformationItem />
-                    <ProductInformationItem />
+                    <ProductInformationItem {...props}/>
+                    <ProductInformationItem {...props}/>
+                    <ProductInformationItem {...props}/>
+                    <ProductInformationItem {...props}/>
                 </ProductInformationFlexNoWrap>
                 <ProductInformationCarousel>
-                    <ProductInformationItem />
+                    <ProductInformationItem {...props}/>
                 </ProductInformationCarousel>
             </Section>
         </BGGray>

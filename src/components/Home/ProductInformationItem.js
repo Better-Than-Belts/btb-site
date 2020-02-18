@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import { device } from '../../device';
 import { ImageContainer, MockImageCircle, P } from '../../styles';
 
-const ProductInformationItem = () => {
+const ProductInformationItem = (props) => {
     return (
         <ProductInformationItemContainer>
             <ImageContainer>
                 <MockImageCircle />
             </ImageContainer>
-            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem reprehenderit quas sapiente, voluptatum cum sunt?</P>
+            <P>{props.productInformationText}</P>
         </ProductInformationItemContainer>
     );
 };

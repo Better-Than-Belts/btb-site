@@ -8,16 +8,16 @@ import AsSeenIn from '../components/Home/AsSeenIn';
 import ReadyToShop from '../components/Home/ReadyToShop';
 
 
-const Home = () => {
+const Home = (props) => {
     return (
        <div>
-           <Hero />
-            <PLPPreview />
-            <OurStoryPreview />
-            <ProductInformation />
-            <CustomerReviews />
-            <AsSeenIn />
-            <ReadyToShop />
+           <Hero {...props}/>
+            <PLPPreview {...props}/>
+            <OurStoryPreview {...props}/>
+            <ProductInformation {...props}/>
+            <CustomerReviews {...props}/>
+            <AsSeenIn {...props}/>
+            <ReadyToShop {...props}/>
        </div>
     );
 };

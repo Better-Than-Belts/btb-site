@@ -4,7 +4,7 @@ import { device } from '../../device';
 import AsSeenInItem from './AsSeenInItem';
 import { Flex, BGGray, H2, Section } from '../../styles';
 
-const AsSeenIn = () => {
+const AsSeenIn = (props) => {
     return (
         <BGGray>
             <AsSeenInContainer>

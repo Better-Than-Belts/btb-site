@@ -12,10 +12,20 @@ function App() {
     domain: 'better-than-belts.myshopify.com'
   });
 
+  // This will be replaced by a call to the Storefront API
+  const props = {
+    "heroText": "Live Better",
+    "ourStoryText": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam eius officia amet fugiat labore, assumenda corporis perferendis adipisci fugit, porro voluptas? Sunt, eius? Nemo ex fugiat tempore ad nesciunt libero repudiandae qui ullam modi? Similique modi quo consectetur nostrum veniam error non consequatur, cum quam quibusdam voluptatum dolorum accusamus accusantium.",
+    "productInformationTitle": "Assembled in New York, USA",
+    "productInformationText": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem reprehenderit quas sapiente, voluptatum cum sunt?",
+    "customerReview": "I love BTB so much! Their products are high quality and comfortable.",
+    "customerName": "Happy Customer"
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <Home />
+        <Home {...props}/>
         <ShopifyClient client={client} />
       </header>
     </div>
