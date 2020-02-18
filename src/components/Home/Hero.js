@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { H1 } from '../../styles';
 
 const Hero = (props) => {
-    console.log(props);
 
     return (
         <HeroBG>
