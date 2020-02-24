@@ -26,6 +26,11 @@ const PageContainer = (props) => {
                     render={() =>
                         <Home {...props} />
                     } />
+                <Route path="/faq"
+                    exact={true}
+                    render={() =>
+                        <Home {...props} />
+                    } />
             </Router>
         </div>
     )
