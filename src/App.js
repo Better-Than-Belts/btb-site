@@ -4,6 +4,7 @@ import { faAngleDoubleDown, faStar } from '@fortawesome/free-solid-svg-icons';
 import ShopifyClient from './components/ShopifyClient';
 import Client from 'shopify-buy';
 import Home from './views/Home';
+import PLP from './views/PLP';
 
 function App() {
   // Set up Shopify client for BTB
@@ -25,8 +26,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Home {...props}/>
-        <ShopifyClient client={client} />
+        <PLP client={client} {...props} />
       </header>
     </div>
   );
