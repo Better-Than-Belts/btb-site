@@ -52,6 +52,10 @@ const ButtonText = styled(H3)`
     margin: 0;
 `;
 
+const TextCenter = styled.div`
+    text-align: center;
+`;
+
 const Flex = styled.div`
     display: flex;
     justify-content: space-between;
@@ -105,4 +109,4 @@ const MockImageLandscape = styled(MockImageSquare)`
     content: url(${landscape});
 `;
 
-export { H1, H2, H3, P, Button, ButtonText, Flex, ImageContainer, BGGray, Section, MockImageSquare, MockImageCircle, MockImagePortrait, MockImageLandscape };
+export { H1, H2, H3, P, Button, ButtonText, TextCenter, Flex, ImageContainer, BGGray, Section, MockImageSquare, MockImageCircle, MockImagePortrait, MockImageLandscape };

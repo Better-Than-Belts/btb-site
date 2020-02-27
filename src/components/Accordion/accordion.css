@@ -1,0 +1,26 @@
+.accordion-content {
+    height: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s ease-in-out;
+
+}
+.accordion-content.open {
+    /* To allow the accordion to show elements of any size, 
+    we need to hard code a value for max height when it's open */
+    max-height: 8000px;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+  
+.accordion.open:after {
+    content: "\2212";
+}
+
