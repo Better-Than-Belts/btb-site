@@ -1,4 +1,5 @@
 import React from 'react';
+import Nav from '../components/Nav';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from '../views/Home';
 
@@ -6,6 +7,7 @@ const PageContainer = (props) => {
     return (
         <div>
             <Router>
+                <Nav {...props} />
                 <Route path="/"
                     exact={true}
                     render={() =>
