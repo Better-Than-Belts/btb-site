@@ -10,15 +10,15 @@ import ReadyToShop from '../components/Home/ReadyToShop';
 
 const Home = (props) => {
     return (
-        <div>
-            <Hero {...props} />
-            <PLPPreview {...props} />
-            <OurStoryPreview {...props} />
-            <ProductInformation {...props} />
-            <CustomerReviews {...props} />
-            <AsSeenIn {...props} />
-            <ReadyToShop {...props} />
-        </div>
+       <div>
+           <Hero {...props}/>
+            <PLPPreview {...props}/>
+            <OurStoryPreview {...props}/>
+            <ProductInformation {...props}/>
+            <AsSeenIn {...props}/>
+            <CustomerReviews {...props}/>
+            <ReadyToShop {...props}/>
+       </div>
     );
 };
 
