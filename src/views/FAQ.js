@@ -32,9 +32,9 @@ const FAQ = (props) => {
 
 const FAQSection = styled(Flex)`
     margin-bottom: 60px;
+    padding: 0 30px;
     @media ${device.tablet} {
         display: block;
-        padding: 0 30px;
     }
 `;
 
@@ -48,9 +48,8 @@ const FAQSectionTitle = styled(P)`
 `;
 
 const FAQAccordion = styled.div`
-
     max-width: 85%;
-
+    
     @media ${device.tablet} {
         max-width: 100%;
     }

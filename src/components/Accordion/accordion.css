@@ -2,13 +2,17 @@
     height: auto;
     max-height: 0;
     overflow: hidden;
-    transition: max-height .4s ease-in-out;
+    transition: max-height .3s ease-in-out;
 
 }
 .accordion-content.open {
     /* To allow the accordion to show elements of any size, 
-    we need to hard code a value for max height when it's open */
-    max-height: 8000px;
+    we need to hard code a value for max height when it's open 
+    If we end up having content in an accordion 
+    that's larger than this set value, we'll need to makes some tweaks. 
+    
+    This was all done to avoid like 50 lines of javascript. */
+    max-height: 500px;
 }
 
 .accordion:after {
