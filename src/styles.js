@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { device } from './device';
 import square from './images/Square.png';
-import portrait from './images/Portrait.png'
-import landscape from './images/Landscape.png'
+import portrait from './images/Portrait.png';
+import landscape from './images/Landscape.png';
+import cartIcon from './images/Cart-Icon.png';
+import logo from './images/Logo.png';
 import './index.css';
 
 const H1 = styled.h1`
@@ -109,4 +111,33 @@ const MockImageLandscape = styled(MockImageSquare)`
     content: url(${landscape});
 `;
 
-export { H1, H2, H3, P, Button, ButtonText, TextCenter, Flex, ImageContainer, BGGray, Section, MockImageSquare, MockImageCircle, MockImagePortrait, MockImageLandscape };
+const MockLogo = styled.img`
+    content: url(${logo});
+    width: 170px;
+    height: 60px;
+`;
+
+const MockCartIcon = styled.img`
+    content: url(${cartIcon});
+    width: 78px;
+    height: 60px;
+`;
+
+export {
+    H1,
+    H2,
+    H3,
+    P,
+    Button,
+    ButtonText,
+    Flex,
+    TextCenter,
+    ImageContainer,
+    BGGray, Section,
+    MockImageSquare,
+    MockImageCircle,
+    MockImagePortrait,
+    MockImageLandscape,
+    MockLogo,
+    MockCartIcon
+};

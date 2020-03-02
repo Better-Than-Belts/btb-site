@@ -15,7 +15,7 @@ const FAQ = (props) => {
                 </TextCenter>
             </PageTitle>
             {
-            props.FAQSections.map((item, index) => {
+            props.sections.map((item, index) => {
                 return (
                     <FAQSection>
                         <FAQSectionTitle>{item.title}</FAQSectionTitle>

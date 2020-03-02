@@ -15,8 +15,8 @@ const Home = (props) => {
             <PLPPreview {...props}/>
             <OurStoryPreview {...props}/>
             <ProductInformation {...props}/>
-            <CustomerReviews {...props}/>
             <AsSeenIn {...props}/>
+            <CustomerReviews {...props}/>
             <ReadyToShop {...props}/>
        </div>
     );
