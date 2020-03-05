@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from '../components/Nav';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from '../views/Home';
+import PDP from '../views/PDP';
 
 const PageContainer = (props) => {
     return (
@@ -18,6 +19,11 @@ const PageContainer = (props) => {
                     render={() =>
                         <Home {...props} />
                     } />
+                <Route path="/shop/:id"
+                exact={true}
+                render={() =>
+                    <PDP {...props} />
+                } />
                 <Route path="/our-product"
                     exact={true}
                     render={() =>
