@@ -1,17 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
-import { H1 } from '../styles.js'
-import { Dropdown, Form } from 'react-bootstrap'
-import PLPProduct from '../components/PLP/PLPProduct'
+import { H1, MockFilterCircle } from '../styles.js';
+import { device } from '../device.js';
+import { Dropdown, Form } from 'react-bootstrap';
+import PLPProduct from '../components/PLP/PLPProduct';
+import "./PLP.css";
 
 class PLP extends React.Component {
-    constructor() {
-        super();
+    state = {
+        products: [],
+        shop: {},
+        filterOpen: false,
+    };
 
-        this.state = {
-            products: [],
-            shop: {}
-        };
+    filterOnClick = () => {
+        this.setState({
+            filterOpen: !this.state.filterOpen
+        })
     }
 
     componentDidMount() {
@@ -35,7 +40,7 @@ class PLP extends React.Component {
                 <HRDivider />
                 <div className="filter-sort-row row" style={row}>
                     <Dropdown className="mr-auto">
-                        <FilterDropdown noCaret>Filter +</FilterDropdown>
+                        <FilterDropdown id="filter-button">Filter</FilterDropdown>
                         <FilterDropdownMenu>
                             <FilterOptions
                                 type="checkbox"
@@ -54,21 +59,29 @@ class PLP extends React.Component {
                                 name="formCheckbox" />
                             <Dropdown.Divider />
                             {/* TODO: clickable circles */}
+                            <FilterColor>
+                                <FilterColorOption />
+                                <FilterColorOption />
+                                <FilterColorOption />
+                                <FilterColorOption />
+                                <FilterColorOption />
+                                <FilterColorOption />
+                            </FilterColor>
                         </FilterDropdownMenu>
                     </Dropdown>
                     <Dropdown className="ml-auto" alignRight>
-                        <FilterDropdown noCaret>Sort</FilterDropdown>
-                        <FilterDropdownMenu>
+                        <FilterDropdown id="sort-button">Sort</FilterDropdown>
+                        <SortDropdownMenu>
                             <FilterDropdownItem>
                                 Newest
-                        </FilterDropdownItem>
+                            </FilterDropdownItem>
                             <FilterDropdownItem>
                                 Price ($-$$)
-                        </FilterDropdownItem>
+                            </FilterDropdownItem>
                             <FilterDropdownItem>
                                 Top Rated
-                        </FilterDropdownItem>
-                        </FilterDropdownMenu>
+                            </FilterDropdownItem>
+                        </SortDropdownMenu>
                     </Dropdown>
                 </div>
                 <div className="row">
@@ -88,13 +101,28 @@ class PLP extends React.Component {
 export default PLP;
 
 const PLPView = styled.div`
-    margin-left: 150px;
-    margin-right: 150px;
+    @media ${device.laptop} {
+        margin-left: 150px;
+        margin-right: 150px;
+    }
+    @media ${device.tablet} {
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+    @media ${device.mobile} {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    
 `;
 
 const PLPTitle = styled(H1)`
     padding-top: 30px;
     padding-bottom: 30px;
+    @media ${device.tablet} {
+        font-size: 50px;
+        padding-bottom: 20px;
+    }
 `;
 
 const HRDivider = styled.hr`
@@ -102,6 +130,7 @@ const HRDivider = styled.hr`
     height: 0px;
 `
 const FilterDropdown = styled(Dropdown.Toggle)`
+    font-family: "Poppins", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -109,36 +138,43 @@ const FilterDropdown = styled(Dropdown.Toggle)`
     padding: 5px;
     background-color: white;
     color: black;
-
-    &:hover {
-        background-color: white;
-        color: black;
-    }
-    &:focus {
-        background-color: white;
-        color: black;
-    }
-    &:active {
-        background-color: white;
-        color: black;
-    }
-    &:show {
-        background-color: white;
-        color: black;
-    }
 `
 
 const FilterDropdownMenu = styled(Dropdown.Menu)`
     background: #FFFFFF;
+    width: 240px;
+`
+
+const SortDropdownMenu = styled(Dropdown.Menu)`
+    background: #FFFFFF;
+    width: 100%;
 `
 
 const FilterDropdownItem = styled(Dropdown.Item)`
-    background: #FFFFFF;
+    color: black;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 25px;
 `
 
 const FilterOptions = styled(Form.Check)`
     text-align: left;
     margin: 10px 20px;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 25px;
+`
+
+const FilterColorOption = styled(MockFilterCircle)`
+    margin: 5px;
+`
+
+const FilterColor = styled.div`
+    margin: 10px;
 `
 
 const row = {
