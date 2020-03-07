@@ -8,12 +8,15 @@ const NavRouter = (props) => {
     return (
         <>
             <Navbar style={navBG} expand="lg">
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Link to={`/`}>
                     <Navbar.Brand>
                         <MockLogo />
                     </Navbar.Brand>
                 </Link>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Nav>
+                    <Nav.Link><MockCartIcon /></Nav.Link>
+                </Nav>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         <NavLink to={`/shop`} style={navItem}>
@@ -29,11 +32,7 @@ const NavRouter = (props) => {
                             <NavText>FAQ</NavText>
                         </NavLink>
                     </Nav>
-                    <Nav className="ml-auto">
-                        <Nav.Link><MockCartIcon /></Nav.Link>
-                    </Nav>
                 </Navbar.Collapse>
-
             </Navbar>
         </>
 
@@ -44,7 +43,6 @@ export default NavRouter;
 
 const navBG = {
     'background-color': '#E2E2E2',
-    'padding': '0 150px',
 };
 
 const navItem = {
