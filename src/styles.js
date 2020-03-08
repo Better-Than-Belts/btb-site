@@ -27,6 +27,7 @@ const H3 = styled.h3`
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
+    line-height: 24px;
     margin-top: 10px;
     margin-bottom: 10px;
 
