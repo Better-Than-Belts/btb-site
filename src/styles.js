@@ -46,7 +46,10 @@ const Button = styled.button`
     padding: 20px 30px;
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
     border: none;
+    border-radius: 6px;
     outline:none;
 `;
 
@@ -77,6 +80,10 @@ const Section = styled.div`
     padding-top: 100px;
     padding-bottom: 100px;
 
+`;
+
+const FullPageContainer = styled.div`
+    padding: 120px 150px;
 `;
 
 const BGGray = styled.div`
@@ -128,6 +135,7 @@ export {
     ButtonText,
     Flex,
     ImageContainer,
+    FullPageContainer,
     BGGray, Section,
     MockImageSquare,
     MockImageCircle,

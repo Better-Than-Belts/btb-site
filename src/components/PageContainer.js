@@ -22,7 +22,7 @@ const PageContainer = (props) => {
                 <Route path="/shop/:id"
                 exact={true}
                 render={() =>
-                    <PDP {...props} />
+                    <PDP {...props.PDP} />
                 } />
                 <Route path="/our-product"
                     exact={true}

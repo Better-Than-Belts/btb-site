@@ -19,7 +19,43 @@ function App() {
     "productInformationTitle": "Assembled in New York, USA",
     "productInformationText": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem reprehenderit quas sapiente, voluptatum cum sunt?",
     "customerReview": "I love BTB so much! Their products are high quality and comfortable.",
-    "customerName": "Happy Customer"
+    "customerName": "Happy Customer",
+    "PDP": {
+      "title": "Flamingo", 
+      "description": "Fine, you asked for a really cool pair of suspenders, so here they are. Take it or leave it. Or take it. Our classic three stripe in Rust / Navy",
+      "variants": [
+          {
+              "name": "Red",
+              "color": "#ff0000",
+              "price": "49.00"
+          },
+          {
+              "name": "Blue",
+              "color": "#0000ff",
+              "price": "49.00"
+          },
+          {
+              "name": "Green",
+              "color": "#00ff00",
+              "price": "49.00"
+          },
+          {
+              "name": "Powder Blue",
+              "color": "#b0e0e6",
+              "price": "49.00"
+          },
+          {
+              "name": "Powder Blue",
+              "color": "#b0e0e6",
+              "price": "49.00"
+          },
+          {
+              "name": "Gold", 
+              "color": "#ffd700",
+              "price": "49.00"
+          }
+      ]
+  }
   }
 
   return (
