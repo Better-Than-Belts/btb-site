@@ -5,6 +5,7 @@ import portrait from './images/Portrait.png';
 import landscape from './images/Landscape.png';
 import cartIcon from './images/Cart-Icon.png';
 import logo from './images/Logo.png';
+import featureCircle from './images/Circle.png';
 import './index.css';
 
 const H1 = styled.h1`
@@ -119,6 +120,18 @@ const MockCartIcon = styled.img`
     height: 60px;
 `;
 
+const MockFeatureCircle = styled.img`
+    content: url(${featureCircle});
+    padding: 0;
+    float: left;
+`
+
+const MockMediaImage = styled(MockImageLandscape)`
+    width: 100%;
+    height: 230px;
+    padding: 20px;
+`
+
 export {
     H1,
     H2,
@@ -134,5 +147,7 @@ export {
     MockImagePortrait,
     MockImageLandscape,
     MockLogo,
-    MockCartIcon
+    MockCartIcon,
+    MockFeatureCircle,
+    MockMediaImage
 };

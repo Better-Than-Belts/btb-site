@@ -19,7 +19,8 @@ function App() {
     "productInformationTitle": "Assembled in New York, USA",
     "productInformationText": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem reprehenderit quas sapiente, voluptatum cum sunt?",
     "customerReview": "I love BTB so much! Their products are high quality and comfortable.",
-    "customerName": "Happy Customer"
+    "customerName": "Happy Customer",
+    "whySuspendersText": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam eius officia amet fugiat labore, assumenda corporis perferendis adipisci fugit, porro voluptas? Sunt, eius? Nemo ex fugiat tempore ad nesciunt libero repudiandae qui ullam modi? Similique modi quo consectetur nostrum veniam error non consequatur, cum quam quibusdam voluptatum dolorum accusamus accusantium."
   }
 
   return (
