@@ -1,10 +1,8 @@
 import React from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faAngleDoubleDown, faStar } from '@fortawesome/free-solid-svg-icons';
-import ShopifyClient from './components/ShopifyClient';
 import Client from 'shopify-buy';
 import PageContainer from './components/PageContainer';
-import PLP from './views/PLP';
 
 function App() {
   // Set up Shopify client for BTB
@@ -27,7 +25,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <PageContainer {...props} client={client} />
-        {/* <ShopifyClient client={client} /> */}
       </header>
     </div>
   );

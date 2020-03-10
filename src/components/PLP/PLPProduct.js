@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { H3 } from '../../styles';
-import { device } from '../../device.js';
 
 class PLPProduct extends React.Component {
     render() {
@@ -10,6 +9,7 @@ class PLPProduct extends React.Component {
                 {this.props.product.images.length ?
                     <img src={this.props.product.images[0].src} alt={this.props.product.title} width="100%" /> : null}
                 <ProductName>{this.props.product.title}</ProductName>
+                <ProductPrice>{this.props.product.priceRange}</ProductPrice>
             </ProductDiv>
         )
     }
@@ -19,6 +19,11 @@ class PLPProduct extends React.Component {
 export default PLPProduct;
 
 const ProductName = styled(H3)`
+    font-weight: normal;
+    font-size: 16px;
+`
+
+const ProductPrice = styled(H3)`
     font-weight: normal;
     font-size: 16px;
 `

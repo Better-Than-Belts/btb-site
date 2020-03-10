@@ -58,7 +58,6 @@ class PLP extends React.Component {
                                 label="Beanies"
                                 name="formCheckbox" />
                             <Dropdown.Divider />
-                            {/* TODO: clickable circles */}
                             <FilterColor>
                                 <FilterColorOption />
                                 <FilterColorOption />
