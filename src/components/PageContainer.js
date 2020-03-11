@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from '../components/Nav';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from '../views/Home';
+import FAQ from '../views/FAQ';
 
 const PageContainer = (props) => {
     return (
@@ -11,7 +12,7 @@ const PageContainer = (props) => {
                 <Route path="/"
                     exact={true}
                     render={() =>
-                        <Home {...props} />
+                        <Home {...props.Home} />
                     } />
                 <Route path="/shop"
                     exact={true}
@@ -31,7 +32,7 @@ const PageContainer = (props) => {
                 <Route path="/faq"
                     exact={true}
                     render={() =>
-                        <Home {...props} />
+                        <FAQ {...props.FAQ} />
                     } />
             </Router>
         </div>

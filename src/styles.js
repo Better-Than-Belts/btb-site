@@ -27,6 +27,7 @@ const H3 = styled.h3`
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
+    line-height: 24px;
     margin-top: 10px;
     margin-bottom: 10px;
 
@@ -52,6 +53,10 @@ const Button = styled.button`
 
 const ButtonText = styled(H3)`
     margin: 0;
+`;
+
+const TextCenter = styled.div`
+    text-align: center;
 `;
 
 const Flex = styled.div`
@@ -127,6 +132,7 @@ export {
     Button,
     ButtonText,
     Flex,
+    TextCenter,
     ImageContainer,
     BGGray, Section,
     MockImageSquare,
