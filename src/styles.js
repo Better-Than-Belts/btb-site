@@ -5,6 +5,7 @@ import portrait from './images/Portrait.png';
 import landscape from './images/Landscape.png';
 import cartIcon from './images/Cart-Icon.png';
 import logo from './images/Logo.png';
+import ourStoryImage from './images/OurStoryImage.png';
 import './index.css';
 
 const H1 = styled.h1`
@@ -119,6 +120,12 @@ const MockCartIcon = styled.img`
     height: 60px;
 `;
 
+const MockImageOurStory = styled.img`
+    content: url(${ourStoryImage});
+    width: 100%;
+    padding: 10px;
+`
+
 export {
     H1,
     H2,
@@ -134,5 +141,6 @@ export {
     MockImagePortrait,
     MockImageLandscape,
     MockLogo,
-    MockCartIcon
+    MockCartIcon,
+    MockImageOurStory
 };
