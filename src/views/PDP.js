@@ -3,8 +3,12 @@ import { Flex, Button, H3, MockImagePortrait, FullPageContainer, H2, P, ButtonTe
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import VariantSelector from '../components/PDP/ColorSelector';
-import { Accordion } from 'react-bootstrap';
 import UserReview from '../components/PDP/UserReview';
+import Accordion from '../components/Accordion/Accordion';
+import AccordionItem from '../components/Accordion/AccordionItem';
+import Slider from 'react-slick';
+import { Carousel } from 'react-bootstrap';
+import { device } from '../device';
 
 class PDP extends React.Component {
 
@@ -22,6 +26,10 @@ class PDP extends React.Component {
     }
 
     render() {
+        var sliderSettings = {
+            dots: true
+          };
+        let userReviews = this.props.userReviews.map((item, index) => <UserReview {...item}/>);
         return (
             <FullPageContainer>
                 <Flex>
@@ -33,19 +41,16 @@ class PDP extends React.Component {
                         <PDPImage />
                         <PDPImage />
                     </PDPImages>
+
+                    
                     <PDPDetails>
+                        <PDPCarousel interval={null}>
+                            <Carousel.Item><PDPImage /></Carousel.Item>
+                            <Carousel.Item><PDPImage /></Carousel.Item>
+                        </PDPCarousel>
                         <H2>{this.props.title} - {this.state.selectedVariant.price}</H2> 
                         <P>{this.props.description}</P>
                         <ProductVariants>
-                            {
-                                this.props.variants.map((variant, index) => {
-                                    return (
-                                        <VariantCircleBorder onClick={() => this.setVariant(variant)} className={this.state.selectedVariant == variant ? " selected" : ""}>
-                                            <VariantSelector {...variant} />
-                                        </VariantCircleBorder>
-                                    )
-                                })
-                            }
                             {
                                 this.props.variants.map((variant, index) => {
                                     return (
@@ -60,9 +65,12 @@ class PDP extends React.Component {
                             <Button><ButtonText>Add to Cart</ButtonText></Button>
                             <Button><ButtonText>Buy Now</ButtonText></Button>
                         </PDPButtons>
-                        <Accordion>
-                            <UserReview></UserReview>
-                        </Accordion>
+                        <P>Free, fast shipping. Always.</P>
+                        <div>
+                        <Accordion accordionData={[{title: "Sizing", content: "Sizing chart placeholder"}]}/>
+                        <Accordion accordionData={[{title: "Product Details", content: this.props.productDetails}]}/>
+                        <Accordion accordionData={[{title: "Read the Reviews", content: userReviews}]}/>
+                        </div>
                     </PDPDetails>
                 </Flex>
             </FullPageContainer>
@@ -72,9 +80,15 @@ class PDP extends React.Component {
     
 };
 
+
+
 const PDPImages = styled.div`
     flex: 1;
     padding: 20px;
+
+    @media ${device.tablet} {
+        display: none;
+    }
 `;
 
 const PDPImage = styled(MockImagePortrait)`
@@ -93,7 +107,20 @@ const PDPDetails = styled.div`
     > * {
         padding: 20px;
     }
+
+    @media ${device.mobile} {
+        padding: 5px;
+    }
     
+`;
+
+const PDPCarousel = styled(Carousel)`
+    display: none;
+    padding: 0;
+
+    @media ${device.tablet} {
+        display: block;
+    }
 `;
 
 const ProductVariants = styled(Flex)`

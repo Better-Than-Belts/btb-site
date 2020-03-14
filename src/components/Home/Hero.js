@@ -24,6 +24,7 @@ const HeroBG = styled.div`
     background-position: center;
     background-size: 100% 100%;
 `;
+
 const HeroWrapper = styled.div`
     margin: auto;
     position: relative;
@@ -39,7 +40,6 @@ const HeroTitle = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
 `;
 
 const HeroArrow = styled(FontAwesomeIcon)`

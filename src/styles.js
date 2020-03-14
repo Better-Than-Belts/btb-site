@@ -28,6 +28,7 @@ const H3 = styled.h3`
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
+    line-height: 24px;
     margin-top: 10px;
     margin-bottom: 10px;
 
@@ -58,6 +59,10 @@ const ButtonText = styled(H3)`
     margin: 0;
 `;
 
+const TextCenter = styled.div`
+    text-align: center;
+`;
+
 const Flex = styled.div`
     display: flex;
     justify-content: space-between;
@@ -85,6 +90,14 @@ const Section = styled.div`
 
 const FullPageContainer = styled.div`
     padding: 120px 150px;
+
+    @media ${device.tablet} {
+        padding: 70px 90px;
+    }
+
+    @media ${device.mobile} {
+        padding: 10px 5px;
+    }
 `;
 
 const BGGray = styled.div`
@@ -140,6 +153,7 @@ export {
     Button,
     ButtonText,
     Flex,
+    TextCenter,
     ImageContainer,
     FullPageContainer,
     BGGray, Section,

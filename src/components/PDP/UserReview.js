@@ -12,18 +12,19 @@ class UserReview extends React.Component {
     }
     
     render() {
+        const stars = []
+
+        for (var i = 0; i < this.props.score; i++) {
+            stars.push(<UserReviewStar>★</UserReviewStar>);
+          }
 
         return (
             <div>
-                <Flex>
-                    <Star />
-                    <Star />
-                    <Star />
-                    <Star />
-                    <Star />
-                    <P>{this.props.name}</P>
-                </Flex>
-                <P>Life is too short to wear dull clothing - Wearing my new pair in the office today and getting great compliments. Dress them up or down - they are eye catching and fun to wear. Life is too short to wear dull clothing. Thanks guys!</P>
+                <UserReviewFlex>
+                    {stars}
+                    <UserReviewName>{this.props.name}</UserReviewName>
+                </UserReviewFlex>
+                <P>{this.props.body}</P>
             </div>
         );
     }
@@ -31,3 +32,16 @@ class UserReview extends React.Component {
 };
 
 export default UserReview;
+
+const UserReviewStar = styled.span`
+    padding-top: 10px;
+    font-size: 14px;
+`;
+
+const UserReviewName = styled(P)`
+    padding-left: 10px;
+`;
+
+const UserReviewFlex = styled(Flex)`
+    justify-content: start;
+`;

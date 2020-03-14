@@ -7,7 +7,8 @@ class ShopifyClient extends React.Component {
 
         this.state = {
             products: [],
-            shop: {}
+            shop: {}, 
+            pages: []
         };
     }
 
@@ -21,6 +22,12 @@ class ShopifyClient extends React.Component {
         this.props.client.shop.fetchInfo().then((res) => {
             this.setState({
                 shop: res,
+            });
+        });
+
+        this.props.client.pages.fetchInfo().then((res) => {
+            this.setState({
+                pages: res,
             });
         });
     }
