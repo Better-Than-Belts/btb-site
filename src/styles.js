@@ -5,6 +5,7 @@ import portrait from './images/Portrait.png';
 import landscape from './images/Landscape.png';
 import cartIcon from './images/Cart-Icon.png';
 import logo from './images/Logo.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './index.css';
 
 const H1 = styled.h1`
@@ -126,6 +127,11 @@ const MockCartIcon = styled.img`
     height: 60px;
 `;
 
+const Star = styled(FontAwesomeIcon)`
+    font-size: 30px;
+    color: #C4C4C4;
+`;
+
 export {
     H1,
     H2,
@@ -142,5 +148,6 @@ export {
     MockImagePortrait,
     MockImageLandscape,
     MockLogo,
-    MockCartIcon
+    MockCartIcon,
+    Star
 };

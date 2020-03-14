@@ -3,6 +3,8 @@ import { Flex, Button, H3, MockImagePortrait, FullPageContainer, H2, P, ButtonTe
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import VariantSelector from '../components/PDP/ColorSelector';
+import { Accordion } from 'react-bootstrap';
+import UserReview from '../components/PDP/UserReview';
 
 class PDP extends React.Component {
 
@@ -24,12 +26,12 @@ class PDP extends React.Component {
             <FullPageContainer>
                 <Flex>
                     <PDPImages>
-                        <PDPImage><MockImagePortrait /></PDPImage>
-                        <PDPImage><MockImagePortrait /></PDPImage>
-                        <PDPImage><MockImagePortrait /></PDPImage>
-                        <PDPImage><MockImagePortrait /></PDPImage>
-                        <PDPImage><MockImagePortrait /></PDPImage>
-                        <PDPImage><MockImagePortrait /></PDPImage>
+                        <PDPImage />
+                        <PDPImage />
+                        <PDPImage />
+                        <PDPImage />
+                        <PDPImage />
+                        <PDPImage />
                     </PDPImages>
                     <PDPDetails>
                         <H2>{this.props.title} - {this.state.selectedVariant.price}</H2> 
@@ -44,11 +46,23 @@ class PDP extends React.Component {
                                     )
                                 })
                             }
+                            {
+                                this.props.variants.map((variant, index) => {
+                                    return (
+                                        <VariantCircleBorder onClick={() => this.setVariant(variant)} className={this.state.selectedVariant == variant ? " selected" : ""}>
+                                            <VariantSelector {...variant} />
+                                        </VariantCircleBorder>
+                                    )
+                                })
+                            }
                         </ProductVariants>
                         <PDPButtons>
                             <Button><ButtonText>Add to Cart</ButtonText></Button>
                             <Button><ButtonText>Buy Now</ButtonText></Button>
                         </PDPButtons>
+                        <Accordion>
+                            <UserReview></UserReview>
+                        </Accordion>
                     </PDPDetails>
                 </Flex>
             </FullPageContainer>
@@ -58,14 +72,13 @@ class PDP extends React.Component {
     
 };
 
-const PDPImages = styled(Flex)`
-    flex: 2;
-    flex-wrap: wrap;
+const PDPImages = styled.div`
+    flex: 1;
     padding: 20px;
 `;
 
-const PDPImage = styled.div`
-    width: 50%;
+const PDPImage = styled(MockImagePortrait)`
+    width: 100%;
     border: none;
     padding: 1px;
 `;
@@ -76,6 +89,11 @@ const PDPDetails = styled.div`
     top: 72px;
     flex: 1;
     padding: 20px;
+
+    > * {
+        padding: 20px;
+    }
+    
 `;
 
 const ProductVariants = styled(Flex)`
