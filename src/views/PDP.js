@@ -1,12 +1,9 @@
 import React from 'react';
-import { Flex, Button, H3, MockImagePortrait, FullPageContainer, H2, P, ButtonText } from '../styles';
+import { Flex, Button, MockImagePortrait, FullPageContainer, H2, P, ButtonText } from '../styles';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import VariantSelector from '../components/PDP/ColorSelector';
 import UserReview from '../components/PDP/UserReview';
 import Accordion from '../components/Accordion/Accordion';
-import AccordionItem from '../components/Accordion/AccordionItem';
-import Slider from 'react-slick';
 import { Carousel } from 'react-bootstrap';
 import { device } from '../device';
 
@@ -51,7 +48,7 @@ class PDP extends React.Component {
                             {
                                 this.props.variants.map((variant, index) => {
                                     return (
-                                        <VariantCircleBorder onClick={() => this.setVariant(variant)} className={this.state.selectedVariant == variant ? " selected" : ""}>
+                                        <VariantCircleBorder onClick={() => this.setVariant(variant)} className={this.state.selectedVariant === variant ? " selected" : ""}>
                                             <VariantSelector {...variant} />
                                         </VariantCircleBorder>
                                     )

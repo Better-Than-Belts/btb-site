@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex, P, Star } from '../../styles';
+import { Flex, P } from '../../styles';
 
 class UserReview extends React.Component {
     constructor(props) {

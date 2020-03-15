@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { H2, Section, Flex, P, BGGray, Star } from '../../styles';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const CustomerReviews = (props) => {
     return (
