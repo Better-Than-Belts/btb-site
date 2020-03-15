@@ -26,9 +26,6 @@ class PDP extends React.Component {
     }
 
     render() {
-        var sliderSettings = {
-            dots: true
-          };
         let userReviews = this.props.userReviews.map((item, index) => <UserReview {...item}/>);
         return (
             <FullPageContainer>
@@ -147,18 +144,5 @@ const VariantCircleBorder = styled.div`
         border: solid black 1px;
     }
 `;
-
-// Styles
-const Stars = styled(Flex)`
-    max-width: 200px;
-    margin: 0 auto;
-    padding-bottom: 10px;
-`;
-
-const Star = styled(FontAwesomeIcon)`
-    font-size: 30px;
-    color: #C4C4C4;
-`;
-
 
 export default PDP;
