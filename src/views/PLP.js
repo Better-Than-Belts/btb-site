@@ -100,10 +100,8 @@ class PLP extends React.Component {
 export default PLP;
 
 const PLPView = styled.div`
-    @media ${device.laptop} {
-        margin-left: 150px;
-        margin-right: 150px;
-    }
+    margin-left: 150px;
+    margin-right: 150px;
     @media ${device.tablet} {
         margin-left: 60px;
         margin-right: 60px;
