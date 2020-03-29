@@ -1,21 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
 import { H2, Section, Flex, P, BGGray, Star } from '../../styles';
+import { Carousel } from 'react-bootstrap';
 
 const CustomerReviews = (props) => {
     return (
         <BGGray>
             <Section>
-                <TextCenter>
-                    <Stars>
-                        <Star icon='star' />
-                        <Star icon='star' />
-                        <Star icon='star' />
-                        <Star icon='star' />
-                    </Stars>
-                    <P>“{props.customerReview}”</P>
-                    <H2>- {props.customerName}</H2>
-                </TextCenter>
+                <Carousel>
+                    <TextCenter>
+                        <Stars>
+                            <Star icon='star' />
+                            <Star icon='star' />
+                            <Star icon='star' />
+                            <Star icon='star' />
+                        </Stars>
+                        <P>“{props.customerReview}”</P>
+                        <H2>- {props.customerName}</H2>
+                    </TextCenter>
+                    <TextCenter>
+                        <Stars>
+                            <Star icon='star' />
+                            <Star icon='star' />
+                            <Star icon='star' />
+                            <Star icon='star' />
+                        </Stars>
+                        <P>“{props.customerReview}”</P>
+                        <H2>- {props.customerName}</H2>
+                    </TextCenter>
+                </Carousel>
             </Section>
         </BGGray>
     );
@@ -28,7 +41,7 @@ const Stars = styled(Flex)`
     padding-bottom: 10px;
 `;
 
-const TextCenter = styled.div`
+const TextCenter = styled(Carousel.Item)`
     text-align: center;
 `;
 
