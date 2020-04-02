@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { device } from '../../device';
 import AsSeenInItem from './AsSeenInItem';
-import { Flex, H2, Section } from '../../styles';
+import { Flex, TextCenter, H2, Section } from '../../styles';
 
 const AsSeenIn = (props) => {
     return (
@@ -32,10 +32,6 @@ const AsSeenInRow = styled(Flex)`
 
 const AsSeenInContainer = styled(Section)`
     max-width: 800px;
-`;
-
-const TextCenter = styled.div`
-    text-align: center;
 `;
 
 
