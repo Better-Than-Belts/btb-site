@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Section, H2, P, Flex, ImageContainer, MockImageLandscape } from '../../styles';
-import SuspenderFeature from './SuspenderFeature';
+import { Section, H2, P, ImageContainer, MockImageLandscape } from '../../styles';
+import ProductInformationShared from '../Shared/ProductInformationShared';
+import { device } from '../../device.js';
+
 
 const WhySuspenders = (props) => {
     return (
@@ -17,12 +19,7 @@ const WhySuspenders = (props) => {
                     </P>
                 </div>
             </div>
-            <div clasName="row">
-                <SuspenderFeature featureText="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
-                <SuspenderFeature featureText="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
-                <SuspenderFeature featureText="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
-                <SuspenderFeature featureText="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
-            </div>
+            <ProductInformationShared {...props} />
         </SectionContainer>
     );
 };
@@ -30,12 +27,22 @@ const WhySuspenders = (props) => {
 // Styles
 
 const Title = styled(H2)`
-    padding-top: 0px;
-    padding-bottom: 20px;
+    padding-top: 20px;
 `
 
 const SectionContainer = styled(Section)`
+    padding-left: 150px;
+    padding-right: 150px;
     padding-top: 20px;
+
+    @media ${device.tablet} {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    @media ${device.mobile} {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
 `
 
 

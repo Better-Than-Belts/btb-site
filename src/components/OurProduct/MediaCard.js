@@ -4,8 +4,8 @@ import { MockMediaImage, H3, P } from '../../styles';
 
 const MediaCard = (props) => {
     return (
-        <div className="col-4">
-            <MediaContainer>
+        <MediaContainer className="col-xs-12 col-md-4">
+            <Box>
                 <MockMediaImage />
                 <MediaHandle>
                     @Insta
@@ -13,16 +13,20 @@ const MediaCard = (props) => {
                 <MediaDescription>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem reprehenderit quas sapiente, voluptatum cum sunt?
                 </MediaDescription>
-            </MediaContainer>
-        </div>
+            </Box>
+        </MediaContainer>
     );
 };
 
 // Styles
 
-const MediaContainer = styled.div`
-    margin: auto;
+const Box = styled.div`
     border: solid;
+`
+
+const MediaContainer = styled.div`
+    margin-top: 20px;
+    margin-bottom: 20px;
 `
 
 const MediaHandle = styled(H3)`
