@@ -88,6 +88,10 @@ const BGGray = styled.div`
     background: #E2E2E2;
 `;
 
+const BGBrown = styled.div`
+    background: #A0734F;
+`;
+
 const ImageContainer = styled.div`
     padding: 10px;
 `;
@@ -135,6 +139,7 @@ export {
     TextCenter,
     ImageContainer,
     BGGray, Section,
+    BGBrown,
     MockImageSquare,
     MockImageCircle,
     MockImagePortrait,
