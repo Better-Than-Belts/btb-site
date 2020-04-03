@@ -22,7 +22,6 @@ const Footer = (props) => {
 const SectionContainer = styled(Section)`
     padding-top: 50px;
     padding-bottom: 50px;
-    height: 350px;
 
     @media ${device.tablet} {
         padding-left: 60px;
