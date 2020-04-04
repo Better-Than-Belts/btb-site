@@ -5,6 +5,7 @@ import portrait from './images/Portrait.png';
 import landscape from './images/Landscape.png';
 import cartIcon from './images/Cart-Icon.png';
 import logo from './images/Logo.png';
+import filterCircle from './images/SmallCircle.png'
 import ourStoryImage from './images/OurStoryImage.png';
 import featureCircle from './images/Circle.png';
 import './index.css';
@@ -126,6 +127,12 @@ const MockCartIcon = styled.img`
     height: 60px;
 `;
 
+const MockFilterCircle = styled.img`
+    content: url(${filterCircle});
+    width: 32px;
+    height: 32px;
+`;
+
 const MockImageOurStory = styled.img`
     content: url(${ourStoryImage});
     width: 100%;
@@ -161,6 +168,7 @@ export {
     MockImageLandscape,
     MockLogo,
     MockCartIcon,
+    MockFilterCircle,
     MockImageOurStory,
     MockFeatureCircle,
     MockMediaImage

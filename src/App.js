@@ -1,16 +1,15 @@
 import React from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faAngleDoubleDown, faStar } from '@fortawesome/free-solid-svg-icons';
-import ShopifyClient from './components/ShopifyClient';
 import Client from 'shopify-buy';
 import PageContainer from './components/PageContainer';
 
 function App() {
-  // Set up Shopify client for BTB
-  // const client = Client.buildClient({
-  //   storefrontAccessToken: process.env.REACT_APP_SHOPIFY_STOREFRONT_TOKEN,
-  //   domain: 'better-than-belts.myshopify.com'
-  // });
+  //Set up Shopify client for BTB
+  const client = Client.buildClient({
+    storefrontAccessToken: process.env.REACT_APP_SHOPIFY_STOREFRONT_TOKEN,
+    domain: 'better-than-belts.myshopify.com'
+  });
 
   // This will be replaced by a call to the Storefront API
   const props = {
@@ -66,13 +65,13 @@ function App() {
       ]
 
     }
+
   }
 
   return (
     <div className="App" >
       <header className="App-header">
-        <PageContainer {...props} />
-        {/* <ShopifyClient client={client} /> */}
+        <PageContainer {...props} client={client} />
       </header>
     </div >
   );
