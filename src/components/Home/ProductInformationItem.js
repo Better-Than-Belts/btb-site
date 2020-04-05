@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { device } from '../../device';
 import { ImageContainer, MockImageCircle, P } from '../../styles';
+import { RichText } from 'prismic-reactjs';
 
 const ProductInformationItem = (props) => {
     return (
@@ -9,7 +10,7 @@ const ProductInformationItem = (props) => {
             <ImageContainer>
                 <MockImageCircle />
             </ImageContainer>
-            <P>{props.productInformationText}</P>
+            <P>{RichText.asText(props.product_information_text)}</P>
         </ProductInformationItemContainer>
     );
 };

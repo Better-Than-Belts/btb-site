@@ -12,7 +12,7 @@ const PageContainer = (props) => {
                 <Route path="/"
                     exact={true}
                     render={() =>
-                        <Home {...props.Home} />
+                        <Home {...props} />
                     } />
                 <Route path="/shop"
                     exact={true}

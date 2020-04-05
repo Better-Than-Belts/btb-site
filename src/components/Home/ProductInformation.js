@@ -3,20 +3,21 @@ import styled from 'styled-components';
 import { device } from '../../device';
 import ProductInformationItem from './ProductInformationItem';
 import { BGGray, Section, Flex, H2 } from '../../styles';
+import { RichText } from 'prismic-reactjs';
 
 const ProductInformation = (props) => {
+    const productInformationItems = props.product_information_items.map((item, index) => { return (<ProductInformationItem {...item} />) });
+
     return (
         <BGGray>
             <Section>
-                <H2>{props.productInformationTitle}</H2>
+                <H2>{RichText.asText(props.product_information_title)}</H2>
                 <ProductInformationFlexNoWrap>
-                    <ProductInformationItem {...props}/>
-                    <ProductInformationItem {...props}/>
-                    <ProductInformationItem {...props}/>
-                    <ProductInformationItem {...props}/>
+                    {productInformationItems}
                 </ProductInformationFlexNoWrap>
                 <ProductInformationCarousel>
-                    <ProductInformationItem {...props}/>
+                    {/* TODO make this an actual carousel */}
+                    {productInformationItems}
                 </ProductInformationCarousel>
             </Section>
         </BGGray>

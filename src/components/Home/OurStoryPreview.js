@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { RichText } from 'prismic-reactjs';
 import { device } from '../../device';
 import { Button, ButtonText, Flex, ImageContainer, H2, MockImageLandscape, P, Section } from '../../styles';
 
@@ -14,7 +15,7 @@ const OurStoryPreview = (props) => {
                     <OurStoryText>
                         <H2>Our Story</H2>
                         <P>
-                        {props.ourStoryText}
+                        {RichText.asText(props.our_story_text)}
                         </P>
                         <Button>
                             <ButtonText>Learn More</ButtonText>
