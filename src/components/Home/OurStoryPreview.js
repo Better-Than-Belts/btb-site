@@ -2,24 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 import { RichText } from 'prismic-reactjs';
 import { device } from '../../device';
-import { Button, ButtonText, Flex, ImageContainer, H2, MockImageLandscape, P, Section } from '../../styles';
+import { Link } from 'react-router-dom';
+import { Button, ButtonText, Flex, ImageContainer, H2, Image, P, Section } from '../../styles';
 
 const OurStoryPreview = (props) => {
     return (
         <Section>
             <Flex>
                 <OurStoryImage>
-                    <MockImageLandscape />
+                    <Image src={props.our_story_image.url} />
                 </OurStoryImage>
                 <OurStoryTextContainer>
                     <OurStoryText>
                         <H2>Our Story</H2>
                         <P>
-                        {RichText.asText(props.our_story_text)}
+                            {RichText.asText(props.our_story_text)}
                         </P>
-                        <Button>
-                            <ButtonText>Learn More</ButtonText>
-                        </Button>
+                        <Link to="/our-story">
+                            <Button>
+                                <ButtonText>Learn More</ButtonText>
+                            </Button>
+                        </Link>
                     </OurStoryText>
                 </OurStoryTextContainer>
             </Flex>

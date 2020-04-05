@@ -1,22 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BGGray, Section, Button, ButtonText, Flex, ImageContainer, MockImagePortrait } from '../../styles';
+import { Link } from 'react-router-dom';
+import { BGGray, Section, Button, ButtonText, Flex, ImageContainer, Image } from '../../styles';
 
-const PLPPreview = () => {
+const PLPPreview = (props) => {
+
     return (
         <BGGray>
             <Section>
-            <Flex>
-                <ImageContainer>
-                    <MockImagePortrait />
-                </ImageContainer>
-                <ImageContainer>
-                    <MockImagePortrait />
-                </ImageContainer>
-            </Flex>
-                <ShopNow>
-                    <ButtonText>Shop Now</ButtonText>
-                </ShopNow>
+                <Flex>
+                    {props.plp_preview_images.map((item, index) => {
+                        console.log(item);
+                        return (
+                            <ImageContainer>
+                                <Image src={item.plp_preview_image.url} />
+                            </ImageContainer>)
+                    })}
+                </Flex>
+                <Link to="/shop">
+                    <ShopNow>
+                        <ButtonText>Shop Now</ButtonText>
+                    </ShopNow>
+                </Link>
             </Section>
         </BGGray>
     );

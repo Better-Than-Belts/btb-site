@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import PrismicWrapper from './prismic/PrismicWrapper'
 import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(<PrismicWrapper />, document.getElementById('root'));
 
