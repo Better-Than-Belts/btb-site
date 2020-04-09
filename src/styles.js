@@ -91,6 +91,10 @@ const BGGray = styled.div`
     background: #E2E2E2;
 `;
 
+const BGBrown = styled.div`
+    background: #A0734F;
+`;
+
 const ImageContainer = styled.div`
     padding: 10px;
 `;
@@ -151,6 +155,21 @@ const MockMediaImage = styled(MockImageLandscape)`
     padding: 20px;
 `;
 
+
+// Input styles
+const Input = styled.input`
+    padding: 5px;
+    font-family: Poppins;
+    width: 80%;
+`
+
+const InputButton = styled.button`
+    background-color: #FDC16E;
+    box-shadow: none;
+    border-width: 0px;
+    padding: 0px 20px;
+`
+
 export {
     H1,
     H2,
@@ -162,6 +181,7 @@ export {
     TextCenter,
     ImageContainer,
     BGGray, Section,
+    BGBrown,
     MockImageSquare,
     MockImageCircle,
     MockImagePortrait,
@@ -171,5 +191,7 @@ export {
     MockFilterCircle,
     MockImageOurStory,
     MockFeatureCircle,
-    MockMediaImage
+    MockMediaImage,
+    Input,
+    InputButton
 };
