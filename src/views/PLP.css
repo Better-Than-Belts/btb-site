@@ -1,0 +1,13 @@
+#filter-button:focus, #filter-button:active, #filter-button:hover,
+#sort-button:focus, #sort-button:active, #sort-button:hover {
+    background-color: white;
+    color: black;
+    box-shadow: none;
+}
+
+#filter-button[aria-expanded="true"],
+#sort-button[aria-expanded="true"] {
+    background-color: white;
+    color: black;
+    box-shadow: none;
+}

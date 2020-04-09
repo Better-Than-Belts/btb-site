@@ -2,6 +2,9 @@ import React from 'react';
 import Nav from './Nav';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from '../views/Home';
+import PLP from '../views/PLP';
+import OurStory from '../views/OurStory';
+import OurProduct from '../views/OurProduct';
 import FAQ from '../views/FAQ';
 import Footer from './Footer';
 
@@ -18,17 +21,17 @@ const PageContainer = (props) => {
                 <Route path="/shop"
                     exact={true}
                     render={() =>
-                        <Home {...props} />
+                        <PLP {...props} />
                     } />
                 <Route path="/our-product"
                     exact={true}
                     render={() =>
-                        <Home {...props} />
+                        <OurProduct {...props.OurProduct} />
                     } />
                 <Route path="/our-story"
                     exact={true}
                     render={() =>
-                        <Home {...props} />
+                        <OurStory {...props} />
                     } />
                 <Route path="/faq"
                     exact={true}
