@@ -128,6 +128,20 @@ const MockCartIcon = styled.img`
     height: 60px;
 `;
 
+// Input styles
+const Input = styled.input`
+    padding: 5px;
+    font-family: Poppins;
+    width: 80%;
+`
+
+const InputButton = styled.button`
+    background-color: #FDC16E;
+    box-shadow: none;
+    border-width: 0px;
+    padding: 0px 20px;
+`
+
 export {
     H1,
     H2,
@@ -145,5 +159,7 @@ export {
     MockImagePortrait,
     MockImageLandscape,
     MockLogo,
-    MockCartIcon
+    MockCartIcon,
+    Input,
+    InputButton
 };

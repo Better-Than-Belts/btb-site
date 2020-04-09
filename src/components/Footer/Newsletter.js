@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { H1, P } from '../../styles';
+import { H1, P, InputButton, Input } from '../../styles';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 const Newsletter = (props) => {
@@ -10,11 +10,11 @@ const Newsletter = (props) => {
             <JoinTitle>Join the community.</JoinTitle>
             <P style={{ color: "#F9F9FE" }}>Stay in the loop with Better Than Belts and get 10% off!</P>
             <div class="input-group mb-3" style={EmailGroup}>
-                <EmailInput type="email" class="form-control" placeholder="Email" aria-label="user-email" aria-describedby="user-email" />
+                <Input type="email" class="form-control" placeholder="Email" aria-label="user-email" aria-describedby="user-email" />
                 <div class="input-group-append">
-                    <EmailButton class="btn btn-email" type="button">
+                    <InputButton class="btn btn-email" type="button">
                         <FontAwesomeIcon icon={faArrowRight} color="black" />
-                    </EmailButton>
+                    </InputButton>
                 </div>
             </div>
         </div>
@@ -33,18 +33,5 @@ const EmailGroup = {
     width: "100%",
     "padding-top": "20px"
 }
-
-const EmailInput = styled.input`
-    padding: 5px;
-    font-family: Poppins;
-    width: 80%;
-`
-
-const EmailButton = styled.button`
-    background-color: #FDC16E;
-    box-shadow: none;
-    border-width: 0px;
-    padding: 0px 20px;
-`
 
 export default Newsletter;
