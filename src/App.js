@@ -1,6 +1,6 @@
 import React from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faAngleDoubleDown, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDoubleDown, faStar, faAngleDoubleRight, faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Client from 'shopify-buy';
 import PageContainer from './components/PageContainer';
 
@@ -14,8 +14,9 @@ function App() {
   // This will be replaced by a call to the Storefront API
   const props = {
     "Home": {
-      "heroText": "Live Better",
+      "heroText": "Live Better.",
       "ourStoryText": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam eius officia amet fugiat labore, assumenda corporis perferendis adipisci fugit, porro voluptas? Sunt, eius? Nemo ex fugiat tempore ad nesciunt libero repudiandae qui ullam modi? Similique modi quo consectetur nostrum veniam error non consequatur, cum quam quibusdam voluptatum dolorum accusamus accusantium.",
+      "consciousManufacturingText": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam eius officia amet fugiat labore, assumenda corporis perferendis adipisci fugit, porro voluptas? Sunt, eius?",
       "productInformationTitle": "Assembled in New York, USA",
       "productInformationText": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem reprehenderit quas sapiente, voluptatum cum sunt?",
       "customerReview": "I love BTB so much! Their products are high quality and comfortable.",
@@ -77,6 +78,6 @@ function App() {
   );
 }
 
-library.add(faAngleDoubleDown, faStar);
+library.add(faAngleDoubleDown, faStar, faAngleDoubleRight, faArrowRight, faArrowLeft);
 
 export default App;

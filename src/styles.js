@@ -11,51 +11,62 @@ import featureCircle from './images/Circle.png';
 import './index.css';
 
 const H1 = styled.h1`
-    font-family: "Amaranth", sans-serif;
+    font-family: "Calistoga", serif;
     font-size: 72px;
     margin-top: 10px;
     margin-bottom: 10px;
 `;
 
 const H2 = styled.h2`
-    font-family: "Poppins", sans-serif;
-    font-weight: bold;
-    font-size: 36px;
+    font-family: "Calistoga", cursive;
+    font-weight: normal;
+    font-size: 50px;
     margin-top: 10px;
     margin-bottom: 10px;
 `;
 
 const H3 = styled.h3`
-    font-family: "Poppins", sans-serif;
+    font-family: "Libre Franklin", sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 24px;
     margin-top: 10px;
     margin-bottom: 10px;
-
 `;
 
 const P = styled.p`
-    font-family: "Poppins";
-    font-size: 18px;
+    font-family: "Libre Franklin", sans-serif;
+    font-size: 20px;
     line-height: 25px;
     margin-top: 10px;
     margin-bottom: 10px;
-
 `;
 
 const Button = styled.button`
-    background: #c4c4c4;
-    padding: 20px 30px;
+    border-radius: 42px;
+    padding: 15px 35px;
     margin-top: 10px;
     margin-bottom: 10px;
     border: none;
-    outline:none;
+    outline: none;
+`;
+
+const ButtonYellow = styled(Button)`
+    background: #FDC16E;
+    color: #004669;
 `;
 
 const ButtonText = styled(H3)`
     margin: 0;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 140%;
+    text-align: center;
+
+    @media ${device.mobile} {
+        font-size: 20px;
+    }
 `;
 
 const TextCenter = styled.div`
@@ -91,8 +102,24 @@ const BGGray = styled.div`
     background: #E2E2E2;
 `;
 
+const BGWhite = styled.div`
+    background: #F9F9FE;
+`;
+
+const BGBrown = styled.div`
+    background: #A0734F;
+`;
+
+const BGBlue = styled.div`
+    background: #004669;
+`;
+
 const ImageContainer = styled.div`
     padding: 10px;
+`;
+
+const MockImage = styled.img`
+    content: url(${square});
 `;
 
 const MockImageSquare = styled.img`
@@ -157,11 +184,17 @@ export {
     H3,
     P,
     Button,
+    ButtonYellow,
     ButtonText,
     Flex,
     TextCenter,
     ImageContainer,
-    BGGray, Section,
+    BGGray,
+    BGWhite,
+    BGBrown,
+    BGBlue,
+    Section,
+    MockImage,
     MockImageSquare,
     MockImageCircle,
     MockImagePortrait,

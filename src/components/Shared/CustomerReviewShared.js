@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { H3, Section, Flex, P } from '../../styles';
+import { Flex, P } from '../../styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { device } from '../../device';
 
 const CustomerReviewShared = (props) => {
     return (
@@ -12,8 +13,8 @@ const CustomerReviewShared = (props) => {
                 <Star icon='star' />
                 <Star icon='star' />
             </Stars>
-            <P>“{props.customerReview}”</P>
-            <H3>- {props.customerName}</H3>
+            <ReviewText>“{props.customerReview}”</ReviewText>
+            <ReviewName color="#F9F9FE">- {props.customerName}</ReviewName>
         </TextCenter>
     );
 };
@@ -27,11 +28,37 @@ const Stars = styled(Flex)`
 
 const Star = styled(FontAwesomeIcon)`
     font-size: 30px;
-    color: #C4C4C4;
+    color: #E87964;
 `;
 
 const TextCenter = styled.div`
+    width: 75%;
     text-align: center;
+    color: #F9F9FE;
+    margin: auto;
 `;
+
+const ReviewText = styled(P)`
+    color: #F9F9FE;
+    font-size: 40px;
+    line-height: 140%;
+    padding-top: 40px;
+    @media ${device.mobile} {
+        padding-top: 10px;
+        font-size: 16px;
+        line-height: 26px;
+    }
+`
+
+const ReviewName = styled(P)`
+    color: #F9F9FE;
+    font-size: 40px;
+    line-height: 140%;
+    font-weight: bold;
+    @media ${device.mobile} {
+        font-size: 16px;
+        line-height: 26px;
+    }
+`
 
 export default CustomerReviewShared;
