@@ -209,7 +209,6 @@ export {
     BGWhite,
     BGBrown,
     BGBlue,
-    Section,
     MockImage,
     MockImageSquare,
     MockImageCircle,
