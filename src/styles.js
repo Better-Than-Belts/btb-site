@@ -178,6 +178,21 @@ const MockMediaImage = styled(MockImageLandscape)`
     padding: 20px;
 `;
 
+
+// Input styles
+const Input = styled.input`
+    padding: 5px;
+    font-family: Poppins;
+    width: 80%;
+`
+
+const InputButton = styled.button`
+    background-color: #FDC16E;
+    box-shadow: none;
+    border-width: 0px;
+    padding: 0px 20px;
+`
+
 export {
     H1,
     H2,
@@ -189,6 +204,7 @@ export {
     Flex,
     TextCenter,
     ImageContainer,
+    Section,
     BGGray,
     BGWhite,
     BGBrown,
@@ -204,5 +220,7 @@ export {
     MockFilterCircle,
     MockImageOurStory,
     MockFeatureCircle,
-    MockMediaImage
+    MockMediaImage,
+    Input,
+    InputButton
 };
