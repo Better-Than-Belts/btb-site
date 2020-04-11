@@ -21,7 +21,9 @@ const MediaCard = (props) => {
 // Styles
 
 const Box = styled.div`
-    border: solid;
+    border: none;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+    background-color: #FFFFFF;
 `
 
 const MediaContainer = styled.div`
@@ -30,11 +32,13 @@ const MediaContainer = styled.div`
 `
 
 const MediaHandle = styled(H3)`
-    padding: 20px;
+    padding: 10px 20px;
+    font-weight: 800;
 `
 
 const MediaDescription = styled(P)`
-    padding: 0 20px 20px 20px;
+    padding: 0 20px 40px 20px;
+    color: #0C1527;
 `
 
 export default MediaCard;

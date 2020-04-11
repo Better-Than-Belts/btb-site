@@ -1,10 +1,11 @@
 import React from 'react';
 import { P } from '../../styles';
 import styled from 'styled-components';
+import { device } from '../../device';
 
 const FooterLinks = (props) => {
     return (
-        <div className="col-xs-12 col-md-6 col-lg-3">
+        <div className="col-xs-12 col-md-6 col-lg-2">
             <Link href="#"><LinkText>Blog</LinkText></Link>
             <Link href="#"><LinkText>Press</LinkText></Link>
             <Link href="#"><LinkText>Terms of Use</LinkText></Link>
@@ -18,8 +19,14 @@ const FooterLinks = (props) => {
 // Styles
 const LinkText = styled(P)`
     font-size: 20px;
-    font-weight: 800;
-    padding-bottom: 5px;
+    font-weight: 500;
+    line-height: 30px;
+    color: #F9F9FE;
+    @media ${device.mobile} {
+        font-size: 16px;
+        line-height: 32px;
+        font-weight: 800;
+    }
 `
 
 const Link = styled.a`

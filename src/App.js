@@ -23,11 +23,17 @@ function App() {
       "customerName": "Happy Customer"
     },
     "OurProduct": {
-      "productInformationTitle": "Assembled in New York, USA",
-      "productInformationText": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem reprehenderit quas sapiente, voluptatum cum sunt?",
-      "customerReview": "I love BTB so much! Their products are high quality and comfortable.",
-      "customerName": "Happy Customer",
-      "whySuspendersText": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam eius officia amet fugiat labore, assumenda corporis perferendis adipisci fugit, porro voluptas? Sunt, eius? Nemo ex fugiat tempore ad nesciunt libero repudiandae qui ullam modi? Similique modi quo consectetur nostrum veniam error non consequatur, cum quam quibusdam voluptatum dolorum accusamus accusantium."
+      "featureText1": "Bold colors to take you from the office to Sunday brunch.",
+      "featureText2": "Easy-to-use and include in your existing wardrobe.",
+      "featureText3": "Consciously made in New York of durable hardware for daily wear.",
+      "featureText4": "Strong and stretchy elastic adjusts to fit you.",
+      "customerReview1": "My second pair is just as awesome as the first I bought. Excellent quality and style!",
+      "customerName1": "Jack L.",
+      "customerReview2": "Super easy ordering process and they arrived very quickly! Great quality AND Made in USA!! Thank you!!",
+      "customerName2": "Jeffrey M.",
+      "whySuspendersText": "Gravity pulls your pants down, so we should counter that force by pulling up instead of relying on the friction caused by clinching your belt. They offer a unique twist on everyday outfits and provide comfort by distributing the weight evenly over your shoulders.",
+      "whyBTBText": "BTB suspenders were designed to be worn every day. The clips are built to last. The elastic is stretchy and comfortable. The designs are unique to us, to be unique for you. From colors to fit, there is nothing of the same quality on the market. Assembled in New York, USA.",
+      "manufacturingSupplyText": "Sustainability drives our supply chain which is why our manufacturing is based in New York City. We use the highest quality global inputs and will forever design products consciously."
     },
     "FAQ": {
       "title": "You ask, we answer.",

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import React from 'react';
 import { device } from './device';
 import square from './images/Square.png';
 import portrait from './images/Portrait.png';
@@ -23,6 +24,10 @@ const H2 = styled.h2`
     font-size: 50px;
     margin-top: 10px;
     margin-bottom: 10px;
+
+    @media ${device.mobile} {
+        font-size: 32px;
+    }
 `;
 
 const H3 = styled.h3`
@@ -41,6 +46,11 @@ const P = styled.p`
     line-height: 25px;
     margin-top: 10px;
     margin-bottom: 10px;
+    color: #0C1527;
+
+    @media ${device.mobile} {
+        font-size: 16px;
+    }
 `;
 
 const Button = styled.button`
@@ -55,14 +65,16 @@ const Button = styled.button`
 const ButtonYellow = styled(Button)`
     background: #FDC16E;
     color: #004669;
+    font-weight: 1000;
 `;
 
-const ButtonText = styled(H3)`
+const ButtonText = styled(P)`
     margin: 0;
     font-weight: bold;
     font-size: 26px;
     line-height: 140%;
     text-align: center;
+    font-style: normal;
 
     @media ${device.mobile} {
         font-size: 20px;
@@ -112,6 +124,7 @@ const BGBrown = styled.div`
 
 const BGBlue = styled.div`
     background: #004669;
+    color: #F9F9FE;
 `;
 
 const ImageContainer = styled.div`
@@ -131,7 +144,6 @@ const MockImageSquare = styled.img`
 
 const MockImageCircle = styled(MockImageSquare)`
     border-radius: 50%;
-    margin-bottom: 15px;
 `;
 
 const MockImagePortrait = styled(MockImageSquare)`
@@ -178,10 +190,20 @@ const MockMediaImage = styled(MockImageLandscape)`
     padding: 20px;
 `;
 
+const Wave = () => {
+    return (
+        <div className="wave-div">
+            <svg className="wave-svg" viewBox="0 0 1440 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.30485e-05 169V43.1364C93.8325 22.3956 237.797 -2.07504 410.647 0.140168C644.692 3.13858 769.925 45.4447 997.498 50.2886C1106.28 52.6047 1219.49 46.109 1440 3.72277V160.041" fill="#F9F9FE" />
+            </svg>
+        </div>
+    )
+}
+
 
 // Input styles
 const Input = styled.input`
-    padding: 5px;
+    padding: 5px 10px;
     font-family: Poppins;
     width: 80%;
 `
@@ -221,5 +243,6 @@ export {
     MockFeatureCircle,
     MockMediaImage,
     Input,
-    InputButton
+    InputButton,
+    Wave
 };

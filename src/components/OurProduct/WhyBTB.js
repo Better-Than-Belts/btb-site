@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Section, H2, P, ImageContainer, MockImageLandscape, BGGray } from '../../styles';
+import { Wave, Section, H2, P, ImageContainer, MockImageLandscape, BGBlue } from '../../styles';
 import { device } from '../../device.js';
 
 const WhyBTB = (props) => {
     return (
-        <BGGray>
+        <BGBlue>
             <SectionContainer>
                 <WhyBTBSection className="row flex-md-row-reverse">
                     <ImageContainer className="col-xs-12 col-xl-6">
@@ -13,9 +13,9 @@ const WhyBTB = (props) => {
                     </ImageContainer>
                     <div className="col-xs-12 col-xl-6">
                         <Title>What makes Better Than Belts different?</Title>
-                        <P>
-                            {props.whySuspendersText}
-                        </P>
+                        <Text>
+                            {props.whyBTBText}
+                        </Text>
                     </div>
                 </WhyBTBSection>
                 <WhyBTBSection className="row">
@@ -23,38 +23,68 @@ const WhyBTB = (props) => {
                         <MockImageLandscape />
                     </ImageContainer>
                     <div className="col-xs-12 col-xl-6">
-                        <Title>Manufacturing & Supply</Title>
-                        <P>
-                            {props.whySuspendersText}
-                        </P>
+                        <SupplyTitle>Manufacturing & supply</SupplyTitle>
+                        <SupplyText>
+                            {props.manufacturingSupplyText}
+                        </SupplyText>
                     </div>
                 </WhyBTBSection>
             </SectionContainer>
-        </BGGray>
+            <Wave />
+        </BGBlue>
     );
 };
 
 // Styles
 
 const Title = styled(H2)`
+    width: 80%;
     padding-top: 0px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    line-height: 140%;
+    @media ${device.mobile} {
+        width: 100%;
+    }
 `
+const SupplyTitle = styled(Title)`
+    padding-left: 30px;
+    @media ${device.mobile} {
+        padding-left: 0;
+    }
+`;
+
+const Text = styled(P)`
+    width: 85%;
+    line-height: 30px;
+    color: #F9F9FE;
+    @media ${device.mobile} {
+        width: 100%;
+    }
+`;
+const SupplyText = styled(Text)`
+    padding-left: 30px;
+    width: 90%;
+    @media ${device.mobile} {
+        padding-left: 0;
+    }
+`;
 
 const WhyBTBSection = styled.div`
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    @media ${device.mobile} {
+        padding-bottom: 20px;
+    }
 `
 
 const SectionContainer = styled(Section)`
-    padding-left: 150px;
-    padding-right: 150px;
 
     @media ${device.tablet} {
         padding-left: 60px;
         padding-right: 60px;
     }
     @media ${device.mobile} {
+        padding-top: 30px;
         padding-left: 30px;
         padding-right: 30px;
     }

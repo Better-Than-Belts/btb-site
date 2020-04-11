@@ -14,7 +14,7 @@ const CustomerReviewShared = (props) => {
                 <Star icon='star' />
             </Stars>
             <ReviewText>“{props.customerReview}”</ReviewText>
-            <ReviewName color="#F9F9FE">- {props.customerName}</ReviewName>
+            <ReviewName>- {props.customerName}</ReviewName>
         </TextCenter>
     );
 };
@@ -39,7 +39,7 @@ const TextCenter = styled.div`
 `;
 
 const ReviewText = styled(P)`
-    color: #F9F9FE;
+    color: #004669;
     font-size: 40px;
     line-height: 140%;
     padding-top: 40px;
@@ -51,7 +51,7 @@ const ReviewText = styled(P)`
 `
 
 const ReviewName = styled(P)`
-    color: #F9F9FE;
+    color: #0C1527;
     font-size: 40px;
     line-height: 140%;
     font-weight: bold;

@@ -43,17 +43,26 @@ class Carousel extends React.Component {
     }
 
     render() {
+        const ImgText = styled(P)`
+            text-align: center;
+            padding: 10px 10px 10px 10px;
+            color: ${this.props.textColor};
+            width: ${this.props.imageWidth};
+        `;
+
         return (
             <CarouselDiv className="row">
                 <CarouselButton onClick={this.previousSlide}>
-                    <Arrow icon='arrow-left' size="2x" />
+                    <FontAwesomeIcon icon='arrow-left' color={this.props.arrowColor} size="2x" />
                 </CarouselButton>
                 <ImgDiv>
-                    <img src={this.state.imgUrls[this.state.currentImageIndex]} width="250px" />
-                    <ImgText>{this.state.imgTexts[this.state.currentImageIndex]}</ImgText>
+                    <img src={this.state.imgUrls[this.state.currentImageIndex]} width={this.props.imageWidth} />
+                    <ImgText>
+                        {this.state.imgTexts[this.state.currentImageIndex]}
+                    </ImgText>
                 </ImgDiv>
                 <CarouselButton onClick={this.nextSlide}>
-                    <Arrow icon='arrow-right' size="2x" />
+                    <FontAwesomeIcon icon='arrow-right' color={this.props.arrowColor} size="2x" />
                 </CarouselButton>
             </CarouselDiv>
         );
@@ -73,18 +82,7 @@ const CarouselDiv = styled.div`
     padding: 10px;
 `;
 
-const Arrow = styled(FontAwesomeIcon)`
-    color: #F9F9FE;
-`;
-
-const ImgText = styled(P)`
-    text-align: center;
-    padding: 0 10px 10px 10px;
-    color: #F9F9FE;
-`;
-
 const ImgDiv = styled.div`
-    width: 250px;
     padding: 5px;
 `;
 

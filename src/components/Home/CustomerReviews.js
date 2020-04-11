@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Flex, P } from '../../styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { device } from '../../device';
-import { Flex, P } from '../../styles';
 
-const ReviewCard = (props) => {
+const CustomerReviewsHome = (props) => {
     return (
-        <SectionContainer className="col-xs-12 col-md-6">
+        <TextCenter>
             <Stars>
                 <Star icon='star' />
                 <Star icon='star' />
@@ -15,21 +15,11 @@ const ReviewCard = (props) => {
             </Stars>
             <ReviewText>“{props.customerReview}”</ReviewText>
             <ReviewName>- {props.customerName}</ReviewName>
-        </SectionContainer>
-
+        </TextCenter>
     );
 };
 
 // Styles
-const SectionContainer = styled.div`
-    padding-top: 100px;
-    padding-bottom: 0px;
-    text-align: center;
-    @media ${device.mobile} {
-        padding-top: 50px;
-    }
-`;
-
 const Stars = styled(Flex)`
     max-width: 200px;
     margin: 0 auto;
@@ -41,11 +31,18 @@ const Star = styled(FontAwesomeIcon)`
     color: #FDC16E;
 `;
 
+const TextCenter = styled.div`
+    width: 75%;
+    text-align: center;
+    color: #F9F9FE;
+    margin: auto;
+`;
+
 const ReviewText = styled(P)`
-    color: #0C1527;
-    font-size: 20px;
+    color: #F9F9FE;
+    font-size: 40px;
     line-height: 140%;
-    padding: 20px 20px 0px 20px;
+    padding-top: 40px;
     @media ${device.mobile} {
         padding-top: 10px;
         font-size: 16px;
@@ -54,8 +51,8 @@ const ReviewText = styled(P)`
 `
 
 const ReviewName = styled(P)`
-    color: #004669;
-    font-size: 20px;;
+    color: #F9F9FE;
+    font-size: 40px;
     line-height: 140%;
     font-family: Calistoga;
     @media ${device.mobile} {
@@ -64,4 +61,4 @@ const ReviewName = styled(P)`
     }
 `
 
-export default ReviewCard;
+export default CustomerReviewsHome;

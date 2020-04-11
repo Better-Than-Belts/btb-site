@@ -20,7 +20,7 @@ const EthnicallyAssembledIcons = (props) => {
             <MobileDiv>
                 <Carousel
                     icons={[MadeInAmericaIcon, FiveStarsIcon, FastShippingIcon, StrongIcon]}
-                    texts={["Made in America", "Customers give us 5 stars", "Free shipping and returns", "Strong, stretchy elastic"]} />
+                    texts={["Made in America", "Customers give us 5 stars", "Free shipping and returns", "Strong, stretchy elastic"]} imageWidth="230px" textColor="#F9F9FE" arrowColor="#F9F9FE" />
             </MobileDiv>
         </div>
     );
