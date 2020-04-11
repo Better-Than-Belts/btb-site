@@ -64,7 +64,6 @@ const Button = styled.button`
 
 const ButtonYellow = styled(Button)`
     background: #FDC16E;
-    color: #004669;
     font-weight: 1000;
 `;
 
@@ -75,6 +74,7 @@ const ButtonText = styled(P)`
     line-height: 140%;
     text-align: center;
     font-style: normal;
+    color: #004669;
 
     @media ${device.mobile} {
         font-size: 20px;

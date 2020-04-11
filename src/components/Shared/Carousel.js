@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { P } from '../../styles';
+import Dots from 'react-carousel-dots';
 
 // Pass `icons` through props
 // Example usage:
@@ -64,6 +65,7 @@ class Carousel extends React.Component {
                 <CarouselButton onClick={this.nextSlide}>
                     <FontAwesomeIcon icon='arrow-right' color={this.props.arrowColor} size="2x" />
                 </CarouselButton>
+                <CarouselDots length={this.state.imgUrls.length} active={this.state.currentImageIndex} margin="10px" />
             </CarouselDiv>
         );
     }
@@ -84,6 +86,13 @@ const CarouselDiv = styled.div`
 
 const ImgDiv = styled.div`
     padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+`;
+
+const CarouselDots = styled(Dots)`
+    margin-left: auto;
+    margin-right: auto;
 `;
 
 export default Carousel;

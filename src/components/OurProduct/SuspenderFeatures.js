@@ -7,7 +7,7 @@ import Carousel from '../Shared/Carousel';
 
 const SuspenderFeatures = (props) => {
     return (
-        <Features>
+        <Features className="our-product">
             <FlexNoWrap>
                 <FeatureItem text={props.featureText1} />
                 <FeatureItem text={props.featureText2} />

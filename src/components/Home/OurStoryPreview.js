@@ -51,7 +51,7 @@ const OurStoryImage = styled(ImageContainer)`
 `;
 
 const OurStoryTextContainer = styled.div`
-    margin-top: 10%;
+    margin-top: 75px;
     flex: 1;
     padding-left: 50px;
 

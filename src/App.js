@@ -15,8 +15,8 @@ function App() {
   const props = {
     "Home": {
       "heroText": "Live Better.",
-      "ourStoryText": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam eius officia amet fugiat labore, assumenda corporis perferendis adipisci fugit, porro voluptas? Sunt, eius? Nemo ex fugiat tempore ad nesciunt libero repudiandae qui ullam modi? Similique modi quo consectetur nostrum veniam error non consequatur, cum quam quibusdam voluptatum dolorum accusamus accusantium.",
-      "consciousManufacturingText": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam eius officia amet fugiat labore, assumenda corporis perferendis adipisci fugit, porro voluptas? Sunt, eius?",
+      "ourStoryText": "Tyler quit belts after dealing with weight fluctuations due to health issues. Tight on the waist, frustrating to adjust; not comfortable. He needed something comfortable to hold up his pants. After shopping around, he found that suspender options were limited to costume goods and wedding wear. Too young to marry, he started Better Than Belts. Tori (sister) joined and together we’re creating the best genderless suspenders in the universe, for everyday use.",
+      "consciousManufacturingText": "Sustainability drives our supply chain which is why our manufacturing is based in New York City. We use the highest quality global inputs and will forever design products consciously.",
       "productInformationTitle": "Assembled in New York, USA",
       "productInformationText": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem reprehenderit quas sapiente, voluptatum cum sunt?",
       "customerReview": "I love BTB so much! Their products are high quality and comfortable.",

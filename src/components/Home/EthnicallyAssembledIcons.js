@@ -10,7 +10,7 @@ import Carousel from '../Shared/Carousel';
 
 const EthnicallyAssembledIcons = (props) => {
     return (
-        <div>
+        <div className="home-page">
             <FlexNoWrap>
                 <AssembledIcon {...props} icon={MadeInAmericaIcon} ethnicallyAssembledText="Made in America" />
                 <AssembledIcon {...props} icon={FiveStarsIcon} ethnicallyAssembledText="Customers give us 5 stars" />

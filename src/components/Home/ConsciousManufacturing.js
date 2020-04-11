@@ -82,13 +82,12 @@ const ManufacturingImage = styled(ImageContainer)`
 `;
 
 const TextContainer = styled.div`
-    margin-top: 10%;
+    margin-top: 75px;
     flex: 1;
     padding-right: 50px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-end;
 
     @media ${device.mobile} {
         margin-top: 0;
@@ -99,7 +98,7 @@ const TextContainer = styled.div`
 `;
 
 const Text = styled(P)`
-    padding-top: 20px;
+    padding-top: 10px;
     padding-bottom: 30px;
     line-height: 30px;
     @media ${device.mobile} {
@@ -110,9 +109,9 @@ const Text = styled(P)`
 `;
 
 const Title = styled(H2)`
+    line-height: 140%;
     @media ${device.mobile} {
         font-size: 32px;
-        line-height: 140%;
     }
 `;
 
