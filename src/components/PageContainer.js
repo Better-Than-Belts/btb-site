@@ -31,7 +31,7 @@ const PageContainer = (props) => {
                 <Route path="/our-story"
                     exact={true}
                     render={() =>
-                        <OurStory {...props} />
+                        <OurStory {...props.OurStory} />
                     } />
                 <Route path="/faq"
                     exact={true}
