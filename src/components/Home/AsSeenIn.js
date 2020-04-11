@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { device } from '../../device';
 import { Wave, BGBlue, Section } from '../../styles';
-import NewsAtNEU from '../../images/NewsAtNortheastern.png';
-import Kickstarter from '../../images/Kickstarter.png';
-import Lucid from '../../images/Lucid.png';
-import TheGlobe from '../../images/Globe.png';
-import ProjectHatch from '../../images/ProjectHatch.png';
+import NewsAtNEU from '../../images/NewsAtNortheastern.svg';
+import Kickstarter from '../../images/Kickstarter.svg';
+import Lucid from '../../images/Lucid.svg';
+import TheGlobe from '../../images/Globe.svg';
+import ProjectHatch from '../../images/ProjectHatch.svg';
 import CustomerReviewsHome from './CustomerReviews';
 
 const AsSeenIn = (props) => {
@@ -16,7 +16,7 @@ const AsSeenIn = (props) => {
                 <CustomerReviewsHome {...props} />
             </ReviewsContainer>
             <AsSeenInContainer>
-                <div className="row">
+                <div className="row align-items-center">
                     <LogoContainer className="col-xs-12 col-md-6">
                         <Img src={NewsAtNEU} />
                     </LogoContainer>
