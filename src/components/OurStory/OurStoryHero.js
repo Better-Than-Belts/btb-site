@@ -53,9 +53,8 @@ const OurStoryHero = (props) => {
 const HeroBG = styled.div`
     background-image: url(${ourStoryHeroImage});
     background-position: top;
-    background-size: 100% auto;
-    background-color: #004669;
     background-repeat: no-repeat;
+    background-size: cover;
     @media ${device.mobile} {
         background-image: url(${ourStoryHeroMobile});
         background-size: 380px auto;
@@ -68,10 +67,11 @@ const HeroWrapper = styled.div`
     width: 75%;
     padding: 10px;
     text-align: center;
-    min-height: 450px;
     height: 800px;
+    @media ${device.tablet} {
+        height: 500px;
+    }
     @media ${device.mobile} {
-        min-height: 350px;
         height: 400px;
     }
 `;
