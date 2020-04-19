@@ -10,10 +10,10 @@ const WhySuspenders = (props) => {
         <BGWhite>
             <SectionContainer>
                 <div className="row flex-md-row-reverse">
-                    <ImageContainer className="col-xs-12 col-xl-6">
+                    <ImageContainer className="col-xs-12 col-lg-6">
                         <Image />
                     </ImageContainer>
-                    <TextContainer className="col-xs-12 col-xl-6">
+                    <TextContainer className="col-xs-12 col-lg-6">
                         <Title>Why suspenders</Title>
                         <Text>
                             {props.whySuspendersText}
@@ -37,7 +37,7 @@ const Text = styled(P)`
     line-height: 30px;
     width: 80%;
 
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         font-size: 16px;
         line-height: 26px;
         width: 100%;
@@ -47,10 +47,6 @@ const Text = styled(P)`
 const SectionContainer = styled(Section)`
 
     @media ${device.tablet} {
-        padding-left: 60px;
-        padding-right: 60px;
-    }
-    @media ${device.mobile} {
         padding-top: 30px;
         padding-left: 30px;
         padding-right: 30px;
@@ -58,18 +54,23 @@ const SectionContainer = styled(Section)`
 `
 
 const TextContainer = styled.div`
-    margin-top: 5%;
-    @media ${device.mobile} {
+    margin-top: 75px;
+    @media ${device.tablet} {
         margin-top: 0;
     }
 `;
 
 const Image = styled(MockImageLandscape)`
-    width: 545px;
+    max-width: 545px;
     height: 380px;
-    @media ${device.mobile} {
-        width: 315px;
+    width: 100%;
+    @media ${device.tablet} {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 315px;
         height: 220px;
+        object-fit: cover;
     }
 `
 

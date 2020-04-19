@@ -25,7 +25,7 @@ const H2 = styled.h2`
     margin-top: 10px;
     margin-bottom: 10px;
 
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         font-size: 32px;
     }
 `;
@@ -48,7 +48,7 @@ const P = styled.p`
     margin-bottom: 10px;
     color: #0C1527;
 
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         font-size: 16px;
     }
 `;
@@ -76,7 +76,7 @@ const ButtonText = styled(P)`
     font-style: normal;
     color: #004669;
 
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         font-size: 20px;
     }
 `;

@@ -52,21 +52,26 @@ class Carousel extends React.Component {
         `;
 
         return (
-            <CarouselDiv>
-                <CarouselButton onClick={this.previousSlide}>
-                    <FontAwesomeIcon icon='arrow-left' color={this.props.arrowColor} size="2x" />
-                </CarouselButton>
-                <ImgDiv>
-                    <img src={this.state.imgUrls[this.state.currentImageIndex]} width={this.props.imageWidth} />
-                    <ImgText>
-                        {this.state.imgTexts[this.state.currentImageIndex]}
-                    </ImgText>
-                </ImgDiv>
-                <CarouselButton onClick={this.nextSlide}>
-                    <FontAwesomeIcon icon='arrow-right' color={this.props.arrowColor} size="2x" />
-                </CarouselButton>
-                <CarouselDots length={this.state.imgUrls.length} active={this.state.currentImageIndex} margin="10px" />
-            </CarouselDiv>
+            <div>
+                <CarouselDiv>
+                    <CarouselButton onClick={this.previousSlide}>
+                        <FontAwesomeIcon icon='arrow-left' color={this.props.arrowColor} size="2x" />
+                    </CarouselButton>
+                    <ImgDiv>
+                        <img src={this.state.imgUrls[this.state.currentImageIndex]} width={this.props.imageWidth} />
+                        <ImgText>
+                            {this.state.imgTexts[this.state.currentImageIndex]}
+                        </ImgText>
+                    </ImgDiv>
+                    <CarouselButton onClick={this.nextSlide}>
+                        <FontAwesomeIcon icon='arrow-right' color={this.props.arrowColor} size="2x" />
+                    </CarouselButton>
+                </CarouselDiv>
+                <DotsDiv>
+                    <CarouselDots length={this.state.imgUrls.length} active={this.state.currentImageIndex} margin="10px" />
+                </DotsDiv>
+            </div>
+
         );
     }
 }
@@ -79,16 +84,21 @@ const CarouselButton = styled.button`
 `;
 
 const CarouselDiv = styled.div`
+    justify-content: space-evenly;
     display: flex;
     flex-wrap: no-wrap;
     align-items: center;
     padding: 10px;
 `;
 
+const DotsDiv = styled.div`
+    align-items: center;
+    padding: 10px;
+    display: flex;
+`;
+
 const ImgDiv = styled.div`
     padding: 5px;
-    margin-left: auto;
-    margin-right: auto;
 `;
 
 const CarouselDots = styled(Dots)`

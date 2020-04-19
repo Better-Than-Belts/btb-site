@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { device } from '../../device';
 import ConsciousManufacturingImage from '../../images/Home-ConsciousManufacturing.png'
-import { BGWhite, ButtonYellow, ButtonText, Flex, ImageContainer, H2, MockImagePortrait, P, Section } from '../../styles';
+import { BGWhite, ButtonYellow, ButtonText, Flex, ImageContainer, H2, P, Section } from '../../styles';
 
 const ConsciousManufacturing = (props) => {
     return (

@@ -20,7 +20,7 @@ const SuspenderFeatures = (props) => {
                 {/* <FeatureItem {...props} /> */}
                 <Carousel
                     icons={[circleImage, circleImage, circleImage, circleImage]}
-                    texts={[props.featureText1, props.featureText2, props.featureText3, props.featureText4]} textColor="#0C1624" arrowColor="#004669" imageWidth="230px" />
+                    texts={[props.featureText1, props.featureText2, props.featureText3, props.featureText4]} textColor="#0C1624" arrowColor="#004669" imageWidth="210px" />
             </ProductInformationCarousel>
         </Features>
     );
@@ -40,10 +40,6 @@ const FlexNoWrap = styled(Flex)`
     flex-wrap: nowrap;
 
     @media ${device.tablet} {
-        flex-wrap: wrap
-    }
-
-    @media ${device.mobile} {
         display: none;
     }
 `;
@@ -51,7 +47,7 @@ const FlexNoWrap = styled(Flex)`
 const ProductInformationCarousel = styled(Flex)`
     display: none;
 
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         display: block;
     }
 `;
@@ -80,13 +76,12 @@ const FeatureItemContainer = styled.div`
 `;
 
 const Image = styled(MockImageCircle)`
-    width: 30%;
     vertical-align: middle;
     float: left;
-    width: 200px;
+    max-width: 200px;
     padding-right: 30px;
     @media ${device.mobile} {
-        width: 210px;
+        max-width: 210px;
     }
 `;
 
