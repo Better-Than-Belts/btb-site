@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { device } from '../../device';
+import ConsciousManufacturingImage from '../../images/Home-ConsciousManufacturing.png'
 import { BGWhite, ButtonYellow, ButtonText, Flex, ImageContainer, H2, MockImagePortrait, P, Section } from '../../styles';
 
 const ConsciousManufacturing = (props) => {
@@ -45,24 +46,27 @@ const ConsciousManufacturing = (props) => {
 // styles
 const DesktopSection = styled(Section)`
     flex-wrap: nowrap;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         display: none;
     }
 `;
 
 const MobileSection = styled(Section)`
     display: none;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         display: block;
         flex-wrap: wrap;
     }
 `;
 
-const Image = styled(MockImagePortrait)`
-    width: 400px;
-    height: 670px;
-    @media ${device.mobile} {
-        width: 325px;
+const Image = styled.img`
+    content: url(${ConsciousManufacturingImage});
+    width: 100%;
+    @media ${device.tablet} {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 325px;
         height: 280px;
         object-fit: cover;
     }
@@ -73,10 +77,8 @@ const ManufacturingImage = styled(ImageContainer)`
     padding-left: 100px;
 
     @media ${device.tablet} {
+        align-items: center;
         flex: 1;
-    }
-
-    @media ${device.mobile} {
         padding: 20px;
     }
 `;
@@ -89,9 +91,10 @@ const TextContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
 
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         margin-top: 0;
         flex: auto;
+        padding-right: 0px;
         margin-left: 20px;
         margin-right: 20px;
     }
@@ -101,7 +104,7 @@ const Text = styled(P)`
     padding-top: 10px;
     padding-bottom: 30px;
     line-height: 30px;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         padding-top: 0px;
         font-size: 16px;
         line-height: 26px;
@@ -110,13 +113,13 @@ const Text = styled(P)`
 
 const Title = styled(H2)`
     line-height: 140%;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         font-size: 32px;
     }
 `;
 
 const LearnMore = styled(ButtonYellow)`
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         margin-bottom: 50px;
         margin: 0 auto;
         display: block;

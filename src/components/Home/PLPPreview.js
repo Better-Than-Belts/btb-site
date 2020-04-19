@@ -32,7 +32,7 @@ const PLPPreviewSection = styled(Section)`
 const PLPFlex = styled(Flex)`
     margin-left: 150px;
     margin-right: 150px;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         margin-left: 20px;
         margin-right: 20px;
         flex-wrap: wrap;
@@ -48,7 +48,7 @@ const ShopNow = styled(ButtonYellow)`
 const ShopTitle = styled(H2)`
     text-align: center;
     margin-bottom: 50px;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         font-size: 32px;
         text-align: left;
         margin-bottom: 10px;

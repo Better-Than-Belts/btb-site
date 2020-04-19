@@ -52,7 +52,7 @@ class Carousel extends React.Component {
         `;
 
         return (
-            <CarouselDiv className="row">
+            <CarouselDiv>
                 <CarouselButton onClick={this.previousSlide}>
                     <FontAwesomeIcon icon='arrow-left' color={this.props.arrowColor} size="2x" />
                 </CarouselButton>
@@ -80,6 +80,7 @@ const CarouselButton = styled.button`
 
 const CarouselDiv = styled.div`
     display: flex;
+    flex-wrap: no-wrap;
     align-items: center;
     padding: 10px;
 `;

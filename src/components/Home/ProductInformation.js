@@ -21,7 +21,7 @@ const ProductInformation = (props) => {
 const Title = styled(H2)`
     text-align: center;
     color: #F9F9FE;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         font-size: 32px;
     }
 `;

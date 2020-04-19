@@ -90,7 +90,7 @@ const Flex = styled.div`
     justify-content: space-between;
     flex-wrap: nowrap;
 
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         flex-wrap: wrap;
 
     }
@@ -102,8 +102,8 @@ const Section = styled.div`
 
     max-width: 1100px;
 
-    padding-right: 10px;
-    padding-left:  10px;
+    padding-right: 20px;
+    padding-left:  20px;
 
     padding-top: 100px;
     padding-bottom: 100px;

@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { device } from '../../device';
-import { BGWhite, ButtonYellow, ButtonText, Flex, ImageContainer, H2, MockImageLandscape, P, Section } from '../../styles';
+import OurStoryPreviewImage from '../../images/Home-OurStoryPreview.png'
+import { BGWhite, ButtonYellow, ButtonText, Flex, ImageContainer, H2, P, Section } from '../../styles';
 
 const OurStoryPreview = (props) => {
     return (
@@ -29,13 +30,13 @@ const OurStoryPreview = (props) => {
 };
 
 // styles
-const Image = styled(MockImageLandscape)`
-    width: 540px;
-    height: 400px;
+const Image = styled.img`
+    content: url(${OurStoryPreviewImage});
+    width: 100%;
 `
 
 const OurStorySection = styled(Section)`
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         padding: 30px;
     }
 `;
@@ -43,9 +44,12 @@ const OurStorySection = styled(Section)`
 const OurStoryImage = styled(ImageContainer)`
     flex: 1;
     padding-right: 50px;
+    width: 60%;
 
     @media ${device.tablet} {
-        flex: 1;
+        width: 100%;
+        max-width: 100%;
+        flex: auto;
         padding: 10px;
     }
 `;
@@ -55,7 +59,7 @@ const OurStoryTextContainer = styled.div`
     flex: 1;
     padding-left: 50px;
 
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         margin-top: 0;
         flex: auto;
         padding: 10px;
@@ -74,20 +78,20 @@ const Text = styled(P)`
     padding-top: 20px;
     padding-bottom: 30px;
     line-height: 30px;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         padding-top: 0px;
         font-size: 16px;
     }
 `;
 
 const Title = styled(H2)`
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         font-size: 32px;
     }
 `
 
 const LearnMore = styled(ButtonYellow)`
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         margin-bottom: 50px;
         margin: 0 auto;
         display: block;

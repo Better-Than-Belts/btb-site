@@ -20,7 +20,7 @@ const EthnicallyAssembledIcons = (props) => {
             <MobileDiv>
                 <Carousel
                     icons={[MadeInAmericaIcon, FiveStarsIcon, FastShippingIcon, StrongIcon]}
-                    texts={["Made in America", "Customers give us 5 stars", "Free shipping and returns", "Strong, stretchy elastic"]} imageWidth="230px" textColor="#F9F9FE" arrowColor="#F9F9FE" />
+                    texts={["Made in America", "Customers give us 5 stars", "Free shipping and returns", "Strong, stretchy elastic"]} imageWidth="200px" textColor="#F9F9FE" arrowColor="#F9F9FE" />
             </MobileDiv>
         </div>
     );
@@ -85,9 +85,10 @@ const ItemText = styled(P)`
 `;
 
 const Image = styled.img`
-    width: 230px;
+    max-width: 230px;
+    width: 100%;
 
-    @media ${device.mobile} {
-        width: 250px;
+    @media ${device.tablet} {
+        max-width: 250px;
     }
 `

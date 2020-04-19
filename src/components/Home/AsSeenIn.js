@@ -16,23 +16,21 @@ const AsSeenIn = (props) => {
                 <CustomerReviewsHome {...props} />
             </ReviewsContainer>
             <AsSeenInContainer>
-                <div className="row align-items-center">
-                    <LogoContainer className="col-xs-12 col-md-6">
-                        <Img src={NewsAtNEU} />
-                    </LogoContainer>
-                    <LogoContainer className="col-xs-12 col-md-6">
-                        <Img src={Kickstarter} />
-                    </LogoContainer>
-                    <LogoContainer className="col-xs-12 col-md-2">
-                        <Img src={Lucid} />
-                    </LogoContainer>
-                    <LogoContainer className="col-xs-12 col-md-5">
-                        <Img src={TheGlobe} />
-                    </LogoContainer>
-                    <LogoContainer classname="col-xs-12 col-md-5">
-                        <Img src={ProjectHatch} />
-                    </LogoContainer>
-                </div>
+                <LogoContainer >
+                    <Img src={NewsAtNEU} />
+                </LogoContainer>
+                <LogoContainer >
+                    <Img src={Kickstarter} />
+                </LogoContainer>
+                <LogoContainer >
+                    <Img src={ProjectHatch} />
+                </LogoContainer>
+                <LogoContainer>
+                    <Img src={TheGlobe} />
+                </LogoContainer>
+                <LogoContainer >
+                    <Img src={Lucid} />
+                </LogoContainer>
             </AsSeenInContainer>
             <Wave />
         </BGBlue>
@@ -43,7 +41,11 @@ const AsSeenIn = (props) => {
 
 const AsSeenInContainer = styled(Section)`
     align-items: center;
-    @media ${device.mobile} {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    @media ${device.tablet} {
+        display: block;
         padding-top: 30px;
     }
 `;
