@@ -104,8 +104,8 @@ const PLPView = styled.div`
     margin-left: auto;
     margin-right: auto;
     max-width: 1100px;
-    padding-right: 60px;
-    padding-left: 60px;
+    padding-right: 20px;
+    padding-left: 20px;
     margin-bottom: 50px;
     @media ${device.tablet} {
         padding-left: 30px;
@@ -117,6 +117,7 @@ const PLPView = styled.div`
 const PLPTitle = styled(H1)`
     padding-top: 50px;
     padding-bottom: 50px;
+    margin: 0px;
     @media ${device.tablet} {
         font-size: 50px;
         padding-bottom: 20px;
