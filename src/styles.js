@@ -6,6 +6,7 @@ import portrait from './images/Portrait.png';
 import landscape from './images/Landscape.png';
 import cartIcon from './images/Cart-Icon.png';
 import logo from './images/Logo.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import filterCircle from './images/SmallCircle.png'
 import ourStoryImage from './images/OurStoryImage.png';
 import featureCircle from './images/Circle.png';
@@ -61,6 +62,8 @@ const Button = styled.button`
     padding: 15px 35px;
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
     border: none;
     outline: none;
 `;
@@ -111,6 +114,18 @@ const Section = styled.div`
     padding-top: 100px;
     padding-bottom: 100px;
 
+`;
+
+const FullPageContainer = styled.div`
+    padding: 120px 150px;
+
+    @media ${device.tablet} {
+        padding: 70px 90px;
+    }
+
+    @media ${device.mobile} {
+        padding: 10px 5px;
+    }
 `;
 
 const BGGray = styled.div`
@@ -167,6 +182,11 @@ const MockCartIcon = styled.img`
     content: url(${cartIcon});
     width: 78px;
     height: 60px;
+`;
+
+const Star = styled(FontAwesomeIcon)`
+    font-size: 30px;
+    color: #C4C4C4;
 `;
 
 const MockFilterCircle = styled.img`
@@ -232,6 +252,7 @@ export {
     Section,
     BGGray,
     BGWhite,
+    FullPageContainer,
     BGBrown,
     BGBlue,
     MockImage,
@@ -241,6 +262,7 @@ export {
     MockImageLandscape,
     MockLogo,
     MockCartIcon,
+    Star,
     MockFilterCircle,
     MockImageOurStory,
     MockFeatureCircle,
