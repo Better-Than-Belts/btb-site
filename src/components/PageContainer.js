@@ -10,6 +10,7 @@ import FAQ from '../views/FAQ';
 import Footer from './Footer';
 
 const PageContainer = (props) => {
+    const shopifyClient = props.client;
     return (
         <div>
             <Router>
@@ -25,10 +26,10 @@ const PageContainer = (props) => {
                         <PLP {...props} />
                     } />
                 <Route path="/shop/:id"
-                exact={true}
-                render={() =>
-                    <PDP {...props.PDP} />
-                } />
+                    exact={true}
+                    render={(props) =>
+                        <PDP id={props.match.params.id} client={shopifyClient} />
+                    } />
                 <Route path="/our-product"
                     exact={true}
                     render={() =>

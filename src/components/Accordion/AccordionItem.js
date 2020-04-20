@@ -25,7 +25,7 @@ class AccordionItem extends React.Component {
                 <AccordionItemTextWrapper onClick={this.onClick}><H3 className={"accordion" + (this.state.open ? " open" : "")} >{this.props.title}</H3></AccordionItemTextWrapper>
                 <div className={"accordion-content" + (this.state.open ? " open" : "")}>
                     <AccordionItemTextWrapper>
-                        <AccordionItemText>{this.props.children}</AccordionItemText>
+                        <AccordionItemText className="accordion">{this.props.children}</AccordionItemText>
                     </AccordionItemTextWrapper>
                 </div>
             </AccordionItemWrapper>

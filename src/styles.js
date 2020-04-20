@@ -117,7 +117,7 @@ const Section = styled.div`
 `;
 
 const FullPageContainer = styled.div`
-    padding: 120px 150px;
+    padding: 80px 150px;
 
     @media ${device.tablet} {
         padding: 70px 90px;

@@ -1,0 +1,11 @@
+#size-button:focus, #size-button:active, #size-button:hover {
+    background-color: transparent;
+    color: #0C1527;
+    box-shadow: none;
+}
+
+#size-button[aria-expanded="true"] {
+    background-color: transparent;
+    color: #0C1527;
+    box-shadow: none;
+}
