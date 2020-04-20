@@ -26,10 +26,6 @@ const MediaAndReview = (props) => {
 const SectionContainer = styled(Section)`
 
     @media ${device.tablet} {
-        padding-left: 60px;
-        padding-right: 60px;
-    }
-    @media ${device.mobile} {
         padding-left: 30px;
         padding-right: 30px;
     }
@@ -37,7 +33,7 @@ const SectionContainer = styled(Section)`
 
 const Title = styled(H2)`
     padding-bottom: 40px;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         line-height: 140%;
         padding-bottom: 10px;
     }

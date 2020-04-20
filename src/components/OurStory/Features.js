@@ -58,7 +58,7 @@ const Title = styled(H2)`
     width: 90%;
     line-height: 140%;
 
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         width: 100%;
     }
 `
@@ -66,16 +66,15 @@ const Title = styled(H2)`
 const FeatureSection = styled.div`
     padding-top: 20px;
     padding-bottom: 20px;
-    @media ${device.mobile} {
-        width: 110%;
-        
+    @media ${device.tablet} {
+        width: 105%;
     }
 `
 
 const FeatureContent = styled(P)`
     line-height: 30px;
     width: 90%;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         width: 100%;
         line-height: 26px;
     }
@@ -84,25 +83,20 @@ const FeatureContentWhiteFont = styled(FeatureContent)`
     color: #F9F9FE;
 `
 const SectionContainer = styled(Section)`
-
     @media ${device.tablet} {
-        padding-left: 60px;
-        padding-right: 60px;
-    }
-    @media ${device.mobile} {
         padding: 10px 30px;
     }
 `
 
 const TextContainer = styled.div`
     margin-top: 75px;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         margin-top: 10px;
     }
 `;
 
 const Image1 = styled(MockImageOurStory)`
-    width: 650px;
+    max-width: 650px;
     height: 450px;
     @media ${device.mobile} {
         width: 100%;
@@ -112,7 +106,7 @@ const Image1 = styled(MockImageOurStory)`
 `;
 
 const Image2 = styled(MockImageOurStory)`
-    width: 500px;
+    max-width: 500px;
     height: 600px;
     @media ${device.mobile} {
         width: 100%;
@@ -122,7 +116,7 @@ const Image2 = styled(MockImageOurStory)`
 `;
 
 const Image3 = styled(MockImageOurStory)`
-    width: 550px;
+    max-width: 550px;
     height: 550px;
     @media ${device.mobile} {
         width: 100%;

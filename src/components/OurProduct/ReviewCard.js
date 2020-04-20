@@ -25,7 +25,7 @@ const SectionContainer = styled.div`
     padding-top: 100px;
     padding-bottom: 0px;
     text-align: center;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         padding-top: 50px;
     }
 `;
@@ -46,7 +46,7 @@ const ReviewText = styled(P)`
     font-size: 20px;
     line-height: 140%;
     padding: 20px 20px 0px 20px;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         padding-top: 10px;
         font-size: 16px;
         line-height: 26px;
@@ -58,7 +58,7 @@ const ReviewName = styled(P)`
     font-size: 20px;;
     line-height: 140%;
     font-family: Calistoga;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         font-size: 16px;
         line-height: 26px;
     }

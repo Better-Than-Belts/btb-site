@@ -32,13 +32,13 @@ const OurStoryHero = (props) => {
                 </HeroWrapper>
                 <Wave />
             </HeroBG>
-            <NamesMobile className="row">
-                <Info className="col-xs-6 float-left">
+            <NamesMobile>
+                <Info>
                     <InfoName>{props.tylerName}</InfoName>
                     <InfoText>{props.tylerText1}</InfoText>
                     <InfoText>{props.tylerText2}</InfoText>
                 </Info>
-                <Info className="col-xs-6 float-left">
+                <Info>
                     <InfoName>{props.toriName}</InfoName>
                     <InfoText>{props.toriText1}</InfoText>
                     <InfoText>{props.toriText2}</InfoText>
@@ -55,9 +55,9 @@ const HeroBG = styled.div`
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         background-image: url(${ourStoryHeroMobile});
-        background-size: 380px auto;
+        background-size: cover;
     }
 `;
 
@@ -69,7 +69,7 @@ const HeroWrapper = styled.div`
     text-align: center;
     height: 800px;
     @media ${device.tablet} {
-        height: 500px;
+        height: 600px;
     }
     @media ${device.mobile} {
         height: 400px;
@@ -86,7 +86,7 @@ const HeroTitle = styled.div`
 
 const HeroText = styled(H1)`
     color: #F9F9FE;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         font-size: 50px;
     }
 `;
@@ -95,40 +95,41 @@ const HeroArrow = styled(FontAwesomeIcon)`
     position: absolute;
     bottom: 0%;
     color: #F9F9FE;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         display: none;
     }
 `;
 
 const NamesDesktop = styled.div`
     margin-top: 120px;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         display: none;
     }
 `;
 const NamesMobile = styled.div`
     display: none;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
+        display: flex;
         margin-left: 30px;
         margin-right: 30px;
         height: 150px;
         margin-top: 0px;
-        display: block;
     }
 `;
 
 const Info = styled.div`
     width: 220px;
     text-align: left;
-    @media ${device.mobile} {
-        width: 150px;
+    @media ${device.tablet} {
+        display: block;
+        width: 50%;
         padding: 10px 10px;
     }
 `;
 const InfoName = styled(H2)`
     font-size: 36px;
     color: #F9F9FE;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         color: #0C1527;
         font-size: 20px;
     }
@@ -137,7 +138,7 @@ const InfoText = styled(P)`
     color: #F9F9FE;
     line-height: 160%;
     margin: 0px;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         color: #0C1527;
         line-height: 130%;
     }
