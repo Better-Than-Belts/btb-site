@@ -30,7 +30,7 @@ const PageContainer = (props) => {
                     render={(props) =>
                         <PDP id={props.match.params.id} client={shopifyClient} />
                     } />
-                <Route path="/our-product"
+                <Route path="/why-suspenders"
                     exact={true}
                     render={() =>
                         <OurProduct {...props.OurProduct} />

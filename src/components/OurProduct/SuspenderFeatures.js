@@ -94,6 +94,7 @@ const Text = styled.span`
     font-size: 20px;
     line-height: 30px;
     width: 300px;
+    color: #0C1527;
 
     @media ${device.mobile} {
         font-size: 16px;
