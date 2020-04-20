@@ -106,7 +106,7 @@ const PLPView = styled.div`
     max-width: 1100px;
     padding-right: 20px;
     padding-left: 20px;
-    margin-bottom: 50px;
+    padding-bottom: 50px;
     @media ${device.tablet} {
         padding-left: 30px;
         padding-right: 30px;
@@ -131,7 +131,7 @@ const FilterDropdown = styled(Dropdown.Toggle)`
     font-size: 18px;
     border: none;
     padding: 5px;
-    background-color: white;
+    background-color: #F9F9FE;
     color: black;
 `
 
