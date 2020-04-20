@@ -1,5 +1,5 @@
 import React from 'react';
-import { BGGray, Section } from '../../styles';
+import { Section, BGGray } from '../../styles';
 import CustomerReviewShared from '../Shared/CustomerReviewShared';
 
 const CustomerReviews = (props) => {
