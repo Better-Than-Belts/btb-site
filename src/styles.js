@@ -6,6 +6,9 @@ import landscape from './images/Landscape.png';
 import cartIcon from './images/Cart-Icon.png';
 import logo from './images/Logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import filterCircle from './images/SmallCircle.png'
+import ourStoryImage from './images/OurStoryImage.png';
+import featureCircle from './images/Circle.png';
 import './index.css';
 
 const H1 = styled.h1`
@@ -104,6 +107,10 @@ const BGGray = styled.div`
     background: #E2E2E2;
 `;
 
+const BGBrown = styled.div`
+    background: #A0734F;
+`;
+
 const ImageContainer = styled.div`
     padding: 10px;
 `;
@@ -145,6 +152,45 @@ const Star = styled(FontAwesomeIcon)`
     color: #C4C4C4;
 `;
 
+const MockFilterCircle = styled.img`
+    content: url(${filterCircle});
+    width: 32px;
+    height: 32px;
+`;
+
+const MockImageOurStory = styled.img`
+    content: url(${ourStoryImage});
+    width: 100%;
+    padding: 10px;
+`;
+
+const MockFeatureCircle = styled.img`
+    content: url(${featureCircle});
+    padding: 0;
+    float: left;
+`;
+
+const MockMediaImage = styled(MockImageLandscape)`
+    width: 100%;
+    height: 230px;
+    padding: 20px;
+`;
+
+
+// Input styles
+const Input = styled.input`
+    padding: 5px;
+    font-family: Poppins;
+    width: 80%;
+`
+
+const InputButton = styled.button`
+    background-color: #FDC16E;
+    box-shadow: none;
+    border-width: 0px;
+    padding: 0px 20px;
+`
+
 export {
     H1,
     H2,
@@ -156,12 +202,20 @@ export {
     TextCenter,
     ImageContainer,
     FullPageContainer,
-    BGGray, Section,
+    BGGray, 
+    Section,
+    BGBrown,
     MockImageSquare,
     MockImageCircle,
     MockImagePortrait,
     MockImageLandscape,
     MockLogo,
     MockCartIcon,
-    Star
+    Star,
+    MockFilterCircle,
+    MockImageOurStory,
+    MockFeatureCircle,
+    MockMediaImage,
+    Input,
+    InputButton
 };
