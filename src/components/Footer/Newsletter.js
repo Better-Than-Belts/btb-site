@@ -7,7 +7,7 @@ import { device } from '../../device';
 
 const Newsletter = (props) => {
     return (
-        <div className="col-xs-12 col-lg-6">
+        <div className="col-xs-12 col-lg-6 col-md-8">
             <JoinTitle>Join the community.</JoinTitle>
             <JoinText>Stay in the loop with Better Than Belts and get 10% off!</JoinText>
             <div class="input-group mb-3" style={EmailGroup}>
@@ -28,7 +28,7 @@ const JoinTitle = styled(H1)`
     font-size: 36px;
     color: #F9F9FE;
     padding-bottom: 10px;
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         font-size: 28px;
         line-height: 32px;
         padding-bottom: 0px;

@@ -5,7 +5,7 @@ import { device } from '../../device';
 
 const FooterLinks = (props) => {
     return (
-        <div className="col-xs-12 col-md-6 col-lg-2">
+        <div className="col-xs-12 col-md-4 col-lg-2">
             <Link href="#"><LinkText>Blog</LinkText></Link>
             <Link href="#"><LinkText>Press</LinkText></Link>
             <Link href="#"><LinkText>Terms of Use</LinkText></Link>

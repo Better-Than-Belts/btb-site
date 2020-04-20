@@ -10,7 +10,7 @@ import { device } from '../../device';
 
 const SocialMedia = (props) => {
     return (
-        <div className="col-xs-12 col-md-6 col-lg-4">
+        <div className="col-xs-12 col-md-12 col-lg-4">
             <YoutubeIcon />
             <FacebookIcon />
             <InstagramIcon />
