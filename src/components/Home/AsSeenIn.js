@@ -7,7 +7,7 @@ import Kickstarter from '../../images/Kickstarter.svg';
 import Lucid from '../../images/Lucid.svg';
 import TheGlobe from '../../images/Globe.svg';
 import ProjectHatch from '../../images/ProjectHatch.svg';
-import CustomerReviewsHome from './CustomerReviews';
+import CustomerReviewsHome from './CustomerReviewsHome';
 
 const AsSeenIn = (props) => {
     return (

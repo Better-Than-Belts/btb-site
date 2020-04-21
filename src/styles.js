@@ -34,6 +34,15 @@ const H2 = styled.h2`
     }
 `;
 
+const ReviewerName = styled(H2)`
+    font-size: 20px;
+    line-height: 140%;
+    @media ${device.tablet} {
+        font-size: 16px;
+        line-height: 26px;
+    }
+`;
+
 const H3 = styled.h3`
     font-family: "Libre Franklin", sans-serif;
     font-style: normal;
@@ -47,13 +56,50 @@ const H3 = styled.h3`
 const P = styled.p`
     font-family: "Libre Franklin", sans-serif;
     font-size: 20px;
-    line-height: 25px;
+    line-height: 30px;
     margin-top: 10px;
     margin-bottom: 10px;
     color: #0C1527;
 
     @media ${device.tablet} {
         font-size: 16px;
+        line-height: 26px;
+    }
+`;
+
+const P2 = styled.p`
+    font-family: "Libre Franklin", sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 800;
+    color: #0C1527;
+
+    @media ${device.tablet} {
+        font-size: 16px;
+        line-height: 26px;
+    }
+`;
+
+const P3 = styled(P)`
+    font-size: 15px;
+    line-height: 18px;
+
+    @media ${device.tablet} {
+        font-size: 13px;
+        line-height: 21px;
+    }
+`;
+
+const FooterH1 = styled(H1)`
+    font-size: 36px;
+    color: #F9F9FE;
+    padding-bottom: 10px;
+    @media ${device.tablet} {
+        font-size: 28px;
+        line-height: 32px;
+        padding-bottom: 0px;
     }
 `;
 
@@ -243,6 +289,10 @@ export {
     H2,
     H3,
     P,
+    P2,
+    P3,
+    ReviewerName,
+    FooterH1,
     Button,
     ButtonYellow,
     ButtonText,

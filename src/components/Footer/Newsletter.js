@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { H1, P, InputButton, Input } from '../../styles';
+import { P, InputButton, Input, FooterH1 } from '../../styles';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import { device } from '../../device';
 
 const Newsletter = (props) => {
     return (
         <div className="col-xs-12 col-lg-6 col-md-8">
-            <JoinTitle>Join the community.</JoinTitle>
+            <FooterH1>Join the community.</FooterH1>
             <JoinText>Stay in the loop with Better Than Belts and get 10% off!</JoinText>
             <div class="input-group mb-3" style={EmailGroup}>
                 <Input type="email" class="form-control" placeholder="Email" aria-label="user-email" aria-describedby="user-email" />
@@ -23,18 +22,6 @@ const Newsletter = (props) => {
 }
 
 // Styles
-
-const JoinTitle = styled(H1)`
-    font-size: 36px;
-    color: #F9F9FE;
-    padding-bottom: 10px;
-    @media ${device.tablet} {
-        font-size: 28px;
-        line-height: 32px;
-        padding-bottom: 0px;
-    }
-`
-
 const JoinText = styled(P)`
     color: #F9F9FE;
     width: 90%;

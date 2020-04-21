@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { device } from '../../device';
-import { Flex, P } from '../../styles';
+import { Flex, P, ReviewerName } from '../../styles';
 
 const ReviewCard = (props) => {
     return (
@@ -43,25 +43,14 @@ const Star = styled(FontAwesomeIcon)`
 
 const ReviewText = styled(P)`
     color: #0C1527;
-    font-size: 20px;
-    line-height: 140%;
     padding: 20px 20px 0px 20px;
     @media ${device.tablet} {
         padding-top: 10px;
-        font-size: 16px;
-        line-height: 26px;
     }
 `
 
-const ReviewName = styled(P)`
+const ReviewName = styled(ReviewerName)`
     color: #004669;
-    font-size: 20px;;
-    line-height: 140%;
-    font-family: Calistoga;
-    @media ${device.tablet} {
-        font-size: 16px;
-        line-height: 26px;
-    }
 `
 
 export default ReviewCard;

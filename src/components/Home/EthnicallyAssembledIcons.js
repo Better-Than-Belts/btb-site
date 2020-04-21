@@ -17,11 +17,11 @@ const EthnicallyAssembledIcons = (props) => {
                 <AssembledIcon {...props} icon={FastShippingIcon} ethnicallyAssembledText="Free shipping and returns" />
                 <AssembledIcon {...props} icon={StrongIcon} ethnicallyAssembledText="Strong, stretchy elastic" />
             </FlexNoWrap>
-            <MobileDiv>
+            <CarouselContainer>
                 <Carousel
                     icons={[MadeInAmericaIcon, FiveStarsIcon, FastShippingIcon, StrongIcon]}
                     texts={["Made in America", "Customers give us 5 stars", "Free shipping and returns", "Strong, stretchy elastic"]} imageWidth="200px" textColor="#F9F9FE" arrowColor="#F9F9FE" />
-            </MobileDiv>
+            </CarouselContainer>
         </div>
     );
 };
@@ -39,7 +39,7 @@ const FlexNoWrap = styled(Flex)`
     }
 `;
 
-const MobileDiv = styled(Flex)`
+const CarouselContainer = styled.div`
     display: none;
     @media ${device.mobile} {
         margin: 15px;

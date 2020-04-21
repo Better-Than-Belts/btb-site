@@ -12,7 +12,7 @@ const Hero = (props) => {
         <HeroBG>
             <HeroWrapper>
                 <HeroTitle>
-                    <HeroText>{props.heroText}</HeroText>
+                    <H1>{props.heroText}</H1>
                 </HeroTitle>
                 <HeroArrow icon='angle-double-down' />
             </HeroWrapper>
@@ -46,12 +46,6 @@ const HeroTitle = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-`;
-
-const HeroText = styled(H1)`
-    @media ${device.mobile} {
-        font-size: 50px;
-    }
 `;
 
 const HeroArrow = styled(FontAwesomeIcon)`

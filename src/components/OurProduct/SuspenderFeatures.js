@@ -60,7 +60,7 @@ const FeatureItem = (props) => {
         <FeatureItemContainer>
             <ImageContainer>
                 <Image />
-                <Text>{props.text}</Text>
+                <Text><P>{props.text}</P></Text>
             </ImageContainer>
         </FeatureItemContainer>
     );
@@ -89,15 +89,5 @@ const Text = styled.span`
     vertical-align: middle;
     display: table-cell;
     height: 160px;
-    font-family: Libre Franklin;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 30px;
     width: 300px;
-    color: #0C1527;
-
-    @media ${device.mobile} {
-        font-size: 16px;
-        line-height: 26px;
-    }
 `;

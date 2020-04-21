@@ -18,16 +18,16 @@ const ConsciousManufacturing = (props) => {
                             <ButtonText>Learn More</ButtonText>
                         </LearnMore>
                     </TextContainer>
-                    <ManufacturingImage>
+                    <ManufacturingImageContainer>
                         <Image />
-                    </ManufacturingImage>
+                    </ManufacturingImageContainer>
                 </Flex>
             </DesktopSection>
             <MobileSection>
                 <Flex>
-                    <ManufacturingImage>
+                    <ManufacturingImageContainer>
                         <Image />
-                    </ManufacturingImage>
+                    </ManufacturingImageContainer>
                     <TextContainer>
                         <Title>Conscious Manufacturing</Title>
                         <Text>
@@ -72,7 +72,7 @@ const Image = styled.img`
     }
 `;
 
-const ManufacturingImage = styled(ImageContainer)`
+const ManufacturingImageContainer = styled(ImageContainer)`
     flex: 1;
     padding-left: 100px;
 

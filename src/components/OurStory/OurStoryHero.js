@@ -86,9 +86,6 @@ const HeroTitle = styled.div`
 
 const HeroText = styled(H1)`
     color: #F9F9FE;
-    @media ${device.tablet} {
-        font-size: 50px;
-    }
 `;
 
 const HeroArrow = styled(FontAwesomeIcon)`
