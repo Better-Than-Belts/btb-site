@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex, P } from '../../styles';
+import { Flex, P, H4 } from '../../styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { device } from '../../device';
 

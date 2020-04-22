@@ -23,9 +23,9 @@ class AccordionItem extends React.Component {
         return (
             <AccordionItemWrapper>
                 <AccordionItemTextWrapper onClick={this.onClick}>
-                    <P2 className={"accordion" + (this.state.open ? " open" : "")} >
+                    <AccordionItemTitle className={"accordion" + (this.state.open ? " open" : "")} >
                         {this.props.title}
-                    </P2>
+                    </AccordionItemTitle>
                 </AccordionItemTextWrapper>
                 <div className={"accordion-content" + (this.state.open ? " open" : "")}>
                     <AccordionItemTextWrapper>
@@ -50,6 +50,10 @@ const AccordionItemTextWrapper = styled.div`
 `;
 
 const AccordionItemText = styled(P)`
+    color: #F9F9FE;
+`;
+
+const AccordionItemTitle = styled(P2)`
     color: #F9F9FE;
 `;
 

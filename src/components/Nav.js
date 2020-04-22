@@ -79,7 +79,7 @@ class NavRouter extends React.Component {
                                 <NavLink to={`/shop`} style={navItem}>
                                     <NavText>Shop</NavText>
                                 </NavLink>
-                                <NavLink to={`/our-product`} style={navItem}>
+                                <NavLink to={`/why-suspenders`} style={navItem}>
                                     <NavText>Our Product</NavText>
                                 </NavLink>
                                 <NavLink to={`/our-story`} style={navItem}>
