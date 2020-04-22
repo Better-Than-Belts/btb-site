@@ -1,5 +1,29 @@
 @import url('https://fonts.googleapis.com/css?family=Amaranth&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;700&display=swap');
+
+.our-product .react-carousel-dots-dot.active {
+	background-color: #004669 !important;
+}
+
+.our-product .react-carousel-dots-dot {
+	background-color: #A4DAD2 !important;
+	border: none !important;
+}
+
+.home-page .react-carousel-dots-dot.active {
+	background-color: #A4DAD2 !important;
+}
+
+.home-page .react-carousel-dots-dot {
+	background-color: #F1F3F7 !important;
+	border: none !important;
+}
+
+.pdp .accordion {
+	color: #004669 !important;
+}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -28,6 +52,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	color: #004669;
 }
 ol, ul {
 	list-style: none;

@@ -5,11 +5,12 @@ import instagramIcon from '../../images/Instagram.png';
 import twitterIcon from '../../images/Twitter.png';
 import youtubeIcon from '../../images/Youtube.png';
 import { P } from '../../styles';
+import { device } from '../../device';
 
 
 const SocialMedia = (props) => {
     return (
-        <div className="col-xs-12 col-md-6 col-lg-3">
+        <div className="col-xs-12 col-md-12 col-lg-4">
             <YoutubeIcon />
             <FacebookIcon />
             <InstagramIcon />
@@ -24,27 +25,47 @@ const SocialMedia = (props) => {
 // Icons
 const YoutubeIcon = styled.img`
     content: url(${youtubeIcon});
-    padding: 5px;
-    width: 50px;
-    height: 50px;
+    margin: 0px 10px 20px 0px;
+    width: 60px;
+    height: 60px;
+    @media ${device.mobile} {
+        width: 50px;
+        height: 50px;
+        margin: 20px 10px 20px 0px;
+    }
 `
 const FacebookIcon = styled.img`
     content: url(${facebookIcon});
-    padding: 5px;
-    width: 50px;
-    height: 50px;
+    margin: 0px 10px 20px 10px;
+    width: 60px;
+    height: 60px;
+    @media ${device.mobile} {
+        width: 50px;
+        height: 50px;
+        margin: 20px 10px 20px 10px;
+    }
 `
 const InstagramIcon = styled.img`
     content: url(${instagramIcon});
-    padding: 5px;
-    width: 50px;
-    height: 50px;
+    margin: 0px 10px 20px 10px;
+    width: 60px;
+    height: 60px;
+    @media ${device.mobile} {
+        width: 50px;
+        height: 50px;
+        margin: 20px 10px 20px 10px;
+    }
 `
 const TwitterIcon = styled.img`
     content: url(${twitterIcon});
-    padding: 5px;
-    width: 50px;
-    height: 50px;
+    margin: 0px 0px 20px 10px;
+    width: 60px;
+    height: 60px;
+    @media ${device.mobile} {
+        width: 50px;
+        height: 50px;
+        margin: 20px 0px 20px 10px;
+    }
 `
 
 export default SocialMedia;

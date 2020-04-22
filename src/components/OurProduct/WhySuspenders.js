@@ -1,26 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Section, H2, P, ImageContainer, MockImageLandscape } from '../../styles';
-import ProductInformationShared from '../Shared/ProductInformationShared';
+import { BGWhite, Section, H2, P, ImageContainer, MockImageLandscape } from '../../styles';
+import SuspenderFeatures from './SuspenderFeatures';
 import { device } from '../../device.js';
 
 
 const WhySuspenders = (props) => {
     return (
-        <SectionContainer>
-            <div className="row flex-md-row-reverse">
-                <ImageContainer className="col-xs-12 col-xl-6">
-                    <MockImageLandscape />
-                </ImageContainer>
-                <div className="col-xs-12 col-xl-6">
-                    <Title>Why Suspenders</Title>
-                    <P>
-                        {props.whySuspendersText}
-                    </P>
+        <BGWhite>
+            <SectionContainer>
+                <div className="row flex-md-row-reverse">
+                    <ImageContainer className="col-xs-12 col-lg-6">
+                        <Image />
+                    </ImageContainer>
+                    <TextContainer className="col-xs-12 col-lg-6">
+                        <Title>Why suspenders</Title>
+                        <Text>
+                            {props.whySuspendersText}
+                        </Text>
+                    </TextContainer>
                 </div>
-            </div>
-            <ProductInformationShared {...props} />
-        </SectionContainer>
+                <SuspenderFeatures {...props} />
+            </SectionContainer>
+        </BGWhite>
     );
 };
 
@@ -28,20 +30,47 @@ const WhySuspenders = (props) => {
 
 const Title = styled(H2)`
     padding-top: 20px;
+    padding-bottom: 20px;
 `
 
-const SectionContainer = styled(Section)`
-    padding-left: 150px;
-    padding-right: 150px;
-    padding-top: 20px;
+const Text = styled(P)`
+    line-height: 30px;
+    width: 80%;
 
     @media ${device.tablet} {
-        padding-left: 60px;
-        padding-right: 60px;
+        font-size: 16px;
+        line-height: 26px;
+        width: 100%;
     }
-    @media ${device.mobile} {
+`;
+
+const SectionContainer = styled(Section)`
+
+    @media ${device.tablet} {
+        padding-top: 30px;
         padding-left: 30px;
         padding-right: 30px;
+    }
+`
+
+const TextContainer = styled.div`
+    margin-top: 75px;
+    @media ${device.tablet} {
+        margin-top: 0;
+    }
+`;
+
+const Image = styled(MockImageLandscape)`
+    max-width: 545px;
+    height: 380px;
+    width: 100%;
+    @media ${device.tablet} {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 315px;
+        height: 220px;
+        object-fit: cover;
     }
 `
 

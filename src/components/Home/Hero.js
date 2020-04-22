@@ -2,18 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 import mockImage from '../../images/Square.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { H1 } from '../../styles';
+import { Wave, H1 } from '../../styles';
+import { device } from '../../device';
+
 
 const Hero = (props) => {
 
     return (
         <HeroBG>
-        <HeroWrapper>
-            <HeroTitle>
-            <H1>{props.heroText}</H1>
-            </HeroTitle>
-            <HeroArrow icon='angle-double-down' />
-        </HeroWrapper>
+            <HeroWrapper>
+                <HeroTitle>
+                    <H1>{props.heroText}</H1>
+                </HeroTitle>
+                <HeroArrow icon='angle-double-down' />
+            </HeroWrapper>
+            <Wave />
         </HeroBG>
     );
 };
@@ -28,10 +31,13 @@ const HeroBG = styled.div`
 const HeroWrapper = styled.div`
     margin: auto;
     position: relative;
-    width: 50%;
+    width: 75%;
     padding: 10px;
     text-align: center;
-    height: 100vh;
+    height: 850px;
+    @media ${device.tablet} {
+        height: 700px;
+    }
 `;
 
 const HeroTitle = styled.div`

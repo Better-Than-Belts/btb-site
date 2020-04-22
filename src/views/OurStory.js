@@ -1,12 +1,12 @@
 import React from 'react';
-import OurStoryTitle from '../components/OurStory/Title';
+import OurStoryHero from '../components/OurStory/OurStoryHero';
 import OurBackground from '../components/OurStory/OurBackground';
 import OurStoryFeatures from '../components/OurStory/Features';
 
 const OurStory = (props) => {
     return (
         <div>
-            <OurStoryTitle {...props} />
+            <OurStoryHero {...props} />
             <OurBackground {...props} />
             <OurStoryFeatures {...props} />
         </div>
