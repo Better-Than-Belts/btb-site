@@ -1,5 +1,5 @@
 import React from 'react';
-import { MockLogo, H3, MockCartIcon, BGWhite } from '../styles';
+import { P, BGWhite } from '../styles';
 import Logo from '../images/logo.svg';
 import CartIcon from '../images/CartIcon.svg';
 import SearchIcon from '../images/SearchIcon.svg';
@@ -113,7 +113,7 @@ const navItem = {
     'padding': '0 30px'
 };
 
-const NavText = styled(H3)`
+const NavText = styled(P)`
     color: #004669;
     font-weight: 800;
     font-size: 20px;

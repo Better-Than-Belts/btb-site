@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MockMediaImage, H3, P } from '../../styles';
+import { MockMediaImage, P2, P } from '../../styles';
 
 const MediaCard = (props) => {
     return (
@@ -31,9 +31,8 @@ const MediaContainer = styled.div`
     margin-bottom: 20px;
 `
 
-const MediaHandle = styled(H3)`
+const MediaHandle = styled(P2)`
     padding: 10px 20px;
-    font-weight: 800;
 `
 
 const MediaDescription = styled(P)`

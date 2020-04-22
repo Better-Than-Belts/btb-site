@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { device } from '../../device';
-import { Flex, P, ReviewerName } from '../../styles';
+import { Flex, P, H4 } from '../../styles';
 
 const ReviewCard = (props) => {
     return (
@@ -49,7 +49,7 @@ const ReviewText = styled(P)`
     }
 `
 
-const ReviewName = styled(ReviewerName)`
+const ReviewName = styled(H4)`
     color: #004669;
 `
 

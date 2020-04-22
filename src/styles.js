@@ -28,29 +28,37 @@ const H2 = styled.h2`
     font-size: 50px;
     margin-top: 10px;
     margin-bottom: 10px;
+    line-height: 140%;
 
     @media ${device.tablet} {
         font-size: 32px;
     }
 `;
 
-const ReviewerName = styled(H2)`
+const H3 = styled.h3`
+    font-family: "Calistoga", serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 36px;
+    color: #F9F9FE;
+    @media ${device.tablet} {
+        font-size: 28px;
+        line-height: 32px;
+    }
+`;
+
+const H4 = styled.h4`
+    font-family: "Calistoga", cursive;
+    font-weight: normal;
     font-size: 20px;
     line-height: 140%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
     @media ${device.tablet} {
         font-size: 16px;
         line-height: 26px;
     }
-`;
-
-const H3 = styled.h3`
-    font-family: "Libre Franklin", sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 24px;
-    margin-top: 10px;
-    margin-bottom: 10px;
 `;
 
 const P = styled.p`
@@ -89,17 +97,6 @@ const P3 = styled(P)`
     @media ${device.tablet} {
         font-size: 13px;
         line-height: 21px;
-    }
-`;
-
-const FooterH1 = styled(H1)`
-    font-size: 36px;
-    color: #F9F9FE;
-    padding-bottom: 10px;
-    @media ${device.tablet} {
-        font-size: 28px;
-        line-height: 32px;
-        padding-bottom: 0px;
     }
 `;
 
@@ -288,11 +285,10 @@ export {
     H1,
     H2,
     H3,
+    H4,
     P,
     P2,
     P3,
-    ReviewerName,
-    FooterH1,
     Button,
     ButtonYellow,
     ButtonText,

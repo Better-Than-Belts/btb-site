@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { H3, P } from '../../styles';
+import { P } from '../../styles';
 import { device } from '../../device';
 import { Link } from 'react-router-dom';
 

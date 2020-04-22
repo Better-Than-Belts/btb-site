@@ -45,20 +45,12 @@ const ReviewText = styled(P)`
     padding-top: 40px;
     @media ${device.tablet} {
         padding-top: 10px;
-        font-size: 16px;
-        line-height: 26px;
     }
 `
 
-const ReviewName = styled(P)`
+const ReviewName = styled(H4)`
     color: #F9F9FE;
     font-size: 40px;
-    line-height: 140%;
-    font-family: Calistoga;
-    @media ${device.tablet} {
-        font-size: 16px;
-        line-height: 26px;
-    }
 `
 
 export default CustomerReviewsHome;
