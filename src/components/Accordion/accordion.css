@@ -13,11 +13,12 @@
     
     This was all done to avoid like 50 lines of javascript. */
     max-height: 500px;
+    overflow-y:auto;
 }
 
 .accordion:after {
     content: '\002B';
-    color: #777;
+    color: #F9F9FE;
     font-weight: bold;
     float: right;
     margin-left: 5px;

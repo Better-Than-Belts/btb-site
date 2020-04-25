@@ -3,51 +3,71 @@ import styled from 'styled-components';
 import { RichText } from 'prismic-reactjs';
 import { device } from '../../device';
 import { Link } from 'react-router-dom';
-import { Button, ButtonText, Flex, ImageContainer, H2, Image, P, Section } from '../../styles';
+import { BGWhite, ButtonYellow, ButtonText, Flex, ImageContainer, H2, P, Section, MockImageSquare } from '../../styles';
 
 const OurStoryPreview = (props) => {
     return (
-        <Section>
-            <Flex>
-                <OurStoryImage>
-                    <Image src={props.our_story_image.url} />
-                </OurStoryImage>
-                <OurStoryTextContainer>
-                    <OurStoryText>
-                        <H2>Our Story</H2>
-                        <P>
-                            {RichText.asText(props.our_story_text)}
-                        </P>
-                        <Link to="/our-story">
-                            <Button>
+        <BGWhite>
+            <OurStorySection>
+                <Flex>
+                    <OurStoryImage>
+                        <Image />
+                    </OurStoryImage>
+                    <OurStoryTextContainer>
+                        <OurStoryText>
+                            <Title>
+                                Our Story
+                            </Title>
+                            <Text>
+                                {RichText.asText(props.our_story_text)}
+                            </Text>
+                            <Link to="/our-story">
+                            <LearnMore>
                                 <ButtonText>Learn More</ButtonText>
-                            </Button>
-                        </Link>
-                    </OurStoryText>
-                </OurStoryTextContainer>
-            </Flex>
-        </Section>
+                            </LearnMore>
+                            </Link>
+                        </OurStoryText>
+                    </OurStoryTextContainer>
+                </Flex>
+            </OurStorySection>
+        </BGWhite>
     );
 };
 
 // styles
+const Image = styled.img`
+    content: url(${MockImageSquare});
+    width: 100%;
+`
+
+const OurStorySection = styled(Section)`
+    @media ${device.tablet} {
+        padding: 30px;
+    }
+`;
+
 const OurStoryImage = styled(ImageContainer)`
-    flex: 2;
+    flex: 1;
+    padding-right: 50px;
+    width: 60%;
 
     @media ${device.tablet} {
-        flex: 1;
-
+        width: 100%;
+        max-width: 100%;
+        flex: auto;
+        padding: 10px;
     }
 `;
 
 const OurStoryTextContainer = styled.div`
-    margin-top: 15%;
+    margin-top: 75px;
     flex: 1;
+    padding-left: 50px;
 
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         margin-top: 0;
         flex: auto;
-
+        padding: 10px;
     }
 `;
 
@@ -57,6 +77,30 @@ const OurStoryText = styled.div`
     align-items: flex-start;
     justify-content: flex-end;
     
+`;
+
+const Text = styled(P)`
+    padding-top: 20px;
+    padding-bottom: 30px;
+    line-height: 30px;
+    @media ${device.tablet} {
+        padding-top: 0px;
+        font-size: 16px;
+    }
+`;
+
+const Title = styled(H2)`
+    @media ${device.tablet} {
+        font-size: 32px;
+    }
+`
+
+const LearnMore = styled(ButtonYellow)`
+    @media ${device.tablet} {
+        margin-bottom: 50px;
+        margin: 0 auto;
+        display: block;
+    }
 `;
 
 export default OurStoryPreview;

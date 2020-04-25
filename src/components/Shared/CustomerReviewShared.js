@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { H3, Section, Flex, P } from '../../styles';
+import { Flex, P } from '../../styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { RichText } from 'prismic-reactjs';
+import { device } from '../../device';
 
 const CustomerReviewShared = (props) => {
     var stars = []
-    console.log(props);
 
     for (var i = 0; i < props.customer_rating; i++) {
         stars.push(<Star icon='star' />);
@@ -17,8 +17,8 @@ const CustomerReviewShared = (props) => {
             <Stars>
                 {stars}
             </Stars>
-            <P>“{RichText.asText(props.customer_review)}”</P>
-            <H3>- {RichText.asText(props.customer_name)}</H3>
+            <ReviewText>“{RichText.asText(props.customer_review)}”</ReviewText>
+            <ReviewName>- {RichText.asText(props.customer_name)}</ReviewName>
         </TextCenter>
     );
 };
@@ -32,11 +32,37 @@ const Stars = styled(Flex)`
 
 const Star = styled(FontAwesomeIcon)`
     font-size: 30px;
-    color: #C4C4C4;
+    color: #E87964;
 `;
 
 const TextCenter = styled.div`
+    width: 75%;
     text-align: center;
+    color: #F9F9FE;
+    margin: auto;
 `;
+
+const ReviewText = styled(P)`
+    color: #004669;
+    font-size: 40px;
+    line-height: 140%;
+    padding-top: 40px;
+    @media ${device.mobile} {
+        padding-top: 10px;
+        font-size: 16px;
+        line-height: 26px;
+    }
+`
+
+const ReviewName = styled(P)`
+    color: #0C1527;
+    font-size: 40px;
+    line-height: 140%;
+    font-weight: bold;
+    @media ${device.mobile} {
+        font-size: 16px;
+        line-height: 26px;
+    }
+`
 
 export default CustomerReviewShared;

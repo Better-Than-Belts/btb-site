@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { H1, MockFilterCircle } from '../styles.js';
+import { H1, MockFilterCircle, BGWhite } from '../styles.js';
 import { device } from '../device.js';
 import { Dropdown, Form } from 'react-bootstrap';
 import PLPProduct from '../components/PLP/PLPProduct';
@@ -35,64 +35,65 @@ class PLP extends React.Component {
 
     render() {
         return (
-            <PLPView>
-                <PLPTitle>All Products</PLPTitle>
-                <HRDivider />
-                <div className="filter-sort-row row" style={row}>
-                    <Dropdown className="mr-auto">
-                        <FilterDropdown id="filter-button">Filter</FilterDropdown>
-                        <FilterDropdownMenu>
-                            <FilterOptions
-                                type="checkbox"
-                                label="Striped Suspenders"
-                                name="formCheckbox">
-                                <Form.Check.Input type="checkbox" />
-                                <Form.Check.Label>Striped Suspenders</Form.Check.Label>
-                            </FilterOptions>
-                            <FilterOptions
-                                type="checkbox"
-                                label="Patterned Suspenders"
-                                name="formCheckbox" />
-                            <FilterOptions
-                                type="checkbox"
-                                label="Beanies"
-                                name="formCheckbox" />
-                            <Dropdown.Divider />
-                            <FilterColor>
-                                <FilterColorOption />
-                                <FilterColorOption />
-                                <FilterColorOption />
-                                <FilterColorOption />
-                                <FilterColorOption />
-                                <FilterColorOption />
-                            </FilterColor>
-                        </FilterDropdownMenu>
-                    </Dropdown>
-                    <Dropdown className="ml-auto" alignRight>
-                        <FilterDropdown id="sort-button">Sort</FilterDropdown>
-                        <SortDropdownMenu>
-                            <FilterDropdownItem>
-                                Newest
+            <BGWhite>
+                <PLPView>
+                    <PLPTitle>All Products</PLPTitle>
+                    <div className="filter-sort-row row" style={row}>
+                        <Dropdown className="mr-auto">
+                            <FilterDropdown id="filter-button">Filter</FilterDropdown>
+                            <FilterDropdownMenu>
+                                <FilterOptions
+                                    type="checkbox"
+                                    label="Striped Suspenders"
+                                    name="formCheckbox">
+                                    <Form.Check.Input type="checkbox" />
+                                    <Form.Check.Label>Striped Suspenders</Form.Check.Label>
+                                </FilterOptions>
+                                <FilterOptions
+                                    type="checkbox"
+                                    label="Patterned Suspenders"
+                                    name="formCheckbox" />
+                                <FilterOptions
+                                    type="checkbox"
+                                    label="Beanies"
+                                    name="formCheckbox" />
+                                <Dropdown.Divider />
+                                <FilterColor>
+                                    <FilterColorOption />
+                                    <FilterColorOption />
+                                    <FilterColorOption />
+                                    <FilterColorOption />
+                                    <FilterColorOption />
+                                    <FilterColorOption />
+                                </FilterColor>
+                            </FilterDropdownMenu>
+                        </Dropdown>
+                        <Dropdown className="ml-auto" alignRight>
+                            <FilterDropdown id="sort-button">Sort</FilterDropdown>
+                            <SortDropdownMenu>
+                                <FilterDropdownItem>
+                                    Newest
                             </FilterDropdownItem>
-                            <FilterDropdownItem>
-                                Price ($-$$)
+                                <FilterDropdownItem>
+                                    Price ($-$$)
                             </FilterDropdownItem>
-                            <FilterDropdownItem>
-                                Top Rated
+                                <FilterDropdownItem>
+                                    Top Rated
                             </FilterDropdownItem>
-                        </SortDropdownMenu>
-                    </Dropdown>
-                </div>
-                <div className="row">
-                    {
-                        this.state.products.map((product, index) => {
-                            return (
-                                <PLPProduct product={product} />
-                            )
-                        })
-                    }
-                </div>
-            </PLPView >
+                            </SortDropdownMenu>
+                        </Dropdown>
+                    </div>
+                    <div className="row">
+                        {
+                            this.state.products.map((product, index) => {
+                                return (
+                                    <PLPProduct product={product} />
+                                )
+                            })
+                        }
+                    </div>
+                </PLPView >
+            </BGWhite>
         )
     }
 }
@@ -100,32 +101,29 @@ class PLP extends React.Component {
 export default PLP;
 
 const PLPView = styled.div`
-    margin-left: 150px;
-    margin-right: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 50px;
     @media ${device.tablet} {
-        margin-left: 60px;
-        margin-right: 60px;
-    }
-    @media ${device.mobile} {
-        margin-left: 30px;
-        margin-right: 30px;
+        padding-left: 30px;
+        padding-right: 30px;
     }
     
 `;
 
 const PLPTitle = styled(H1)`
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: 0px;
     @media ${device.tablet} {
         font-size: 50px;
         padding-bottom: 20px;
     }
 `;
 
-const HRDivider = styled.hr`
-    border: 1px solid #C4C4C4;
-    height: 0px;
-`
 const FilterDropdown = styled(Dropdown.Toggle)`
     font-family: "Poppins", sans-serif;
     font-style: normal;
@@ -133,7 +131,7 @@ const FilterDropdown = styled(Dropdown.Toggle)`
     font-size: 18px;
     border: none;
     padding: 5px;
-    background-color: white;
+    background-color: #F9F9FE;
     color: black;
 `
 

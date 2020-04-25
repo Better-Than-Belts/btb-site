@@ -1,5 +1,5 @@
 import React from 'react';
-import { H3, P } from '../../styles';
+import { P2, P } from '../../styles';
 import './accordion.css';
 import styled from 'styled-components';
 
@@ -22,10 +22,14 @@ class AccordionItem extends React.Component {
     render() {
         return (
             <AccordionItemWrapper>
-                <AccordionItemTextWrapper onClick={this.onClick}><H3 className={"accordion" + (this.state.open ? " open": "")} >{this.props.title}</H3></AccordionItemTextWrapper>
+                <AccordionItemTextWrapper onClick={this.onClick}>
+                    <AccordionItemTitle className={"accordion" + (this.state.open ? " open" : "")} >
+                        {this.props.title}
+                    </AccordionItemTitle>
+                </AccordionItemTextWrapper>
                 <div className={"accordion-content" + (this.state.open ? " open" : "")}>
                     <AccordionItemTextWrapper>
-                        <P>{ this.props.children }</P>
+                        <AccordionItemText className="accordion">{this.props.children}</AccordionItemText>
                     </AccordionItemTextWrapper>
                 </div>
             </AccordionItemWrapper>
@@ -43,6 +47,14 @@ const AccordionItemWrapper = styled.div`
 
 const AccordionItemTextWrapper = styled.div`
     padding: 10px;
+`;
+
+const AccordionItemText = styled(P)`
+    color: #F9F9FE;
+`;
+
+const AccordionItemTitle = styled(P2)`
+    color: #F9F9FE;
 `;
 
 export default AccordionItem;

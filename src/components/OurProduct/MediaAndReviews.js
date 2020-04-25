@@ -1,5 +1,5 @@
 import React from 'react';
-import { Section } from '../../styles';
+import { BGWhite, Section, H2 } from '../../styles';
 import MediaCard from './MediaCard';
 import ReviewCard from './ReviewCard';
 import styled from 'styled-components';
@@ -7,31 +7,36 @@ import { device } from '../../device.js';
 
 const MediaAndReview = (props) => {
     return (
-        <SectionContainer>
-            <div className="row">
-                <MediaCard {...props} />
-                <MediaCard {...props} />
-                <MediaCard {...props} />
-                <ReviewCard {...props} />
-                <ReviewCard {...props} />
-            </div>
-        </SectionContainer>
+        <BGWhite>
+            <SectionContainer>
+                <Title>What people are saying</Title>
+                <div className="row">
+                    <MediaCard {...props} />
+                    <MediaCard {...props} />
+                    <MediaCard {...props} />
+                    <ReviewCard {...props} customerReview={props.customerReview1} customerName={props.customerName1} />
+                    <ReviewCard {...props} customerReview={props.customerReview2} customerName={props.customerName2} />
+                </div>
+            </SectionContainer>
+        </BGWhite>
     );
 };
 
 // Styles
 const SectionContainer = styled(Section)`
-    padding-left: 150px;
-    padding-right: 150px;
-
+    padding-top: 50px;
     @media ${device.tablet} {
-        padding-left: 60px;
-        padding-right: 60px;
-    }
-    @media ${device.mobile} {
         padding-left: 30px;
         padding-right: 30px;
     }
 `
+
+const Title = styled(H2)`
+    padding-bottom: 40px;
+    @media ${device.tablet} {
+        line-height: 140%;
+        padding-bottom: 10px;
+    }
+`;
 
 export default MediaAndReview;

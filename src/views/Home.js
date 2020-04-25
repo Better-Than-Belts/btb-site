@@ -3,7 +3,7 @@ import Hero from '../components/Home/Hero';
 import PLPPreview from '../components/Home/PLPPreview';
 import OurStoryPreview from '../components/Home/OurStoryPreview';
 import ProductInformation from '../components/Home/ProductInformation';
-import CustomerReviews from '../components/Home/CustomerReviews';
+import ConsciousManufacturing from '../components/Home/ConsciousManufacturing';
 import AsSeenIn from '../components/Home/AsSeenIn';
 import ReadyToShop from '../components/Home/ReadyToShop';
 import PrismicPage from '../prismic/PrismicPage';
@@ -18,8 +18,8 @@ class Home extends React.Component{
             <PLPPreview {...this.props.doc.data}/>
             <OurStoryPreview {...this.props.doc.data}/>
             <ProductInformation {...this.props.doc.data}/>
+            <ConsciousManufacturing {...this.props.doc.data} />
             <AsSeenIn {...this.props.doc.data}/>
-            <CustomerReviews {...this.props.doc.data}/>
             <ReadyToShop {...this.props.doc.data}/>
         </div>
         );
