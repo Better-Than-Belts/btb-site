@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { RichText } from 'prismic-reactjs';
 import { device } from '../../device';
-import ConsciousManufacturingImage from '../../images/Home-ConsciousManufacturing.png'
-import { BGWhite, ButtonYellow, ButtonText, Flex, ImageContainer, H2, P, Section } from '../../styles';
+import { BGWhite, ButtonYellow, ButtonText, Flex, ImageContainer, H2, P, Section, Image } from '../../styles';
 
 const ConsciousManufacturing = (props) => {
     return (
@@ -10,28 +10,32 @@ const ConsciousManufacturing = (props) => {
             <DesktopSection>
                 <Flex>
                     <TextContainer>
-                        <Title>Conscious Manufacturing</Title>
+                        <Title>
+                            {RichText.asText(props.conscious_manufacturing_title)}
+                        </Title>
                         <Text>
-                            {props.consciousManufacturingText}
+                            {RichText.asText(props.conscious_manufacturing_text)}
                         </Text>
                         <LearnMore>
                             <ButtonText>Learn More</ButtonText>
                         </LearnMore>
                     </TextContainer>
                     <ManufacturingImageContainer>
-                        <Image />
+                        <ConsciousManufacturingImage src={props.conscious_manufacturing_image.url} />
                     </ManufacturingImageContainer>
                 </Flex>
             </DesktopSection>
             <MobileSection>
                 <Flex>
                     <ManufacturingImageContainer>
-                        <Image />
+                        <ConsciousManufacturingImage src={props.conscious_manufacturing_image.url} />
                     </ManufacturingImageContainer>
                     <TextContainer>
-                        <Title>Conscious Manufacturing</Title>
+                        <Title>
+                            {RichText.asText(props.conscious_manufacturing_title)}
+                        </Title>
                         <Text>
-                            {props.consciousManufacturingText}
+                            {RichText.asText(props.conscious_manufacturing_text)}
                         </Text>
                         <LearnMore>
                             <ButtonText>Learn More</ButtonText>
@@ -59,8 +63,7 @@ const MobileSection = styled(Section)`
     }
 `;
 
-const Image = styled.img`
-    content: url(${ConsciousManufacturingImage});
+const ConsciousManufacturingImage = styled(Image)`
     width: 100%;
     @media ${device.tablet} {
         display: block;

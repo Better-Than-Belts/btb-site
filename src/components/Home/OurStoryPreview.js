@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { RichText } from 'prismic-reactjs';
 import { device } from '../../device';
 import { Link } from 'react-router-dom';
-import { BGWhite, ButtonYellow, ButtonText, Flex, ImageContainer, H2, P, Section, MockImageSquare } from '../../styles';
+import { BGWhite, ButtonYellow, ButtonText, Flex, ImageContainer, H2, P, Section, Image } from '../../styles';
 
 const OurStoryPreview = (props) => {
     return (
@@ -11,12 +11,12 @@ const OurStoryPreview = (props) => {
             <OurStorySection>
                 <Flex>
                     <OurStoryImage>
-                        <Image />
+                        <Image src={props.our_story_image.url}/>
                     </OurStoryImage>
                     <OurStoryTextContainer>
                         <OurStoryText>
                             <Title>
-                                Our Story
+                                {RichText.asText(props.our_story_title)}
                             </Title>
                             <Text>
                                 {RichText.asText(props.our_story_text)}
@@ -35,11 +35,6 @@ const OurStoryPreview = (props) => {
 };
 
 // styles
-const Image = styled.img`
-    content: url(${MockImageSquare});
-    width: 100%;
-`
-
 const OurStorySection = styled(Section)`
     @media ${device.tablet} {
         padding: 30px;

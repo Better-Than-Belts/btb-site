@@ -5,9 +5,22 @@ import ourStoryHeroMobile from '../../images/OurStoryHeroMobile.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Wave, H1, H2, P, BGWhite } from '../../styles';
 import { device } from '../../device';
+import { RichText } from 'prismic-reactjs';
 
 
 const OurStoryHero = (props) => {
+    
+    // HeroBG defined here to utilize props
+    const HeroBG = styled.div`
+        background-image: url(${props.hero.url});
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        @media ${device.tablet} {
+            background-image: url(${props.hero.url});
+            background-size: cover;
+        }
+    `;
 
     return (
         <BGWhite>
@@ -15,18 +28,16 @@ const OurStoryHero = (props) => {
                 <HeroWrapper>
                     <NamesDesktop className="">
                         <Info className="float-left">
-                            <InfoName>{props.tylerName}</InfoName>
-                            <InfoText>{props.tylerText1}</InfoText>
-                            <InfoText>{props.tylerText2}</InfoText>
+                            <InfoName>Tyler Farley</InfoName>
+                            <InfoText>{RichText.asText(props.tyler_title)}</InfoText>
                         </Info>
                         <Info className="float-right">
-                            <InfoName>{props.toriName}</InfoName>
-                            <InfoText>{props.toriText1}</InfoText>
-                            <InfoText>{props.toriText2}</InfoText>
+                            <InfoName>Tori Farley</InfoName>
+                            <InfoText>{RichText.asText(props.tori_title)}</InfoText>
                         </Info>
                     </NamesDesktop>
                     <HeroTitle>
-                        <HeroText>{props.heroText}</HeroText>
+                        <HeroText>{RichText.asText(props.hero_title)}</HeroText>
                     </HeroTitle>
                     <HeroArrow icon='arrow-down' size="3x" />
                 </HeroWrapper>
@@ -34,14 +45,12 @@ const OurStoryHero = (props) => {
             </HeroBG>
             <NamesMobile>
                 <Info>
-                    <InfoName>{props.tylerName}</InfoName>
-                    <InfoText>{props.tylerText1}</InfoText>
-                    <InfoText>{props.tylerText2}</InfoText>
+                    <InfoName>Tyler Farley</InfoName>
+                    <InfoText>{RichText.asText(props.tyler_title)}</InfoText>
                 </Info>
                 <Info>
-                    <InfoName>{props.toriName}</InfoName>
-                    <InfoText>{props.toriText1}</InfoText>
-                    <InfoText>{props.toriText2}</InfoText>
+                    <InfoName>Tori Farley</InfoName>
+                    <InfoText>{RichText.asText(props.tori_title)}</InfoText>
                 </Info>
             </NamesMobile>
         </BGWhite>
@@ -50,17 +59,6 @@ const OurStoryHero = (props) => {
 };
 
 // Styles
-const HeroBG = styled.div`
-    background-image: url(${ourStoryHeroImage});
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    @media ${device.tablet} {
-        background-image: url(${ourStoryHeroMobile});
-        background-size: cover;
-    }
-`;
-
 const HeroWrapper = styled.div`
     margin: auto;
     position: relative;

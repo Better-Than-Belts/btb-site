@@ -13,9 +13,11 @@ const PLPPreview = (props) => {
                     {props.plp_preview_images.map((item, index) => {
                         console.log(item);
                         return (
-                            <ImageContainer>
-                                <Image src={item.plp_preview_image.url} />
-                            </ImageContainer>)
+                            <PLPPreviewImageContainer>
+                                <Link to="/shop">
+                                    <Image src={item.plp_preview_image.url} />
+                                </Link>
+                            </PLPPreviewImageContainer>)
                     })}
                 </PLPFlex>
                 <Link to="/shop">
@@ -29,6 +31,9 @@ const PLPPreview = (props) => {
 };
 
 // Styles
+const PLPPreviewImageContainer = styled(ImageContainer)`
+    flex: 1;
+`
 const PLPPreviewSection = styled(Section)`
     padding-top: 30px;
 `;
