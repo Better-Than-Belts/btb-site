@@ -11,7 +11,7 @@ import Footer from './Footer';
 
 const PageContainer = (props) => {
     const shopifyClient = props.client;
-    console.log(props);
+    
     return (
         <div>
             <Router>
