@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { device } from '../../device';
-import { BGWhite, ButtonYellow, ButtonText, H2, Section } from '../../styles';
+import { BTBLink, BGWhite, ButtonYellow, ButtonText, H2, Section } from '../../styles';
 
 const ReadyToShop = () => {
     return (
@@ -9,9 +9,11 @@ const ReadyToShop = () => {
             <Section>
                 <TextCenter>
                     <Title>Ready to shop?</Title>
-                    <ShopNow>
-                        <ButtonText>Shop Now</ButtonText>
-                    </ShopNow>
+                    <BTBLink to="/shop">
+                        <ShopNow>
+                            <ButtonText>Shop Now</ButtonText>
+                        </ShopNow>
+                    </BTBLink>
                 </TextCenter>
             </Section>
         </BGWhite>

@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BGWhite, Section, H2, P, ImageContainer, MockImageLandscape } from '../../styles';
+import { Image, BGWhite, Section, H2, P, ImageContainer, MockImageLandscape } from '../../styles';
 import SuspenderFeatures from './SuspenderFeatures';
 import { device } from '../../device.js';
+import { RichText } from 'prismic-reactjs';
 
 
 const WhySuspenders = (props) => {
@@ -11,12 +12,12 @@ const WhySuspenders = (props) => {
             <SectionContainer>
                 <div className="row flex-md-row-reverse">
                     <ImageContainer className="col-xs-12 col-lg-6">
-                        <Image />
+                        <Image src={props.hero_image.url}/>
                     </ImageContainer>
                     <TextContainer className="col-xs-12 col-lg-6">
-                        <Title>Why suspenders</Title>
+                        <Title>{RichText.asText(props.our_product_title)}</Title>
                         <Text>
-                            {props.whySuspendersText}
+                            {RichText.asText(props.our_product_main_text)}
                         </Text>
                     </TextContainer>
                 </div>
@@ -60,19 +61,19 @@ const TextContainer = styled.div`
     }
 `;
 
-const Image = styled(MockImageLandscape)`
-    max-width: 545px;
-    height: 380px;
-    width: 100%;
-    @media ${device.tablet} {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 315px;
-        height: 220px;
-        object-fit: cover;
-    }
-`
+// const Image = styled(MockImageLandscape)`
+//     max-width: 545px;
+//     height: 380px;
+//     width: 100%;
+//     @media ${device.tablet} {
+//         display: block;
+//         margin-left: auto;
+//         margin-right: auto;
+//         max-width: 315px;
+//         height: 220px;
+//         object-fit: cover;
+//     }
+// `
 
 
 export default WhySuspenders;

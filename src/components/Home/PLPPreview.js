@@ -11,7 +11,6 @@ const PLPPreview = (props) => {
                 <ShopTitle>Shop best sellers</ShopTitle>
                 <PLPFlex>
                     {props.plp_preview_images.map((item, index) => {
-                        console.log(item);
                         return (
                             <PLPPreviewImageContainer>
                                 <Link to="/shop">
@@ -39,11 +38,9 @@ const PLPPreviewSection = styled(Section)`
 `;
 
 const PLPFlex = styled(Flex)`
-    margin-left: 150px;
-    margin-right: 150px;
+    padding: 0 150px;
     @media ${device.tablet} {
-        margin-left: 20px;
-        margin-right: 20px;
+        padding: 0 20px;
         flex-wrap: wrap;
     }
 `;

@@ -11,7 +11,7 @@ import Footer from './Footer';
 
 const PageContainer = (props) => {
     const shopifyClient = props.client;
-    
+
     return (
         <div>
             <Router>
@@ -34,7 +34,7 @@ const PageContainer = (props) => {
                 <Route path="/why-suspenders"
                     exact={true}
                     render={() =>
-                        <OurProduct {...props.OurProduct} />
+                        <OurProduct {...props} />
                     } />
                 <Route path="/our-story"
                     exact={true}

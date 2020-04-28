@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 import { device } from './device';
+import { Link } from 'react-router-dom';
 import square from './images/Square.png';
 import portrait from './images/Portrait.png';
 import landscape from './images/Landscape.png';
@@ -138,6 +139,7 @@ const Flex = styled.div`
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
+    width: 100%;
 
     @media ${device.tablet} {
         flex-wrap: wrap;
@@ -270,6 +272,14 @@ const Wave = () => {
     )
 }
 
+const BTBLink = styled(Link)`
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+`;
+
 
 // Input styles
 const Input = styled.input`
@@ -318,6 +328,7 @@ export {
     MockImageOurStory,
     MockFeatureCircle,
     MockMediaImage,
+    BTBLink,
     Input,
     InputButton,
     Wave

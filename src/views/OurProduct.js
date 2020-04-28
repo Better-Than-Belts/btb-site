@@ -10,9 +10,9 @@ class OurProduct extends React.Component{
     render() {
         return (
             <div>
-                <WhySuspenders {...this.props.docs.data} />
-                <WhyBTB {...this.props.docs.data} />
-                <MediaAndReview {...this.props.docs.data} />
+                <WhySuspenders {...this.props.doc.data} />
+                <WhyBTB {...this.props.doc.data} />
+                <MediaAndReview {...this.props.doc.data} />
             </div>
         );
     }

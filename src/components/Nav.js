@@ -38,18 +38,18 @@ class NavRouter extends React.Component {
                         </Link>
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto">
-                                <NavLink to={`/shop`} style={navItem}>
-                                    <NavText>Shop</NavText>
-                                </NavLink>
-                                <NavLink to={`/why-suspenders`} style={navItem}>
-                                    <NavText>Why Suspenders</NavText>
-                                </NavLink>
-                                <NavLink to={`/our-story`} style={navItem}>
-                                    <NavText>Our Story</NavText>
-                                </NavLink>
-                                <NavLink to={`/faq`} style={navItem}>
-                                    <NavText>FAQ</NavText>
-                                </NavLink>
+                                <BTBNavLink to={`/shop`}>
+                                    Shop
+                                </BTBNavLink>
+                                <BTBNavLink to={`/why-suspenders`}>
+                                    Why Suspenders
+                                </BTBNavLink>
+                                <BTBNavLink to={`/our-story`}>
+                                    Our Story
+                                </BTBNavLink>
+                                <BTBNavLink to={`/faq`}>
+                                    FAQ
+                                </BTBNavLink>
                             </Nav>
                         </Navbar.Collapse>
                         <Nav>
@@ -76,18 +76,18 @@ class NavRouter extends React.Component {
                         </Nav>
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto">
-                                <NavLink to={`/shop`} style={navItem}>
-                                    <NavText>Shop</NavText>
-                                </NavLink>
-                                <NavLink to={`/why-suspenders`} style={navItem}>
-                                    <NavText>Our Product</NavText>
-                                </NavLink>
-                                <NavLink to={`/our-story`} style={navItem}>
-                                    <NavText>Our Story</NavText>
-                                </NavLink>
-                                <NavLink to={`/faq`} style={navItem}>
-                                    <NavText>FAQ</NavText>
-                                </NavLink>
+                                <BTBNavLink to={`/shop`} style={navItem}>
+                                    Shop
+                                </BTBNavLink>
+                                <BTBNavLink to={`/why-suspenders`} style={navItem}>
+                                    Our Product
+                                </BTBNavLink>
+                                <BTBNavLink to={`/our-story`} style={navItem}>
+                                    Our Story
+                                </BTBNavLink>
+                                <BTBNavLink to={`/faq`} style={navItem}>
+                                    FAQ
+                                </BTBNavLink>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
@@ -109,16 +109,22 @@ const navBG = {
     'min-height': '90px',
 };
 
-const navItem = {
-    'padding': '0 30px'
-};
-
-const NavText = styled(P)`
+const BTBNavLink = styled(NavLink)`
+    font-family: "Libre Franklin", sans-serif;
+    padding: 0 30px;
     color: #004669;
     font-weight: 800;
     font-size: 20px;
     line-height: 30px;
+    text-decoration: none;
+
+    &:hover, &.active {
+        color: #004669;
+        text-decoration: underline #E87964;
+    }
 `;
+
+const navItem = {};
 
 const BTBLogo = styled.img`
     content: url(${Logo});

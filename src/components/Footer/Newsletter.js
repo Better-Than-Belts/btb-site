@@ -4,12 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { P, InputButton, Input, H3 } from '../../styles';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { device } from '../../device';
+import { RichText } from 'prismic-reactjs';
 
 const Newsletter = (props) => {
     return (
         <div className="col-xs-12 col-lg-6 col-md-8">
-            <NewsletterTitle>Join the community.</NewsletterTitle>
-            <JoinText>Stay in the loop with Better Than Belts and get 10% off!</JoinText>
+            <NewsletterTitle>{RichText.asText(props.newsletter_title)}</NewsletterTitle>
+            <JoinText>{RichText.asText(props.newsletter_text)}</JoinText>
             <div class="input-group mb-3" style={EmailGroup}>
                 <Input type="email" class="form-control" placeholder="Email" aria-label="user-email" aria-describedby="user-email" />
                 <div class="input-group-append">
