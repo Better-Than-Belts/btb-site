@@ -1,6 +1,4 @@
 import React from 'react';
-import Prismic from 'prismic-javascript';
-import PrismicConfig from './prismic_configuration';
 
 export default Wrapped =>
   class PrismicRenderable extends React.Component {

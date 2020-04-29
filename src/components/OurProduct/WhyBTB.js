@@ -5,7 +5,6 @@ import { device } from '../../device.js';
 import { RichText } from 'prismic-reactjs';
 
 const WhyBTB = (props) => {
-    console.log(props);
     return (
         <BGBlue>
             <SectionContainer>

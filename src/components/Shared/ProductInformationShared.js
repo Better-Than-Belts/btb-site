@@ -44,7 +44,6 @@ export default ProductInformationShared;
 
 // ProductInformationItem
 const ProductInformationItem = (props) => {
-    console.log(props)
     return (
         <ProductInformationItemContainer>
             <ImageCircleContainer>

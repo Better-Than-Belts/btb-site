@@ -6,7 +6,6 @@ import Newsletter from './Footer/Newsletter';
 import FooterLinks from './Footer/FooterLinks';
 import SocialMedia from './Footer/SocialMedia';
 import PrismicPage from '../prismic/PrismicPage';
-import { render } from '@testing-library/react';
 
 class Footer extends React.Component {
     static pageType = 'footer';

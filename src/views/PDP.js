@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Button, MockImagePortrait, FullPageContainer, H2, P, ButtonText, ButtonYellow, BGWhite } from '../styles';
+import { Flex, Button, FullPageContainer, H2, P, ButtonText, ButtonYellow, BGWhite } from '../styles';
 import styled from 'styled-components';
 import VariantSelector from '../components/PDP/ColorSelector';
 import UserReview from '../components/PDP/UserReview';

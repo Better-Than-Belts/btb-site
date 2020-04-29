@@ -1,5 +1,5 @@
 import React from 'react';
-import { P, BGWhite } from '../styles';
+import { BGWhite } from '../styles';
 import Logo from '../images/logo.svg';
 import CartIcon from '../images/CartIcon.svg';
 import SearchIcon from '../images/SearchIcon.svg';
@@ -27,7 +27,6 @@ class NavRouter extends React.Component {
     }
 
     render() {
-        console.log(this.props);
         if (this.state.width > 768) {
             // desktop
             return (

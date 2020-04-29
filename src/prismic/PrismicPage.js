@@ -1,7 +1,5 @@
 import React from 'react';
 import NotFound from '../NotFound';
-import Prismic from 'prismic-javascript';
-import PrismicConfig from './prismic_configuration';
 
 export default Wrapped =>
   class PrismicPage extends React.Component {

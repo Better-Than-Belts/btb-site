@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Image, BGWhite, Section, H2, P, ImageContainer, MockImageLandscape } from '../../styles';
+import { Image, BGWhite, Section, H2, P, ImageContainer } from '../../styles';
 import SuspenderFeatures from './SuspenderFeatures';
 import { device } from '../../device.js';
 import { RichText } from 'prismic-reactjs';
@@ -60,20 +60,6 @@ const TextContainer = styled.div`
         margin-top: 0;
     }
 `;
-
-// const Image = styled(MockImageLandscape)`
-//     max-width: 545px;
-//     height: 380px;
-//     width: 100%;
-//     @media ${device.tablet} {
-//         display: block;
-//         margin-left: auto;
-//         margin-right: auto;
-//         max-width: 315px;
-//         height: 220px;
-//         object-fit: cover;
-//     }
-// `
 
 
 export default WhySuspenders;

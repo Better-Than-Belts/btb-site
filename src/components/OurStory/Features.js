@@ -5,7 +5,6 @@ import { device } from '../../device.js';
 import { RichText } from 'prismic-reactjs';
 
 const OurStoryFeatures = (props) => {
-    console.log(props);
     return (
         <div>
             <BGWhite>

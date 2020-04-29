@@ -2,11 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Image, P2, P } from '../../styles';
 import { RichText } from 'prismic-reactjs';
-import { Link } from 'react-router-dom';
 
 const MediaCard = (props) => {
-    console.log(props);
-
     return (
         <MediaContainer className="col-xs-12 col-md-4" href={props.link.url}>
             <Box>

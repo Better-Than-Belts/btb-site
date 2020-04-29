@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 import { device } from '../../device';
 import React from 'react';
-import { Flex, ImageContainer, MockImageCircle, P, Image } from '../../styles';
-import circleImage from '../../images/Circle.png';
-import Carousel from '../Shared/Carousel';
+import { Flex, P, Image } from '../../styles';
 import { RichText } from 'prismic-reactjs';
 
 const SuspenderFeatures = (props) => {
@@ -43,13 +41,13 @@ const FeatureItems = styled(Flex)`
     }
 `;
 
-const ProductInformationCarousel = styled(Flex)`
-    display: none;
+// const ProductInformationCarousel = styled(Flex)`
+//     display: none;
 
-    @media ${device.tablet} {
-        display: block;
-    }
-`;
+//     @media ${device.tablet} {
+//         display: block;
+//     }
+// `;
 
 export default SuspenderFeatures;
 

@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import ourStoryHeroImage from '../../images/OurStoryHero.png';
-import ourStoryHeroMobile from '../../images/OurStoryHeroMobile.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Wave, H1, H2, P, BGWhite } from '../../styles';
 import { device } from '../../device';
