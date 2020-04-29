@@ -37,9 +37,8 @@ export default Wrapped =>
 
     render() {
       return this.state.doc ? (
-        // TODO: have this automatically create the header/footer
         <Wrapped doc={this.state.doc} />
-      ) : // TODO: add better loading state
+      ) : 
         this.state.err ? (
           <NotFound />
         ) : null;

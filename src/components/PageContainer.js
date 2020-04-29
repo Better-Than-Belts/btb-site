@@ -8,6 +8,7 @@ import OurStory from '../views/OurStory';
 import OurProduct from '../views/OurProduct';
 import FAQ from '../views/FAQ';
 import Footer from './Footer';
+import TopBanner from './Banner/TopBanner';
 
 const PageContainer = (props) => {
     const shopifyClient = props.client;
@@ -15,6 +16,7 @@ const PageContainer = (props) => {
     return (
         <div>
             <Router>
+                <TopBanner {...props}/>
                 <Nav {...props} />
                 <Route path="/"
                     exact={true}

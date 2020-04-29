@@ -7,8 +7,10 @@ import AccountIcon from '../images/AccountIcon.svg';
 import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
+import PrismicPage from '../prismic/PrismicPage';
 
 class NavRouter extends React.Component {
+    static pageType = 'navbar';
     state = { width: 0 };
 
     updateScreenSize = () => {
@@ -25,6 +27,7 @@ class NavRouter extends React.Component {
     }
 
     render() {
+        console.log(this.props);
         if (this.state.width > 768) {
             // desktop
             return (
@@ -97,7 +100,7 @@ class NavRouter extends React.Component {
     }
 }
 
-export default NavRouter;
+export default PrismicPage(NavRouter);
 
 const navBG = {
     'margin-right': 'auto',
