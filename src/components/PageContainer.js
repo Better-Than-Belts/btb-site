@@ -9,6 +9,7 @@ import OurProduct from '../views/OurProduct';
 import FAQ from '../views/FAQ';
 import Footer from './Footer';
 import TopBanner from './Banner/TopBanner';
+import BottomBanner from './Banner/BottomBanner';
 
 const PageContainer = (props) => {
     const shopifyClient = props.client;
@@ -49,6 +50,7 @@ const PageContainer = (props) => {
                         <FAQ {...props} />
                     } />
                 <Footer {...props} />
+                <BottomBanner {...props}/>
             </Router>
         </div>
     )

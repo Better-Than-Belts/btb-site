@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { P } from '../../styles';
 import { RichText } from 'prismic-reactjs';
 
-class TopBanner extends React.Component{
-    static pageType = 'top_banner'; 
+class BottomBanner extends React.Component{
+    static pageType = 'bottom_banner'; 
     
     constructor() {
         super();
@@ -30,14 +30,14 @@ class TopBanner extends React.Component{
     }
 };
 
-export default PrismicRenderable(TopBanner);
+export default PrismicRenderable(BottomBanner);
 
 // Styles
 const BannerContainer = styled.div`
     padding: 5px;
     text-align: center;
     background-color: ${props => props.bgColor};
-    top: 0;
+    bottom: 0;
     z-index: 1;
     position: ${props => props.sticky ? 'sticky' : 'relative'};
 `;

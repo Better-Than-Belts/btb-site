@@ -203,6 +203,14 @@ const BuyNowButton = styled(Button)`
     color: #004669;
     box-sizing: border-box;
     border: 2px solid #004669;
+
+    &:hover {
+        background: #004669;
+
+        p {
+            color: #F9F9FE;
+        }
+    }
 `;
 
 const VariantCircleBorder = styled.div`

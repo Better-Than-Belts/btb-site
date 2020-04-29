@@ -81,6 +81,11 @@ em {
 	font-style: italic;
 }
 
+a {
+	color: inherit;
+	text-decoration: underline;
+}
+
 * {
   font-family: "Poppins", sans-serif;
 }

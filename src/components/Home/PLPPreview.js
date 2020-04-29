@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { device } from '../../device';
-import { H2, BGWhite, Section, ButtonYellow, ButtonText, Flex, ImageContainer, Image } from '../../styles';
+import { BTBLink, H2, BGWhite, Section, ButtonYellow, ButtonText, Flex, ImageContainer, Image } from '../../styles';
 
 const PLPPreview = (props) => {
     return (
@@ -19,11 +19,11 @@ const PLPPreview = (props) => {
                             </PLPPreviewImageContainer>)
                     })}
                 </PLPFlex>
-                <Link to="/shop">
+                <BTBLink to="/shop">
                     <ShopNow>
                         <ButtonText>Shop Now</ButtonText>
                     </ShopNow>
-                </Link>
+                </BTBLink>
             </PLPPreviewSection>
         </BGWhite>
     );
@@ -32,6 +32,10 @@ const PLPPreview = (props) => {
 // Styles
 const PLPPreviewImageContainer = styled(ImageContainer)`
     flex: 1;
+
+    @media ${device.tablet} {
+        flex: auto;
+    }
 `
 const PLPPreviewSection = styled(Section)`
     padding-top: 30px;

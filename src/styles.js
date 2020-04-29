@@ -115,6 +115,11 @@ const Button = styled.button`
 const ButtonYellow = styled(Button)`
     background: #FDC16E;
     font-weight: 1000;
+
+
+    &:hover {
+        background-color: #fa9203;
+    }
 `;
 
 const ButtonText = styled(P)`
@@ -124,7 +129,6 @@ const ButtonText = styled(P)`
     line-height: 140%;
     text-align: center;
     font-style: normal;
-    color: #004669;
 
     @media ${device.tablet} {
         font-size: 20px;
