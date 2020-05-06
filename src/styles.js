@@ -201,6 +201,7 @@ const ImageContainer = styled.div`
 const Image = styled.img`
     max-width: 100%;
     height: auto;
+    padding: 0;
 `
 const MockImage = styled.img`
     content: url(${square});

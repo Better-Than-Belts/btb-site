@@ -131,6 +131,7 @@ const navItem = {};
 const BTBLogo = styled.img`
     content: url(${Logo});
     width: 200px;
+    padding: 0;
 `;
 
 const Cart = styled.img`
