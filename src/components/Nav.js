@@ -3,7 +3,6 @@ import { BGWhite, P } from '../styles';
 import Logo from '../images/logo.svg';
 import CartIcon from '../images/CartIcon.svg';
 import SearchIcon from '../images/SearchIcon.svg';
-import AccountIcon from '../images/AccountIcon.svg';
 import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
@@ -71,7 +70,6 @@ class NavRouter extends React.Component {
                                 </BTBNavLink>
                         </Nav>
                         <IconLink><Search /></IconLink>
-                        <IconLink><Account /></IconLink>
                         <NavItem to={`/cart`}><Cart /></NavItem>
                     </Navbar>
                 </BGWhite>
@@ -112,9 +110,6 @@ class NavRouter extends React.Component {
                                 <NavText>FAQ</NavText>
                             </NavLink>
                             <MobileHR />
-                            <Nav.Link onClick={this.closeNav} style={navItem}>
-                                <NavText>Account</NavText>
-                            </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
@@ -184,9 +179,6 @@ const IconLink = styled(Nav.Link)`
 
 const Cart = styled.img`
     content: url(${CartIcon});
-`;
-const Account = styled.img`
-    content: url(${AccountIcon});
 `;
 const Search = styled.img`
     content: url(${SearchIcon});
