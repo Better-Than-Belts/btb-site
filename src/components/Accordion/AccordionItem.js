@@ -29,7 +29,7 @@ class AccordionItem extends React.Component {
                 </AccordionItemTextWrapper>
                 <div className={"accordion-content" + (this.state.open ? " open" : "")}>
                     <AccordionItemTextWrapper>
-                        <AccordionItemText className="accordion">{this.props.children}</AccordionItemText>
+                        <AccordionItemText>{this.props.children}</AccordionItemText>
                     </AccordionItemTextWrapper>
                 </div>
             </AccordionItemWrapper>
