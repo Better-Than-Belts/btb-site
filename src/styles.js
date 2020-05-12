@@ -68,7 +68,6 @@ const P = styled.p`
     line-height: 30px;
     margin-top: 10px;
     margin-bottom: 10px;
-    color: #0C1527;
 
     @media ${device.tablet} {
         font-size: 16px;
@@ -129,6 +128,7 @@ const ButtonText = styled(P)`
     line-height: 140%;
     text-align: center;
     font-style: normal;
+    color: #004669
 
     @media ${device.tablet} {
         font-size: 20px;
@@ -183,6 +183,7 @@ const BGGray = styled.div`
 
 const BGWhite = styled.div`
     background: #F9F9FE;
+    color: #004669;
 `;
 
 const BGBrown = styled.div`
