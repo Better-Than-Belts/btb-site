@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { device } from '../../device';
-import { BTBLink, H2, BGWhite, Section, ButtonYellow, ButtonText, Flex, ImageContainer, Image } from '../../styles';
+import { BTBLink, H2, BGWhite, Section, ButtonYellow, ButtonText, Flex, ImageContainer, Image, RouteLink } from '../../styles';
 
 const PLPPreview = (props) => {
     return (
@@ -21,7 +21,7 @@ const PLPPreview = (props) => {
                 </PLPFlex>
                 <BTBLink to="/shop">
                     <ShopNow>
-                        <ButtonText>Shop Now</ButtonText>
+                        <ButtonText>Shop All</ButtonText>
                     </ShopNow>
                 </BTBLink>
             </PLPPreviewSection>
@@ -32,13 +32,15 @@ const PLPPreview = (props) => {
 // Styles
 const PLPPreviewImageContainer = styled(ImageContainer)`
     flex: 1;
+    max-width: 450px;
 
-    @media ${device.tablet} {
+    @media ${device.mobile} {
         flex: auto;
+        max-width: 100%;
     }
 `
 const PLPPreviewSection = styled(Section)`
-    padding-top: 30px;
+    padding-bottom: 50px;
 `;
 
 const PLPFlex = styled(Flex)`
@@ -57,7 +59,7 @@ const ShopNow = styled(ButtonYellow)`
 
 const ShopTitle = styled(H2)`
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
     @media ${device.tablet} {
         font-size: 32px;
         text-align: left;

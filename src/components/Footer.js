@@ -12,16 +12,16 @@ class Footer extends React.Component {
 
     render() {
         return (
-            <BGBrown>
+            <BG>
                 <SectionContainer className="row">
-                    <Newsletter {...this.props.doc.data}/>
-                    <FooterLinks {...this.props.doc.data}/>
-                    <SocialMedia {...this.props.doc.data}/>
+                    <Newsletter {...this.props.doc.data} />
+                    <FooterLinks {...this.props.doc.data} />
+                    <SocialMedia {...this.props.doc.data} />
                 </SectionContainer>
-            </BGBrown>
+            </BG>
         )
     }
-    
+
 }
 
 // Styles
@@ -34,9 +34,12 @@ const SectionContainer = styled(Section)`
         padding-right: 60px;
     }
     @media ${device.mobile} {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 `
+const BG = styled(BGBrown)`
+    z-index: 5;
+`;
 
 export default PrismicPage(Footer);

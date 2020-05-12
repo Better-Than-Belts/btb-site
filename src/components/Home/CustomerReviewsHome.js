@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Flex, P, H4 } from '../../styles';
+import StarIcon from '../../images/CoralStar.svg';
 import { Carousel } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { device } from '../../device';
@@ -9,57 +10,76 @@ import { RichText } from 'prismic-reactjs';
 const CustomerReviewsHome = (props) => {
     return (
         <Carousel prevIcon={false} nextIcon={false} interval={props.customer_reviews.length * 1000} indicators={false}>
-        {
-            props.customer_reviews.map((item, index) => {
-                var stars = []
+            {
+                props.customer_reviews.map((item, index) => {
+                    var stars = []
 
-                for (var i = 0; i < item.customer_rating; i++) {
-                    stars.push(<Star icon='star' />);
-                }
-                return (
-                    <Carousel.Item>
-                        <TextCenter>
-                            <Stars>
-                                {stars}
-                            </Stars>
-                            <ReviewText>“{RichText.asText(item.customer_review)}”</ReviewText>
-                            <ReviewName>- {RichText.asText(item.customer_name)}</ReviewName>
-                        </TextCenter>
-                    </Carousel.Item>
-                );
-            })
-        }
-    </Carousel>
+                    for (var i = 0; i < item.customer_rating; i++) {
+                        stars.push(<Star icon='star' />);
+                    }
+                    return (
+                        <Carousel.Item>
+                            <TextCenter>
+                                <Stars>
+                                    {stars}
+                                </Stars>
+                                <ReviewText>“{RichText.asText(item.customer_review)}”</ReviewText>
+                                <ReviewName>- {RichText.asText(item.customer_name)}</ReviewName>
+                            </TextCenter>
+                        </Carousel.Item>
+                    );
+                })
+            }
+        </Carousel>
     );
 };
 
 // Styles
 const Stars = styled(Flex)`
-    max-width: 200px;
+    max-width: 300px;
     margin: 0 auto;
     padding-bottom: 10px;
+    justify-content: space-evenly;
+    @media ${device.tablet} {
+        max-width: 400px;
+    }
+    @media (max-width: 500px) {
+        max-width: 100%;
+    }
 `;
 
-const Star = styled(FontAwesomeIcon)`
-    font-size: 30px;
-    color: #E87964;
+const Star = styled.img`
+    content: url(${StarIcon});
+    width: 50px;
+    margin: 10px;
+    @media ${device.mobile} {
+        width: 40px;
+    }
 `;
+
 
 const TextCenter = styled.div`
+    padding-top: 100px;
     width: 75%;
     text-align: center;
     color: #F9F9FE;
     margin: auto;
-    height: 300px;
+    @media ${device.tablet} {
+        padding-top: 0px;
+        width: 100%;
+    }
 `;
 
 const ReviewText = styled(P)`
     color: #F9F9FE;
-    font-size: 40px;
-    line-height: 140%;
-    padding-top: 40px;
+    padding-top: 10px;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 50px;
     @media ${device.tablet} {
         padding-top: 10px;
+        font-size: 16px;
+        line-height: 24px;
     }
 `
 

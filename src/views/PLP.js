@@ -125,7 +125,7 @@ const PLPTitle = styled(H1)`
 `;
 
 const FilterDropdown = styled(Dropdown.Toggle)`
-    font-family: "Poppins", sans-serif;
+    font-family: "Libre Franklin", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -147,7 +147,7 @@ const SortDropdownMenu = styled(Dropdown.Menu)`
 
 const FilterDropdownItem = styled(Dropdown.Item)`
     color: black;
-    font-family: "Poppins", sans-serif;
+    font-family: "Libre Franklin", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -157,7 +157,7 @@ const FilterDropdownItem = styled(Dropdown.Item)`
 const FilterOptions = styled(Form.Check)`
     text-align: left;
     margin: 10px 20px;
-    font-family: "Poppins", sans-serif;
+    font-family: "Libre Franklin", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;

@@ -8,6 +8,8 @@ import OurStory from '../views/OurStory';
 import OurProduct from '../views/OurProduct';
 import FAQ from '../views/FAQ';
 import Footer from './Footer';
+import ScrollToTop from './ScrollToTop';
+import Cart from '../views/Cart';
 import TopBanner from './Banner/TopBanner';
 import BottomBanner from './Banner/BottomBanner';
 
@@ -17,7 +19,8 @@ const PageContainer = (props) => {
     return (
         <div>
             <Router>
-                <TopBanner {...props}/>
+                <ScrollToTop />
+                <TopBanner {...props} />
                 <Nav {...props} />
                 <Route path="/"
                     exact={true}
@@ -49,8 +52,13 @@ const PageContainer = (props) => {
                     render={() =>
                         <FAQ {...props} />
                     } />
+                <Route path="/cart"
+                    exact={true}
+                    render={() =>
+                        <Cart />
+                    } />
                 <Footer {...props} />
-                <BottomBanner {...props}/>
+                <BottomBanner {...props} />
             </Router>
         </div>
     )

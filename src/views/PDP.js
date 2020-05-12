@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Button, FullPageContainer, H2, P, ButtonText, ButtonYellow, BGWhite } from '../styles';
+import { Flex, Button, FullPageContainer, H2, P, P3, ButtonText, ButtonYellow, Image, BGWhite } from '../styles';
 import styled from 'styled-components';
 import VariantSelector from '../components/PDP/ColorSelector';
 import UserReview from '../components/PDP/UserReview';
@@ -7,33 +7,38 @@ import Accordion from '../components/Accordion/Accordion';
 import { Carousel, Dropdown } from 'react-bootstrap';
 import { device } from '../device';
 import "./PDP.css";
+import { Link } from 'react-router-dom';
+import SizeTable from '../components/PDP/SizeTable';
 
 class PDP extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            selectedVariant: text.variants[0],
+            currentId: "",
             dropdownValue: "Select your size",
             product: {},
             images: [],
-            productVariants: {}
+            productVariants: {},
+            products: []
         };
-        this.setVariant = this.setVariant.bind(this);
+        this.setProduct = this.setProduct.bind(this);
     }
 
     componentDidMount() {
         this.props.client.product.fetch(this.props.id).then((res) => {
             this.setState({
+                currentId: res.id,
                 product: res,
                 images: res.images,
                 productVariants: res.variants[0]
             });
         });
-    }
-
-    setVariant(variant) {
-        this.setState({ selectedVariant: variant });
+        this.props.client.product.fetchAll().then((res) => {
+            this.setState({
+                products: res,
+            });
+        });
     }
 
     changeDropdownValue = event => {
@@ -41,17 +46,27 @@ class PDP extends React.Component {
         this.setState({ dropdownValue: value });
     }
 
+    setProduct(selected) {
+        this.setState({
+            currentId: selected.id,
+            product: selected,
+            images: selected.images,
+            selected: selected.variants[0]
+        });
+    }
+
     render() {
         let userReviews = text.userReviews.map((item, index) => <UserReview {...item} />);
+        let sizeChart = <SizeTable />
         return (
             <BGWhite>
                 <FullPageContainer>
                     <Flex>
                         <PDPImages>
                             {
-                                this.state.images.map((image, index) => {
+                                this.state.images.slice(0).map((image, index) => {
                                     return (
-                                        <Image src={image.src} />
+                                        <ProductImage src={image.src} />
                                     )
                                 })
                             }
@@ -64,7 +79,7 @@ class PDP extends React.Component {
                                     this.state.images.map((image, index) => {
                                         return (
                                             <Carousel.Item>
-                                                <Image src={image.src} />
+                                                <ProductImage src={image.src} />
                                             </Carousel.Item>
                                         )
                                     })
@@ -74,11 +89,14 @@ class PDP extends React.Component {
                             <P>{this.state.product.description}</P>
                             <ProductVariants>
                                 {
-                                    text.variants.map((variant, index) => {
+                                    this.state.products.map((variant, index) => {
+                                        var iconImage = variant.images[0].src;
                                         return (
-                                            <VariantCircleBorder onClick={() => this.setVariant(variant)} className={this.state.selectedVariant === variant ? " selected" : ""}>
-                                                <VariantSelector {...variant} />
-                                            </VariantCircleBorder>
+                                            <Link to={`/shop/${variant.id}`} onClick={() => this.setProduct(variant)}>
+                                                <VariantCircleBorder className={this.state.product.title === variant.title ? " selected" : ""}>
+                                                    <VariantSelector {...variant} img={iconImage} />
+                                                </VariantCircleBorder>
+                                            </Link>
                                         )
                                     })
                                 }
@@ -95,9 +113,9 @@ class PDP extends React.Component {
                                 <ButtonYellow><ButtonText>Add to Cart</ButtonText></ButtonYellow>
                                 <BuyNowButton><ButtonText>Buy Now</ButtonText></BuyNowButton>
                             </PDPButtons>
-                            <P>Free, fast shipping. Always.</P>
+                            <P3>Free, fast shipping. Always.</P3>
                             <div className="pdp">
-                                <Accordion accordionData={[{ title: "Sizing", content: "Sizing chart placeholder" }]} />
+                                <Accordion accordionData={[{ title: "Sizing", content: sizeChart }]} />
                                 <Accordion accordionData={[{ title: "Product Details", content: text.productDetails }]} />
                                 <Accordion accordionData={[{ title: "Read the Reviews", content: userReviews }]} />
                             </div>
@@ -156,10 +174,17 @@ const PDPImages = styled.div`
     }
 `;
 
-const Image = styled.img`
+const ProductImage = styled.img`
     width: 100%;
     border: none;
     padding: 1px;
+    @media ${device.tablet} {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-height: 500px;
+        width: auto;
+    }
 `;
 
 const PDPDetails = styled.div`
@@ -232,43 +257,11 @@ export default PDP;
 
 // Text from App.js
 const text = {
-    "title": "Flamingo",
-    "description": "Fine, you asked for a really cool pair of suspenders, so here they are. Take it or leave it. Or take it. Our classic three stripe in Rust / Navy",
-    "variants": [
-        {
-            "name": "Red",
-            "color": "#ff0000",
-            "price": "49.00"
-        },
-        {
-            "name": "Blue",
-            "color": "#0000ff",
-            "price": "49.00"
-        },
-        {
-            "name": "Green",
-            "color": "#00ff00",
-            "price": "49.00"
-        },
-        {
-            "name": "Powder Blue",
-            "color": "#b0e0e6",
-            "price": "49.00"
-        },
-        {
-            "name": "Powder Blue",
-            "color": "#b0e0e6",
-            "price": "49.00"
-        },
-        {
-            "name": "Gold",
-            "color": "#ffd700",
-            "price": "49.00"
-        }
-    ],
     "customerName": "Happy Customer",
-    "userReviews": [{ "name": "Fred", "score": 5, "body": "Life is too short to wear dull clothing - Wearing my new pair in the office today and getting great compliments. Dress them up or down - they are eye catching and fun to wear. Life is too short to wear dull clothing. Thanks guys!" },
-    { "name": "Fred", "score": 3, "body": "Life is too short to wear dull clothing - Wearing my new pair in the office today and getting great compliments. Dress them up or down - they are eye catching and fun to wear. Life is too short to wear dull clothing. Thanks guys!" },
-    { "name": "Fred", "score": 2, "body": "Life is too short to wear dull clothing - Wearing my new pair in the office today and getting great compliments. Dress them up or down - they are eye catching and fun to wear. Life is too short to wear dull clothing. Thanks guys!" }],
+    "userReviews": [
+        { "name": "Fred", "score": 5, "body": "Life is too short to wear dull clothing - Wearing my new pair in the office today and getting great compliments. Dress them up or down - they are eye catching and fun to wear. Life is too short to wear dull clothing. Thanks guys!" },
+        { "name": "Fred", "score": 3, "body": "Life is too short to wear dull clothing - Wearing my new pair in the office today and getting great compliments. Dress them up or down - they are eye catching and fun to wear. Life is too short to wear dull clothing. Thanks guys!" },
+        { "name": "Fred", "score": 2, "body": "Life is too short to wear dull clothing - Wearing my new pair in the office today and getting great compliments. Dress them up or down - they are eye catching and fun to wear. Life is too short to wear dull clothing. Thanks guys!" }
+    ],
     "productDetails": "They are suspenders :)"
 }

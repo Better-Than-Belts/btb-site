@@ -1,14 +1,18 @@
 import React from 'react';
-import { BGWhite, Section, H2 } from '../../styles';
+import { BGWhite, Section, H2, AccentContainerFull, AccentImage } from '../../styles';
 import MediaCard from './MediaCard';
 import ReviewCard from './ReviewCard';
 import styled from 'styled-components';
 import { device } from '../../device.js';
+import wave from '../../images/OurProduct/OurProduct-TealWave.svg';
 import { RichText } from 'prismic-reactjs';
 
 const MediaAndReview = (props) => {
     return (
         <BGWhite>
+            <AccentContainerFull>
+                <WaveLines src={wave} />
+            </AccentContainerFull>
             <SectionContainer>
                 <Title>What people are saying</Title>
                 <div className="row">
@@ -39,6 +43,14 @@ const Title = styled(H2)`
     @media ${device.tablet} {
         line-height: 140%;
         padding-bottom: 10px;
+    }
+`;
+
+const WaveLines = styled(AccentImage)`
+    width: 100%;
+    top: 450px;
+    @media ${device.tablet} {
+        display: none;
     }
 `;
 

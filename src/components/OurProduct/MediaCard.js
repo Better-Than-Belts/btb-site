@@ -30,6 +30,9 @@ const Box = styled.div`
     border: none;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
     background-color: #FFFFFF;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 `
 
 const MediaContainer = styled.a`

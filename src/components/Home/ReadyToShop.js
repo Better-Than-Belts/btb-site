@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { device } from '../../device';
-import { BTBLink, BGWhite, ButtonYellow, ButtonText, H2, Section } from '../../styles';
+import { BTBLink, RouteLink, BGWhite, ButtonYellow, ButtonText, H2, Section } from '../../styles';
 
 const ReadyToShop = () => {
     return (
         <BGWhite>
-            <Section>
+            <ReadySection>
                 <TextCenter>
                     <Title>Ready to shop?</Title>
                     <BTBLink to="/shop">
@@ -15,16 +15,28 @@ const ReadyToShop = () => {
                         </ShopNow>
                     </BTBLink>
                 </TextCenter>
-            </Section>
+            </ReadySection>
         </BGWhite>
     );
 };
 
 // Styles
+const ReadySection = styled(Section)`
+    padding-top: 130px;
+    padding-bottom: 130px;
+    @media ${device.tablet} {
+        padding-top: 70px;
+        padding-bottom: 80px;
+    }
+`;
+
 const ShopNow = styled(ButtonYellow)`
     margin: 0 auto;
     margin-top: 50px;
     display: block;
+    @media ${device.tablet} {
+        margin-top: 20px;
+    }
 `;
 
 const TextCenter = styled.div`
