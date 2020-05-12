@@ -291,6 +291,7 @@ const Wave = () => {
 const AccentContainer = styled.div`
     position: absolute;
     width: auto;
+    pointer-events: none;
 `;
 
 const AccentContainerFull = styled(AccentContainer)`
