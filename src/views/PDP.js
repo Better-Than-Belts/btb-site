@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Button, MockImagePortrait, FullPageContainer, H2, P, ButtonText, ButtonYellow, BGWhite } from '../styles';
+import { Flex, Button, FullPageContainer, H2, P, ButtonText, ButtonYellow, BGWhite } from '../styles';
 import styled from 'styled-components';
 import VariantSelector from '../components/PDP/ColorSelector';
 import UserReview from '../components/PDP/UserReview';
@@ -203,6 +203,14 @@ const BuyNowButton = styled(Button)`
     color: #004669;
     box-sizing: border-box;
     border: 2px solid #004669;
+
+    &:hover {
+        background: #004669;
+
+        p {
+            color: #F9F9FE;
+        }
+    }
 `;
 
 const VariantCircleBorder = styled.div`

@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Wave, Section, H2, P, ImageContainer, MockImageLandscape, BGBlue } from '../../styles';
+import { Wave, Section, H2, P, ImageContainer, Image, BGBlue } from '../../styles';
 import { device } from '../../device.js';
+import { RichText } from 'prismic-reactjs';
 
 const WhyBTB = (props) => {
     return (
@@ -9,23 +10,23 @@ const WhyBTB = (props) => {
             <SectionContainer>
                 <WhyBTBSection className="row flex-md-row-reverse">
                     <ImageContainer className="col-xs-12 col-lg-6">
-                        <Image />
+                        <Image src={props.our_product_primary_image.url}/>
                     </ImageContainer>
                     <TextContainer className="col-xs-12 col-lg-6">
-                        <Title>What makes Better Than Belts different?</Title>
+                        <Title>{ RichText.asText(props.our_product_primary_title) }</Title>
                         <Text>
-                            {props.whyBTBText}
+                            { RichText.asText(props.our_product_primary_text) }
                         </Text>
                     </TextContainer>
                 </WhyBTBSection>
                 <WhyBTBSection className="row">
                     <ImageContainer className="col-xs-12 col-lg-6">
-                        <Image />
+                        <Image src={props.our_product_secondary_image.url}/>
                     </ImageContainer>
                     <TextContainer className="col-xs-12 col-lg-6">
-                        <SupplyTitle>Manufacturing & supply</SupplyTitle>
+                        <SupplyTitle>{ RichText.asText(props.our_product_secondary_title) }</SupplyTitle>
                         <SupplyText>
-                            {props.manufacturingSupplyText}
+                            { RichText.asText(props.our_product_secondary_text) }
                         </SupplyText>
                     </TextContainer>
                 </WhyBTBSection>
@@ -81,20 +82,6 @@ const WhyBTBSection = styled.div`
     padding-bottom: 40px;
     @media ${device.tablet} {
         padding-bottom: 20px;
-    }
-`
-
-const Image = styled(MockImageLandscape)`
-    max-width: 545px;
-    height: 430px;
-    width: 100%;
-    @media ${device.tablet} {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 315px;
-        height: 220px;
-        object-fit: cover;
     }
 `
 

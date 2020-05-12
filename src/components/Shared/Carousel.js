@@ -58,7 +58,7 @@ class Carousel extends React.Component {
                         <FontAwesomeIcon icon='arrow-left' color={this.props.arrowColor} size="2x" />
                     </CarouselButton>
                     <ImgDiv>
-                        <img src={this.state.imgUrls[this.state.currentImageIndex]} width={this.props.imageWidth} />
+                        <img src={this.state.imgUrls[this.state.currentImageIndex]} width={this.props.imageWidth} alt=''/>
                         <ImgText>
                             {this.state.imgTexts[this.state.currentImageIndex]}
                         </ImgText>

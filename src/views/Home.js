@@ -6,21 +6,25 @@ import ProductInformation from '../components/Home/ProductInformation';
 import ConsciousManufacturing from '../components/Home/ConsciousManufacturing';
 import AsSeenIn from '../components/Home/AsSeenIn';
 import ReadyToShop from '../components/Home/ReadyToShop';
+import PrismicPage from '../prismic/PrismicPage';
 
-
-const Home = (props) => {
-    return (
+class Home extends React.Component{
+    static pageType = 'homepage';
+    
+    render() {
+        return (
         <div>
-            <Hero {...props} />
-            <PLPPreview {...props} />
-            <OurStoryPreview {...props} />
-            <ProductInformation {...props} />
-            <ConsciousManufacturing {...props} />
-            <AsSeenIn {...props} />
-            <ReadyToShop {...props} />
+            <Hero {...this.props.doc.data}/>
+            <PLPPreview {...this.props.doc.data}/>
+            <OurStoryPreview {...this.props.doc.data}/>
+            <ProductInformation {...this.props.doc.data}/>
+            <ConsciousManufacturing {...this.props.doc.data} />
+            <AsSeenIn {...this.props.doc.data}/>
+            <ReadyToShop {...this.props.doc.data}/>
         </div>
-    );
+        );
+    }
 };
 
 
-export default Home;
+export default PrismicPage(Home);

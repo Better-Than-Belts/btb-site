@@ -1,5 +1,5 @@
 import React from 'react';
-import { P, BGWhite } from '../styles';
+import { BGWhite } from '../styles';
 import Logo from '../images/logo.svg';
 import CartIcon from '../images/CartIcon.svg';
 import SearchIcon from '../images/SearchIcon.svg';
@@ -7,8 +7,10 @@ import AccountIcon from '../images/AccountIcon.svg';
 import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
+import PrismicPage from '../prismic/PrismicPage';
 
 class NavRouter extends React.Component {
+    static pageType = 'navbar';
     state = { width: 0 };
 
     updateScreenSize = () => {
@@ -38,18 +40,18 @@ class NavRouter extends React.Component {
                         </Link>
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto">
-                                <NavLink to={`/shop`} style={navItem}>
-                                    <NavText>Shop</NavText>
-                                </NavLink>
-                                <NavLink to={`/why-suspenders`} style={navItem}>
-                                    <NavText>Why Suspenders</NavText>
-                                </NavLink>
-                                <NavLink to={`/our-story`} style={navItem}>
-                                    <NavText>Our Story</NavText>
-                                </NavLink>
-                                <NavLink to={`/faq`} style={navItem}>
-                                    <NavText>FAQ</NavText>
-                                </NavLink>
+                                <BTBNavLink to={`/shop`}>
+                                    Shop
+                                </BTBNavLink>
+                                <BTBNavLink to={`/why-suspenders`}>
+                                    Why Suspenders
+                                </BTBNavLink>
+                                <BTBNavLink to={`/our-story`}>
+                                    Our Story
+                                </BTBNavLink>
+                                <BTBNavLink to={`/faq`}>
+                                    FAQ
+                                </BTBNavLink>
                             </Nav>
                         </Navbar.Collapse>
                         <Nav>
@@ -76,18 +78,18 @@ class NavRouter extends React.Component {
                         </Nav>
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto">
-                                <NavLink to={`/shop`} style={navItem}>
-                                    <NavText>Shop</NavText>
-                                </NavLink>
-                                <NavLink to={`/why-suspenders`} style={navItem}>
-                                    <NavText>Our Product</NavText>
-                                </NavLink>
-                                <NavLink to={`/our-story`} style={navItem}>
-                                    <NavText>Our Story</NavText>
-                                </NavLink>
-                                <NavLink to={`/faq`} style={navItem}>
-                                    <NavText>FAQ</NavText>
-                                </NavLink>
+                                <BTBNavLink to={`/shop`} style={navItem}>
+                                    Shop
+                                </BTBNavLink>
+                                <BTBNavLink to={`/why-suspenders`} style={navItem}>
+                                    Our Product
+                                </BTBNavLink>
+                                <BTBNavLink to={`/our-story`} style={navItem}>
+                                    Our Story
+                                </BTBNavLink>
+                                <BTBNavLink to={`/faq`} style={navItem}>
+                                    FAQ
+                                </BTBNavLink>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
@@ -97,7 +99,7 @@ class NavRouter extends React.Component {
     }
 }
 
-export default NavRouter;
+export default PrismicPage(NavRouter);
 
 const navBG = {
     'margin-right': 'auto',
@@ -109,16 +111,22 @@ const navBG = {
     'min-height': '90px',
 };
 
-const navItem = {
-    'padding': '0 30px'
-};
-
-const NavText = styled(P)`
+const BTBNavLink = styled(NavLink)`
+    font-family: "Libre Franklin", sans-serif;
+    padding: 0 30px;
     color: #004669;
     font-weight: 800;
     font-size: 20px;
     line-height: 30px;
+    text-decoration: none;
+
+    &:hover, &.active {
+        color: #004669;
+        text-decoration: underline #E87964;
+    }
 `;
+
+const navItem = {};
 
 const BTBLogo = styled.img`
     content: url(${Logo});

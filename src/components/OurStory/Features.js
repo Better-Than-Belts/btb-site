@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Section, H2, P, ImageContainer, MockImageOurStory, BGBlue, BGWhite, Wave } from '../../styles';
+import { Section, H2, P, ImageContainer, Image, BGBlue, BGWhite, Wave } from '../../styles';
 import { device } from '../../device.js';
+import { RichText } from 'prismic-reactjs';
 
 const OurStoryFeatures = (props) => {
     return (
@@ -10,11 +11,11 @@ const OurStoryFeatures = (props) => {
                 <SectionContainer>
                     <FeatureSection className="row flex-md-row-reverse">
                         <ImageContainer className="col-xs-12 col-md-7">
-                            <Image1 />
+                            <Image1 src={props.info_1_image.url}/>
                         </ImageContainer>
                         <TextContainer className="col-xs-12 col-md-5">
-                            <Title>{props.title1}</Title>
-                            <FeatureContent>{props.text1}</FeatureContent>
+                            <Title>{RichText.asText(props.info_1_title)}</Title>
+                            <FeatureContent>{RichText.asText(props.info_1_text)}</FeatureContent>
                         </TextContainer>
                     </FeatureSection>
                 </SectionContainer>
@@ -23,11 +24,11 @@ const OurStoryFeatures = (props) => {
                 <SectionContainer>
                     <FeatureSection className="row">
                         <ImageContainer className="col-xs-12 col-md-6">
-                            <Image2 />
+                            <Image2 src={props.info_1_image.url}/>
                         </ImageContainer>
                         <TextContainer className="col-xs-12 col-md-6">
-                            <Title>{props.title2}</Title>
-                            <FeatureContentWhiteFont>{props.text2}</FeatureContentWhiteFont>
+                            <Title>{RichText.asText(props.info_2_title)}</Title>
+                            <FeatureContentWhiteFont>{RichText.asText(props.info_2_text)}</FeatureContentWhiteFont>
                         </TextContainer>
                     </FeatureSection>
                 </SectionContainer>
@@ -37,11 +38,11 @@ const OurStoryFeatures = (props) => {
                 <SectionContainer>
                     <FeatureSection className="row flex-md-row-reverse">
                         <ImageContainer className="col-xs-12 col-md-7">
-                            <Image3 className="float-right" />
+                            <Image3 src={props.info_1_image.url} className="float-right" />
                         </ImageContainer>
                         <TextContainer className="col-xs-12 col-md-5">
-                            <Title>{props.title3}</Title>
-                            <FeatureContent>{props.text3}</FeatureContent>
+                            <Title>{RichText.asText(props.info_3_title)}</Title>
+                            <FeatureContent>{RichText.asText(props.info_3_text)}</FeatureContent>
                         </TextContainer>
                     </FeatureSection>
                 </SectionContainer>
@@ -95,7 +96,7 @@ const TextContainer = styled.div`
     }
 `;
 
-const Image1 = styled(MockImageOurStory)`
+const Image1 = styled(Image)`
     max-width: 650px;
     height: 450px;
     @media ${device.mobile} {
@@ -105,7 +106,7 @@ const Image1 = styled(MockImageOurStory)`
     }
 `;
 
-const Image2 = styled(MockImageOurStory)`
+const Image2 = styled(Image)`
     max-width: 500px;
     height: 600px;
     @media ${device.mobile} {
@@ -115,7 +116,7 @@ const Image2 = styled(MockImageOurStory)`
     }
 `;
 
-const Image3 = styled(MockImageOurStory)`
+const Image3 = styled(Image)`
     max-width: 550px;
     height: 550px;
     @media ${device.mobile} {

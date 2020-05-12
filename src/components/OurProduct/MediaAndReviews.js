@@ -4,6 +4,7 @@ import MediaCard from './MediaCard';
 import ReviewCard from './ReviewCard';
 import styled from 'styled-components';
 import { device } from '../../device.js';
+import { RichText } from 'prismic-reactjs';
 
 const MediaAndReview = (props) => {
     return (
@@ -11,11 +12,13 @@ const MediaAndReview = (props) => {
             <SectionContainer>
                 <Title>What people are saying</Title>
                 <div className="row">
-                    <MediaCard {...props} />
-                    <MediaCard {...props} />
-                    <MediaCard {...props} />
-                    <ReviewCard {...props} customerReview={props.customerReview1} customerName={props.customerName1} />
-                    <ReviewCard {...props} customerReview={props.customerReview2} customerName={props.customerName2} />
+                    {props.instagram_posts.map((item, index) => {
+                        return (
+                            <MediaCard {...item} />
+                        )
+                    })}
+                    <ReviewCard customerReview={RichText.asText(props.review_1_text)} customerName={RichText.asText(props.review_1_name)} stars={props.review_1_stars} />
+                    <ReviewCard customerReview={RichText.asText(props.review_2_text)} customerName={RichText.asText(props.review_2_name)} stars={props.review_2_stars} />
                 </div>
             </SectionContainer>
         </BGWhite>

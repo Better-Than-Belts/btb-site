@@ -8,17 +8,21 @@ import OurStory from '../views/OurStory';
 import OurProduct from '../views/OurProduct';
 import FAQ from '../views/FAQ';
 import Footer from './Footer';
+import TopBanner from './Banner/TopBanner';
+import BottomBanner from './Banner/BottomBanner';
 
 const PageContainer = (props) => {
     const shopifyClient = props.client;
+
     return (
         <div>
             <Router>
+                <TopBanner {...props}/>
                 <Nav {...props} />
                 <Route path="/"
                     exact={true}
                     render={() =>
-                        <Home {...props.Home} />
+                        <Home {...props} />
                     } />
                 <Route path="/shop"
                     exact={true}
@@ -33,19 +37,20 @@ const PageContainer = (props) => {
                 <Route path="/why-suspenders"
                     exact={true}
                     render={() =>
-                        <OurProduct {...props.OurProduct} />
+                        <OurProduct {...props} />
                     } />
                 <Route path="/our-story"
                     exact={true}
                     render={() =>
-                        <OurStory {...props.OurStory} />
+                        <OurStory {...props} />
                     } />
                 <Route path="/faq"
                     exact={true}
                     render={() =>
-                        <FAQ {...props.FAQ} />
+                        <FAQ {...props} />
                     } />
                 <Footer {...props} />
+                <BottomBanner {...props}/>
             </Router>
         </div>
     )

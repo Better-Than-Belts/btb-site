@@ -5,13 +5,16 @@ import { device } from '../../device';
 import { Flex, P, H4 } from '../../styles';
 
 const ReviewCard = (props) => {
+    var stars = []
+
+    for (var i = 0; i < props.stars; i++) {
+        stars.push(<Star icon='star' />);
+    }
+
     return (
         <SectionContainer className="col-xs-12 col-md-6">
             <Stars>
-                <Star icon='star' />
-                <Star icon='star' />
-                <Star icon='star' />
-                <Star icon='star' />
+                {stars}
             </Stars>
             <ReviewText>“{props.customerReview}”</ReviewText>
             <ReviewName>- {props.customerName}</ReviewName>

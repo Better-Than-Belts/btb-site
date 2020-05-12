@@ -2,19 +2,23 @@ import React from 'react';
 import styled from 'styled-components';
 import { Flex, P } from '../../styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { RichText } from 'prismic-reactjs';
 import { device } from '../../device';
 
 const CustomerReviewShared = (props) => {
+    var stars = []
+
+    for (var i = 0; i < props.customer_rating; i++) {
+        stars.push(<Star icon='star' />);
+    }
+
     return (
         <TextCenter>
             <Stars>
-                <Star icon='star' />
-                <Star icon='star' />
-                <Star icon='star' />
-                <Star icon='star' />
+                {stars}
             </Stars>
-            <ReviewText>“{props.customerReview}”</ReviewText>
-            <ReviewName>- {props.customerName}</ReviewName>
+            <ReviewText>“{RichText.asText(props.customer_review)}”</ReviewText>
+            <ReviewName>- {RichText.asText(props.customer_name)}</ReviewName>
         </TextCenter>
     );
 };

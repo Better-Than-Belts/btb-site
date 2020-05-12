@@ -1,21 +1,35 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Flex, P, H4 } from '../../styles';
+import { Carousel } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { device } from '../../device';
+import { RichText } from 'prismic-reactjs';
 
 const CustomerReviewsHome = (props) => {
     return (
-        <TextCenter>
-            <Stars>
-                <Star icon='star' />
-                <Star icon='star' />
-                <Star icon='star' />
-                <Star icon='star' />
-            </Stars>
-            <ReviewText>“{props.customerReview}”</ReviewText>
-            <ReviewName>- {props.customerName}</ReviewName>
-        </TextCenter>
+        <Carousel prevIcon={false} nextIcon={false} interval={props.customer_reviews.length * 1000} indicators={false}>
+        {
+            props.customer_reviews.map((item, index) => {
+                var stars = []
+
+                for (var i = 0; i < item.customer_rating; i++) {
+                    stars.push(<Star icon='star' />);
+                }
+                return (
+                    <Carousel.Item>
+                        <TextCenter>
+                            <Stars>
+                                {stars}
+                            </Stars>
+                            <ReviewText>“{RichText.asText(item.customer_review)}”</ReviewText>
+                            <ReviewName>- {RichText.asText(item.customer_name)}</ReviewName>
+                        </TextCenter>
+                    </Carousel.Item>
+                );
+            })
+        }
+    </Carousel>
     );
 };
 
@@ -28,7 +42,7 @@ const Stars = styled(Flex)`
 
 const Star = styled(FontAwesomeIcon)`
     font-size: 30px;
-    color: #FDC16E;
+    color: #E87964;
 `;
 
 const TextCenter = styled.div`
@@ -36,6 +50,7 @@ const TextCenter = styled.div`
     text-align: center;
     color: #F9F9FE;
     margin: auto;
+    height: 300px;
 `;
 
 const ReviewText = styled(P)`

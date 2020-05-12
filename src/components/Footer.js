@@ -5,17 +5,23 @@ import { device } from '../device.js';
 import Newsletter from './Footer/Newsletter';
 import FooterLinks from './Footer/FooterLinks';
 import SocialMedia from './Footer/SocialMedia';
+import PrismicPage from '../prismic/PrismicPage';
 
-const Footer = (props) => {
-    return (
-        <BGBrown>
-            <SectionContainer className="row">
-                <Newsletter />
-                <FooterLinks />
-                <SocialMedia />
-            </SectionContainer>
-        </BGBrown>
-    )
+class Footer extends React.Component {
+    static pageType = 'footer';
+
+    render() {
+        return (
+            <BGBrown>
+                <SectionContainer className="row">
+                    <Newsletter {...this.props.doc.data}/>
+                    <FooterLinks {...this.props.doc.data}/>
+                    <SocialMedia {...this.props.doc.data}/>
+                </SectionContainer>
+            </BGBrown>
+        )
+    }
+    
 }
 
 // Styles
@@ -33,4 +39,4 @@ const SectionContainer = styled(Section)`
     }
 `
 
-export default Footer;
+export default PrismicPage(Footer);

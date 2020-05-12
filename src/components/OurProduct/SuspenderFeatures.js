@@ -1,27 +1,25 @@
 import styled from 'styled-components';
 import { device } from '../../device';
 import React from 'react';
-import { Flex, ImageContainer, MockImageCircle, P } from '../../styles';
-import circleImage from '../../images/Circle.png';
-import Carousel from '../Shared/Carousel';
+import { Flex, P, Image } from '../../styles';
+import { RichText } from 'prismic-reactjs';
 
 const SuspenderFeatures = (props) => {
     return (
         <Features className="our-product">
-            <FlexNoWrap>
-                <FeatureItem text={props.featureText1} />
-                <FeatureItem text={props.featureText2} />
-            </FlexNoWrap>
-            <FlexNoWrap>
-                <FeatureItem text={props.featureText3} />
-                <FeatureItem text={props.featureText4} />
-            </FlexNoWrap>
-            <ProductInformationCarousel>
-                {/* <FeatureItem {...props} /> */}
+            <FeatureItems>
+                {props.our_product_information.map((item, index) => {
+                    return (
+                        <FeatureItem src={item.information_item_image.url} text={RichText.asText(item.information_item_text)} />
+                    );
+                })}
+            </FeatureItems>
+            {/* <ProductInformationCarousel>
+                // {/* <FeatureItem {...props} /> 
                 <Carousel
                     icons={[circleImage, circleImage, circleImage, circleImage]}
                     texts={[props.featureText1, props.featureText2, props.featureText3, props.featureText4]} textColor="#0C1624" arrowColor="#004669" imageWidth="210px" />
-            </ProductInformationCarousel>
+            </ProductInformationCarousel> */}
         </Features>
     );
 };
@@ -36,21 +34,20 @@ const Features = styled.div`
     }
 `;
 
-const FlexNoWrap = styled(Flex)`
-    flex-wrap: nowrap;
-
-    @media ${device.tablet} {
-        display: none;
+const FeatureItems = styled(Flex)`
+    flex-wrap: wrap;
+    >div {
+        flex: 0 50%;
     }
 `;
 
-const ProductInformationCarousel = styled(Flex)`
-    display: none;
+// const ProductInformationCarousel = styled(Flex)`
+//     display: none;
 
-    @media ${device.tablet} {
-        display: block;
-    }
-`;
+//     @media ${device.tablet} {
+//         display: block;
+//     }
+// `;
 
 export default SuspenderFeatures;
 
@@ -58,31 +55,29 @@ export default SuspenderFeatures;
 const FeatureItem = (props) => {
     return (
         <FeatureItemContainer>
-            <ImageContainer>
-                <Image />
+            <Flex>
+                <FeatureImageContainer>
+                    <FeatureImage src={props.src}/>
+                </FeatureImageContainer>
                 <Text><P>{props.text}</P></Text>
-            </ImageContainer>
+            </Flex>
         </FeatureItemContainer>
     );
 };
 
 // Styles
 const FeatureItemContainer = styled.div`
-    padding: 15px;
-
-    @media ${device.tablet} {
-        flex: 0 0 45%;
-    }
+    padding: 10px 0;
 `;
 
-const Image = styled(MockImageCircle)`
-    vertical-align: middle;
-    float: left;
-    max-width: 200px;
-    padding-right: 30px;
-    @media ${device.mobile} {
-        max-width: 210px;
-    }
+const FeatureImage = styled(Image)`
+    width: auto;
+`;
+
+const FeatureImageContainer = styled.div`
+    width: 50%;
+    overflow: hidden;
+    border-radius: 50%;
 `;
 
 const Text = styled.span`

@@ -2,15 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { H2, P, BGWhite, Section, } from '../../styles';
 import { device } from '../../device.js';
+import { RichText } from 'prismic-reactjs';
 
 const OurBackground = (props) => {
     return (
         <BGWhite class="container">
             <SectionContainer>
-                <OurBackgroundTitle>{props.ourBackgroundTitle}</OurBackgroundTitle>
-                <OurBackgroundContent>{props.ourBackgroundText1}</OurBackgroundContent>
-                <br />
-                <OurBackgroundContent>{props.ourBackgroundText1}</OurBackgroundContent>
+                <OurBackgroundTitle>{RichText.asText(props.subhero_title)}</OurBackgroundTitle>
+                <OurBackgroundContent>{RichText.render(props.subhero_text)}</OurBackgroundContent>
             </SectionContainer>
         </BGWhite>
     );

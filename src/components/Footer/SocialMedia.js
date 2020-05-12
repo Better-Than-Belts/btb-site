@@ -8,13 +8,13 @@ import { P } from '../../styles';
 import { device } from '../../device';
 
 
-const SocialMedia = (props) => {
+const SocialMedia = () => {
     return (
         <div className="col-xs-12 col-md-12 col-lg-4">
-            <YoutubeIcon />
-            <FacebookIcon />
-            <InstagramIcon />
-            <TwitterIcon />
+            <YoutubeIcon target="blank_" href="https://www.youtube.com/channel/UCN348SBTsDhtthoYibc1XEA"/>
+            <FacebookIcon target="blank_" href="https://www.facebook.com/betterthanbelts/"/>
+            <InstagramIcon target="blank_" href="https://www.instagram.com/betterthanbelts/"/>
+            <TwitterIcon target="blank_" href="https://twitter.com/betterthanbelts"/>
             <P style={{ color: "#F9F9FE" }}>© 2020, Better Than Belts</P>
         </div>
     )
@@ -23,7 +23,7 @@ const SocialMedia = (props) => {
 // Styles
 
 // Icons
-const YoutubeIcon = styled.img`
+const YoutubeIcon = styled.a`
     content: url(${youtubeIcon});
     margin: 0px 10px 20px 0px;
     width: 60px;
@@ -34,7 +34,7 @@ const YoutubeIcon = styled.img`
         margin: 20px 10px 20px 0px;
     }
 `
-const FacebookIcon = styled.img`
+const FacebookIcon = styled.a`
     content: url(${facebookIcon});
     margin: 0px 10px 20px 10px;
     width: 60px;
@@ -45,7 +45,7 @@ const FacebookIcon = styled.img`
         margin: 20px 10px 20px 10px;
     }
 `
-const InstagramIcon = styled.img`
+const InstagramIcon = styled.a`
     content: url(${instagramIcon});
     margin: 0px 10px 20px 10px;
     width: 60px;
@@ -56,7 +56,7 @@ const InstagramIcon = styled.img`
         margin: 20px 10px 20px 10px;
     }
 `
-const TwitterIcon = styled.img`
+const TwitterIcon = styled.a`
     content: url(${twitterIcon});
     margin: 0px 0px 20px 10px;
     width: 60px;

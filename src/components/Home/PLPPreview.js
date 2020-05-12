@@ -1,40 +1,50 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { device } from '../../device';
-import { H2, BGWhite, Section, ButtonYellow, ButtonText, Flex, ImageContainer, MockImageSquare } from '../../styles';
+import { BTBLink, H2, BGWhite, Section, ButtonYellow, ButtonText, Flex, ImageContainer, Image } from '../../styles';
 
-const PLPPreview = () => {
+const PLPPreview = (props) => {
     return (
         <BGWhite>
             <PLPPreviewSection>
                 <ShopTitle>Shop best sellers</ShopTitle>
                 <PLPFlex>
-                    <ImageContainer>
-                        <MockImageSquare />
-                    </ImageContainer>
-                    <ImageContainer>
-                        <MockImageSquare />
-                    </ImageContainer>
+                    {props.plp_preview_images.map((item, index) => {
+                        return (
+                            <PLPPreviewImageContainer>
+                                <Link to="/shop">
+                                    <Image src={item.plp_preview_image.url} />
+                                </Link>
+                            </PLPPreviewImageContainer>)
+                    })}
                 </PLPFlex>
-                <ShopNow>
-                    <ButtonText>Shop All</ButtonText>
-                </ShopNow>
+                <BTBLink to="/shop">
+                    <ShopNow>
+                        <ButtonText>Shop Now</ButtonText>
+                    </ShopNow>
+                </BTBLink>
             </PLPPreviewSection>
         </BGWhite>
     );
 };
 
 // Styles
+const PLPPreviewImageContainer = styled(ImageContainer)`
+    flex: 1;
+
+    @media ${device.tablet} {
+        flex: auto;
+    }
+`
 const PLPPreviewSection = styled(Section)`
     padding-top: 30px;
 `;
 
 const PLPFlex = styled(Flex)`
-    margin-left: 150px;
-    margin-right: 150px;
+    padding: 0 150px;
     @media ${device.tablet} {
-        margin-left: 20px;
-        margin-right: 20px;
+        padding: 0 20px;
         flex-wrap: wrap;
     }
 `;

@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { RichText } from 'prismic-reactjs';
 import { device } from '../../device';
-import OurStoryPreviewImage from '../../images/Home-OurStoryPreview.png'
-import { BGWhite, ButtonYellow, ButtonText, Flex, ImageContainer, H2, P, Section } from '../../styles';
+import { Link } from 'react-router-dom';
+import { BGWhite, ButtonYellow, ButtonText, Flex, ImageContainer, H2, P, Section, Image } from '../../styles';
 
 const OurStoryPreview = (props) => {
     return (
@@ -10,17 +11,21 @@ const OurStoryPreview = (props) => {
             <OurStorySection>
                 <Flex>
                     <OurStoryImage>
-                        <Image />
+                        <Image src={props.our_story_image.url}/>
                     </OurStoryImage>
                     <OurStoryTextContainer>
                         <OurStoryText>
-                            <Title>Our Story</Title>
+                            <Title>
+                                {RichText.asText(props.our_story_title)}
+                            </Title>
                             <Text>
-                                {props.ourStoryText}
+                                {RichText.asText(props.our_story_text)}
                             </Text>
+                            <Link to="/our-story">
                             <LearnMore>
                                 <ButtonText>Learn More</ButtonText>
                             </LearnMore>
+                            </Link>
                         </OurStoryText>
                     </OurStoryTextContainer>
                 </Flex>
@@ -30,11 +35,6 @@ const OurStoryPreview = (props) => {
 };
 
 // styles
-const Image = styled.img`
-    content: url(${OurStoryPreviewImage});
-    width: 100%;
-`
-
 const OurStorySection = styled(Section)`
     @media ${device.tablet} {
         padding: 30px;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import mockImage from '../../images/Square.png';
+import { RichText } from 'prismic-reactjs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Wave, H1 } from '../../styles';
 import { device } from '../../device';
@@ -8,11 +8,16 @@ import { device } from '../../device';
 
 const Hero = (props) => {
 
+    const HeroBG = styled.div`
+        background-image: url(${props.hero.url});
+        background-position: center;
+        background-size: cover;
+    `;
     return (
         <HeroBG>
             <HeroWrapper>
                 <HeroTitle>
-                    <H1>{props.heroText}</H1>
+                    <H1>{RichText.asText(props.hero_text)}</H1>
                 </HeroTitle>
                 <HeroArrow icon='angle-double-down' />
             </HeroWrapper>
@@ -22,12 +27,6 @@ const Hero = (props) => {
 };
 
 // Styles
-const HeroBG = styled.div`
-    background-image: url(${mockImage});
-    background-position: center;
-    background-size: 100% 100%;
-`;
-
 const HeroWrapper = styled.div`
     margin: auto;
     position: relative;

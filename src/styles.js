@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 import { device } from './device';
+import { Link } from 'react-router-dom';
 import square from './images/Square.png';
 import portrait from './images/Portrait.png';
 import landscape from './images/Landscape.png';
@@ -114,6 +115,11 @@ const Button = styled.button`
 const ButtonYellow = styled(Button)`
     background: #FDC16E;
     font-weight: 1000;
+
+
+    &:hover {
+        background-color: #fa9203;
+    }
 `;
 
 const ButtonText = styled(P)`
@@ -123,7 +129,6 @@ const ButtonText = styled(P)`
     line-height: 140%;
     text-align: center;
     font-style: normal;
-    color: #004669;
 
     @media ${device.tablet} {
         font-size: 20px;
@@ -138,6 +143,7 @@ const Flex = styled.div`
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
+    width: 100%;
 
     @media ${device.tablet} {
         flex-wrap: wrap;
@@ -192,6 +198,10 @@ const ImageContainer = styled.div`
     padding: 10px;
 `;
 
+const Image = styled.img`
+    max-width: 100%;
+    height: auto;
+`
 const MockImage = styled.img`
     content: url(${square});
 `;
@@ -266,6 +276,14 @@ const Wave = () => {
     )
 }
 
+const BTBLink = styled(Link)`
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+`;
+
 
 // Input styles
 const Input = styled.input`
@@ -295,6 +313,7 @@ export {
     Flex,
     TextCenter,
     ImageContainer,
+    Image,
     Section,
     BGGray,
     BGWhite,
@@ -313,6 +332,7 @@ export {
     MockImageOurStory,
     MockFeatureCircle,
     MockMediaImage,
+    BTBLink,
     Input,
     InputButton,
     Wave

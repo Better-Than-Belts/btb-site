@@ -1,17 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MockMediaImage, P2, P } from '../../styles';
+import { Image, P2, P } from '../../styles';
+import { RichText } from 'prismic-reactjs';
 
 const MediaCard = (props) => {
     return (
-        <MediaContainer className="col-xs-12 col-md-4">
+        <MediaContainer className="col-xs-12 col-md-4" href={props.link.url}>
             <Box>
-                <MockMediaImage />
+                <MediaImage src={props.image.url} />
                 <MediaHandle>
-                    @Insta
+                    @{RichText.asText(props.handle)}
                 </MediaHandle>
                 <MediaDescription>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem reprehenderit quas sapiente, voluptatum cum sunt?
+                    {RichText.render(props.description)}
                 </MediaDescription>
             </Box>
         </MediaContainer>
@@ -20,15 +21,25 @@ const MediaCard = (props) => {
 
 // Styles
 
+const MediaImage = styled(Image)`
+    width: 100%;
+    padding: 20px;
+`;
+
 const Box = styled.div`
     border: none;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
     background-color: #FFFFFF;
 `
 
-const MediaContainer = styled.div`
+const MediaContainer = styled.a`
     margin-top: 20px;
     margin-bottom: 20px;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
 `
 
 const MediaHandle = styled(P2)`
