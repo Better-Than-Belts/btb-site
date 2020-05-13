@@ -38,7 +38,7 @@ const BannerContainer = styled.div`
     text-align: center;
     background-color: ${props => props.bgColor};
     top: 0;
-    z-index: 1;
+    z-index: 6;
     position: ${props => props.sticky ? 'sticky' : 'relative'};
 `;
 

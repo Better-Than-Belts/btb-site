@@ -7,6 +7,14 @@ import Carousel from '../Shared/Carousel';
 import circleImage from '../../images/Circle.png';
 
 const SuspenderFeatures = (props) => {
+    var informationImageURLs = props.our_product_information.map((item, index) => {
+        return item.information_item_image.url;
+    });
+
+    var informationText = props.our_product_information.map((item, index) => {
+        return RichText.asText(item.information_item_text);
+    });
+
     return (
         <Features className="our-product">
             <FeatureItems>
@@ -18,8 +26,8 @@ const SuspenderFeatures = (props) => {
             </FeatureItems>
             <ProductInformationCarousel>
                 <Carousel
-                    icons={[circleImage, circleImage, circleImage, circleImage]}
-                    texts={[props.featureText1, props.featureText2, props.featureText3, props.featureText4]} textColor="#0C1624" arrowColor="#004669" imageWidth="210px" />
+                    icons={informationImageURLs}
+                    texts={informationText} textColor="#0C1624" arrowColor="#004669" imageWidth="210px" />
             </ProductInformationCarousel>
         </Features>
     );
@@ -75,14 +83,17 @@ const FeatureItemContainer = styled.div`
     }
 `;
 
-const FeatureImage = styled(Image)`
+const FeatureImage = styled.div`
     vertical-align: middle;
     float: left;
-    max-width: 200px;
-    object-fit: cover;
-    padding-right: 30px;
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    border-radius: 50%;
+    background-image: url(${props => props.src});
     @media ${device.mobile} {
-        max-width: 210px;
+        width: 210px;
+        height: 210px;
     }
 `;
 
@@ -91,6 +102,7 @@ const FeatureImageContainer = styled(ImageContainer)`
 `;
 
 const Text = styled.span`
+    padding-left: 30px;
     vertical-align: middle;
     display: table-cell;
     height: 160px;

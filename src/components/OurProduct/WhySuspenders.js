@@ -16,7 +16,7 @@ const WhySuspenders = (props) => {
                         <AccentContainer>
                             <Circle src={circle} />
                         </AccentContainer>
-                        <Image src={props.hero_image.url} />
+                        <WhySuspendersImage src={props.hero_image.url} />
                     </ImageContainer>
                     <TextContainer className="col-xs-12 col-md-6">
                         <Title>{RichText.asText(props.our_product_title)}</Title>
@@ -32,6 +32,12 @@ const WhySuspenders = (props) => {
 };
 
 // Styles
+const WhySuspendersImage = styled.div`
+    background-image: url(${props => props.src});
+    height: 400px;
+    width: auto;
+    background-size: cover;
+`;
 
 const Title = styled(H2)`
     padding-top: 20px;
@@ -65,20 +71,6 @@ const TextContainer = styled.div`
         margin-top: 0;
     }
 `;
-
-// const Image = styled(MockImageLandscape)`
-//     max-width: 545px;
-//     height: 380px;
-//     width: 100%;
-//     @media ${device.tablet} {
-//         display: block;
-//         margin-left: auto;
-//         margin-right: auto;
-//         object-fit: cover;
-//         max-width: 100%;
-//         height: auto;
-//     }
-// `
 
 const Circle = styled(AccentImage)`
     top: 40px;

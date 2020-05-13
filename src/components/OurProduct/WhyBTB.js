@@ -20,7 +20,7 @@ const WhyBTB = (props) => {
             <SectionContainer>
                 <WhyBTBSection className="row flex-md-row-reverse">
                     <ImageContainer className="col-xs-12 col-md-6">
-                        <Image src={props.our_product_primary_image.url} />
+                        <WhyBTBImage src={props.our_product_primary_image.url} />
                         <AccentContainer>
                             <Circle src={circle} />
                         </AccentContainer>
@@ -37,7 +37,7 @@ const WhyBTB = (props) => {
                         <AccentContainer>
                             <Block1 src={block1} />
                         </AccentContainer>
-                        <Image src={props.our_product_secondary_image.url} />
+                        <WhyBTBImage src={props.our_product_secondary_image.url} />
                     </ImageContainer>
                     <TextContainer className="col-xs-12 col-md-6">
                         <SupplyTitle>{RichText.asText(props.our_product_secondary_title)}</SupplyTitle>
@@ -56,6 +56,13 @@ const WhyBTB = (props) => {
 };
 
 // Styles
+
+const WhyBTBImage = styled.div`
+    background-image: url(${props => props.src});
+    height: 500px;
+    width: auto;
+    background-size: cover;
+`;
 
 const Title = styled(H2)`
     width: 80%;
@@ -103,20 +110,6 @@ const WhyBTBSection = styled.div`
         padding-bottom: 20px;
     }
 `
-
-// const Image = styled(MockImageLandscape)`
-//     max-width: 545px;
-//     height: 430px;
-//     width: 100%;
-//     @media ${device.tablet} {
-//         display: block;
-//         margin-left: auto;
-//         margin-right: auto;
-//         max-width: 100%;
-//         height: auto;
-//         object-fit: cover;
-//     }
-// `
 
 const SectionContainer = styled(Section)`
     @media ${device.tablet} {

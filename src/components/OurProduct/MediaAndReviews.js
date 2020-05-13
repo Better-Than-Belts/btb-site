@@ -21,6 +21,8 @@ const MediaAndReview = (props) => {
                             <MediaCard {...item} />
                         )
                     })}
+                </div>
+                <div className="row">
                     <ReviewCard customerReview={RichText.asText(props.review_1_text)} customerName={RichText.asText(props.review_1_name)} stars={props.review_1_stars} />
                     <ReviewCard customerReview={RichText.asText(props.review_2_text)} customerName={RichText.asText(props.review_2_name)} stars={props.review_2_stars} />
                 </div>
