@@ -40,7 +40,7 @@ const JoinText = styled(P)`
 const EmailGroup = {
     height: "70px",
     width: "100%",
-    "padding-top": "20px"
+    paddingTop: "20px"
 }
 
 export default Newsletter;
