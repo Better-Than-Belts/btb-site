@@ -9,6 +9,7 @@ import { device } from '../device';
 import "./PDP.css";
 import { Link } from 'react-router-dom';
 import SizeTable from '../components/PDP/SizeTable';
+import { getAllReviews } from '../judgeme/JudgeMeUtils';
 
 class PDP extends React.Component {
 
@@ -39,6 +40,21 @@ class PDP extends React.Component {
                 products: res,
             });
         });
+        this.getReviews()
+            .then(data => {
+                console.log(data);
+            });
+    }
+
+    async getReviews() {
+        const response = await fetch("https://judge.me/api/v1/reviews?shop_domain=better-than-belts.myshopify.com&api_token=vV2Kjg2yUhD9ZWljyWeljfkC0Ag", {
+            method: 'GET', // *GET, POST, PUT, DELETE, etc.
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            redirect: 'follow', // manual, *follow, error
+        });
+        return response.json();
     }
 
     changeDropdownValue = event => {
