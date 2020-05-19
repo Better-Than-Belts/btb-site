@@ -9,6 +9,7 @@ import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import { device } from '../device';
 import navHamburgericon from '../images/NavHamburgerIcon.svg';
 import PrismicPage from '../prismic/PrismicPage';
+import { RichText } from 'prismic-reactjs';
 
 class NavRouter extends React.Component {
     static pageType = 'navbar';
@@ -17,7 +18,9 @@ class NavRouter extends React.Component {
         super(props);
         this.state = {
             width: 0,
-            expanded: false
+            expanded: false,
+            doc: null,
+            err: null
         };
         this.setNavExpanded = this.setNavExpanded.bind(this);
         this.closeNav = this.closeNav.bind(this);
@@ -30,6 +33,25 @@ class NavRouter extends React.Component {
     componentDidMount() {
         this.updateScreenSize();
         window.addEventListener('resize', this.updateScreenSize);
+        this.fetchNavItems(this.props);
+      }
+  
+    fetchNavItems = props => {
+        if (props.prismicCtx) {
+            props.prismicCtx.api.getByUID(
+            "navbar",
+            "navbar",
+            {},
+            (err, doc) => {
+                if (err) {
+                this.setState(() => ({ err }));
+                } else if (doc) {
+                    console.log(doc);
+                this.setState(() => ({ doc }));
+                }
+            }
+            );
+        }
     }
 
     componentWillUnmount() {
@@ -68,9 +90,9 @@ class NavRouter extends React.Component {
                             <BTBNavLink to={`/faq`}>
                                 FAQ
                             </BTBNavLink>
-                            <BTBNavLink to={`/press`}>
-                                Press
-                            </BTBNavLink>
+                            {this.props.doc ? this.props.doc.data.navbar_items.map((item, index) => {
+                            return <BTBNavLink to={RichText.asText(item.navbar_link_route)}>{RichText.asText(item.navbar_link_text)}</BTBNavLink>
+                            }): ''}
                         </Nav>
                         <IconLink><Search /></IconLink>
                         <NavItem to={`/cart`}><Cart /></NavItem>
@@ -112,6 +134,14 @@ class NavRouter extends React.Component {
                             <NavLink onClick={this.closeNav} to={`/faq`} style={navItem}>
                                 <NavText>FAQ</NavText>
                             </NavLink>
+                            {this.props.doc ? this.props.doc.data.navbar_items.map((item, index) => {
+                            return (
+                                <NavLink onClick={this.closeNav} to={RichText.asText(item.navbar_link_route)} style={navItem}>
+                                    <NavText>
+                                        {RichText.asText(item.navbar_link_text)}
+                                    </NavText>
+                                </NavLink>)
+                            }): ''}
                             <MobileHR />
                         </Nav>
                     </Navbar.Collapse>
