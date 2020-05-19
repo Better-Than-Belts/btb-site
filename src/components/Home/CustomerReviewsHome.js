@@ -9,7 +9,7 @@ import { RichText } from 'prismic-reactjs';
 
 const CustomerReviewsHome = (props) => {
     return (
-        <Carousel prevIcon={false} nextIcon={false} interval={props.customer_reviews.length * 1000} indicators={false}>
+        <Carousel prevIcon={false} nextIcon={false} interval={1500} indicators={false}>
             {
                 props.customer_reviews.map((item, index) => {
                     var stars = []
@@ -19,7 +19,7 @@ const CustomerReviewsHome = (props) => {
                     }
                     return (
                         <Carousel.Item>
-                            <TextCenter>
+                            <TextCenter style={{minHeight: "450px"}}>
                                 <Stars>
                                     {stars}
                                 </Stars>
