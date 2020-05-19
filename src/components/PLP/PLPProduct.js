@@ -10,14 +10,19 @@ class PLPProduct extends React.Component {
         super(props);
     }
 
+    filterReviews = (reviews, handle) => {
+        return reviews.filter(review => review.product_handle == handle);
+    }
+
     render() {
+        console.log(this.props.reviews);
         return (
             <ProductDiv className="col-md-4 col-6">
                 <PDPLink to={`/shop/${this.props.product.id}`}>
                     {this.props.product.images.length ?
                         <ProductImage src={this.props.product.images[0].src} alt={this.props.product.title} /> : null}
                     <ProductName>{this.props.product.title} - {this.props.product.variants[0].price}</ProductName>
-                    <ReviewAverage reviews={this.props.reviews} handle={this.props.product.handle} reviewsLoading={this.props.reviewsLoading} />
+                    <ReviewAverage reviews={this.props.reviews.length > 0 ? this.filterReviews(this.props.reviews, this.props.product.handle) : []} />
                 </PDPLink>
             </ProductDiv>
         )
@@ -26,18 +31,18 @@ class PLPProduct extends React.Component {
 }
 
 const ReviewAverage = (props) => {
+    console.log(props);
     return (
-        props.reviewsLoading ? <div>Loading Reviews</div> 
-            : <ReviewsContainer>
-                    <Stars>
-                        <FontAwesomeIcon icon="star"/>
-                        <FontAwesomeIcon icon="star"/>
-                        <FontAwesomeIcon icon="star"/>
-                        <FontAwesomeIcon icon="star"/>
-                        <FontAwesomeIcon icon="star"/>
-                    </Stars>
-                    <ReviewsCount>{5} Reviews</ReviewsCount>
-            </ReviewsContainer>
+        <ReviewsContainer>
+                <Stars>
+                    <FontAwesomeIcon icon="star"/>
+                    <FontAwesomeIcon icon="star"/>
+                    <FontAwesomeIcon icon="star"/>
+                    <FontAwesomeIcon icon="star"/>
+                    <FontAwesomeIcon icon="star"/>
+                </Stars>
+                <ReviewsCount>{5} Reviews</ReviewsCount>
+        </ReviewsContainer>
     )
 }
 
