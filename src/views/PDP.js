@@ -9,6 +9,7 @@ import { device } from '../device';
 import "./PDP.css";
 import { Link } from 'react-router-dom';
 import SizeTable from '../components/PDP/SizeTable';
+import { getAllReviews } from '../judgeme/JudgeMeUtils.js';
 
 class PDP extends React.Component {
 
@@ -20,7 +21,8 @@ class PDP extends React.Component {
             product: {},
             images: [],
             productVariants: {},
-            products: []
+            products: [],
+            reviews: []
         };
         this.setProduct = this.setProduct.bind(this);
     }
@@ -39,6 +41,10 @@ class PDP extends React.Component {
                 products: res,
             });
         });
+
+        getAllReviews().then(res => {
+            this.setState(() => ({ reviews: res, reviewsLoading: false }))
+        });
     }
 
     changeDropdownValue = event => {
@@ -56,7 +62,8 @@ class PDP extends React.Component {
     }
 
     render() {
-        let userReviews = text.userReviews.map((item, index) => <UserReview {...item} />);
+        // @ IAN DONT LOOK 
+        let userReviews = this.state.reviews.filter((review) => review.product_handle == this.state.product.handle).map((item, index) => <UserReview {...item} />);
         let sizeChart = <SizeTable />
         return (
             <BGWhite>
