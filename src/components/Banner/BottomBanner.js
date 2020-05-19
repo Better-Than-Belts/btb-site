@@ -19,7 +19,7 @@ class BottomBanner extends React.Component{
     
     render() {
         return (
-            this.state.display ?
+            this.state.display && this.props.doc.data.show ?
             <BannerContainer bgColor={this.props.doc.data.background_color} sticky={this.props.doc.data.sticky}>
                 <ClearButton icon='times' onClick={this.clearBanner} color={this.props.doc.data.text_color}/>
                 <BannerContent color={this.props.doc.data.text_color}>
