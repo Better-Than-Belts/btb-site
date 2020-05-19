@@ -55,7 +55,7 @@ class NavRouter extends React.Component {
                                 <BTBLogo />
                             </Navbar.Brand>
                         </Link>
-                        <Nav className="mr-auto">
+                        <Nav className="mr-auto" style={{'flex-wrap': 'wrap'}}>
                             <BTBNavLink to={`/shop`}>
                                 Shop
                                 </BTBNavLink>
@@ -67,7 +67,10 @@ class NavRouter extends React.Component {
                                 </BTBNavLink>
                             <BTBNavLink to={`/faq`}>
                                 FAQ
-                                </BTBNavLink>
+                            </BTBNavLink>
+                            <BTBNavLink to={`/press`}>
+                                Press
+                            </BTBNavLink>
                         </Nav>
                         <IconLink><Search /></IconLink>
                         <NavItem to={`/cart`}><Cart /></NavItem>
