@@ -21,18 +21,16 @@ const SectionContainer = styled(Section)`
     padding-right: 150px;
     padding-top: 10px;
     padding-bottom: 10px;
-    @media ${device.tablet} {
-        padding-left: 60px;
-        padding-right: 60px;
+    @media ${device.laptop} {
+        padding-bottom: 10px;
     }
-    @media ${device.mobile} {
+    @media ${device.tablet} {
         padding-left: 30px;
         padding-right: 30px;
     }
 `
 
 const OurBackgroundTitle = styled(H2)`
-    padding-bottom: 30px;
 `
 
 const OurBackgroundContent = styled(P)`

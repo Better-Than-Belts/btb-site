@@ -9,7 +9,7 @@ class VariantSelector extends React.Component {
             selected: false
         }
     }
-    
+
     render() {
         const styles = {
             background: this.props.color
@@ -18,10 +18,11 @@ class VariantSelector extends React.Component {
 
         return (
             <VariantCircle style={styles}>
+                <img src={this.props.img} width="70px" height="70px" />
             </VariantCircle >
         );
     }
-    
+
 };
 
 const VariantCircle = styled.div`
@@ -30,6 +31,7 @@ const VariantCircle = styled.div`
     padding: 3px;
     width: 70px;
     height: 70px;
+    overflow: hidden;
 `;
 
 export default VariantSelector;

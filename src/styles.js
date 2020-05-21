@@ -5,34 +5,38 @@ import { Link } from 'react-router-dom';
 import square from './images/Square.png';
 import portrait from './images/Portrait.png';
 import landscape from './images/Landscape.png';
-import cartIcon from './images/Cart-Icon.png';
 import logo from './images/Logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import filterCircle from './images/SmallCircle.png'
 import ourStoryImage from './images/OurStoryImage.png';
 import featureCircle from './images/Circle.png';
 import './index.css';
+import StarIcon from './images/CoralStar.svg';
+
 
 const H1 = styled.h1`
     font-family: "Calistoga", serif;
     font-size: 72px;
     margin-top: 10px;
     margin-bottom: 10px;
+    line-height: 86px;
     @media ${device.tablet} {
         font-size: 50px;
+        line-height: 72px;
     }
 `;
 
 const H2 = styled.h2`
     font-family: "Calistoga", cursive;
     font-weight: normal;
-    font-size: 50px;
+    font-size: 48px;
     margin-top: 10px;
     margin-bottom: 10px;
-    line-height: 140%;
+    line-height: 56px;
 
     @media ${device.tablet} {
         font-size: 32px;
+        line-height: 40px;
     }
 `;
 
@@ -41,10 +45,11 @@ const H3 = styled.h3`
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 36px;
+    line-height: 52px;
     color: #F9F9FE;
     @media ${device.tablet} {
-        font-size: 28px;
-        line-height: 32px;
+        font-size: 24px;
+        line-height: 36px;
     }
 `;
 
@@ -64,22 +69,22 @@ const H4 = styled.h4`
 
 const P = styled.p`
     font-family: "Libre Franklin", sans-serif;
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 18px;
+    line-height: 28px;
     margin-top: 10px;
     margin-bottom: 10px;
     color: #0C1527;
 
     @media ${device.tablet} {
         font-size: 16px;
-        line-height: 26px;
+        line-height: 24px;
     }
 `;
 
 const P2 = styled.p`
     font-family: "Libre Franklin", sans-serif;
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 18px;
+    line-height: 28px;
     margin-top: 10px;
     margin-bottom: 10px;
     font-weight: 800;
@@ -87,17 +92,17 @@ const P2 = styled.p`
 
     @media ${device.tablet} {
         font-size: 16px;
-        line-height: 26px;
+        line-height: 24px;
     }
 `;
 
 const P3 = styled(P)`
-    font-size: 15px;
+    font-size: 14px;
     line-height: 18px;
 
     @media ${device.tablet} {
         font-size: 13px;
-        line-height: 21px;
+        line-height: 18px;
     }
 `;
 
@@ -125,13 +130,15 @@ const ButtonYellow = styled(Button)`
 const ButtonText = styled(P)`
     margin: 0;
     font-weight: bold;
-    font-size: 26px;
-    line-height: 140%;
+    font-size: 20px;
+    line-height: 32px;
     text-align: center;
     font-style: normal;
+    color: #004669;
 
     @media ${device.tablet} {
-        font-size: 20px;
+        font-size: 18px;
+        line-height: 24px;
     }
 `;
 
@@ -160,13 +167,16 @@ const Section = styled.div`
     padding-right: 20px;
     padding-left:  20px;
 
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 80px;
+    padding-bottom: 80px;
 
 `;
 
 const FullPageContainer = styled.div`
     padding: 80px 150px;
+    @media ${device.laptop} {
+        padding: 80px 30px;
+    }
 
     @media ${device.tablet} {
         padding: 70px 90px;
@@ -202,7 +212,13 @@ const Image = styled.img`
     max-width: 100%;
     height: auto;
     padding: 0;
-`
+    @media ${device.tablet} {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+`;
+
 const MockImage = styled.img`
     content: url(${square});
 `;
@@ -232,15 +248,12 @@ const MockLogo = styled.img`
     height: 60px;
 `;
 
-const MockCartIcon = styled.img`
-    content: url(${cartIcon});
-    width: 78px;
-    height: 60px;
-`;
-
-const Star = styled(FontAwesomeIcon)`
-    font-size: 30px;
-    color: #C4C4C4;
+const Star = styled.img`
+    content: url(${StarIcon});
+    max-width: 50px;
+    @media ${device.mobile} {
+        max-width: 40px;
+    }
 `;
 
 const MockFilterCircle = styled.img`
@@ -270,12 +283,31 @@ const MockMediaImage = styled(MockImageLandscape)`
 const Wave = () => {
     return (
         <div className="wave-div">
-            <svg className="wave-svg" viewBox="0 0 1440 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5.30485e-05 169V43.1364C93.8325 22.3956 237.797 -2.07504 410.647 0.140168C644.692 3.13858 769.925 45.4447 997.498 50.2886C1106.28 52.6047 1219.49 46.109 1440 3.72277V160.041" fill="#F9F9FE" />
+            <svg className="wave-svg" viewBox="0 0 1440 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 79V56.6644C93.8325 29.4191 237.797 -2.72577 410.647 0.184143C644.692 4.12289 769.925 59.6965 997.498 66.0596C1106.28 69.102 1219.49 60.5692 1440 4.89027V79" fill="#F9F9FE" />
             </svg>
         </div>
     )
 }
+
+const AccentContainer = styled.div`
+    position: absolute;
+    width: auto;
+    pointer-events: none;
+`;
+
+const AccentContainerFull = styled(AccentContainer)`
+    width: 100%;
+`;
+
+const AccentImage = styled.img`
+    position: relative;
+`;
+
+const RouteLink = styled(Link)`
+    text-decoration: none;
+    color: inherit;
+`;
 
 const BTBLink = styled(Link)`
     text-decoration: none;
@@ -289,7 +321,7 @@ const BTBLink = styled(Link)`
 // Input styles
 const Input = styled.input`
     padding: 5px 10px;
-    font-family: Poppins;
+    font-family: "Libre Franklin", sans-serif;
     width: 80%;
 `
 
@@ -327,7 +359,6 @@ export {
     MockImagePortrait,
     MockImageLandscape,
     MockLogo,
-    MockCartIcon,
     Star,
     MockFilterCircle,
     MockImageOurStory,
@@ -336,5 +367,9 @@ export {
     BTBLink,
     Input,
     InputButton,
-    Wave
+    Wave,
+    AccentContainer,
+    AccentContainerFull,
+    AccentImage,
+    RouteLink
 };

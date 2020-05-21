@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { device } from '../../device';
-import { Flex, P, H4 } from '../../styles';
+import { Flex, P, H4, Star } from '../../styles';
+import yellowStar from '../../images/YellowStar.svg';
 
 const ReviewCard = (props) => {
     var stars = []
 
     for (var i = 0; i < props.stars; i++) {
-        stars.push(<Star icon='star' />);
+        stars.push(<ReviewStar />);
     }
 
     return (
@@ -34,14 +34,15 @@ const SectionContainer = styled.div`
 `;
 
 const Stars = styled(Flex)`
-    max-width: 200px;
+    flex-wrap: nowrap;
+    max-width: 300px;
     margin: 0 auto;
     padding-bottom: 10px;
+    justify-content: space-evenly;
 `;
 
-const Star = styled(FontAwesomeIcon)`
-    font-size: 30px;
-    color: #FDC16E;
+const ReviewStar = styled(Star)`
+    content: url(${yellowStar});
 `;
 
 const ReviewText = styled(P)`

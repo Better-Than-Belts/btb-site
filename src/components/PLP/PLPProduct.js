@@ -10,7 +10,7 @@ class PLPProduct extends React.Component {
             <ProductDiv className="col-md-4 col-6">
                 <PDPLink to={`/shop/${this.props.product.id}`}>
                     {this.props.product.images.length ?
-                        <Image src={this.props.product.images[0].src} alt={this.props.product.title} /> : null}
+                        <ProductImage src={this.props.product.images[0].src} alt={this.props.product.title} /> : null}
                     <ProductName>{this.props.product.title} - {this.props.product.variants[0].price}</ProductName>
                 </PDPLink>
             </ProductDiv>
@@ -27,21 +27,17 @@ const ProductName = styled(P)`
 `
 
 const ProductDiv = styled.div`
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 20px;
 `
 
 const PDPLink = styled(Link)`
     color: #0C1527;
 `;
 
-const Image = styled.img`
+const ProductImage = styled.img`
     width: 100%;
-    height: 515px;
+    height: auto;
     object-fit: cover;
     border: none;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
-    @media ${device.tablet} {
-        height: 350px;
-    }
 `;
