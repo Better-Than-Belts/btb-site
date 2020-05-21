@@ -54,6 +54,11 @@ const ClearButton = styled(FontAwesomeIcon)`
     right: 18px;
     top: 50%;
     transform: translateY(-50%);
+
+    &:hover {
+        filter: brightness(85%);
+        cursor: pointer;
+    }
 `;
 
 

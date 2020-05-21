@@ -201,6 +201,7 @@ const BTBNavLink = styled(NavLink)`
 const BTBLogo = styled.img`
     content: url(${Logo});
     width: 200px;
+    padding: 0;
 `;
 
 const IconLink = styled(Nav.Link)`

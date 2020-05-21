@@ -211,12 +211,14 @@ const ImageContainer = styled.div`
 const Image = styled.img`
     max-width: 100%;
     height: auto;
+    padding: 0;
     @media ${device.tablet} {
         margin-left: auto;
         margin-right: auto;
         display: block;
     }
-`
+`;
+
 const MockImage = styled.img`
     content: url(${square});
 `;
