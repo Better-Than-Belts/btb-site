@@ -29,7 +29,7 @@ const OurStoryHero = (props) => {
                     <HeroTitle>
                         <HeroText>{RichText.asText(props.hero_title)}</HeroText>
                     </HeroTitle>
-                    {/* <HeroArrow /> */}
+                    <HeroArrow />
                 </HeroWrapper>
                 <Wave />
                 <AccentContainerFull>
