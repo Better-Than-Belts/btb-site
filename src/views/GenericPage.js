@@ -6,6 +6,7 @@ import TextImage from '../components/Generics/TextImage';
 import ImageText from '../components/Generics/ImageText';
 import FullWidthImage from '../components/Generics/FullWidthImage';
 import { RichText } from 'prismic-reactjs';
+import Prismic from 'prismic-javascript';
 
 class GenericPage extends React.Component { 
     state = {
@@ -14,6 +15,7 @@ class GenericPage extends React.Component {
       };
     
     componentWillMount() {
+        window.scrollTo(0, 0);
         this.fetchPage(this.props);
     }
   
@@ -21,28 +23,27 @@ class GenericPage extends React.Component {
         this.fetchPage(props);
     }
 
-    componentDidUpdate() {
-        this.fetchPage(this.props);
+    componentDidUpdate(prevProps) {
+        if(prevProps.uid != this.props.uid) {
+            this.setState({ doc: null, err: null})
+            window.scrollTo(0, 0);
+        }
     }
   
     fetchPage = props => {
-        console.log(props);
         if (props.prismicCtx) {
-            props.prismicCtx.api
-            .getByUID('generic_page', props.uid)
-            .then((doc, err) => {
-                if (err) {
-                    this.setState(() => ({ err }));
-                } else if (doc) {
-                    this.setState(() => ({ doc }));
+            props.prismicCtx.api.query(
+                Prismic.Predicates.at('my.generic_page.uid', props.uid),
+                { lang : '*' }
+            ).then(res => {
+                if(res.results_size && res.results_size > 0) {
+                    this.setState(() => ({ doc: res.results[0]}))
                 }
                 else {
-                    this.setState(() => ({err: "Not Found"}))
+                    this.setState(() => ({ err: 'Not Found' }));
                 }
-
             });
-        }
-    };
+        }};
 
     render() {
         return this.state.doc ? 
