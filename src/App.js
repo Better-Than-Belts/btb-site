@@ -1,6 +1,6 @@
 import React from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faAngleDoubleDown, faStar, faAngleDoubleRight, faArrowRight, faArrowLeft, faArrowDown, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDoubleDown, faStar, faAngleDoubleRight, faArrowRight, faArrowLeft, faArrowDown, faTimes, faCheck } from '@fortawesome/free-solid-svg-icons';
 import Client from 'shopify-buy';
 import PageContainer from './components/PageContainer';
 
@@ -20,6 +20,6 @@ function App(props) {
   );
 }
 
-library.add(faAngleDoubleDown, faStar, faAngleDoubleRight, faArrowRight, faArrowLeft, faArrowDown, faTimes);
+library.add(faAngleDoubleDown, faStar, faAngleDoubleRight, faArrowRight, faArrowLeft, faArrowDown, faTimes, faCheck);
 
 export default App;
