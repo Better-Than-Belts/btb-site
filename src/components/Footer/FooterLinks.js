@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { RichText } from 'prismic-reactjs';
 
 const FooterLinks = (props) => {
-    console.log(props);
     return (
         <div className="col-xs-12 col-md-4 col-lg-2">
             {props.footer_links.map((item, index) => {

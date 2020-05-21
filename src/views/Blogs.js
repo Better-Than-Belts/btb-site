@@ -53,7 +53,6 @@ class Blogs extends React.Component {
 export default Blogs;
 
 const BlogPreview = (props) => {
-    console.log(props);
     return (
         <BlogPreviewContainer to={'/blog/' + props.uid}>
             <BlogPreviewImage url={props.data.hero.url ? props.data.hero.url : square}/> 

@@ -44,8 +44,6 @@ class Blog extends React.Component {
                     <HeroWrapper>
                         <HeroTitle titleWhite={this.state.doc.data.title_white}>
                             <H2>{RichText.asText(this.state.doc.data.title)}</H2>
-                            <H4>by {RichText.asText(this.state.doc.data.author)}</H4>
-                            <Date>{this.state.doc.data.date}</Date>
                         </HeroTitle>
                     </HeroWrapper>
                     <Wave />
@@ -53,12 +51,14 @@ class Blog extends React.Component {
                 <HeroWrapper>
                 <HeroTitle titleWhite={this.state.doc.data.title_white}>
                     <H2>{RichText.asText(this.state.doc.data.title)}</H2>
-                    <H4>by {RichText.asText(this.state.doc.data.author)}</H4>
-                    <Date>{this.state.doc.data.date}</Date>
                 </HeroTitle>
             </HeroWrapper> 
             }
                 <BlogSection>
+                    <H4 style={{'color': '#0C1527', 'margin-bottom': '0px'}}>by {RichText.asText(this.state.doc.data.author)}</H4>
+                    <Date>{this.state.doc.data.date}</Date>
+                    <br/>
+                    <br/>
                     <P>
                         {RichText.render(this.state.doc.data.blog_content)}
                     </P>
@@ -81,7 +81,7 @@ background-size: cover;
 `;
 
 const Date = styled(P)`
-    color: inherit;
+    color: #0C1527;
 `;
 
 // Styles

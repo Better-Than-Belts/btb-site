@@ -18,7 +18,6 @@ class TopBanner extends React.Component{
     }
     
     render() {
-        console.log(this.props);
         return (
             this.state.display ?
             <BannerContainer bgColor={this.props.doc.data.background_color} sticky={this.props.doc.data.sticky}>
