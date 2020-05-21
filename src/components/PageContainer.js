@@ -11,11 +11,11 @@ import Blogs from '../views/Blogs';
 import GenericPage from '../views/GenericPage';
 import Blog from '../components/Blog/Blog';
 import Footer from './Footer';
+import ScrollToTop from './ScrollToTop';
+import Cart from '../views/Cart';
 import TopBanner from './Banner/TopBanner';
 import BottomBanner from './Banner/BottomBanner';
 
-
-// TODO: have PageContainer load all Generic pages from Prismic using prismicCtx
 const PageContainer = (props) => {
     const shopifyClient = props.client;
     const prismicCtx = props.prismicCtx;
@@ -23,7 +23,8 @@ const PageContainer = (props) => {
     return (
         <div>
             <Router>
-                <TopBanner {...props}/>
+                <ScrollToTop />
+                <TopBanner {...props} />
                 <Nav {...props} />
                 <Route path="/"
                     exact={true}
@@ -66,6 +67,11 @@ const PageContainer = (props) => {
                         render={() =>
                             <FAQ {...props} />
                         } />
+                    <Route path="/cart"
+                    exact={true}
+                    render={() =>
+                        <Cart />
+                    } />
                     <Route path="/:uid"
                         exact={true}
                         render={(props) =>
@@ -73,7 +79,7 @@ const PageContainer = (props) => {
                         } />
                 </Switch>
                 <Footer {...props} />
-                <BottomBanner {...props}/>
+                <BottomBanner {...props} />
             </Router>
         </div>
     )

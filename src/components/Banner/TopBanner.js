@@ -18,9 +18,8 @@ class TopBanner extends React.Component{
     }
     
     render() {
-        console.log(this.props);
         return (
-            this.state.display ?
+            this.state.display && this.props.doc.data.show ?
             <BannerContainer bgColor={this.props.doc.data.background_color} sticky={this.props.doc.data.sticky}>
                 <ClearButton icon='times' onClick={this.clearBanner} color={this.props.doc.data.text_color}/>
                 <BannerContent color={this.props.doc.data.text_color}>
@@ -39,7 +38,7 @@ const BannerContainer = styled.div`
     text-align: center;
     background-color: ${props => props.bgColor};
     top: 0;
-    z-index: 1;
+    z-index: 6;
     position: ${props => props.sticky ? 'sticky' : 'relative'};
 `;
 

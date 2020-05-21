@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { device } from '../../device';
 import React from 'react';
-import { Flex, ImageContainer, P } from '../../styles';
+import { Flex, ImageContainer, P, Image } from '../../styles';
 import MadeInAmericaIcon from '../../images/MadeInUSA.png';
 import FiveStarsIcon from '../../images/FiveStars.png';
 import FastShippingIcon from '../../images/FastShipping.png';
@@ -64,7 +64,7 @@ const AssembledIcon = (props) => {
 // Styles
 const ItemContainer = styled.div`
     padding: 15px;
-    margin-top: 50px;
+    margin-top: 10px;
 
     @media ${device.tablet} {
         flex: 0 0 45%;
@@ -83,12 +83,3 @@ const ItemText = styled(P)`
     padding: 0 10px 10px 10px;
     color: #F9F9FE;
 `;
-
-const Image = styled.img`
-    max-width: 230px;
-    width: 100%;
-
-    @media ${device.tablet} {
-        max-width: 250px;
-    }
-`

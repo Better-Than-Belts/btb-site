@@ -6,9 +6,8 @@ import { Link } from 'react-router-dom';
 import { RichText } from 'prismic-reactjs';
 
 const FooterLinks = (props) => {
-    console.log(props);
     return (
-        <div className="col-xs-12 col-md-4 col-lg-2">
+        <div className="col-xs-12 col-sm-4 col-md-4 col-lg-2">
             {props.footer_links.map((item, index) => {
                 return (
                     <StyledLink to={RichText.asText(item.footer_link)}><LinkText>{RichText.asText(item.footer_link_text)}</LinkText></StyledLink>
@@ -35,6 +34,10 @@ const LinkText = styled(P)`
 const StyledLink = styled(Link)`
     text-decoration: none;
     color: #F9F9FE;
+
+    :hover {
+        text-decoration-color: #F9F9FE;
+    }
 `
 
 export default FooterLinks;

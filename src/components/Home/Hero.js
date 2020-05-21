@@ -4,6 +4,7 @@ import { RichText } from 'prismic-reactjs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Wave, H1 } from '../../styles';
 import { device } from '../../device';
+import Arrow from '../../images/OurStoryArrow.svg';
 
 
 const Hero = (props) => {
@@ -19,7 +20,7 @@ const Hero = (props) => {
                 <HeroTitle>
                     <H1>{RichText.asText(props.hero_text)}</H1>
                 </HeroTitle>
-                <HeroArrow icon='angle-double-down' />
+                {/* <HeroArrow icon='angle-double-down' /> */}
             </HeroWrapper>
             <Wave />
         </HeroBG>
@@ -33,9 +34,9 @@ const HeroWrapper = styled.div`
     width: 75%;
     padding: 10px;
     text-align: center;
-    height: 850px;
+    height: 645px;
     @media ${device.tablet} {
-        height: 700px;
+        height: 500px;
     }
 `;
 
@@ -47,9 +48,10 @@ const HeroTitle = styled.div`
     transform: translate(-50%, -50%);
 `;
 
-const HeroArrow = styled(FontAwesomeIcon)`
+const HeroArrow = styled.img`
     position: absolute;
     bottom: 5%;
+    content: url(${Arrow});
 `;
 
 export default Hero;

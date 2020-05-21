@@ -1,9 +1,11 @@
 import React from 'react';
 import Accordion from '../components/Accordion/Accordion';
-import { Flex, Section, TextCenter, H1, P, BGWhite, BGBlue, Wave } from '../styles';
+import { AccentContainerFull, AccentImage, Flex, Section, TextCenter, H1, P, BGWhite, BGBlue, Wave } from '../styles';
 import styled from 'styled-components';
 import ReadyToShop from '../components/Home/ReadyToShop';
 import { device } from '../device';
+import pinkWave from '../images/FAQ/FAQ-PinkWave.svg';
+import circle from '../images/FAQ/FAQ-YellowCircle.svg';
 import PrismicPage from '../prismic/PrismicPage';
 import { RichText } from 'prismic-reactjs';
 
@@ -17,7 +19,7 @@ class FAQ extends React.Component {
         var faqsBySection = {};
 
         this.props.doc.data.faqs.forEach(faq => {
-            if(faq.section in faqsBySection) {
+            if (faq.section in faqsBySection) {
                 faqsBySection[faq.section].push(faq);
             }
             else {
@@ -26,11 +28,11 @@ class FAQ extends React.Component {
             }
         });
 
-        this.setState({faqsBySection: faqsBySection});
+        this.setState({ faqsBySection: faqsBySection });
     }
 
     render() {
-        return(
+        return (
             <div>
                 <BGWhite>
                     <SectionContainer>
@@ -42,7 +44,10 @@ class FAQ extends React.Component {
                     </SectionContainer>
                 </BGWhite>
                 <BGBlue>
-                    <Section>
+                    <AccentContainerFull>
+                        <WaveLines src={pinkWave} />
+                    </AccentContainerFull>
+                    <FAQSectionContainer>
                         {
                             Object.keys(this.state.faqsBySection).map((key, value) => {
                                 return (
@@ -53,14 +58,17 @@ class FAQ extends React.Component {
                                 )
                             })
                         }
-                    </Section>
+                    </FAQSectionContainer>
+                    <AccentContainerFull>
+                        <Circle src={circle} />
+                    </AccentContainerFull>
                     <Wave />
                 </BGBlue>
                 <BGWhite>
                     <SectionContainer>
                         <ReadyToShop />
                     </SectionContainer>
-            </BGWhite>
+                </BGWhite>
             </div>
         );
 
@@ -81,15 +89,22 @@ class FAQAccordion extends React.Component {
             }
         });
 
-        this.setState({faqs: faqs});
+        this.setState({ faqs: faqs });
     };
 
     render() {
-        return <FAQAccordionContainer><Accordion accordionData={this.state.faqs}/></FAQAccordionContainer>
+        return <FAQAccordionContainer><Accordion accordionData={this.state.faqs} /></FAQAccordionContainer>
     }
 }
 
 // Styles
+const FAQSectionContainer = styled(Section)`
+    padding-top: 130px;
+    @media ${device.tablet} {
+        padding-top: 50px;
+    }
+`;
+
 const SectionContainer = styled.div`
     max-width: 1100px;
     margin-right: auto;
@@ -133,5 +148,36 @@ const PageTitle = styled.div`
     }
     @media ${device.mobile} {
         padding: 30px;
+    }
+`;
+
+const WaveLines = styled(AccentImage)`
+    width: 100%;
+    top: -200px;
+    @media (max-width: 1440px) {
+        top: -175px;
+    }
+        @media (max-width: 1230px) {
+        top: -125px;
+    }
+    @media ${device.laptop} {
+        top: -100px;
+    }
+    @media ${device.tablet} {
+        top: -75px;
+    }
+`;
+
+const Circle = styled(AccentImage)`
+    left: 80%;
+    top: -20px;
+    @media ${device.laptop} {
+        width: 130px;
+    }
+    @media ${device.tablet} {
+        width: 110px;
+    }
+    @media (max-width: 560px) {
+        left: 65%;
     }
 `;

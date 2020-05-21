@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { device } from '../../device';
-import { Wave, BGBlue, Section } from '../../styles';
+import { AccentImage, AccentContainerFull, Wave, BGBlue, Section } from '../../styles';
 import NewsAtNEU from '../../images/NewsAtNortheastern.svg';
 import Kickstarter from '../../images/Kickstarter.svg';
 import Lucid from '../../images/Lucid.svg';
 import TheGlobe from '../../images/Globe.svg';
 import ProjectHatch from '../../images/ProjectHatch.svg';
 import CustomerReviewsHome from './CustomerReviewsHome';
+import circle from '../../images/Home/Home-YellowCircle1.svg';
 
 const AsSeenIn = (props) => {
     return (
@@ -32,6 +33,9 @@ const AsSeenIn = (props) => {
                     <Img src={Lucid} />
                 </LogoContainer>
             </AsSeenInContainer>
+            <AccentContainerFull>
+                <Circle src={circle} />
+            </AccentContainerFull>
             <Wave />
         </BGBlue>
     );
@@ -64,6 +68,24 @@ const Img = styled.img`
     @media ${device.mobile} {
         padding: 30px 0;
         max-width: 80%;
+    }
+`;
+
+const Circle = styled(AccentImage)`
+    left: 80%;
+    bottom: 20px;
+    width: 150px;
+    @media (max-width: 950px) {
+        width: 130px;
+    }
+    @media ${device.tablet} {
+        width: 100px;
+    }
+    @media (max-width: 500px) {
+        left: 70%;
+    }
+    @media (max-width: 340px) {
+        display: none;
     }
 `;
 
