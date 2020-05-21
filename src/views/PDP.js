@@ -4,11 +4,10 @@ import styled from 'styled-components';
 import VariantSelector from '../components/PDP/ColorSelector';
 import UserReview from '../components/PDP/UserReview';
 import Accordion from '../components/Accordion/Accordion';
-import { Carousel, Dropdown } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
 import { device } from '../device';
 import "./PDP.css";
 import { Link } from 'react-router-dom';
-import SizeTable from '../components/PDP/SizeTable';
 
 class PDP extends React.Component {
 
@@ -57,7 +56,6 @@ class PDP extends React.Component {
 
     render() {
         let userReviews = text.userReviews.map((item, index) => <UserReview {...item} />);
-        let sizeChart = <SizeTable />
         return (
             <BGWhite>
                 <FullPageContainer>
@@ -101,21 +99,12 @@ class PDP extends React.Component {
                                     })
                                 }
                             </ProductVariants>
-                            <SizeDropdown>
-                                <SizeToggle className="text-left" id="size-button" >
-                                    {this.state.dropdownValue}
-                                </SizeToggle>
-                                <SizeMenu>
-                                    <SizeOption onClick={this.changeDropdownValue}>0/S (5'3-6'3)</SizeOption>
-                                </SizeMenu>
-                            </SizeDropdown>
                             <PDPButtons>
                                 <ButtonYellow><ButtonText>Add to Cart</ButtonText></ButtonYellow>
                                 <BuyNowButton><ButtonText>Buy Now</ButtonText></BuyNowButton>
                             </PDPButtons>
                             <P3>Free, fast shipping. Always.</P3>
                             <div className="pdp">
-                                <Accordion accordionData={[{ title: "Sizing", content: sizeChart }]} />
                                 <Accordion accordionData={[{ title: "Product Details", content: text.productDetails }]} />
                                 <Accordion accordionData={[{ title: "Read the Reviews", content: userReviews }]} />
                             </div>
@@ -127,43 +116,6 @@ class PDP extends React.Component {
     }
 
 };
-
-const SizeDropdown = styled(Dropdown)`
-    display: flex;
-`;
-const SizeToggle = styled(Dropdown.Toggle)`
-    display: block;
-    width: 100%;
-    min-height: 55px;
-    font-family: "Libre Franklin", sans-serif;
-    font-size: 20px;
-    line-height: 30px;
-    background-color: transparent;
-    color: #0C1527;
-    border: 1px solid #004669;
-    box-sizing: border-box;
-    border-radius: 0px;
-    :after {
-        height: 100%;
-        margin-top: 10px;
-        float: right;
-    }
-`;
-const SizeMenu = styled(Dropdown.Menu)`
-    display: block;
-    background-color: #F9F9FE;
-    border-radius: 0px;
-    border: 1px solid #004669;
-`;
-const SizeOption = styled(Dropdown.Item)`
-    font-family: "Libre Franklin", sans-serif;
-    font-weight: 800;
-    font-size: 20px;
-    line-height: 30px;
-    color: #004669;
-    display: block;
-    width: 100%;
-`;
 
 const PDPImages = styled.div`
     flex: 1;

@@ -19,7 +19,7 @@ class TopBanner extends React.Component{
     
     render() {
         return (
-            this.state.display ?
+            this.state.display && this.props.doc.data.show ?
             <BannerContainer bgColor={this.props.doc.data.background_color} sticky={this.props.doc.data.sticky}>
                 <ClearButton icon='times' onClick={this.clearBanner} color={this.props.doc.data.text_color}/>
                 <BannerContent color={this.props.doc.data.text_color}>
@@ -54,6 +54,11 @@ const ClearButton = styled(FontAwesomeIcon)`
     right: 18px;
     top: 50%;
     transform: translateY(-50%);
+
+    &:hover {
+        filter: brightness(85%);
+        cursor: pointer;
+    }
 `;
 
 
