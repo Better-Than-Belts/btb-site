@@ -1,6 +1,6 @@
 import React from 'react';
 import NotFound from '../NotFound';
-import { H1, BGBlue, TextCenter, Section } from '../styles';
+import { H1, BGBlue, TextCenter, Section, H3 } from '../styles';
 import Text from '../components/Generics/Text';
 import TextImage from '../components/Generics/TextImage';
 import ImageText from '../components/Generics/ImageText';
@@ -75,7 +75,7 @@ const Loading = () => {
         <BGBlue>
             <Section>
                 <TextCenter>
-                    <H1>Loading...</H1>
+                    <H3>Loading...</H3>
                 </TextCenter>
             </Section>
         </BGBlue>
