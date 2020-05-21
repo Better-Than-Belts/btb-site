@@ -20,7 +20,7 @@ const Hero = (props) => {
                 <HeroTitle>
                     <H1>{RichText.asText(props.hero_text)}</H1>
                 </HeroTitle>
-                <HeroArrow icon='angle-double-down' />
+                {/* <HeroArrow icon='angle-double-down' /> */}
             </HeroWrapper>
             <Wave />
         </HeroBG>
