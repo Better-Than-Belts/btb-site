@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { device } from '../../device';
 import { BTBLink, H2, BGWhite, Section, ButtonYellow, ButtonText, Flex, ImageContainer, Image, RouteLink } from '../../styles';
+import { RichText } from 'prismic-reactjs';
 
 const PLPPreview = (props) => {
     return (
         <BGWhite>
             <PLPPreviewSection>
-                <ShopTitle>Shop best sellers</ShopTitle>
+                <ShopTitle>{RichText.asText(props.plp_preview_text)}</ShopTitle>
                 <PLPFlex>
                     {props.plp_preview_images.map((item, index) => {
                         return (
