@@ -1,7 +1,7 @@
 import React from 'react';
 import { RichText } from 'prismic-reactjs';
 import styled from 'styled-components';
-import { AccentImage, Wave, BGBrown, Section, H2, AccentContainer, AccentContainerFull } from '../../styles';
+import { AccentImage, Wave, BGBrown, Section, H2, AccentContainerFull } from '../../styles';
 import EthnicallyAssembledIcons from './EthnicallyAssembledIcons';
 import { device } from '../../device';
 import block from '../../images/Home/Home-YellowBlocks1.svg';

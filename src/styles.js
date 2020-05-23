@@ -6,7 +6,6 @@ import square from './images/Square.png';
 import portrait from './images/Portrait.png';
 import landscape from './images/Landscape.png';
 import logo from './images/Logo.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import filterCircle from './images/SmallCircle.png'
 import ourStoryImage from './images/OurStoryImage.png';
 import featureCircle from './images/Circle.png';

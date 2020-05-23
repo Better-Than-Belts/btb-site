@@ -18,7 +18,7 @@ class VariantSelector extends React.Component {
 
         return (
             <VariantCircle style={styles}>
-                <img src={this.props.img} width="70px" height="70px" />
+                <img src={this.props.img} width="70px" height="70px" alt=""/>
             </VariantCircle >
         );
     }

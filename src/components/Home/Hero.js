@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { RichText } from 'prismic-reactjs';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Wave, H1 } from '../../styles';
 import { device } from '../../device';
 import Arrow from '../../images/OurStoryArrow.svg';
@@ -20,7 +19,7 @@ const Hero = (props) => {
                 <HeroTitle>
                     <H1>{RichText.asText(props.hero_text)}</H1>
                 </HeroTitle>
-                {/* <HeroArrow icon='angle-double-down' /> */}
+                <HeroArrow icon='angle-double-down' />
             </HeroWrapper>
             <Wave />
         </HeroBG>

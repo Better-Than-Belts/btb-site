@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Flex, P, H4 } from '../../styles';
 import StarIcon from '../../images/CoralStar.svg';
 import { Carousel } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { device } from '../../device';
 import { RichText } from 'prismic-reactjs';
 

@@ -5,7 +5,7 @@ import CartIcon from '../images/CartIcon.svg';
 import SearchIcon from '../images/SearchIcon.svg';
 import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav, FormControl } from 'react-bootstrap';
 import { device } from '../device';
 import navHamburgericon from '../images/NavHamburgerIcon.svg';
 import PrismicPage from '../prismic/PrismicPage';
@@ -104,7 +104,7 @@ class NavRouter extends React.Component {
             return (
                 <Navbar onToggle={this.setNavExpanded} expanded={this.state.expanded} style={navBG} expand="lg">
                     <NavbarToggler aria-controls="basic-navbar-nav">
-                        <img src={navHamburgericon} />
+                        <img src={navHamburgericon} alt=""/>
                     </NavbarToggler>
                     <Link onClick={this.closeNav} to={`/`}>
                         <Navbar.Brand>

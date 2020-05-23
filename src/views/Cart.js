@@ -4,9 +4,6 @@ import { device } from '../device';
 import { BGWhite, TextCenter, H2 } from '../styles';
 
 class Cart extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (

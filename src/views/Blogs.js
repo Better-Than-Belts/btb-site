@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { H1, P, P2, TextCenter, Section, Flex } from '../styles';
+import { H1, P2, TextCenter, Section, Flex } from '../styles';
 import square from '../images/Square.png';
 import { Link } from 'react-router-dom';
 import Prismic from 'prismic-javascript';

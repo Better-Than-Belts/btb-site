@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import { device } from '../../device';
 import React from 'react';
-import { Flex, P, Image, ImageContainer } from '../../styles';
+import { Flex, P, ImageContainer } from '../../styles';
 import { RichText } from 'prismic-reactjs';
 import Carousel from '../Shared/Carousel';
-import circleImage from '../../images/Circle.png';
 
 const SuspenderFeatures = (props) => {
     var informationImageURLs = props.our_product_information.map((item, index) => {

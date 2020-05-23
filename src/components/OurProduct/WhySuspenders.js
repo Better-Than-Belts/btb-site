@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Image, AccentImage, BGWhite, Section, H2, P, ImageContainer, MockImageLandscape, AccentContainer } from '../../styles';
+import { AccentImage, BGWhite, Section, H2, P, ImageContainer, AccentContainer } from '../../styles';
 import SuspenderFeatures from './SuspenderFeatures';
 import { device } from '../../device.js';
 import circle from '../../images/OurProduct/OurProduct-TanCircle.svg';

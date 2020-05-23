@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { device } from '../../device';
-import { BTBLink, H2, BGWhite, Section, ButtonYellow, ButtonText, Flex, ImageContainer, Image, RouteLink } from '../../styles';
+import { BTBLink, H2, BGWhite, Section, ButtonYellow, ButtonText, Flex, ImageContainer, Image } from '../../styles';
 
 const PLPPreview = (props) => {
     return (

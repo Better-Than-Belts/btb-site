@@ -1,7 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Section, Flex, Image } from '../../styles';
-import { RichText } from 'prismic-reactjs';
+import { Section, Image } from '../../styles';
 
 const FullWidthImage = (props) => {
     return (

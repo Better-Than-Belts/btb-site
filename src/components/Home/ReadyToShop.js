@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { device } from '../../device';
-import { BTBLink, RouteLink, BGWhite, ButtonYellow, ButtonText, H2, Section } from '../../styles';
+import { BTBLink, BGWhite, ButtonYellow, ButtonText, H2, Section } from '../../styles';
 
 const ReadyToShop = () => {
     return (

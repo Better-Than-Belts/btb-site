@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { AccentContainerFull, Wave, Section, H2, P, ImageContainer, Image, BGBlue, AccentContainer, AccentImage } from '../../styles';
+import { AccentContainerFull, Wave, Section, H2, P, ImageContainer, BGBlue, AccentContainer, AccentImage } from '../../styles';
 import { device } from '../../device.js';
 import wave from '../../images/OurProduct/OurProduct-PinkWave.svg';
 import circle from '../../images/OurProduct/OurProduct-YellowCircle.svg';

@@ -24,7 +24,7 @@ class GenericPage extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if(prevProps.uid != this.props.uid) {
+        if(prevProps.uid !== this.props.uid) {
             this.setState({ doc: null, err: null})
             window.scrollTo(0, 0);
         }
