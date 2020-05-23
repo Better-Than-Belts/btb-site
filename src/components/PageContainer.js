@@ -25,22 +25,27 @@ const PageContainer = (props) => {
             <Router>
                 <ScrollToTop />
                 <TopBanner {...props} />
-                <Nav {...props} />
+                <Nav {...props} prismicCtx={prismicCtx}/>
                 <Route path="/"
                     exact={true}
                     render={() =>
                         <Home {...props} />
                     } />
                 <Switch>
+                    <Route path="/shop/search/:query"
+                        exact={true}
+                        render={(props) =>
+                            <PLP {...props} query={props.match.params.query} client={shopifyClient} />
+                        } />
                     <Route path="/shop"
                         exact={true}
-                        render={() =>
-                            <PLP {...props} />
+                        render={(props) =>
+                            <PLP {...props} client={shopifyClient} />
                         } />
                     <Route path="/shop/:id"
                         exact={true}
                         render={(props) =>
-                            <PDP id={props.match.params.id} client={shopifyClient} />
+                            <PDP {...props} id={props.match.params.id} client={shopifyClient} prismic={prismicCtx} />
                         } />
                     <Route path="/why-suspenders"
                         exact={true}
@@ -60,7 +65,7 @@ const PageContainer = (props) => {
                     <Route path="/blog/:id"
                         exact={true}
                         render={(props) =>
-                            <Blog id={props.match.params.id} prismicCtx={prismicCtx}/>
+                            <Blog id={props.match.params.id} prismicCtx={prismicCtx} />
                         } />
                     <Route path="/faq"
                         exact={true}
@@ -68,10 +73,10 @@ const PageContainer = (props) => {
                             <FAQ {...props} />
                         } />
                     <Route path="/cart"
-                    exact={true}
-                    render={() =>
-                        <Cart />
-                    } />
+                        exact={true}
+                        render={() =>
+                            <Cart client={shopifyClient} />
+                        } />
                     <Route path="/:uid"
                         exact={true}
                         render={(props) =>

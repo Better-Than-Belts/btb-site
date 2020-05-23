@@ -61,7 +61,7 @@ const OurStoryFeatures = (props) => {
                             <AccentContainer>
                                 <TealBlock />
                             </AccentContainer>
-                            <Image src={props.info_3_image.url}/>
+                            <Image3 src={props.info_3_image.url} />
                         </ImageContainer>
                         <TextContainer className="col-xs-12 col-md-5">
                             <Title>{RichText.asText(props.info_3_title)}</Title>
@@ -157,6 +157,19 @@ const Image2 = styled(Image)`
     }
 `;
 
+const Image3 = styled(Image)`
+    max-width: 600px;
+    height: 500px;
+    @media ${device.tablet} {
+        max-width: 100%;
+        height: 430px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        object-fit: cover;
+    }
+`;
+
 const PinkWave = styled(AccentImage)`
     content: url(${pinkWave});
     width: 100%;
@@ -182,11 +195,11 @@ const PinkWave = styled(AccentImage)`
 
 const TealCircle = styled(AccentImage)`
     left: 520px;
-    top: 340px;
+    top: 390px;
     width: 130px;
     @media (max-width: 1190px) {
         left: 450px;
-        top: 360px;
+        top: 420px;
     }
     @media ${device.laptop} {
         left: 350px;
@@ -204,7 +217,7 @@ const YellowCircle = styled(AccentImage)`
     width: 130px;
     @media (max-width: 1190px) {
         left: 30px;
-        top: 400px;
+        top: 430px;
     }
     @media ${device.tablet} {
         display: none;
@@ -227,10 +240,10 @@ const TanBlock = styled(AccentImage)`
 `;
 const TealBlock = styled(AccentImage)`
     content: url(${tealBlock});
-    left: 25px;
+    left: -40px;
     top: 400px;
     @media (max-width: 1090px) {
-        left: 0px;
+        left: -40px;
     }
     @media ${device.laptop} {
         content: url(${tealBlockMobile});

@@ -4,7 +4,6 @@ import { RichText } from 'prismic-reactjs';
 
 const Text = (props) => {
 
-    console.log(props);
     return (
         <Section>
             { RichText.render(props.text) }

@@ -34,7 +34,7 @@ const SuspenderFeatures = (props) => {
 
 // Styles
 const Features = styled.div`
-    padding-top: 100px;
+    padding-top: 50px;
     padding-bottom: 50px;
     @media ${device.tablet} {
         padding-top: 20px;

@@ -13,9 +13,6 @@ const ProductInformation = (props) => {
 
     return (
         <BGBrown>
-            <AccentContainerFull>
-                <Wave1 />
-            </AccentContainerFull>
             <ProductInfoSection>
                 <Title>{RichText.asText(props.product_information_title)}</Title>
                 <EthnicallyAssembledIcons {...props} />
@@ -30,16 +27,17 @@ const ProductInformation = (props) => {
 
 // styles
 const ProductInfoSection = styled(Section)`
-    padding-top: 100px;
+    padding-top: 50px;
     @media ${device.mobile} {
         padding-bottom: 30px;
     }
+    z-index: 3;
 `;
 
 const Wave1 = styled(AccentImage)`
     content: url(${wave1});
     width: 100%;
-    top: -80px;
+    top: -110px;
     @media ${device.tablet} {
         top: -50px;
     }

@@ -112,6 +112,7 @@ const WhyBTBSection = styled.div`
 `
 
 const SectionContainer = styled(Section)`
+    padding-bottom: 20px;
     @media ${device.tablet} {
         padding: 30px 30px 50px 30px;
     }

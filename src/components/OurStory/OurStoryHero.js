@@ -94,6 +94,7 @@ const HeroText = styled(H1)`
 `;
 
 const HeroArrow = styled.img`
+    width: 50px;
     position: absolute;
     bottom: 0%;
     content: url(${Arrow});
@@ -105,7 +106,7 @@ const HeroArrow = styled.img`
 const NamesDesktop = styled.div`
     margin-top: 100px;
     @media ${device.laptop} {
-        margin-top: 30px;
+        margin-top: 80px;
     }
     @media ${device.tablet} {
         display: none;

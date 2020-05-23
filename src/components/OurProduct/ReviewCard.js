@@ -43,6 +43,7 @@ const Stars = styled(Flex)`
 
 const ReviewStar = styled(Star)`
     content: url(${yellowStar});
+    padding: 0;
 `;
 
 const ReviewText = styled(P)`

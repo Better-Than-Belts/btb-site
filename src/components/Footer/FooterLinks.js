@@ -20,9 +20,9 @@ const FooterLinks = (props) => {
 
 // Styles
 const LinkText = styled(P)`
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
-    line-height: 30px;
+    line-height: 26px;
     color: #F9F9FE;
     @media ${device.mobile} {
         font-size: 16px;

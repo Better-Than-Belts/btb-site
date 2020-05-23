@@ -19,7 +19,7 @@ const Hero = (props) => {
                 <HeroTitle>
                     <H1>{RichText.asText(props.hero_text)}</H1>
                 </HeroTitle>
-                <HeroArrow icon='angle-double-down' />
+                <HeroArrow />
             </HeroWrapper>
             <Wave />
         </HeroBG>
@@ -48,8 +48,9 @@ const HeroTitle = styled.div`
 `;
 
 const HeroArrow = styled.img`
+    width: 50px;
     position: absolute;
-    bottom: 5%;
+    bottom: 0;
     content: url(${Arrow});
 `;
 

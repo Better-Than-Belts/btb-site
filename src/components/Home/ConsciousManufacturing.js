@@ -65,7 +65,7 @@ const ConsciousManufacturing = (props) => {
 const DesktopSection = styled(Section)`
     flex-wrap: nowrap;
     padding-top: 80px;
-    padding-bottom: 150px;
+    padding-bottom: 100px;
     @media ${device.tablet} {
         display: none;
     }
@@ -89,6 +89,7 @@ const ConsciousManufacturingImage = styled(Image)`
         margin-left: auto;
         margin-right: auto;
         height: 400px;
+        object-fit: cover;
     }
 `;
 
@@ -120,16 +121,20 @@ const Wave2 = styled(AccentImage)`
         top: -100px;
     }
     @media ${device.tablet} {
-        top: 700px;
+        top: 660px;
     }
     @media (max-width: 720px) {
-        top: 750px;
+        top: 690px;
     }
     @media (max-width: 560px) {
         content: url(${waveMobile});
+        top: 710px;
     }
     @media (max-width: 450px) {
-        top: 850px;
+        top: 790px;
+    }
+    @media (max-width: 380px) {
+        top: 820px;
     }
 `;
 
@@ -165,7 +170,7 @@ const TextContainer = styled.div`
 `;
 
 const Text = styled(P)`
-    padding-bottom: 30px;
+    padding-bottom: 10px;
     line-height: 30px;
     @media ${device.tablet} {
         padding-top: 0px;
