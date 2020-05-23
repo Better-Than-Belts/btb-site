@@ -302,6 +302,8 @@ const AccentContainerFull = styled(AccentContainer)`
 
 const AccentImage = styled.img`
     position: relative;
+    width: auto;
+    padding: 0;
 `;
 
 const RouteLink = styled(Link)`
