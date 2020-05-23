@@ -69,22 +69,6 @@ class PDP extends React.Component {
                 }
             })
         });
-        // console.log(this.props);
-        // if (this.props.prismic) {
-        //     console.log("prismic is there");
-        //     this.props.prismic.api.getByUID(
-        //         'general_product_information',
-        //         'general_product_information',
-        //         {},
-        //         (err, doc) => {
-        //             if (err) {
-        //                 this.setState(() => ({ err }));
-        //             } else if (doc) {
-        //                 this.setState(() => ({ doc }));
-        //             }
-        //         }
-        //     )
-        // }
     }
 
     setProduct(selected) {

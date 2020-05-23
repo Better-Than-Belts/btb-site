@@ -73,7 +73,6 @@ class GenericPage extends React.Component {
                     {
                     this.state.doc.data.body.map(
                         (section, index) => {
-                            console.log(section.primary.background_blue);
                         return (
                             <VariableBG BGBlue={section.primary.background_blue}>
                                 <Section>
