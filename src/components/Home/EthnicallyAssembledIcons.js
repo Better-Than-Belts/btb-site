@@ -64,7 +64,6 @@ const AssembledIcon = (props) => {
 // Styles
 const ItemContainer = styled.div`
     padding: 15px;
-    margin-top: 10px;
 
     @media ${device.tablet} {
         flex: 0 0 45%;

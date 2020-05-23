@@ -19,7 +19,7 @@ const CustomerReviewsHome = (props) => {
                     }
                     return (
                         <Carousel.Item>
-                            <TextCenter style={{minHeight: "450px"}}>
+                            <TextCenter>
                                 <Stars>
                                     {stars}
                                 </Stars>
@@ -75,8 +75,8 @@ const ReviewText = styled(P)`
     color: #F9F9FE;
     padding-top: 10px;
     font-weight: normal;
-    font-size: 36px;
-    line-height: 50px;
+    font-size: 24px;
+    line-height: 36px;
     @media ${device.tablet} {
         padding-top: 10px;
         font-size: 16px;
@@ -86,7 +86,7 @@ const ReviewText = styled(P)`
 
 const ReviewName = styled(H4)`
     color: #F9F9FE;
-    font-size: 40px;
+    font-size: 24px;
 `
 
 export default CustomerReviewsHome;

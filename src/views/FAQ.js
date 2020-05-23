@@ -142,7 +142,7 @@ const FAQAccordionContainer = styled.div`
 `;
 
 const PageTitle = styled.div`
-    padding: 130px 40px;
+    padding: 130px 40px 80px 40px;
     @media ${device.tablet} {
         padding: 50px 30px;
     }

@@ -33,8 +33,7 @@ const PLPPreview = (props) => {
 // Styles
 const PLPPreviewImageContainer = styled(ImageContainer)`
     flex: 1;
-    max-width: 450px;
-
+    max-width: 250px;
     @media ${device.mobile} {
         flex: auto;
         max-width: 100%;
@@ -42,10 +41,11 @@ const PLPPreviewImageContainer = styled(ImageContainer)`
 `
 const PLPPreviewSection = styled(Section)`
     padding-bottom: 50px;
+    padding-top: 20px;
 `;
 
 const PLPFlex = styled(Flex)`
-    padding: 0 150px;
+    justify-content: center;
     @media ${device.tablet} {
         padding: 0 20px;
         flex-wrap: wrap;

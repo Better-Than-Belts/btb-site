@@ -1,5 +1,5 @@
 import React from 'react';
-import { BGWhite, P } from '../styles';
+import { BGWhite, P, RouteLink } from '../styles';
 import Logo from '../images/logo.svg';
 import CartIcon from '../images/CartIcon.svg';
 import SearchIcon from '../images/SearchIcon.svg';
@@ -9,6 +9,7 @@ import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import { device } from '../device';
 import navHamburgericon from '../images/NavHamburgerIcon.svg';
 import PrismicPage from '../prismic/PrismicPage';
+import { connect } from 'react-redux';
 import { RichText } from 'prismic-reactjs';
 
 class NavRouter extends React.Component {
@@ -19,11 +20,27 @@ class NavRouter extends React.Component {
         this.state = {
             width: 0,
             expanded: false,
+            search: false,
+            searchInput: "",
             doc: null,
             err: null
         };
         this.setNavExpanded = this.setNavExpanded.bind(this);
         this.closeNav = this.closeNav.bind(this);
+        this.toggleSearch = this.toggleSearch.bind(this);
+    }
+
+    toggleSearch = () => {
+        this.setState({ search: !this.state.search })
+    }
+
+    searchClick = () => {
+        if (this.state.search) {
+            this.toggleSearch();
+
+        } else {
+            this.toggleSearch();
+        }
     }
 
     updateScreenSize = () => {
@@ -34,22 +51,22 @@ class NavRouter extends React.Component {
         this.updateScreenSize();
         window.addEventListener('resize', this.updateScreenSize);
         this.fetchNavItems(this.props);
-      }
-  
+    }
+
     fetchNavItems = props => {
         if (props.prismicCtx) {
             props.prismicCtx.api.getByUID(
-            "navbar",
-            "navbar",
-            {},
-            (err, doc) => {
-                if (err) {
-                this.setState(() => ({ err }));
-                } else if (doc) {
-                    console.log(doc);
-                this.setState(() => ({ doc }));
+                "navbar",
+                "navbar",
+                {},
+                (err, doc) => {
+                    if (err) {
+                        this.setState(() => ({ err }));
+                    } else if (doc) {
+                        console.log(doc);
+                        this.setState(() => ({ doc }));
+                    }
                 }
-            }
             );
         }
     }
@@ -67,10 +84,18 @@ class NavRouter extends React.Component {
     }
 
     render() {
+        let cartCount = 0
+        let items = [];
+        items = this.props.addedItems
+        if (items) {
+            items.map(item => {
+                cartCount += item.quantity;
+            });
+        }
         if (this.state.width > 992) {
             // desktop
             return (
-                <BGWhite>
+                <BG>
                     <Navbar style={navBG} expand="lg">
                         <Link to={`/`}>
                             <Navbar.Brand>
@@ -79,13 +104,40 @@ class NavRouter extends React.Component {
                         </Link>
                         <Nav className="mr-auto" style={{'flex-wrap': 'wrap'}}>
                             {this.props.doc ? this.props.doc.data.navbar_items.map((item, index) => {
-                            return <BTBNavLink to={RichText.asText(item.navbar_link_route)}>{RichText.asText(item.navbar_link_text)}</BTBNavLink>
-                            }): ''}
+                                return <BTBNavLink to={RichText.asText(item.navbar_link_route)}>{RichText.asText(item.navbar_link_text)}</BTBNavLink>
+                            }) : ''}
                         </Nav>
-                        <IconLink><Search /></IconLink>
-                        <NavItem to={`/cart`}><Cart /></NavItem>
+                        <SearchDiv inline>
+                            {
+                                this.state.search &&
+                                <SearchInput id="search-input" type="text" onChange={(e) => this.setState({ searchInput: e.target.value })} placeholder="Search" />
+                            }
+                            {
+                                this.state.searchInput !== "" &&
+                                <RouteLink onClick={this.toggleSearch} to={`/shop/search/${this.state.searchInput}`}>
+                                    <SearchButton>
+                                        <Search />
+                                    </SearchButton>
+                                </RouteLink>
+                            }
+                            {
+                                this.state.searchInput === "" &&
+                                <SearchButton onClick={this.toggleSearch}>
+                                    <Search />
+                                </SearchButton>
+                            }
+                        </SearchDiv>
+                        <NavItem to={`/cart`}>
+                            <Cart />
+                            {
+                                cartCount > 0 &&
+                                <CartDiv>
+                                    <CartCountDiv><CartCount>{cartCount}</CartCount></CartCountDiv>
+                                </CartDiv>
+                            }
+                        </NavItem>
                     </Navbar>
-                </BGWhite>
+                </BG>
             )
         } else {
             // mobile
@@ -100,7 +152,15 @@ class NavRouter extends React.Component {
                         </Navbar.Brand>
                     </Link>
                     <Nav onClick={this.closeNav}>
-                        <Nav.Link><Cart /></Nav.Link>
+                        <NavItem to={`/cart`}>
+                            <Cart />
+                            {
+                                cartCount > 0 &&
+                                <CartDiv>
+                                    <CartCountDiv><CartCount>{cartCount}</CartCount></CartCountDiv>
+                                </CartDiv>
+                            }
+                        </NavItem>
                     </Nav>
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
@@ -111,23 +171,64 @@ class NavRouter extends React.Component {
                                 </SearchButton>
                             </SearchDiv>
                             {this.props.doc ? this.props.doc.data.navbar_items.map((item, index) => {
-                            return (
-                                <NavLink onClick={this.closeNav} to={RichText.asText(item.navbar_link_route)} style={navItem}>
-                                    <NavText>
-                                        {RichText.asText(item.navbar_link_text)}
-                                    </NavText>
-                                </NavLink>)
-                            }): ''}
+                                return (
+                                    <NavLink onClick={this.closeNav} to={RichText.asText(item.navbar_link_route)} style={navItem}>
+                                        <NavText>
+                                            {RichText.asText(item.navbar_link_text)}
+                                        </NavText>
+                                    </NavLink>)
+                            }) : ''}
                             <MobileHR />
+                            <SearchDiv inline>
+                                <SearchInput id="search-input" type="text" placeholder="Search Products" onChange={(e) => this.setState({ searchInput: e.target.value })} />
+                                {
+                                    this.state.searchInput !== "" &&
+                                    <RouteLink onClick={this.toggleSearch} to={`/shop/search/${this.state.searchInput}`}>
+                                        <SearchButton >
+                                            <Search />
+                                        </SearchButton>
+                                    </RouteLink>
+
+
+                                }
+                                {
+                                    this.state.searchInput === "" &&
+                                    <SearchButton onClick={this.toggleSearch}>
+                                        <Search />
+                                    </SearchButton>
+                                }
+                            </SearchDiv>
                         </Nav>
                     </Navbar.Collapse>
-                </Navbar>
+                </Navbar >
             )
         }
     }
 }
 
-export default PrismicPage(NavRouter);
+// redux
+const stateToPropertyMapper = (state) => {
+    if (state.addedItems) {
+        return {
+            addedItems: [...state.addedItems]
+        }
+    } else {
+        return {
+            addedItems: [...state]
+        }
+    }
+}
+
+
+export default connect(
+    stateToPropertyMapper)
+    (NavRouter);
+
+const BG = styled(BGWhite)`
+    position: fixed;
+    width: 100%;
+    z-index: 20;
+`;
 
 const navBG = {
     'margin-right': 'auto',
@@ -187,31 +288,58 @@ const IconLink = styled(Nav.Link)`
     }
 `;
 
+const CartDiv = styled.div`
+    position: absolute;
+    width: auto;
+`;
 const Cart = styled.img`
     content: url(${CartIcon});
 `;
 const Search = styled.img`
     content: url(${SearchIcon});
-    padding: 5px 0px;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+`;
+const CartCountDiv = styled.div`
+    position: relative;
+    background-color: #E87964;
+    border-radius: 10px;
+    color: #F9F9FE;
+    top: -13px;
+    left: -10px;
+`;
+const CartCount = styled.p`
+    padding: 4px 7px;
+    font-family: "Libre Franklin", sans-serif;
+    font-size: 10px;
 `;
 
 const SearchDiv = styled.div`
     display: flex;
     flex-wrap: nowrap;
-    padding: 10px 20px 5px 20px;
+    padding: 0px;
+    @media (max-width: 992px) {
+        padding: 10px 20px 5px 20px;
+    }
 `;
 
 const SearchInput = styled(FormControl)`
-    width: 80%;
+    max-width: 150px;
     font-family: "Libre Franklin", sans-serif;
+    @media (max-width: 992px) {
+        max-width: 100%;
+    }
 `;
 const SearchButton = styled.button`
-    width: 20%;
     background-color: transparent;
-    border-radius: 10px;
     outline: none;
     border-style: solid;
-    border-color: #004669;
+    border-color: transparent;
+    border-radius: 10px;
+    @media (max-width: 992px) {
+        width: auto;
+    }
 `;
 
 const NavbarToggler = styled(Navbar.Toggle)`

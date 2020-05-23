@@ -56,6 +56,11 @@ const AsSeenInContainer = styled(Section)`
 
 const ReviewsContainer = styled(Section)`
     padding-bottom: 0px;
+    padding-top: 30px;
+    @media ${device.tablet} {
+        padding-top: 100px;
+
+    }
 `
 
 const LogoContainer = styled.div`

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-class VariantSelector extends React.Component {
+class BeanieSelector extends React.Component {
     constructor(props) {
         super(props);
 
@@ -12,14 +12,11 @@ class VariantSelector extends React.Component {
 
     render() {
         const styles = {
-            background: this.props.color
-
+            'background-color': this.props.color
         }
 
         return (
-            <VariantCircle style={styles}>
-                <img src={this.props.img} width="70px" height="70px" />
-            </VariantCircle >
+            <VariantCircle style={styles} />
         );
     }
 
@@ -29,9 +26,9 @@ const VariantCircle = styled.div`
     border-radius: 40px;
     margin: 3px;
     padding: 3px;
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     overflow: hidden;
 `;
 
-export default VariantSelector;
+export default BeanieSelector;
