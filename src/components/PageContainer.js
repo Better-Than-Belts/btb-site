@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from './Nav';
+import styled from 'styled-components';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from '../views/Home';
 import PDP from '../views/PDP';
@@ -15,6 +16,7 @@ import ScrollToTop from './ScrollToTop';
 import Cart from '../views/Cart';
 import TopBanner from './Banner/TopBanner';
 import BottomBanner from './Banner/BottomBanner';
+import { device } from '../device';
 
 const PageContainer = (props) => {
     const shopifyClient = props.client;
@@ -31,6 +33,7 @@ const PageContainer = (props) => {
                     render={() =>
                         <Home {...props} />
                     } />
+                    <StickyNavPadding>
                 <Switch>
                     <Route path="/shop/search/:query"
                         exact={true}
@@ -84,10 +87,20 @@ const PageContainer = (props) => {
                         } />
                 </Switch>
                 <Footer {...props} />
+                </StickyNavPadding>
                 <BottomBanner {...props} />
             </Router>
         </div>
     )
 };
+
+const StickyNavPadding = styled.div`
+    padding-top: 40px;
+    background-color: #F9F9FE;
+
+    @media ${device.tablet} {
+        padding-top: 0;
+    }
+`;
 
 export default PageContainer;

@@ -1,6 +1,7 @@
 import React from 'react';
+import styled from 'styled-components';
 import NotFound from '../NotFound';
-import { H1, BGBlue, TextCenter, Section, H3 } from '../styles';
+import { H1, BGBlue, TextCenter, Section, H3, BGWhite } from '../styles';
 import Text from '../components/Generics/Text';
 import TextImage from '../components/Generics/TextImage';
 import ImageText from '../components/Generics/ImageText';
@@ -47,28 +48,42 @@ class GenericPage extends React.Component {
 
     render() {
         return this.state.doc ? 
-            (<Section>
+            (
                 <TextCenter>
-                    <H1>
-                        { RichText.asText(this.state.doc.data.title) }
-                    </H1>
+                    <BGWhite>
+                        <Section>
+                            <H1>
+                                { RichText.asText(this.state.doc.data.title) }
+                            </H1>
+                        </Section>
+                    </BGWhite>
                     {
                     this.state.doc.data.body.map(
                         (section, index) => {
+                            console.log(section.primary.background_blue);
                         return (
-                            section.slice_type === "text" ? <Text {...section.primary}/> 
+                            <VariableBG BGBlue={section.primary.background_blue}>
+                                <Section>
+                            {section.slice_type === "text" ? <Text {...section.primary}/> 
                                 : section.slice_type === "image-text" ? <ImageText {...section.primary}/> 
                                     : section.slice_type === "text-image" ? <TextImage {...section.primary}/>
                                         : section.slice_type === "full-width_image" ? <FullWidthImage {...section.primary}/> 
-                                            : <br/>
+                                            : <br/>}
+                                </Section>
+                            </VariableBG>
                             );
                         })
                     }
                 </TextCenter>
-            </Section>) : this.state.err ? (<NotFound />) : (<Loading />);
+            ) : this.state.err ? (<NotFound />) : (<Loading />);
     }
 
 }
+
+const VariableBG = styled.div`
+    background-color: ${props => props.BGBlue ? '#004669' : '#F9F9FE'};
+    color: ${props => props.BGBlue ? 'white' : '#004669'};
+`;
 
 const Loading = () => {
     return (
