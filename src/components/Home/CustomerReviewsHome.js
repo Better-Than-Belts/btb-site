@@ -52,6 +52,7 @@ const Star = styled.img`
     content: url(${StarIcon});
     width: 50px;
     margin: 10px;
+    padding: 0;
     @media ${device.mobile} {
         width: 40px;
     }

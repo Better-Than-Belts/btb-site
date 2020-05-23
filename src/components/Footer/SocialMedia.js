@@ -38,6 +38,7 @@ const SocialMediaContainer = styled.div`
     }
 `;
 const IconImage = styled.img`
+    padding: 10px;
     @media (max-width: 992px) {
         margin-right: 25px;
 }
