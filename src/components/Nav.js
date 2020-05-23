@@ -102,19 +102,7 @@ class NavRouter extends React.Component {
                                 <BTBLogo />
                             </Navbar.Brand>
                         </Link>
-                        <Nav className="mr-auto" style={{ 'flex-wrap': 'wrap' }}>
-                            <BTBNavLink to={`/shop`}>
-                                Shop
-                                </BTBNavLink>
-                            <BTBNavLink to={`/why-suspenders`}>
-                                Why Suspenders
-                                </BTBNavLink>
-                            <BTBNavLink to={`/our-story`}>
-                                Our Story
-                                </BTBNavLink>
-                            <BTBNavLink to={`/faq`}>
-                                FAQ
-                            </BTBNavLink>
+                        <Nav className="mr-auto" style={{'flex-wrap': 'wrap'}}>
                             {this.props.doc ? this.props.doc.data.navbar_items.map((item, index) => {
                                 return <BTBNavLink to={RichText.asText(item.navbar_link_route)}>{RichText.asText(item.navbar_link_text)}</BTBNavLink>
                             }) : ''}
@@ -176,18 +164,12 @@ class NavRouter extends React.Component {
                     </Nav>
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            <NavLink onClick={this.closeNav} to={`/shop`} style={navItem}>
-                                <NavText>Shop</NavText>
-                            </NavLink>
-                            <NavLink onClick={this.closeNav} to={`/why-suspenders`} style={navItem}>
-                                <NavText>Why Suspenders</NavText>
-                            </NavLink>
-                            <NavLink onClick={this.closeNav} to={`/our-story`} style={navItem}>
-                                <NavText>Our Story</NavText>
-                            </NavLink>
-                            <NavLink onClick={this.closeNav} to={`/faq`} style={navItem}>
-                                <NavText>FAQ</NavText>
-                            </NavLink>
+                            <SearchDiv inline>
+                                <SearchInput type="text" placeholder="Search" />
+                                <SearchButton>
+                                    <Search />
+                                </SearchButton>
+                            </SearchDiv>
                             {this.props.doc ? this.props.doc.data.navbar_items.map((item, index) => {
                                 return (
                                     <NavLink onClick={this.closeNav} to={RichText.asText(item.navbar_link_route)} style={navItem}>
