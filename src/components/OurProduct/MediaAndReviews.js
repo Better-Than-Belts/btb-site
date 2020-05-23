@@ -33,7 +33,7 @@ const MediaAndReview = (props) => {
 
 // Styles
 const SectionContainer = styled(Section)`
-    padding-top: 50px;
+    padding-top: 5px;
     @media ${device.tablet} {
         padding-left: 30px;
         padding-right: 30px;

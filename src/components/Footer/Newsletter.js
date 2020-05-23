@@ -89,7 +89,8 @@ const NewsLetterSubmit = styled(InputButton)`
 
 const NewsletterTitle = styled(H3)`
     color: #F9F9FE;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
+    line-height: 36px;
     @media ${device.tablet} {
         padding-bottom: 0px;
     }

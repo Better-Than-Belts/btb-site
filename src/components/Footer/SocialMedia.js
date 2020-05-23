@@ -59,7 +59,7 @@ const TwitterIcon = styled(IconImage)`
 
 const CopyrightText = styled(P)`
     margin-left: 20px;
-    @media ${ device.tablet} {
+    @media ${device.tablet} {
         margin-left: 0px;
     }
 `;
