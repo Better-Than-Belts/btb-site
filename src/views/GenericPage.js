@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import NotFound from '../NotFound';
-import { H1, BGBlue, TextCenter, Section, H3, BGWhite } from '../styles';
+import { H1, BGBlue, TextCenter, Section, H3, BGWhite, Wave } from '../styles';
 import Text from '../components/Generics/Text';
 import TextImage from '../components/Generics/TextImage';
 import ImageText from '../components/Generics/ImageText';
 import FullWidthImage from '../components/Generics/FullWidthImage';
 import { RichText } from 'prismic-reactjs';
 import Prismic from 'prismic-javascript';
+import { device } from '../device';
 
 class GenericPage extends React.Component { 
     state = {
@@ -50,13 +51,25 @@ class GenericPage extends React.Component {
         return this.state.doc ? 
             (
                 <TextCenter>
-                    <BGWhite>
+                    {
+                    this.state.doc.data.hero ? 
+                    <HeroBG hero={this.state.doc.data.hero}>
+                        <HeroWrapper>
+                            <HeroTitle titleWhite={this.state.doc.data.title_white}>
+                                <H1>{ RichText.asText(this.state.doc.data.title) }</H1>
+                            </HeroTitle>
+                        </HeroWrapper>
+                        <Wave />
+                    </HeroBG>
+                    : <BGWhite>
                         <Section>
                             <H1>
                                 { RichText.asText(this.state.doc.data.title) }
                             </H1>
                         </Section>
                     </BGWhite>
+                    }
+                   
                     {
                     this.state.doc.data.body.map(
                         (section, index) => {
@@ -80,10 +93,39 @@ class GenericPage extends React.Component {
 
 }
 
+// Styles
 const VariableBG = styled.div`
-    background-color: ${props => props.BGBlue ? '#004669' : '#F9F9FE'};
-    color: ${props => props.BGBlue ? 'white' : '#004669'};
+background-color: ${props => props.BGBlue ? '#004669' : '#F9F9FE'};
+    color: ${props => props.BGBlue ? '#F9F9FE' : '#004669'};
 `;
+
+const HeroBG = styled.div`
+        background-image: url(${props => props.hero.url});
+        background-position: center;
+        background-size: cover;
+    `;
+
+const HeroWrapper = styled.div`
+    margin: auto;
+    position: relative;
+    width: 75%;
+    padding: 10px;
+    text-align: center;
+    height: 645px;
+    @media ${device.tablet} {
+        height: 500px;
+    }
+`;
+
+const HeroTitle = styled.div`
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: ${props => props.titleWhite ? '#F9F9FE': 'auto'};
+`;
+
 
 const Loading = () => {
     return (
