@@ -5,17 +5,17 @@ const Accordion = (props) => {
     return (
         <div>
             {
-            props.accordionData.map((item, index) => {
-                return (
-                    <AccordionItem title={item.title}>
-                        {item.content}
-                    </AccordionItem>
-                )
-            })
+                props.accordionData.map((item, index) => {
+                    return (
+                        <AccordionItem title={item.title} color={props.color}>
+                            {item.content}
+                        </AccordionItem>
+                    )
+                })
             }
 
         </div>
-     
+
     );
 };
 

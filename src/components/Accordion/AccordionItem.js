@@ -23,13 +23,13 @@ class AccordionItem extends React.Component {
         return (
             <AccordionItemWrapper>
                 <AccordionItemTextWrapper onClick={this.onClick}>
-                    <AccordionItemTitle className={"accordion" + (this.state.open ? " open" : "")} >
+                    <AccordionItemTitle color={this.props.color} className={"accordion" + (this.state.open ? " open" : "")} >
                         {this.props.title}
                     </AccordionItemTitle>
                 </AccordionItemTextWrapper>
                 <div className={"accordion-content" + (this.state.open ? " open" : "")}>
                     <AccordionItemTextWrapper>
-                        <AccordionItemText>{this.props.children}</AccordionItemText>
+                        <AccordionItemText color={this.props.color}>{this.props.children}</AccordionItemText>
                     </AccordionItemTextWrapper>
                 </div>
             </AccordionItemWrapper>
@@ -50,11 +50,11 @@ const AccordionItemTextWrapper = styled.div`
 `;
 
 const AccordionItemText = styled(P)`
-    color: #F9F9FE;
+    color: ${props => props.color};
 `;
 
 const AccordionItemTitle = styled(P2)`
-    color: #F9F9FE;
+    color: ${props => props.color};
 `;
 
 export default AccordionItem;

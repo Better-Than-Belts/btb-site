@@ -7,13 +7,16 @@ import { removeItem, addQuantity, subtractQuantity } from '../actions/CartAction
 import RemoveIcon from '../images/RemoveFromCart.svg';
 import Plus from '../images/QuantityPlus.svg';
 import Minus from '../images/QuantityMinus.svg';
+import { RichText } from 'prismic-reactjs';
 
 class Cart extends React.Component {
 
     constructor() {
         super();
         this.state = {
-            checkout: { lineItems: [] }
+            checkout: { lineItems: [] },
+            doc: null,
+            err: null
         }
         this.goCheckout = this.goCheckout.bind(this);
     }
@@ -24,6 +27,25 @@ class Cart extends React.Component {
                 checkout: res,
             });
         });
+        this.fetchPrismic(this.props);
+    }
+
+    componentWillReceiveProps(props) {
+        this.fetchPrismic(props);
+    }
+
+    fetchPrismic = props => {
+        if (props.prismicCtx && props.id) {
+            props.prismicCtx.api
+                .getByUID('cart', 'cart')
+                .then((doc, err) => {
+                    if (doc) {
+                        this.setState(() => ({ doc }));
+                    } else if (err) {
+                        this.setState(() => ({ err }));
+                    }
+                });
+        }
     }
 
     goCheckout = () => {
@@ -78,13 +100,16 @@ class Cart extends React.Component {
             (
                 <p></p>
             )
+        let cartTitle = this.state.doc ?
+            RichText.asText(this.state.doc.data.title) :
+            "Your Cart";
 
         return (
             <BGWhite>
                 <SectionContainer>
                     <PageTitle>
                         <TextCenter>
-                            <H2>Your cart</H2>
+                            <H2>{cartTitle}</H2>
                         </TextCenter>
                     </PageTitle>
                     <CartContainer>

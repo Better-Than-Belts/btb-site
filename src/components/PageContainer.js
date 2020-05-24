@@ -43,7 +43,7 @@ const PageContainer = (props) => {
                 <Route path="/shop/:id"
                     exact={true}
                     render={(props) =>
-                        <PDP {...props} id={props.match.params.id} client={shopifyClient} prismic={prismicCtx} />
+                        <PDP {...props} id={props.match.params.id} client={shopifyClient} prismicCtx={prismicCtx} />
                     } />
                 <Route path="/why-suspenders"
                     exact={true}
@@ -73,7 +73,7 @@ const PageContainer = (props) => {
                 <Route path="/cart"
                     exact={true}
                     render={() =>
-                        <Cart client={shopifyClient} />
+                        <Cart client={shopifyClient} prismicCtx={prismicCtx} />
                     } />
                 <Footer {...props} />
                 <BottomBanner {...props} />
