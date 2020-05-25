@@ -49,9 +49,9 @@ const OurStoryPreview = (props) => {
 const Wave1 = styled(AccentImage)`
     content: url(${wave1});
     width: 100%;
-    top: 30px;
+    top: -30px;
     @media ${device.laptop} {
-        top: 50px;
+        top: -10px;
     }
     @media ${device.tablet} {
         top: 10px;
@@ -106,10 +106,10 @@ const Block1 = styled(AccentImage)`
 `;
 
 const OurStorySection = styled(Section)`
-    padding-top: 150px;
-    padding-bottom: 100px;
+    padding-top: 70px;
+    padding-bottom: 50px;
     @media ${device.laptop} {
-        padding-top: 100px;
+        padding-top: 30px;
     }
     @media ${device.tablet} {
         padding: 30px;
@@ -160,7 +160,7 @@ const OurStoryText = styled.div`
 `;
 
 const Text = styled(P)`
-    padding-bottom: 30px;
+    padding-bottom: 10px;
     line-height: 30px;
     @media ${device.tablet} {
         padding-top: 0px;

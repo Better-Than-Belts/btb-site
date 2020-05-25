@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { AccentContainerFull, Section, H2, P, ImageContainer, Image, BGBlue, BGWhite, Wave, AccentContainer, AccentImage } from '../../styles';
+import { AccentContainerFull, Section, H2, P, ImageContainer, BGBlue, BGWhite, Wave, AccentContainer, AccentImage } from '../../styles';
 import { device } from '../../device.js';
 import pinkWave from '../../images/OurStory/OurStory-PinkWave.svg';
 import pinkWaveMobile from '../../images/OurStory/OurStory-PinkWaveMobile.svg';
@@ -41,7 +41,7 @@ const OurStoryFeatures = (props) => {
                             <AccentContainer>
                                 <YellowCircle src={yellowCircle} />
                             </AccentContainer>
-                            <Image2 src={props.info_1_image.url} />
+                            <Image2 src={props.info_2_image.url} />
                         </ImageContainer>
                         <TextContainer className="col-xs-12 col-md-6">
                             <Title>{RichText.asText(props.info_2_title)}</Title>
@@ -61,7 +61,7 @@ const OurStoryFeatures = (props) => {
                             <AccentContainer>
                                 <TealBlock />
                             </AccentContainer>
-                            <Image3 src={props.info_1_image.url} className="float-right" />
+                            <Image3 src={props.info_3_image.url} />
                         </ImageContainer>
                         <TextContainer className="col-xs-12 col-md-5">
                             <Title>{RichText.asText(props.info_3_title)}</Title>
@@ -123,9 +123,16 @@ const TextContainer = styled.div`
     }
 `;
 
+const Image = styled.div`
+    background-image: url(${props => props.src});
+    height: 400px;
+    width: auto;
+    background-size: cover;
+`;
+
 const Image1 = styled(Image)`
     max-width: 650px;
-    height: 450px;
+    height: 500px;
     padding-top: 20px;
     @media ${device.tablet} {
         max-width: 100%;
@@ -188,11 +195,11 @@ const PinkWave = styled(AccentImage)`
 
 const TealCircle = styled(AccentImage)`
     left: 520px;
-    top: 340px;
+    top: 390px;
     width: 130px;
     @media (max-width: 1190px) {
         left: 450px;
-        top: 360px;
+        top: 420px;
     }
     @media ${device.laptop} {
         left: 350px;
@@ -210,7 +217,7 @@ const YellowCircle = styled(AccentImage)`
     width: 130px;
     @media (max-width: 1190px) {
         left: 30px;
-        top: 400px;
+        top: 430px;
     }
     @media ${device.tablet} {
         display: none;
@@ -233,10 +240,10 @@ const TanBlock = styled(AccentImage)`
 `;
 const TealBlock = styled(AccentImage)`
     content: url(${tealBlock});
-    left: 25px;
+    left: -40px;
     top: 400px;
     @media (max-width: 1090px) {
-        left: 0px;
+        left: -40px;
     }
     @media ${device.laptop} {
         content: url(${tealBlockMobile});

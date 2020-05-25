@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { device } from '../../device';
 import { BTBLink, H2, BGWhite, Section, ButtonYellow, ButtonText, Flex, ImageContainer, Image, RouteLink } from '../../styles';
+import { RichText } from 'prismic-reactjs';
 
 const PLPPreview = (props) => {
     return (
         <BGWhite>
             <PLPPreviewSection>
-                <ShopTitle>Shop best sellers</ShopTitle>
+                <ShopTitle>{RichText.asText(props.plp_preview_text)}</ShopTitle>
                 <PLPFlex>
                     {props.plp_preview_images.map((item, index) => {
                         return (
@@ -32,8 +33,7 @@ const PLPPreview = (props) => {
 // Styles
 const PLPPreviewImageContainer = styled(ImageContainer)`
     flex: 1;
-    max-width: 450px;
-
+    max-width: 250px;
     @media ${device.mobile} {
         flex: auto;
         max-width: 100%;
@@ -41,10 +41,11 @@ const PLPPreviewImageContainer = styled(ImageContainer)`
 `
 const PLPPreviewSection = styled(Section)`
     padding-bottom: 50px;
+    padding-top: 20px;
 `;
 
 const PLPFlex = styled(Flex)`
-    padding: 0 150px;
+    justify-content: center;
     @media ${device.tablet} {
         padding: 0 20px;
         flex-wrap: wrap;

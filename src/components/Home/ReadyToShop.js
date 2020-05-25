@@ -22,8 +22,8 @@ const ReadyToShop = () => {
 
 // Styles
 const ReadySection = styled(Section)`
-    padding-top: 130px;
-    padding-bottom: 130px;
+    padding-top: 30px;
+    padding-bottom: 80px;
     @media ${device.tablet} {
         padding-top: 70px;
         padding-bottom: 80px;
@@ -32,7 +32,7 @@ const ReadySection = styled(Section)`
 
 const ShopNow = styled(ButtonYellow)`
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 30px;
     display: block;
     @media ${device.tablet} {
         margin-top: 20px;

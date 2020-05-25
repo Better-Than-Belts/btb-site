@@ -57,7 +57,12 @@ body {
 	color: #004669;
 }
 ol, ul {
-	list-style: none;
+	margin-bottom: 20px;
+}
+
+li {
+	margin-left: 50px;
+	margin-bottom: 10px;
 }
 blockquote, q {
 	quotes: none;
@@ -75,6 +80,40 @@ button {
 	cursor: pointer;
 }
 
+h2 {
+	font-family: "Calistoga", cursive;
+    font-weight: normal;
+    font-size: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 140%;
+}
+
+h3 {
+	font-family: "Calistoga", serif;
+    margin-top: 10px;
+	margin-bottom: 20px;
+	line-height: initial;
+    font-size: 36px;
+	color: #0C1527;
+}
+
+p {
+	font-family: "Libre Franklin", sans-serif;
+    font-size: 20px;
+    line-height: initial;
+    margin-bottom: 20px;
+}
+
+img {
+	width: 100%;
+	padding: 0 10px;
+}
+
+.decoration {
+	padding: 0;
+}
+
 strong {
 	font-weight: bold;
 }
@@ -90,4 +129,18 @@ a {
 
 * {
   font-family: "Libre Franklin", sans-serif;
+}
+
+@media (max-width: 768px) {
+
+	h3 {
+		font-size: 28px;
+        line-height: 32px;
+	}
+
+	p{
+		font-size: 16px;
+        line-height: 26px;
+	}
+
 }

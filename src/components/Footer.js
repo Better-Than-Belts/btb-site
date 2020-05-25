@@ -26,8 +26,8 @@ class Footer extends React.Component {
 
 // Styles
 const SectionContainer = styled(Section)`
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 
     @media ${device.tablet} {
         padding-left: 60px;

@@ -1,15 +1,19 @@
 import React from 'react';
-import { Flex, Button, FullPageContainer, H2, P, P3, ButtonText, ButtonYellow, Image, BGWhite } from '../styles';
+import { Flex, Button, FullPageContainer, A, H2, P, P3, ButtonText, ButtonYellow, Image, BGWhite, RouteLink } from '../styles';
 import styled from 'styled-components';
-import VariantSelector from '../components/PDP/ColorSelector';
+import SuspenderSelector from '../components/PDP/SuspenderSelector';
+import BeanieSelector from '../components/PDP/BeanieSelector';
 import UserReview from '../components/PDP/UserReview';
 import Accordion from '../components/Accordion/Accordion';
-import { Carousel, Dropdown } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
 import { device } from '../device';
 import "./PDP.css";
 import { Link } from 'react-router-dom';
 import SizeTable from '../components/PDP/SizeTable';
 import { getAllReviews } from '../judgeme/JudgeMeUtils.js';
+import { connect } from 'react-redux';
+import { addItem } from '../actions/CartActions';
+import { RichText } from 'prismic-reactjs';
 
 class PDP extends React.Component {
 
@@ -17,14 +21,23 @@ class PDP extends React.Component {
         super(props);
         this.state = {
             currentId: "",
-            dropdownValue: "Select your size",
             product: {},
             images: [],
-            productVariants: {},
             products: [],
-            reviewsForProduct: []
+            reviewsForProduct: [],
+            productVariants: [],
+            collections: [],
+            suspenders: [],
+            checkout: { lineItems: [] },
+            buyNowUrl: "",
+            selectedVariant: "",
+            doc: null,
+            err: null
         };
-        this.setProduct = this.setProduct.bind(this);
+    }
+
+    handleCart = (id) => {
+        this.props.addItem(id);
     }
     
     filterReviews = (reviews, handle) => {
@@ -32,12 +45,22 @@ class PDP extends React.Component {
     }
     
     componentDidMount() {
+        this.props.client.collection.fetchAllWithProducts().then((res) => {
+            let suspenders = res.find(col => col.title === "All Suspenders");
+            this.props.client.collection.fetchWithProducts(suspenders.id, { productsFirst: 250 }).then((collection) => {
+                this.setState({
+                    collections: res,
+                    suspenders: collection.products
+                })
+            })
+        })
         this.props.client.product.fetch(this.props.id).then((res) => {
             this.setState({
                 currentId: res.id,
                 product: res,
                 images: res.images,
-                productVariants: res.variants[0]
+                productVariants: res.variants,
+                selectedVariant: res.variants[0]
             });
         }).then(() => {
             this.setState({ reviewsForProduct: this.filterReviews(this.props.reviews, this.state.product.handle)});
@@ -47,55 +70,113 @@ class PDP extends React.Component {
             this.setState({
                 products: res,
             });
+        }).then((res) => {
+            // add Buy Now url
+            this.props.client.checkout.create().then((res) => {
+                let checkout = res;
+                let variantId = this.state.product.variants[0].id
+                if (checkout && checkout.id) {
+                    const checkoutId = checkout.id;
+                    let lineItemsToAdd = [];
+                    let lineItem = { variantId, quantity: 1 }
+                    lineItemsToAdd.push(lineItem);
+                    this.props.client.checkout.addLineItems(checkoutId, lineItemsToAdd).then((realRes) => {
+                        this.setState({ buyNowUrl: realRes.webUrl })
+                    });
+                }
+            })
         });
-
-        
+        this.fetchPrismic(this.props);
     }
 
     componentWillReceiveProps(props) {
         if(props.reviews !== this.props.reviews) {
-            this.setState({ reviewsForProduct: this.filterReviews(this.props.reviews, this.state.product.handle)})
+              this.setState({ reviewsForProduct: this.filterReviews(this.props.reviews, this.state.product.handle)})
+          }
+        this.fetchPrismic(props);
+    }
+
+    fetchPrismic = props => {
+        if (props.prismicCtx && props.id) {
+            props.prismicCtx.api
+                .getByUID('general_product_information', 'general_product_information')
+                .then((doc, err) => {
+                    if (doc) {
+                        this.setState(() => ({ doc }));
+                    } else if (err) {
+                        this.setState(() => ({ err }));
+                    }
+                });
         }
     }
 
-    changeDropdownValue = event => {
-        const value = event.target.innerHTML;
-        this.setState({ dropdownValue: value });
-    }
-
     setProduct(selected) {
-        this.setState({
-            currentId: selected.id,
-            product: selected,
-            images: selected.images,
-            selected: selected.variants[0],
-            reviewsForProduct: this.filterReviews(this.props.reviews, selected.handle),
+        this.props.client.checkout.create().then((res) => {
+            let variantId = "";
+            if (selected.handle && selected.handle !== "") {
+                variantId = selected.variants[0].id
+            } else {
+                variantId = selected.id;
+            }
+            let checkout = res;
+            if (checkout && checkout.id) {
+                const checkoutId = checkout.id;
+                let lineItemsToAdd = [];
+                let lineItem = { variantId, quantity: 1 }
+                lineItemsToAdd.push(lineItem);
+                this.props.client.checkout.addLineItems(checkoutId, lineItemsToAdd).then((realRes) => {
+                    this.setState({ buyNowUrl: realRes.webUrl })
+                });
+            }
+        }).then((res) => {
+            if (selected.handle && selected.handle !== "") {
+                this.setState({
+                    currentId: selected.id,
+                    product: selected,
+                    images: selected.images,
+                    reviewsForProduct: this.filterReviews(this.props.reviews, selected.handle),
+                });
+            } else {
+                this.setState({
+                    selectedVariant: selected
+                })
+            }
         });
     }
 
     render() {
-        // @ IAN DONT LOOK 
         let userReviews = this.state.reviewsForProduct.map((item, index) => <UserReview {...item} />);
-        let sizeChart = <SizeTable />
+        let isSuspender = this.state.suspenders.find(item => this.state.currentId === item.id);
+        let endImageIndex = 0;
+        if (isSuspender) {
+            endImageIndex = this.state.images.length - 1;
+        } else {
+            endImageIndex = this.state.images.length;
+        }
+        let price = this.state.productVariants.length > 0 ? this.state.productVariants[0].price : "";
+        let isBeanie = this.state.product.handle === "better-beanie";
+        let beanieVariants = isBeanie ? this.state.product.variants : [];
+        let productDetailsTitle = this.state.doc ?
+            RichText.asText(this.state.doc.data.title) : "Product Details";
+        let productDetailsText = this.state.doc ?
+            RichText.asText(this.state.doc.data.text) : "";
         return (
             <BGWhite>
                 <FullPageContainer>
                     <Flex>
                         <PDPImages>
                             {
-                                this.state.images.slice(0).map((image, index) => {
+                                this.state.images.slice(0, endImageIndex).map((image, index) => {
                                     return (
                                         <ProductImage src={image.src} />
                                     )
                                 })
                             }
                         </PDPImages>
-
-
                         <PDPDetails>
                             <PDPCarousel interval={this.state.images.length}>
                                 {
-                                    this.state.images.map((image, index) => {
+                                    this.state.images.slice(0, endImageIndex).map((image, index) => {
                                         return (
                                             <Carousel.Item>
                                                 <ProductImage src={image.src} />
@@ -104,38 +185,76 @@ class PDP extends React.Component {
                                     })
                                 }
                             </PDPCarousel>
-                            <H2>{this.state.product.title} - {this.state.productVariants.price}</H2>
-                            <P>{this.state.product.description}</P>
-                            <ProductVariants>
-                                {
-                                    this.state.products.map((variant, index) => {
-                                        var iconImage = variant.images[0].src;
-                                        return (
-                                            <Link to={`/shop/${variant.id}`} onClick={() => this.setProduct(variant)}>
-                                                <VariantCircleBorder className={this.state.product.title === variant.title ? " selected" : ""}>
-                                                    <VariantSelector {...variant} img={iconImage} />
-                                                </VariantCircleBorder>
-                                            </Link>
-                                        )
-                                    })
-                                }
-                            </ProductVariants>
-                            <SizeDropdown>
-                                <SizeToggle className="text-left" id="size-button" >
-                                    {this.state.dropdownValue}
-                                </SizeToggle>
-                                <SizeMenu>
-                                    <SizeOption onClick={this.changeDropdownValue}>0/S (5'3-6'3)</SizeOption>
-                                </SizeMenu>
-                            </SizeDropdown>
+                            <H2>{this.state.product.title} - {price}</H2>
+                            {
+                                isSuspender && this.state.suspenders.length > 0 &&
+                                <ProductVariants>
+                                    {
+                                        this.state.suspenders.length > 0 && this.state.suspenders.map((variant, index) => {
+                                            var iconImage = variant.images[variant.images.length - 1].src;
+                                            return (
+                                                <Link to={`/shop/${variant.id}`} onClick={() => this.setProduct(variant)}>
+                                                    <VariantCircleBorder className={this.state.product.title === variant.title ? " selected" : ""}>
+                                                        <SuspenderSelector {...variant} img={iconImage} />
+                                                    </VariantCircleBorder>
+                                                </Link>
+                                            )
+                                        })
+                                    }
+                                </ProductVariants>
+                            }
+                            {
+                                isBeanie &&
+                                <ProductVariants>
+                                    {/* Ocean Blue */}
+                                    <Link to={`/shop/${this.state.currentId}`} onClick={() => this.setProduct(beanieVariants[0])}>
+                                        <VariantCircleBorder className={this.state.selectedVariant.id === beanieVariants[0].id ? "selected" : ""}>
+                                            <BeanieSelector color="#0B79A9" />
+                                        </VariantCircleBorder>
+                                    </Link>
+                                    {/* Natural */}
+                                    <Link to={`/shop/${this.state.currentId}`} onClick={() => this.setProduct(beanieVariants[1])}>
+                                        <VariantCircleBorder className={this.state.selectedVariant.id === beanieVariants[1].id ? "selected" : ""}>
+                                            <BeanieSelector color="#E5DBD1" />
+                                        </VariantCircleBorder>
+                                    </Link>
+                                    {/* Sunset Red */}
+                                    <Link to={`/shop/${this.state.currentId}`} onClick={() => this.setProduct(beanieVariants[2])}>
+                                        <VariantCircleBorder className={this.state.selectedVariant.id === beanieVariants[2].id ? "selected" : ""}>
+                                            <BeanieSelector color="#CE4230" />
+                                        </VariantCircleBorder>
+                                    </Link>
+                                    {/* Forest Green */}
+                                    <Link to={`/shop/${this.state.currentId}`} onClick={() => this.setProduct(beanieVariants[3])}>
+                                        <VariantCircleBorder className={this.state.selectedVariant.id === beanieVariants[3].id ? "selected" : ""}>
+                                            <BeanieSelector color="#45AF51" />
+                                        </VariantCircleBorder>
+                                    </Link>
+                                </ProductVariants>
+                            }
                             <PDPButtons>
-                                <ButtonYellow><ButtonText>Add to Cart</ButtonText></ButtonYellow>
-                                <BuyNowButton><ButtonText>Buy Now</ButtonText></BuyNowButton>
+                                <AddToCartButtonDiv>
+                                    <AddToCartButton><PDPButtonText>
+                                        <RouteLink to={`/cart`} onClick={() => {
+                                            isBeanie ? this.handleCart(this.state.selectedVariant.id) :
+                                                this.handleCart(this.state.currentId)
+                                        }}>Add to cart</RouteLink>
+                                    </PDPButtonText></AddToCartButton>
+                                </AddToCartButtonDiv>
+                                <BuyNowButton>
+                                    <A href={this.state.buyNowUrl}>
+                                        <PDPButtonText>Buy now</PDPButtonText>
+                                    </A>
+                                </BuyNowButton>
                             </PDPButtons>
+                            <P>{this.state.product.description}</P>
+
                             <P3>Free, fast shipping. Always.</P3>
                             <div className="pdp">
-                                <Accordion accordionData={[{ title: "Sizing", content: sizeChart }]} />
-                                <Accordion accordionData={[{ title: "Product Details", content: text.productDetails }]} />
+                                <ProductDetails color="#0C1527" accordionData={[{
+                                    title: productDetailsTitle,
+                                    content: productDetailsText
+                                }]} />
                                 <Accordion accordionData={[{ title: "Read the Reviews", content: userReviews }]} />
                             </div>
                         </PDPDetails>
@@ -146,43 +265,6 @@ class PDP extends React.Component {
     }
 
 };
-
-const SizeDropdown = styled(Dropdown)`
-    display: flex;
-`;
-const SizeToggle = styled(Dropdown.Toggle)`
-    display: block;
-    width: 100%;
-    min-height: 55px;
-    font-family: "Libre Franklin", sans-serif;
-    font-size: 20px;
-    line-height: 30px;
-    background-color: transparent;
-    color: #0C1527;
-    border: 1px solid #004669;
-    box-sizing: border-box;
-    border-radius: 0px;
-    :after {
-        height: 100%;
-        margin-top: 10px;
-        float: right;
-    }
-`;
-const SizeMenu = styled(Dropdown.Menu)`
-    display: block;
-    background-color: #F9F9FE;
-    border-radius: 0px;
-    border: 1px solid #004669;
-`;
-const SizeOption = styled(Dropdown.Item)`
-    font-family: "Libre Franklin", sans-serif;
-    font-weight: 800;
-    font-size: 20px;
-    line-height: 30px;
-    color: #004669;
-    display: block;
-    width: 100%;
-`;
 
 const PDPImages = styled.div`
     flex: 1;
@@ -235,6 +317,7 @@ const PDPCarousel = styled(Carousel)`
 const ProductVariants = styled(Flex)`
     flex-wrap: wrap;
     justify-content: flex-start;
+    padding: 5px;
 `;
 
 const PDPButtons = styled(Flex)`
@@ -247,14 +330,23 @@ const BuyNowButton = styled(Button)`
     color: #004669;
     box-sizing: border-box;
     border: 2px solid #004669;
-
+    padding: 10px 20px;
     &:hover {
         background: #004669;
-
         p {
             color: #F9F9FE;
         }
     }
+`;
+const AddToCartButton = styled(ButtonYellow)`
+    border: 2px solid #FDC16E;
+    padding: 10px 20px;
+`;
+const AddToCartButtonDiv = styled.div`
+    margin-right: 20px;
+`;
+const PDPButtonText = styled(ButtonText)`
+    font-size: 16px;
 `;
 
 const VariantCircleBorder = styled.div`
@@ -272,7 +364,9 @@ const VariantCircleBorder = styled.div`
     }
 `;
 
-export default PDP;
+const ProductDetails = styled(Accordion)`
+    color: #0C1527;
+`;
 
 // Text from App.js
 const text = {
@@ -281,6 +375,23 @@ const text = {
         { "name": "Fred", "score": 5, "body": "Life is too short to wear dull clothing - Wearing my new pair in the office today and getting great compliments. Dress them up or down - they are eye catching and fun to wear. Life is too short to wear dull clothing. Thanks guys!" },
         { "name": "Fred", "score": 3, "body": "Life is too short to wear dull clothing - Wearing my new pair in the office today and getting great compliments. Dress them up or down - they are eye catching and fun to wear. Life is too short to wear dull clothing. Thanks guys!" },
         { "name": "Fred", "score": 2, "body": "Life is too short to wear dull clothing - Wearing my new pair in the office today and getting great compliments. Dress them up or down - they are eye catching and fun to wear. Life is too short to wear dull clothing. Thanks guys!" }
-    ],
-    "productDetails": "They are suspenders :)"
+    ]
 }
+
+// redux
+const stateToPropertyMapper = (state) => {
+    return {
+        items: state
+    }
+}
+
+const dispatchToPropertyMapper = (dispatch) => {
+    return {
+        addItem: (id) => {
+            dispatch(addItem(id))
+        }
+    }
+}
+
+export default connect(stateToPropertyMapper, dispatchToPropertyMapper)
+    (PDP)

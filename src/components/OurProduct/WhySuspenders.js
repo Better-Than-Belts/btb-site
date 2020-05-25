@@ -57,7 +57,6 @@ const Text = styled(P)`
 `;
 
 const SectionContainer = styled(Section)`
-
     @media ${device.tablet} {
         padding-top: 30px;
         padding-left: 30px;

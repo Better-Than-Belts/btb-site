@@ -10,21 +10,11 @@ import { RichText } from 'prismic-reactjs';
 
 const OurStoryHero = (props) => {
 
-    // HeroBG defined here to utilize props
-    const HeroBG = styled.div`
-        background-image: url(${props.hero.url});
-        background-position: top;
-        background-repeat: no-repeat;
-        background-size: cover;
-        @media ${device.tablet} {
-            background-image: url(${props.hero.url});
-            background-size: cover;
-        }
-    `;
+
 
     return (
         <BGWhite>
-            <HeroBG>
+            <HeroBG heroURL={props.hero.url}>
                 <HeroWrapper>
                     <NamesDesktop className="">
                         <Info className="float-left">
@@ -62,6 +52,17 @@ const OurStoryHero = (props) => {
 };
 
 // Styles
+const HeroBG = styled.div`
+    background-image: url(${props => props.heroURL});
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @media ${device.tablet} {
+        background-image: url(${props => props.heroURL});
+        background-size: cover;
+    }
+`;
+
 const HeroWrapper = styled.div`
     margin: auto;
     position: relative;
@@ -93,6 +94,7 @@ const HeroText = styled(H1)`
 `;
 
 const HeroArrow = styled.img`
+    width: 50px;
     position: absolute;
     bottom: 0%;
     content: url(${Arrow});
@@ -104,7 +106,7 @@ const HeroArrow = styled.img`
 const NamesDesktop = styled.div`
     margin-top: 100px;
     @media ${device.laptop} {
-        margin-top: 30px;
+        margin-top: 80px;
     }
     @media ${device.tablet} {
         display: none;

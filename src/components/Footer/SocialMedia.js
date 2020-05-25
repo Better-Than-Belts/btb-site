@@ -38,6 +38,7 @@ const SocialMediaContainer = styled.div`
     }
 `;
 const IconImage = styled.img`
+    padding: 10px;
     @media (max-width: 992px) {
         margin-right: 25px;
 }
@@ -58,7 +59,7 @@ const TwitterIcon = styled(IconImage)`
 
 const CopyrightText = styled(P)`
     margin-left: 20px;
-    @media ${ device.tablet} {
+    @media ${device.tablet} {
         margin-left: 0px;
     }
 `;

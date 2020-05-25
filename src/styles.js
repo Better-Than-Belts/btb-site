@@ -6,7 +6,6 @@ import square from './images/Square.png';
 import portrait from './images/Portrait.png';
 import landscape from './images/Landscape.png';
 import logo from './images/Logo.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import filterCircle from './images/SmallCircle.png'
 import ourStoryImage from './images/OurStoryImage.png';
 import featureCircle from './images/Circle.png';
@@ -16,7 +15,7 @@ import StarIcon from './images/CoralStar.svg';
 
 const H1 = styled.h1`
     font-family: "Calistoga", serif;
-    font-size: 72px;
+    font-size: 62px;
     margin-top: 10px;
     margin-bottom: 10px;
     line-height: 86px;
@@ -29,10 +28,10 @@ const H1 = styled.h1`
 const H2 = styled.h2`
     font-family: "Calistoga", cursive;
     font-weight: normal;
-    font-size: 48px;
+    font-size: 36px;
     margin-top: 10px;
     margin-bottom: 10px;
-    line-height: 56px;
+    line-height: 140%;
 
     @media ${device.tablet} {
         font-size: 32px;
@@ -44,8 +43,8 @@ const H3 = styled.h3`
     font-family: "Calistoga", serif;
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 36px;
-    line-height: 52px;
+    font-size: 24px;
+    line-height: 140%;
     color: #F9F9FE;
     @media ${device.tablet} {
         font-size: 24px;
@@ -56,7 +55,7 @@ const H3 = styled.h3`
 const H4 = styled.h4`
     font-family: "Calistoga", cursive;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 140%;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -120,8 +119,6 @@ const Button = styled.button`
 const ButtonYellow = styled(Button)`
     background: #FDC16E;
     font-weight: 1000;
-
-
     &:hover {
         background-color: #fa9203;
     }
@@ -167,13 +164,15 @@ const Section = styled.div`
     padding-right: 20px;
     padding-left:  20px;
 
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 
 `;
 
 const FullPageContainer = styled.div`
-    padding: 80px 150px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
     @media ${device.laptop} {
         padding: 80px 30px;
     }
@@ -211,12 +210,14 @@ const ImageContainer = styled.div`
 const Image = styled.img`
     max-width: 100%;
     height: auto;
+    padding: 0;
     @media ${device.tablet} {
         margin-left: auto;
         margin-right: auto;
         display: block;
     }
-`
+`;
+
 const MockImage = styled.img`
     content: url(${square});
 `;
@@ -300,11 +301,32 @@ const AccentContainerFull = styled(AccentContainer)`
 
 const AccentImage = styled.img`
     position: relative;
+    width: auto;
+    padding: 0;
 `;
 
 const RouteLink = styled(Link)`
     text-decoration: none;
     color: inherit;
+    &: hover {
+        text-decoration: none;
+    }
+`;
+
+const A = styled.a`
+    text-decoration: none;
+    color: inherit;
+`;
+
+const TextArea = styled.textarea`
+    width: 100%;
+    border: 1px solid #004669;
+    box-sizing: border-box;
+    border-radius: 6px;
+    background-color: #F9F9FE;
+    color: #004669;
+    padding: 10px;
+    font-family: "Libre Franklin", sans-serif;
 `;
 
 const BTBLink = styled(Link)`
@@ -369,5 +391,7 @@ export {
     AccentContainer,
     AccentContainerFull,
     AccentImage,
-    RouteLink
+    RouteLink,
+    A,
+    TextArea
 };

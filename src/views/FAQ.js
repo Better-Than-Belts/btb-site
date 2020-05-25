@@ -52,7 +52,9 @@ class FAQ extends React.Component {
                             Object.keys(this.state.faqsBySection).map((key, value) => {
                                 return (
                                     <FAQSection>
-                                        <FAQSectionTitle>{key}</FAQSectionTitle>
+                                        <FAQSectionTitleDiv>
+                                            <FAQSectionTitle>{key}</FAQSectionTitle>
+                                        </FAQSectionTitleDiv>
                                         <FAQAccordion accordionData={this.state.faqsBySection[key]} />
                                     </FAQSection>
                                 )
@@ -93,7 +95,7 @@ class FAQAccordion extends React.Component {
     };
 
     render() {
-        return <FAQAccordionContainer><Accordion accordionData={this.state.faqs} /></FAQAccordionContainer>
+        return <FAQAccordionContainer><Accordion color="#F9F9FE" accordionData={this.state.faqs} /></FAQAccordionContainer>
     }
 }
 
@@ -117,9 +119,15 @@ const SectionContainer = styled.div`
 const FAQSection = styled(Flex)`
     margin-bottom: 60px;
     padding: 0 30px;
+    justify-content: space-around;
     @media ${device.tablet} {
         display: block;
     }
+`;
+
+const FAQSectionTitleDiv = styled.div`
+    width: 13%;
+    word-wrap: normal;
 `;
 
 const FAQSectionTitle = styled(P)`
@@ -134,15 +142,14 @@ const FAQSectionTitle = styled(P)`
 `;
 
 const FAQAccordionContainer = styled.div`
-    max-width: 85%;
-    
+    width: 85%;
     @media ${device.tablet} {
         max-width: 100%;
     }
 `;
 
 const PageTitle = styled.div`
-    padding: 130px 40px;
+    padding: 130px 40px 80px 40px;
     @media ${device.tablet} {
         padding: 50px 30px;
     }

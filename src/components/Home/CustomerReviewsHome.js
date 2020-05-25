@@ -9,7 +9,7 @@ import { RichText } from 'prismic-reactjs';
 
 const CustomerReviewsHome = (props) => {
     return (
-        <Carousel prevIcon={false} nextIcon={false} interval={props.customer_reviews.length * 1000} indicators={false}>
+        <Carousel prevIcon={false} nextIcon={false} interval={1500} indicators={false}>
             {
                 props.customer_reviews.map((item, index) => {
                     var stars = []
@@ -52,6 +52,7 @@ const Star = styled.img`
     content: url(${StarIcon});
     width: 50px;
     margin: 10px;
+    padding: 0;
     @media ${device.mobile} {
         width: 40px;
     }
@@ -74,8 +75,8 @@ const ReviewText = styled(P)`
     color: #F9F9FE;
     padding-top: 10px;
     font-weight: normal;
-    font-size: 36px;
-    line-height: 50px;
+    font-size: 24px;
+    line-height: 36px;
     @media ${device.tablet} {
         padding-top: 10px;
         font-size: 16px;
@@ -85,7 +86,7 @@ const ReviewText = styled(P)`
 
 const ReviewName = styled(H4)`
     color: #F9F9FE;
-    font-size: 40px;
+    font-size: 24px;
 `
 
 export default CustomerReviewsHome;
