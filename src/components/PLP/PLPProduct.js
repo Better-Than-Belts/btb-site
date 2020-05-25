@@ -8,21 +8,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class PLPProduct extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            reviewsForProduct: []
+        }
     }
 
     filterReviews = (reviews, handle) => {
         return reviews.filter(review => review.product_handle == handle);
     }
 
+    componentDidMount() {
+        this.setState({ reviewsForProduct: this.filterReviews(this.props.reviews, this.props.product.handle)})
+    }
+
+    componentWillReceiveProps(props) {
+        if(props.reviews !== this.props.reviews) {
+            this.setState({ reviewsForProduct: this.filterReviews(this.props.reviews, this.props.product.handle)})
+        }
+    }
+
     render() {
-        console.log(this.props.reviews);
         return (
             <ProductDiv className="col-md-4 col-6">
                 <PDPLink to={`/shop/${this.props.product.id}`}>
                     {this.props.product.images.length ?
                         <ProductImage src={this.props.product.images[0].src} alt={this.props.product.title} /> : null}
                     <ProductName>{this.props.product.title} - {this.props.product.variants[0].price}</ProductName>
-                    <ReviewAverage reviews={this.props.reviews.length > 0 ? this.filterReviews(this.props.reviews, this.props.product.handle) : []} />
+                    <ReviewAverage reviews={this.props.reviews.length > 0 ? this.state.reviewsForProduct : []} />
                 </PDPLink>
             </ProductDiv>
         )
@@ -31,17 +43,19 @@ class PLPProduct extends React.Component {
 }
 
 const ReviewAverage = (props) => {
-    console.log(props);
+    const average = props.reviews.length ? (props.reviews.map((review) => review.rating).reduce((p, c) => p + c) / props.reviews.length) : 0;
+
+    var stars = []
+
+    for (var i = 0; i < Math.ceil(average); i++) {
+        stars.push(<FontAwesomeIcon icon="star"/>);
+    } 
     return (
         <ReviewsContainer>
-                <Stars>
-                    <FontAwesomeIcon icon="star"/>
-                    <FontAwesomeIcon icon="star"/>
-                    <FontAwesomeIcon icon="star"/>
-                    <FontAwesomeIcon icon="star"/>
-                    <FontAwesomeIcon icon="star"/>
-                </Stars>
-                <ReviewsCount>{5} Reviews</ReviewsCount>
+                {stars.length ? (<Stars>
+                    {stars}
+                </Stars>) : ''}
+                <ReviewsCount>{props.reviews.length} Review{props.reviews.length && props.reviews.length == 1 ? '' : 's'}</ReviewsCount>
         </ReviewsContainer>
     )
 }
@@ -59,13 +73,13 @@ const ReviewsContainer = styled(Flex)`
 
 const Stars = styled.div`
     color: #FDC16E;
+    margin-right: 10px;
 `;
 
 const ReviewsCount = styled(P)`
     display:inline;
     line-height: 18px;
     margin: 0;
-    margin-left: 10px;
 `;
 
 const ProductName = styled(P)`

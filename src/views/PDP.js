@@ -22,11 +22,15 @@ class PDP extends React.Component {
             images: [],
             productVariants: {},
             products: [],
-            reviews: []
+            reviewsForProduct: []
         };
         this.setProduct = this.setProduct.bind(this);
     }
-
+    
+    filterReviews = (reviews, handle) => {
+        return reviews.filter(review => review.product_handle == handle);
+    }
+    
     componentDidMount() {
         this.props.client.product.fetch(this.props.id).then((res) => {
             this.setState({
@@ -35,16 +39,23 @@ class PDP extends React.Component {
                 images: res.images,
                 productVariants: res.variants[0]
             });
+        }).then(() => {
+            this.setState({ reviewsForProduct: this.filterReviews(this.props.reviews, this.state.product.handle)});
         });
+
         this.props.client.product.fetchAll().then((res) => {
             this.setState({
                 products: res,
             });
         });
 
-        getAllReviews().then(res => {
-            this.setState(() => ({ reviews: res, reviewsLoading: false }))
-        });
+        
+    }
+
+    componentWillReceiveProps(props) {
+        if(props.reviews !== this.props.reviews) {
+            this.setState({ reviewsForProduct: this.filterReviews(this.props.reviews, this.state.product.handle)})
+        }
     }
 
     changeDropdownValue = event => {
@@ -57,13 +68,14 @@ class PDP extends React.Component {
             currentId: selected.id,
             product: selected,
             images: selected.images,
-            selected: selected.variants[0]
+            selected: selected.variants[0],
+            reviewsForProduct: this.filterReviews(this.props.reviews, selected.handle),
         });
     }
 
     render() {
         // @ IAN DONT LOOK 
-        let userReviews = this.state.reviews.filter((review) => review.product_handle == this.state.product.handle).map((item, index) => <UserReview {...item} />);
+        let userReviews = this.state.reviewsForProduct.map((item, index) => <UserReview {...item} />);
         let sizeChart = <SizeTable />
         return (
             <BGWhite>

@@ -11,9 +11,7 @@ class PLP extends React.Component {
     state = {
         products: [],
         shop: {},
-        filterOpen: false,
-        reviews: [],
-        reviewsLoading: true
+        filterOpen: false
     };
 
     filterOnClick = () => {
@@ -33,9 +31,6 @@ class PLP extends React.Component {
             this.setState({
                 shop: res,
             });
-        });
-        getAllReviews().then(res => {
-            this.setState(() => ({ reviews: res, reviewsLoading: false }))
         });
     }
 
@@ -93,7 +88,7 @@ class PLP extends React.Component {
                         {
                             this.state.products.map((product, index) => {
                                 return (
-                                    <PLPProduct product={product} reviews={this.state.reviews ? this.state.reviews : []} reviewsLoading={this.state.reviewsLoading}/>
+                                    <PLPProduct product={product} reviews={this.props.reviews ? this.props.reviews : []} reviewsLoading={this.state.reviewsLoading}/>
                                 )
                             })
                         }

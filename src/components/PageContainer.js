@@ -12,56 +12,74 @@ import ScrollToTop from './ScrollToTop';
 import Cart from '../views/Cart';
 import TopBanner from './Banner/TopBanner';
 import BottomBanner from './Banner/BottomBanner';
+import { render } from '@testing-library/react';
+import { getAllReviews } from '../judgeme/JudgeMeUtils';
 
-const PageContainer = (props) => {
-    const shopifyClient = props.client;
+class PageContainer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            shopifyClient: props.client,
+            reviews: [],
+            reviewsLoading: true
+        }
+    }
 
-    return (
-        <div>
-            <Router>
-                <ScrollToTop />
-                <TopBanner {...props} />
-                <Nav {...props} />
-                <Route path="/"
-                    exact={true}
-                    render={() =>
-                        <Home {...props} />
-                    } />
-                <Route path="/shop"
-                    exact={true}
-                    render={() =>
-                        <PLP {...props} />
-                    } />
-                <Route path="/shop/:id"
-                    exact={true}
-                    render={(props) =>
-                        <PDP id={props.match.params.id} client={shopifyClient} />
-                    } />
-                <Route path="/why-suspenders"
-                    exact={true}
-                    render={() =>
-                        <OurProduct {...props} />
-                    } />
-                <Route path="/our-story"
-                    exact={true}
-                    render={() =>
-                        <OurStory {...props} />
-                    } />
-                <Route path="/faq"
-                    exact={true}
-                    render={() =>
-                        <FAQ {...props} />
-                    } />
-                <Route path="/cart"
-                    exact={true}
-                    render={() =>
-                        <Cart />
-                    } />
-                <Footer {...props} />
-                <BottomBanner {...props} />
-            </Router>
-        </div>
-    )
+    componentDidMount() {
+        getAllReviews().then(res => {
+            this.setState(() => ({ reviews: res, reviewsLoading: false }))
+        });
+    }
+    
+    render() {
+        return (
+            <div>
+                <Router>
+                    <ScrollToTop />
+                    <TopBanner {...this.props} />
+                    <Nav {...this.props} />
+                    <Route path="/"
+                        exact={true}
+                        render={() =>
+                            <Home {...this.props} />
+                        } />
+                    <Route path="/shop"
+                        exact={true}
+                        render={() =>
+                            <PLP {...this.props} reviews={this.state.reviews} />
+                        } />
+                    <Route path="/shop/:id"
+                        exact={true}
+                        render={(props) =>
+                            <PDP {...props} id={props.match.params.id} client={this.state.shopifyClient} reviews={this.state.reviews}/>
+                        } />
+                    <Route path="/why-suspenders"
+                        exact={true}
+                        render={() =>
+                            <OurProduct {...this.props} />
+                        } />
+                    <Route path="/our-story"
+                        exact={true}
+                        render={() =>
+                            <OurStory {...this.props} />
+                        } />
+                    <Route path="/faq"
+                        exact={true}
+                        render={() =>
+                            <FAQ {...this.props} />
+                        } />
+                    <Route path="/cart"
+                        exact={true}
+                        render={() =>
+                            <Cart />
+                        } />
+                    <Footer {...this.props} />
+                    <BottomBanner {...this.props} />
+                </Router>
+            </div>
+        )
+    }
+    
 };
 
 export default PageContainer;
