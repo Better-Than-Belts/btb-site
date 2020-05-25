@@ -5,10 +5,9 @@ import CartIcon from '../images/CartIcon.svg';
 import SearchIcon from '../images/SearchIcon.svg';
 import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav, FormControl } from 'react-bootstrap';
 import { device } from '../device';
 import navHamburgericon from '../images/NavHamburgerIcon.svg';
-import PrismicPage from '../prismic/PrismicPage';
 import { connect } from 'react-redux';
 import { RichText } from 'prismic-reactjs';
 
