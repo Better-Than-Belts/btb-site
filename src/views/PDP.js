@@ -9,8 +9,7 @@ import { Carousel } from 'react-bootstrap';
 import { device } from '../device';
 import "./PDP.css";
 import { Link } from 'react-router-dom';
-import SizeTable from '../components/PDP/SizeTable';
-import { getAllReviews } from '../judgeme/JudgeMeUtils.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { connect } from 'react-redux';
 import { addItem } from '../actions/CartActions';
 import { RichText } from 'prismic-reactjs';
@@ -186,6 +185,7 @@ class PDP extends React.Component {
                                 }
                             </PDPCarousel>
                             <H2>{this.state.product.title} - {price}</H2>
+                            <ReviewAverage reviews={this.props.reviews.length > 0 ? this.state.reviewsForProduct : []} />
                             {
                                 isSuspender && this.state.suspenders.length > 0 &&
                                 <ProductVariants>
@@ -263,8 +263,45 @@ class PDP extends React.Component {
             </BGWhite >
         );
     }
-
 };
+
+const ReviewAverage = (props) => {
+    const average = props.reviews.length ? (props.reviews.map((review) => review.rating).reduce((p, c) => p + c) / props.reviews.length) : 0;
+
+    var stars = []
+
+    for (var i = 0; i < Math.ceil(average); i++) {
+        stars.push(<FontAwesomeIcon icon="star"/>);
+    } 
+    return (
+        <ReviewsContainer>
+                {stars.length ? (<Stars>
+                    {stars}
+                </Stars>) : ''}
+                <ReviewsCount>{props.reviews.length} Review{props.reviews.length && props.reviews.length == 1 ? '' : 's'}</ReviewsCount>
+        </ReviewsContainer>
+    )
+}
+
+const ReviewsContainer = styled(Flex)`
+    text-decoration: none;
+    justify-content: normal;
+
+    * {
+        text-decoration: none;
+    }
+`;
+
+const Stars = styled.div`
+    color: #FDC16E;
+    margin-right: 10px;
+`;
+
+const ReviewsCount = styled(P)`
+    display:inline;
+    line-height: 18px;
+    margin: 0;
+`;
 
 const PDPImages = styled.div`
     flex: 1;

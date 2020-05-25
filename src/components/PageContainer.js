@@ -54,7 +54,7 @@ class PageContainer extends React.Component {
                 <Route path="/shop"
                     exact={true}
                     render={(props) =>
-                        <PLP {...this.props} client={this.state.shopifyClient} />
+                        <PLP {...this.props} client={this.state.shopifyClient} reviews={this.state.reviews}/>
                     } />
                 <Route path="/shop/:id"
                     exact={true}
@@ -91,8 +91,8 @@ class PageContainer extends React.Component {
                     render={() =>
                         <Cart client={this.state.shopifyClient} prismicCtx={this.state.prismicCtx} />
                     } />
-                <Footer {...props} />
-                <BottomBanner {...props} />
+                <Footer {...this.props} />
+                <BottomBanner {...this.props} />
             </Router>
         </div>
         )

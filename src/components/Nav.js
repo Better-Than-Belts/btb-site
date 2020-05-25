@@ -63,7 +63,6 @@ class NavRouter extends React.Component {
                     if (err) {
                         this.setState(() => ({ err }));
                     } else if (doc) {
-                        console.log(doc);
                         this.setState(() => ({ doc }));
                     }
                 }
