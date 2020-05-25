@@ -51,7 +51,7 @@ const Wave1 = styled(AccentImage)`
     width: 100%;
     top: -30px;
     @media ${device.laptop} {
-        top: 50px;
+        top: -10px;
     }
     @media ${device.tablet} {
         top: 10px;
@@ -109,7 +109,7 @@ const OurStorySection = styled(Section)`
     padding-top: 70px;
     padding-bottom: 50px;
     @media ${device.laptop} {
-        padding-top: 100px;
+        padding-top: 30px;
     }
     @media ${device.tablet} {
         padding: 30px;

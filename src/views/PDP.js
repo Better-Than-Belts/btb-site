@@ -27,7 +27,8 @@ class PDP extends React.Component {
             checkout: { lineItems: [] },
             buyNowUrl: "",
             selectedVariant: "",
-            doc: {}
+            doc: null,
+            err: null
         };
     }
 
@@ -69,6 +70,26 @@ class PDP extends React.Component {
                 }
             })
         });
+
+        this.fetchPrismic(this.props);
+    }
+
+    componentWillReceiveProps(props) {
+        this.fetchPrismic(props);
+    }
+
+    fetchPrismic = props => {
+        if (props.prismicCtx && props.id) {
+            props.prismicCtx.api
+                .getByUID('general_product_information', 'general_product_information')
+                .then((doc, err) => {
+                    if (doc) {
+                        this.setState(() => ({ doc }));
+                    } else if (err) {
+                        this.setState(() => ({ err }));
+                    }
+                });
+        }
     }
 
     setProduct(selected) {
@@ -116,6 +137,10 @@ class PDP extends React.Component {
         let price = this.state.productVariants.length > 0 ? this.state.productVariants[0].price : "";
         let isBeanie = this.state.product.handle === "better-beanie";
         let beanieVariants = isBeanie ? this.state.product.variants : [];
+        let productDetailsTitle = this.state.doc ?
+            RichText.asText(this.state.doc.data.title) : "Product Details";
+        let productDetailsText = this.state.doc ?
+            RichText.asText(this.state.doc.data.text) : "";
         return (
             <BGWhite>
                 <FullPageContainer>
@@ -207,9 +232,9 @@ class PDP extends React.Component {
 
                             <P3>Free, fast shipping. Always.</P3>
                             <div className="pdp">
-                                <Accordion accordionData={[{
-                                    title: "product details title",
-                                    content: "product details content"
+                                <ProductDetails color="#0C1527" accordionData={[{
+                                    title: productDetailsTitle,
+                                    content: productDetailsText
                                 }]} />
                                 <Accordion accordionData={[{ title: "Read the Reviews", content: userReviews }]} />
                             </div>
@@ -320,6 +345,10 @@ const VariantCircleBorder = styled.div`
     }
 `;
 
+const ProductDetails = styled(Accordion)`
+    color: #0C1527;
+`;
+
 // Text from App.js
 const text = {
     "customerName": "Happy Customer",
@@ -327,8 +356,7 @@ const text = {
         { "name": "Fred", "score": 5, "body": "Life is too short to wear dull clothing - Wearing my new pair in the office today and getting great compliments. Dress them up or down - they are eye catching and fun to wear. Life is too short to wear dull clothing. Thanks guys!" },
         { "name": "Fred", "score": 3, "body": "Life is too short to wear dull clothing - Wearing my new pair in the office today and getting great compliments. Dress them up or down - they are eye catching and fun to wear. Life is too short to wear dull clothing. Thanks guys!" },
         { "name": "Fred", "score": 2, "body": "Life is too short to wear dull clothing - Wearing my new pair in the office today and getting great compliments. Dress them up or down - they are eye catching and fun to wear. Life is too short to wear dull clothing. Thanks guys!" }
-    ],
-    "productDetails": "They are suspenders :)"
+    ]
 }
 
 // redux

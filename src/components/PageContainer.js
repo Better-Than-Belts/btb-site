@@ -33,60 +33,60 @@ const PageContainer = (props) => {
                     render={() =>
                         <Home {...props} />
                     } />
-                    <StickyNavPadding>
-                <Switch>
-                    <Route path="/shop/search/:query"
-                        exact={true}
-                        render={(props) =>
+                <StickyNavPadding>
+                    <Switch>
+                        <Route path="/shop/search/:query"
+                            exact={true}
+                            render={(props) =>
                             <PLP {...props} query={props.match.params.query} client={shopifyClient} />
                         } />
-                    <Route path="/shop"
-                        exact={true}
-                        render={(props) =>
-                            <PLP {...props} client={shopifyClient} />
-                        } />
-                    <Route path="/shop/:id"
-                        exact={true}
-                        render={(props) =>
-                            <PDP {...props} id={props.match.params.id} client={shopifyClient} prismic={prismicCtx} />
-                        } />
-                    <Route path="/why-suspenders"
-                        exact={true}
-                        render={() =>
-                            <OurProduct {...props} />
-                        } />
-                    <Route path="/our-story"
-                        exact={true}
-                        render={() =>
-                            <OurStory {...props} />
-                        } />
-                    <Route path="/blog"
-                        exact={true}
-                        render={() =>
-                            <Blogs prismicCtx={prismicCtx} />
-                        } />
-                    <Route path="/blog/:id"
-                        exact={true}
-                        render={(props) =>
-                            <Blog id={props.match.params.id} prismicCtx={prismicCtx} />
-                        } />
-                    <Route path="/faq"
-                        exact={true}
-                        render={() =>
-                            <FAQ {...props} />
-                        } />
-                    <Route path="/cart"
-                        exact={true}
-                        render={() =>
-                            <Cart client={shopifyClient} />
-                        } />
-                    <Route path="/:uid"
-                        exact={true}
-                        render={(props) =>
-                            <GenericPage uid={props.match.params.uid} prismicCtx={prismicCtx} />
-                        } />
-                </Switch>
-                <Footer {...props} />
+                        <Route path="/shop"
+                            exact={true}
+                            render={(props) =>
+                                <PLP {...props} client={shopifyClient} />
+                            } />
+                        <Route path="/shop/:id"
+                            exact={true}
+                            render={(props) =>
+                                <PDP {...props} id={props.match.params.id} client={shopifyClient} prismicCtx={prismicCtx} />
+                            } />
+                        <Route path="/why-suspenders"
+                            exact={true}
+                            render={() =>
+                                <OurProduct {...props} />
+                            } />
+                        <Route path="/our-story"
+                            exact={true}
+                            render={() =>
+                                <OurStory {...props} />
+                            } />
+                        <Route path="/blog"
+                            exact={true}
+                            render={() =>
+                                <Blogs prismicCtx={prismicCtx} />
+                            } />
+                        <Route path="/blog/:id"
+                            exact={true}
+                            render={(props) =>
+                                <Blog id={props.match.params.id} prismicCtx={prismicCtx} />
+                            } />
+                        <Route path="/faq"
+                            exact={true}
+                            render={() =>
+                                <FAQ {...props} />
+                            } />
+                        <Route path="/cart"
+                            exact={true}
+                            render={() =>
+                                <Cart client={shopifyClient} prismicCtx={prismicCtx} />
+                            } />
+                        <Route path="/:uid"
+                            exact={true}
+                            render={(props) =>
+                                <GenericPage uid={props.match.params.uid} prismicCtx={prismicCtx} />
+                            } />
+                    </Switch>
+                    <Footer {...props} />
                 </StickyNavPadding>
                 <BottomBanner {...props} />
             </Router>

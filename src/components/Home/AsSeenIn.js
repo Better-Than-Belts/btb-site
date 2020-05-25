@@ -17,20 +17,30 @@ const AsSeenIn = (props) => {
                 <CustomerReviewsHome {...props} />
             </ReviewsContainer>
             <AsSeenInContainer>
-                <LogoContainer >
-                    <Img src={NewsAtNEU} />
+                <LogoContainer>
+                    <a href="https://news.northeastern.edu/2019/09/13/northeastern-university-graduates-tyler-and-tori-farley-are-bringing-suspenders-back-into-everyday-fashion-with-their-company-better-than-belts/">
+                        <Img src={NewsAtNEU} />
+                    </a>
                 </LogoContainer>
                 <LogoContainer >
-                    <Img src={Kickstarter} />
+                    <a href="https://www.kickstarter.com/projects/tylerbtb/better-than-belts/">
+                        <Img src={Kickstarter} />
+                    </a>
                 </LogoContainer>
                 <LogoContainer >
-                    <Img src={ProjectHatch} />
+                    <a href="https://www.projecthatch.co/interview/we-created-a-suspender-business-after-realizing-they-were-better-than-belts/">
+                        <Img src={ProjectHatch} />
+                    </a>
                 </LogoContainer>
                 <LogoContainer>
-                    <Img src={TheGlobe} />
+                    <a href="https://www.bostonglobe.com/2019/12/27/lifestyle/these-siblings-are-working-make-suspenders-next-big-trend/">
+                        <Img src={TheGlobe} />
+                    </a>
                 </LogoContainer>
                 <LogoContainer >
-                    <Img src={Lucid} />
+                    <a href="https://btbimagestorage.s3.us-east-2.amazonaws.com/BTB+in+LUCID+Magazine.pdf">
+                        <Img src={Lucid} />
+                    </a>
                 </LogoContainer>
             </AsSeenInContainer>
             <AccentContainerFull>
