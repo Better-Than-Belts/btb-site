@@ -27,7 +27,7 @@ class UserReview extends React.Component {
                     </Stars>
                     <UserReviewName>{this.props.reviewer.name}</UserReviewName>
                 </UserReviewFlex>
-                <P>{this.props.body}</P>
+                <ReviewBody>{this.props.body}</ReviewBody>
             </div>
         );
     }
@@ -53,4 +53,12 @@ const UserReviewName = styled(P)`
 
 const UserReviewFlex = styled(Flex)`
     justify-content: start;
+    padding-bottom: 0;
+`;
+
+const ReviewBody = styled(P)`
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 20px;
+
 `;

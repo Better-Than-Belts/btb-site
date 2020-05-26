@@ -185,7 +185,7 @@ class PDP extends React.Component {
                                     })
                                 }
                             </PDPCarousel>
-                            <H2>{this.state.product.title} - {price}</H2>
+                            <ProductTitle>{this.state.product.title} - {price}</ProductTitle>
                             <ReviewAverage reviews={this.props.reviews.length > 0 ? this.state.reviewsForProduct : []} />
                             {
                                 isSuspender && this.state.suspenders.length > 0 &&
@@ -284,15 +284,6 @@ const ReviewAverage = (props) => {
     )
 }
 
-const ReviewsContainer = styled(Flex)`
-    text-decoration: none;
-    justify-content: normal;
-
-    * {
-        text-decoration: none;
-    }
-`;
-
 const Stars = styled.div`
     color: #FDC16E;
     margin-right: 10px;
@@ -343,6 +334,16 @@ const PDPDetails = styled.div`
     
 `;
 
+const ReviewsContainer = styled(Flex)`
+    text-decoration: none;
+    justify-content: normal;
+    padding-top: 5px;
+
+    * {
+        text-decoration: none;
+    }
+`;
+
 const PDPCarousel = styled(Carousel)`
     display: none;
     padding: 0;
@@ -350,6 +351,11 @@ const PDPCarousel = styled(Carousel)`
     @media ${device.tablet} {
         display: block;
     }
+`;
+
+const ProductTitle = styled(H2)`
+    padding-bottom: 0;
+    margin-bottom: 0;
 `;
 
 const ProductVariants = styled(Flex)`
