@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import landscape from '../../images/Landscape.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Wave, H2, H4, P, BGWhite, Section } from '../../styles';
-import Prismic from 'prismic-javascript';
 import { device } from '../../device';
 import NotFound from '../../NotFound';
 import { RichText } from 'prismic-reactjs';

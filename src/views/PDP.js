@@ -70,6 +70,7 @@ class PDP extends React.Component {
                 }
             })
         });
+
         this.fetchPrismic(this.props);
     }
 

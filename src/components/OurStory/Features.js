@@ -158,15 +158,15 @@ const Image2 = styled(Image)`
 `;
 
 const Image3 = styled(Image)`
-    max-width: 550px;
+    max-width: 600px;
     height: 500px;
     @media ${device.tablet} {
         max-width: 100%;
         height: 430px;
-        object-fit: cover;
         margin-left: auto;
         margin-right: auto;
         display: block;
+        object-fit: cover;
     }
 `;
 

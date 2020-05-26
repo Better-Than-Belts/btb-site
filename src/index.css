@@ -80,6 +80,14 @@ button {
 	cursor: pointer;
 }
 
+h1 {
+	font-family: "Calistoga", serif;
+    font-size: 72px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 86px;
+}
+
 h2 {
 	font-family: "Calistoga", cursive;
     font-weight: normal;
@@ -95,7 +103,6 @@ h3 {
 	margin-bottom: 20px;
 	line-height: initial;
     font-size: 36px;
-	color: #0C1527;
 }
 
 p {

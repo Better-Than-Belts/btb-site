@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { P } from '../../styles';
-import { device } from '../../device';
 import { Link } from 'react-router-dom';
 
 class PLPProduct extends React.Component {
