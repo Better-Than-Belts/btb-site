@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { P, Flex } from '../../styles';
-import { device } from '../../device';
+import { P } from '../../styles';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

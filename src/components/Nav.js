@@ -48,8 +48,15 @@ class NavRouter extends React.Component {
 
     componentDidMount() {
         this.updateScreenSize();
-        window.addEventListener('resize', this.updateScreenSize);
+        window.addEventListener('resize', this.updateScreenSize);   
+    }
+
+    componentWillMount() {
         this.fetchNavItems(this.props);
+    }
+
+    componentWillReceiveProps(props) {
+        this.fetchNavItems(props);
     }
 
     fetchNavItems = props => {
@@ -101,7 +108,7 @@ class NavRouter extends React.Component {
                             </Navbar.Brand>
                         </Link>
                         <Nav className="mr-auto" style={{'flex-wrap': 'wrap'}}>
-                            {this.props.doc ? this.props.doc.data.navbar_items.map((item, index) => {
+                            {this.state.doc ? this.state.doc.data.navbar_items.map((item, index) => {
                                 return <BTBNavLink to={RichText.asText(item.navbar_link_route)}>{RichText.asText(item.navbar_link_text)}</BTBNavLink>
                             }) : ''}
                         </Nav>
@@ -142,7 +149,7 @@ class NavRouter extends React.Component {
             return (
                 <Navbar onToggle={this.setNavExpanded} expanded={this.state.expanded} style={navBG} expand="lg">
                     <NavbarToggler aria-controls="basic-navbar-nav">
-                        <img src={navHamburgericon} />
+                        <img src={navHamburgericon} alt=""/>
                     </NavbarToggler>
                     <Link onClick={this.closeNav} to={`/`}>
                         <Navbar.Brand>
@@ -168,7 +175,7 @@ class NavRouter extends React.Component {
                                     <Search />
                                 </SearchButton>
                             </SearchDiv>
-                            {this.props.doc ? this.props.doc.data.navbar_items.map((item, index) => {
+                            {this.state.doc ? this.state.doc.data.navbar_items.map((item, index) => {
                                 return (
                                     <NavLink onClick={this.closeNav} to={RichText.asText(item.navbar_link_route)} style={navItem}>
                                         <NavText>

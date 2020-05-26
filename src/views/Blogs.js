@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { H1, P, P2, TextCenter, Section, Flex } from '../styles';
+import { H1, P2, TextCenter, Section, Flex, BGWhite } from '../styles';
 import square from '../images/Square.png';
 import { Link } from 'react-router-dom';
 import Prismic from 'prismic-javascript';
 import { RichText } from 'prismic-reactjs';
+import { device } from '../device';
 
 class Blogs extends React.Component { 
     state = {
@@ -37,14 +38,16 @@ class Blogs extends React.Component {
 
     render() {
         return (
-            <Section>
-                <TextCenter>
-                    <H1>Blogs</H1>
-                </TextCenter>
-                <BlogPreviews>
-                    {this.state.doc ? this.state.doc.results.map((blog, index) => {return ( <BlogPreview {...blog}/> ); }) : <div>No blogs :(</div>}
-                </BlogPreviews>
-            </Section>
+            <BGWhite>
+                <Section>
+                    <TextCenter>
+                        <H1>Blogs</H1>
+                    </TextCenter>
+                    <BlogPreviews>
+                        {this.state.doc ? this.state.doc.results.map((blog, index) => {return ( <BlogPreview {...blog}/> ); }) : <div>No blogs :(</div>}
+                    </BlogPreviews>
+                </Section>
+            </BGWhite>
         );
     }
 
@@ -93,5 +96,10 @@ const BlogPreviewContainer = styled(Link)`
     &:hover {
         text-decoration: none;
         color: inherit;
+    }
+
+    @media ${device.tablet} {
+        flex: auto;
+        max-width: 100%;
     }
 `;

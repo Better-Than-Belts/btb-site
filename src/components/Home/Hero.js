@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { RichText } from 'prismic-reactjs';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Wave, H1 } from '../../styles';
 import { device } from '../../device';
 import Arrow from '../../images/OurStoryArrow.svg';

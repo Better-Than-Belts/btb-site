@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Arrow from '../../images/OurStoryArrow.svg';
-import { AccentContainerFull, Wave, H1, H2, P, BGWhite, AccentContainer, AccentImage } from '../../styles';
+import { AccentContainerFull, Wave, H1, H2, P, BGWhite, AccentImage } from '../../styles';
 import { device } from '../../device';
 import block from '../../images/OurStory/OurStory-YellowBlock.svg';
 import blockMobile from '../../images/OurStory/OurStory-YellowBlockMobile.svg';
