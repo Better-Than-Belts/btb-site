@@ -310,6 +310,7 @@ const RouteLink = styled(Link)`
     color: inherit;
     &: hover {
         text-decoration: none;
+        color: inherit;
     }
 `;
 

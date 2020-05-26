@@ -65,6 +65,7 @@ const AsSeenInContainer = styled(Section)`
 `;
 
 const ReviewsContainer = styled(Section)`
+    min-height: 450px;
     padding-bottom: 0px;
     padding-top: 30px;
     @media ${device.tablet} {
