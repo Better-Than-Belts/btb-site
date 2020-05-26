@@ -49,7 +49,7 @@ class NavRouter extends React.Component {
 
     componentDidMount() {
         this.updateScreenSize();
-        window.addEventListener('resize', this.updateScreenSize);   
+        window.addEventListener('resize', this.updateScreenSize);
     }
 
     componentWillMount() {
@@ -108,9 +108,9 @@ class NavRouter extends React.Component {
                                 <BTBLogo />
                             </Navbar.Brand>
                         </Link>
-                        <Nav className="mr-auto" style={{'flex-wrap': 'wrap'}}>
+                        <Nav className="mr-auto" style={{ 'flex-wrap': 'wrap' }}>
                             {this.state.doc ? this.state.doc.data.navbar_items.map((item, index) => {
-                                return <BTBNavLink to={RichText.asText(item.navbar_link_route)}>{RichText.asText(item.navbar_link_text)}</BTBNavLink>
+                                return <BTBNavLink to={`/` + RichText.asText(item.navbar_link_route)}>{RichText.asText(item.navbar_link_text)}</BTBNavLink>
                             }) : ''}
                         </Nav>
                         <SearchDiv inline>
@@ -150,7 +150,7 @@ class NavRouter extends React.Component {
             return (
                 <Navbar onToggle={this.setNavExpanded} expanded={this.state.expanded} style={navBG} expand="lg">
                     <NavbarToggler aria-controls="basic-navbar-nav">
-                        <img src={navHamburgericon} alt=""/>
+                        <img src={navHamburgericon} alt="" />
                     </NavbarToggler>
                     <Link onClick={this.closeNav} to={`/`}>
                         <Navbar.Brand>
