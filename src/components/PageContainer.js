@@ -35,6 +35,7 @@ class PageContainer extends React.Component {
         getAllReviews().then(res => {
             this.setState(() => ({ reviews: res, reviewsLoading: false }))
         });
+        this.setState({prismicCtx: this.props.prismicCtx })
     }
     
     render() {
@@ -43,7 +44,7 @@ class PageContainer extends React.Component {
             <Router>
                 <ScrollToTop />
                 <TopBanner {...this.props} />
-                <Nav {...this.props} prismicCtx={this.state.prismicCtx}/>
+                <Nav {...this.props} />
                 <StickyNavPadding>
                     <Switch>
                         <Route path="/"
