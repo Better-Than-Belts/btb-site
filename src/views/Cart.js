@@ -215,6 +215,10 @@ const ContinueShopping = styled(RouteLink)`
     font-family: "Libre Franklin", sans-serif;
     text-decoration: underline;
     padding: 0px 20px;
+    @media (max-width: 450px) {
+        display: block;
+        padding: 20px;
+    }
 `;
 
 // redux
@@ -341,7 +345,6 @@ const ItemTitleText = styled(P2)`
 
 const AlignRight = styled.div`
     text-align: right;
-    width: 20%;
     vertical-align: middle;
     display: table-cell;
 `;
@@ -351,8 +354,7 @@ const ItemRemove = styled.img`
     float: right;
     display: block;
     padding-top: 7px;
-    max-width: 100%;
-    max-height: 100%;
+    width: 40px;
     &:hover {
         cursor: pointer;
     }

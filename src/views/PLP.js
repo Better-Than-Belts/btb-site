@@ -9,56 +9,64 @@ import "./PLP.css";
 import { getAllReviews } from '../judgeme/JudgeMeUtils.js';
 
 class PLP extends React.Component {
-    state = {
-        productsMaster: [],
-        products: new Set(),
-        shop: {},
-        filterOpen: false,
-        collections: [],
-        striped: false,
-        patterned: false,
-        beanies: false,
-        allProducts: true,
-        selectedColors: [], // ['red', 'green', 'blue, 'gray']
-        searchQuery: "",
-        search: false,
-    };
-
-    filterOnClick = () => {
-        this.setState({
-            filterOpen: !this.state.filterOpen
-        })
+    constructor(props) {
+        super(props);
+        this.state = {
+            productsMaster: props.products,
+            products: new Set(props.products),
+            filterOpen: false,
+            collections: [],
+            striped: false,
+            patterned: false,
+            beanies: false,
+            allProducts: true,
+            selectedColors: [], // ['red', 'green', 'blue, 'gray']
+            searchQuery: "",
+            search: false,
+            currentSort: "Top Rated"
+        };
     }
 
-    componentWillMount() {
+    componentDidUpdate(prevProps) {
+        if ((!this.props.query &&
+            prevProps.query) ||
+            (!this.props.query &&
+                prevProps.products.length === 0 &&
+                this.props.products !== prevProps.products)) {
+            this.setState({
+                collections: this.props.collections,
+                productsMaster: this.props.products,
+                products: this.props.products,
+                search: false
+            })
+        }
+    }
+
+    componentDidMount() {
         this.getAllProducts();
     }
 
     getAllProducts = () => {
-        this.props.client.collection.fetchAllWithProducts().then((res) => {
-            let items = res.find(col => col.title === "All Products");
-            this.setState({
-                collections: res,
-                products: new Set(items.products),
-                productsMaster: items.products,
-                allProducts: true,
-                search: false
-            })
-        }).then(() => {
-            if (this.props.query && this.props.query !== "") {
-                const searchQuery = {
-                    query: `title: ${this.props.query}`
-                };
-                this.props.client.product.fetchQuery(searchQuery).then((products) => {
-                    this.setState({
-                        search: true,
-                        searchQuery: this.props.query,
-                        products: new Set(products),
-                        allProducts: false
-                    })
+        this.setState({
+            collections: this.props.collections,
+            products: new Set(this.props.products),
+            productsMaster: this.props.products,
+            allProducts: true,
+            search: false
+        })
+        if (this.props.query && this.props.query !== "") {
+            const searchQuery = {
+                query: `title: ${this.props.query}`
+            };
+            this.props.client.product.fetchQuery(searchQuery).then((products) => {
+                this.setState({
+                    search: true,
+                    searchQuery: this.props.query,
+                    products: new Set(products),
+                    allProducts: false
                 })
-            }
-        });
+            })
+        }
     }
 
     filterOnChange = () => {
@@ -198,7 +206,8 @@ class PLP extends React.Component {
 
     sortPrice = () => {
         this.setState({
-            products: new Set(this.state.productsMaster.sort(function (a, b) { return a.variants[0].price - b.variants[0].price }))
+            products: new Set(this.state.productsMaster.sort(function (a, b) { return a.variants[0].price - b.variants[0].price })),
+            currentSort: "Price ($-$$)"
         });
     }
 
@@ -207,7 +216,8 @@ class PLP extends React.Component {
         this.props.client.collection.fetchWithProducts(items.id, { productsFirst: 250 }).then((collection) => {
             this.setState({
                 products: new Set(collection.products),
-                allProducts: true
+                allProducts: true,
+                currentSort: "Newest"
             })
         })
     }
@@ -218,7 +228,8 @@ class PLP extends React.Component {
             this.setState({
                 products: new Set(collection.products),
                 productsMaster: collection.products,
-                allProducts: true
+                allProducts: true,
+                currentSort: "Top Rated"
             })
         })
     }
@@ -326,7 +337,7 @@ class PLP extends React.Component {
                                     </FilterDropdownMenu>
                                 </Dropdown>
                                 <Dropdown className="ml-auto" alignRight>
-                                    <FilterDropdown id="sort-button">Sort</FilterDropdown>
+                                    <FilterDropdown id="sort-button">{this.state.currentSort}</FilterDropdown>
                                     <SortDropdownMenu>
                                         <FilterDropdownItem onClick={() => this.sortTopRated()}>
                                             Top Rated
