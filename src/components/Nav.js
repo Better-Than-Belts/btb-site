@@ -30,15 +30,13 @@ class NavRouter extends React.Component {
     }
 
     toggleSearch = () => {
-        this.setState({ search: !this.state.search })
-    }
-
-    searchClick = () => {
-        if (this.state.search) {
-            this.toggleSearch();
-
+        if (this.state.width <= 992 && this.state.searchInput !== "") {
+            this.setState({
+                expanded: false,
+                search: !this.state.search
+            })
         } else {
-            this.toggleSearch();
+            this.setState({ search: !this.state.search })
         }
     }
 
@@ -48,7 +46,7 @@ class NavRouter extends React.Component {
 
     componentDidMount() {
         this.updateScreenSize();
-        window.addEventListener('resize', this.updateScreenSize);   
+        window.addEventListener('resize', this.updateScreenSize);
     }
 
     componentWillMount() {
@@ -107,9 +105,9 @@ class NavRouter extends React.Component {
                                 <BTBLogo />
                             </Navbar.Brand>
                         </Link>
-                        <Nav className="mr-auto" style={{'flex-wrap': 'wrap'}}>
+                        <Nav className="mr-auto" style={{ 'flex-wrap': 'wrap' }}>
                             {this.state.doc ? this.state.doc.data.navbar_items.map((item, index) => {
-                                return <BTBNavLink to={"/" + RichText.asText(item.navbar_link_route)}>{RichText.asText(item.navbar_link_text)}</BTBNavLink>
+                                return <BTBNavLink to={`/` + RichText.asText(item.navbar_link_route)}>{RichText.asText(item.navbar_link_text)}</BTBNavLink>
                             }) : ''}
                         </Nav>
                         <SearchDiv inline>
@@ -147,9 +145,9 @@ class NavRouter extends React.Component {
         } else {
             // mobile
             return (
-                <Navbar onToggle={this.setNavExpanded} expanded={this.state.expanded} style={navBG} expand="lg">
+                <Navbar onToggle={this.setNavExpanded} expanded={this.state.expanded} style={navBGMobile} expand="lg">
                     <NavbarToggler aria-controls="basic-navbar-nav">
-                        <img src={navHamburgericon} alt=""/>
+                        <img src={navHamburgericon} alt="" />
                     </NavbarToggler>
                     <Link onClick={this.closeNav} to={`/`}>
                         <Navbar.Brand>
@@ -169,12 +167,6 @@ class NavRouter extends React.Component {
                     </Nav>
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            <SearchDiv inline>
-                                <SearchInput type="text" placeholder="Search" />
-                                <SearchButton>
-                                    <Search />
-                                </SearchButton>
-                            </SearchDiv>
                             {this.state.doc ? this.state.doc.data.navbar_items.map((item, index) => {
                                 return (
                                     <NavLink onClick={this.closeNav} to={"/" + RichText.asText(item.navbar_link_route)} style={navItem}>
@@ -193,8 +185,6 @@ class NavRouter extends React.Component {
                                             <Search />
                                         </SearchButton>
                                     </RouteLink>
-
-
                                 }
                                 {
                                     this.state.searchInput === "" &&
@@ -245,13 +235,26 @@ const navBG = {
     'min-height': '75px',
 };
 
+const navBGMobile = {
+    'margin-right': 'auto',
+    'margin-left': 'auto',
+    'max-width': '1100px',
+    'padding-right': '10px',
+    'padding-left': '10px',
+    'backgroundColor': '#F9F9FE',
+    'min-height': '75px',
+};
+
 const navItem = {
     'padding': '0 20px'
 };
 
 const NavItem = styled(NavLink)`
     padding: 0 20px;
-`;
+    @media ${device.mobile} {
+        padding: 0;
+    }
+ `;
 
 const NavText = styled(P)`
     color: #004669;
@@ -312,12 +315,13 @@ const CartCountDiv = styled.div`
     border-radius: 10px;
     color: #F9F9FE;
     top: -13px;
-    left: -10px;
+    left: 0px;
 `;
 const CartCount = styled.p`
     padding: 3px 7px;
     font-family: "Libre Franklin", sans-serif;
     font-size: 10px;
+    line-height: 100%;
 `;
 
 const SearchDiv = styled.div`

@@ -39,7 +39,7 @@ const AsSeenIn = (props) => {
                 </LogoContainer>
                 <LogoContainer >
                     <a href="https://btbimagestorage.s3.us-east-2.amazonaws.com/BTB+in+LUCID+Magazine.pdf">
-                        <Img src={Lucid} />
+                        <Img src={Lucid} style={LucidMaxWidth} />
                     </a>
                 </LogoContainer>
             </AsSeenInContainer>
@@ -69,7 +69,6 @@ const ReviewsContainer = styled(Section)`
     padding-top: 30px;
     @media ${device.tablet} {
         padding-top: 100px;
-
     }
 `
 
@@ -80,11 +79,18 @@ const LogoContainer = styled.div`
 const Img = styled.img`
     padding: 30px 0;
     max-width: 90%;
+    @media ${device.tablet} {
+        max-width: 400px;
+    }
     @media ${device.mobile} {
         padding: 30px 0;
         max-width: 80%;
     }
 `;
+
+const LucidMaxWidth = {
+    'max-width': '120px'
+};
 
 const Circle = styled(AccentImage)`
     left: 80%;

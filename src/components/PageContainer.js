@@ -27,14 +27,23 @@ class PageContainer extends React.Component {
             shopifyClient: props.client,
             prismicCtx: props.prismicCtx,
             reviews: [],
-            reviewsLoading: true
+            reviewsLoading: true,
+            collection: [],
+            products: []
         }
     }
 
     componentDidMount() {
-        getAllReviews().then(res => {
-            this.setState(() => ({ reviews: res, reviewsLoading: false }))
+        this.props.client.collection.fetchAllWithProducts().then((res) => {
+            let items = res.find(col => col.title === "All Products");
+            this.setState({
+                collections: res,
+                products: items.products
+            });
         });
+        getAllReviews().then(res => {
+              this.setState(() => ({ reviews: res, reviewsLoading: false }))
+          });
         this.setState({prismicCtx: this.props.prismicCtx })
     }
     
@@ -110,6 +119,7 @@ class PageContainer extends React.Component {
         </div>
         )
     }
+    
 };
 
 const StickyNavPadding = styled.div`
