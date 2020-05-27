@@ -366,7 +366,7 @@ class PLP extends React.Component {
                             prods.length > 0 &&
                             prods.map((product, index) => {
                                 return (
-                                    <PLPProduct product={product} reviews={this.props.reviews ? this.props.reviews : []} reviewsLoading={this.state.reviewsLoading}/>
+                                    <PLPProduct product={product} reviews={this.props.reviews ? this.props.reviews : []} reviewsLoading={this.state.reviewsLoading} />
                                 )
                             })
                         }

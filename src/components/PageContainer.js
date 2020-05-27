@@ -28,7 +28,7 @@ class PageContainer extends React.Component {
             prismicCtx: props.prismicCtx,
             reviews: [],
             reviewsLoading: true,
-            collection: [],
+            collections: [],
             products: []
         }
     }
@@ -42,84 +42,84 @@ class PageContainer extends React.Component {
             });
         });
         getAllReviews().then(res => {
-              this.setState(() => ({ reviews: res, reviewsLoading: false }))
-          });
-        this.setState({prismicCtx: this.props.prismicCtx })
+            this.setState(() => ({ reviews: res, reviewsLoading: false }))
+        });
+        this.setState({ prismicCtx: this.props.prismicCtx })
     }
-    
+
     render() {
         return (
             <div>
-            <Router>
-                <ScrollToTop />
-                <TopBanner {...this.props} />
-                <Nav {...this.props} />
-                <StickyNavPadding>
-                    <Switch>
-                        <Route path="/"
-                          exact={true}
-                          render={() =>
-                              <Home {...this.props} />
-                          } />
-                        <Route path="/shop/search/:query"
-                          exact={true}
-                          render={(props) =>
-                              <PLP {...props} query={props.match.params.query} client={this.state.shopifyClient} />
-                          } />
-                        <Route path="/shop"
-                            exact={true}
-                            render={(props) =>
-                                <PLP {...this.props} client={this.state.shopifyClient} reviews={this.state.reviews}/>
-                            } />
-                        <Route path="/shop/:id"
-                            exact={true}
-                            render={(props) =>
-                                <PDP {...props} id={props.match.params.id} client={this.state.shopifyClient} prismicCtx={this.state.prismicCtx} reviews={this.state.reviews}/>
-                            } />
-                        <Route path="/why-suspenders"
-                            exact={true}
-                            render={() =>
-                                <OurProduct {...this.props} />
-                            } />
-                        <Route path="/our-story"
-                            exact={true}
-                            render={() =>
-                                <OurStory {...this.props} />
-                            } />
-                        <Route path="/blog"
-                            exact={true}
-                            render={() =>
-                                <Blogs prismicCtx={this.state.prismicCtx} />
-                            } />
-                        <Route path="/blog/:id"
-                            exact={true}
-                            render={(props) =>
-                                <Blog id={props.match.params.id} prismicCtx={this.state.prismicCtx} />
-                            } />
-                        <Route path="/faq"
-                            exact={true}
-                            render={() =>
-                                <FAQ {...this.props} />
-                            } />
-                        <Route path="/cart"
-                            exact={true}
-                            render={() =>
-                                <Cart client={this.state.shopifyClient} prismicCtx={this.state.prismicCtx} />
-                            } />
-                        <Route path="/:uid"
-                            exact={true}
-                            render={(props) =>
-                                <GenericPage uid={props.match.params.uid} prismicCtx={this.state.prismicCtx} />
-                            } />
-                    </Switch>
-                    <Footer {...this.props} />
-                </StickyNavPadding>
-                <BottomBanner {...this.props} />
-            </Router>
-        </div>
+                <Router>
+                    <ScrollToTop />
+                    <TopBanner {...this.props} />
+                    <Nav {...this.props} />
+                    <StickyNavPadding>
+                        <Switch>
+                            <Route path="/"
+                                exact={true}
+                                render={() =>
+                                    <Home {...this.props} />
+                                } />
+                            <Route path="/shop/search/:query"
+                                exact={true}
+                                render={(props) =>
+                                    <PLP {...props} query={props.match.params.query} client={this.state.shopifyClient} />
+                                } />
+                            <Route path="/shop"
+                                exact={true}
+                                render={(props) =>
+                                    <PLP {...this.props} client={this.state.shopifyClient} reviews={this.state.reviews} products={this.state.products} collections={this.state.collections} />
+                                } />
+                            <Route path="/shop/:id"
+                                exact={true}
+                                render={(props) =>
+                                    <PDP {...props} id={props.match.params.id} client={this.state.shopifyClient} prismicCtx={this.state.prismicCtx} reviews={this.state.reviews} />
+                                } />
+                            <Route path="/why-suspenders"
+                                exact={true}
+                                render={() =>
+                                    <OurProduct {...this.props} />
+                                } />
+                            <Route path="/our-story"
+                                exact={true}
+                                render={() =>
+                                    <OurStory {...this.props} />
+                                } />
+                            <Route path="/blog"
+                                exact={true}
+                                render={() =>
+                                    <Blogs prismicCtx={this.state.prismicCtx} />
+                                } />
+                            <Route path="/blog/:id"
+                                exact={true}
+                                render={(props) =>
+                                    <Blog id={props.match.params.id} prismicCtx={this.state.prismicCtx} />
+                                } />
+                            <Route path="/faq"
+                                exact={true}
+                                render={() =>
+                                    <FAQ {...this.props} />
+                                } />
+                            <Route path="/cart"
+                                exact={true}
+                                render={() =>
+                                    <Cart client={this.state.shopifyClient} prismicCtx={this.state.prismicCtx} />
+                                } />
+                            <Route path="/:uid"
+                                exact={true}
+                                render={(props) =>
+                                    <GenericPage uid={props.match.params.uid} prismicCtx={this.state.prismicCtx} />
+                                } />
+                        </Switch>
+                        <Footer {...this.props} />
+                    </StickyNavPadding>
+                    <BottomBanner {...this.props} />
+                </Router>
+            </div>
         )
     }
-    
+
 };
 
 const StickyNavPadding = styled.div`
