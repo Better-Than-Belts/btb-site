@@ -109,7 +109,7 @@ class NavRouter extends React.Component {
                         </Link>
                         <Nav className="mr-auto" style={{'flex-wrap': 'wrap'}}>
                             {this.state.doc ? this.state.doc.data.navbar_items.map((item, index) => {
-                                return <BTBNavLink to={RichText.asText(item.navbar_link_route)}>{RichText.asText(item.navbar_link_text)}</BTBNavLink>
+                                return <BTBNavLink to={"/" + RichText.asText(item.navbar_link_route)}>{RichText.asText(item.navbar_link_text)}</BTBNavLink>
                             }) : ''}
                         </Nav>
                         <SearchDiv inline>
@@ -177,7 +177,7 @@ class NavRouter extends React.Component {
                             </SearchDiv>
                             {this.state.doc ? this.state.doc.data.navbar_items.map((item, index) => {
                                 return (
-                                    <NavLink onClick={this.closeNav} to={RichText.asText(item.navbar_link_route)} style={navItem}>
+                                    <NavLink onClick={this.closeNav} to={"/" + RichText.asText(item.navbar_link_route)} style={navItem}>
                                         <NavText>
                                             {RichText.asText(item.navbar_link_text)}
                                         </NavText>
@@ -315,7 +315,7 @@ const CartCountDiv = styled.div`
     left: -10px;
 `;
 const CartCount = styled.p`
-    padding: 4px 7px;
+    padding: 3px 7px;
     font-family: "Libre Franklin", sans-serif;
     font-size: 10px;
 `;
