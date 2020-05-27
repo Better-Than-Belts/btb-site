@@ -29,19 +29,22 @@ const SocialMediaContainer = styled.div`
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-    margin: 15px 0px 25px 20px;
     @media (max-width: 992px) {
         justify-content: flex-start;
     }
-    @media ${device.tablet} {
-        margin: 15px 0px 25px 0px;
+    @media ${device.mobile} {
+        justify-content: space-between;
     }
 `;
 const IconImage = styled.img`
     padding: 10px;
     @media (max-width: 992px) {
-        margin-right: 25px;
-}
+        max-width: 70px;
+        margin-right: 20px;
+    }
+    @media ${device.tablet} {
+        margin-right: 0px;
+    }
 `;
 
 const YoutubeIcon = styled(IconImage)`

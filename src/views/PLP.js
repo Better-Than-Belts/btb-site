@@ -27,11 +27,16 @@ class PLP extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.products.length === 0 && this.props.products !== prevProps.products) {
+        if ((!this.props.query &&
+            prevProps.query) ||
+            (!this.props.query &&
+                prevProps.products.length === 0 &&
+                this.props.products !== prevProps.products)) {
             this.setState({
                 collections: this.props.collections,
                 productsMaster: this.props.products,
-                products: this.props.products
+                products: this.props.products,
+                search: false
             })
         }
     }
