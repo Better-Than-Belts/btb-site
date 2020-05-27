@@ -6,6 +6,7 @@ import { Dropdown, Form } from 'react-bootstrap';
 import PLPProduct from '../components/PLP/PLPProduct';
 import BlackWhiteCircle from '../images/BlackWhiteFilter.svg';
 import "./PLP.css";
+import { getAllReviews } from '../judgeme/JudgeMeUtils.js';
 
 class PLP extends React.Component {
     constructor(props) {
@@ -365,7 +366,7 @@ class PLP extends React.Component {
                             prods.length > 0 &&
                             prods.map((product, index) => {
                                 return (
-                                    <PLPProduct product={product} />
+                                    <PLPProduct product={product} reviews={this.props.reviews ? this.props.reviews : []} reviewsLoading={this.state.reviewsLoading}/>
                                 )
                             })
                         }

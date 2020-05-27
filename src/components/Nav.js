@@ -8,7 +8,6 @@ import { Link, NavLink } from 'react-router-dom';
 import { Navbar, Nav, FormControl } from 'react-bootstrap';
 import { device } from '../device';
 import navHamburgericon from '../images/NavHamburgerIcon.svg';
-import PrismicPage from '../prismic/PrismicPage';
 import { connect } from 'react-redux';
 import { RichText } from 'prismic-reactjs';
 
@@ -170,7 +169,7 @@ class NavRouter extends React.Component {
                         <Nav className="mr-auto">
                             {this.state.doc ? this.state.doc.data.navbar_items.map((item, index) => {
                                 return (
-                                    <NavLink onClick={this.closeNav} to={RichText.asText(item.navbar_link_route)} style={navItem}>
+                                    <NavLink onClick={this.closeNav} to={"/" + RichText.asText(item.navbar_link_route)} style={navItem}>
                                         <NavText>
                                             {RichText.asText(item.navbar_link_text)}
                                         </NavText>
@@ -319,7 +318,7 @@ const CartCountDiv = styled.div`
     left: 0px;
 `;
 const CartCount = styled.p`
-    padding: 4px 7px;
+    padding: 3px 7px;
     font-family: "Libre Franklin", sans-serif;
     font-size: 10px;
     line-height: 100%;

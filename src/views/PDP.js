@@ -9,6 +9,7 @@ import { Carousel } from 'react-bootstrap';
 import { device } from '../device';
 import "./PDP.css";
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { connect } from 'react-redux';
 import { addItem } from '../actions/CartActions';
 import { RichText } from 'prismic-reactjs';
@@ -21,6 +22,8 @@ class PDP extends React.Component {
             currentId: "",
             product: {},
             images: [],
+            products: [],
+            reviewsForProduct: [],
             productVariants: [],
             collections: [],
             suspenders: [],
@@ -35,7 +38,11 @@ class PDP extends React.Component {
     handleCart = (id) => {
         this.props.addItem(id);
     }
-
+    
+    filterReviews = (reviews, handle) => {
+        return reviews.filter(review => review.product_handle == handle);
+    }
+    
     componentDidMount() {
         this.props.client.collection.fetchAllWithProducts().then((res) => {
             let suspenders = res.find(col => col.title === "All Suspenders");
@@ -53,6 +60,14 @@ class PDP extends React.Component {
                 images: res.images,
                 productVariants: res.variants,
                 selectedVariant: res.variants[0]
+            });
+        }).then(() => {
+            this.setState({ reviewsForProduct: this.filterReviews(this.props.reviews, this.state.product.handle)});
+        });
+
+        this.props.client.product.fetchAll().then((res) => {
+            this.setState({
+                products: res,
             });
         }).then((res) => {
             // add Buy Now url
@@ -75,6 +90,9 @@ class PDP extends React.Component {
     }
 
     componentWillReceiveProps(props) {
+        if(props.reviews !== this.props.reviews) {
+              this.setState({ reviewsForProduct: this.filterReviews(this.props.reviews, this.state.product.handle)})
+          }
         this.fetchPrismic(props);
     }
 
@@ -116,6 +134,7 @@ class PDP extends React.Component {
                     currentId: selected.id,
                     product: selected,
                     images: selected.images,
+                    reviewsForProduct: this.filterReviews(this.props.reviews, selected.handle),
                 });
             } else {
                 this.setState({
@@ -126,7 +145,7 @@ class PDP extends React.Component {
     }
 
     render() {
-        let userReviews = text.userReviews.map((item, index) => <UserReview {...item} />);
+        let userReviews = this.state.reviewsForProduct.map((item, index) => <UserReview {...item} />);
         let isSuspender = this.state.suspenders.find(item => this.state.currentId === item.id);
         let endImageIndex = 0;
         if (isSuspender) {
@@ -166,7 +185,8 @@ class PDP extends React.Component {
                                     })
                                 }
                             </PDPCarousel>
-                            <H2>{this.state.product.title} - {price}</H2>
+                            <ProductTitle>{this.state.product.title} - {price}</ProductTitle>
+                            <ReviewAverage reviews={this.props.reviews.length > 0 ? this.state.reviewsForProduct : []} />
                             {
                                 isSuspender && this.state.suspenders.length > 0 &&
                                 <ProductVariants>
@@ -244,8 +264,36 @@ class PDP extends React.Component {
             </BGWhite >
         );
     }
-
 };
+
+const ReviewAverage = (props) => {
+    const average = props.reviews.length ? (props.reviews.map((review) => review.rating).reduce((p, c) => p + c) / props.reviews.length) : 0;
+
+    var stars = []
+
+    for (var i = 0; i < Math.ceil(average); i++) {
+        stars.push(<FontAwesomeIcon icon="star"/>);
+    } 
+    return (
+        <ReviewsContainer>
+                {stars.length ? (<Stars>
+                    {stars}
+                </Stars>) : ''}
+                <ReviewsCount>{props.reviews.length} Review{props.reviews.length && props.reviews.length == 1 ? '' : 's'}</ReviewsCount>
+        </ReviewsContainer>
+    )
+}
+
+const Stars = styled.div`
+    color: #FDC16E;
+    margin-right: 10px;
+`;
+
+const ReviewsCount = styled(P)`
+    display:inline;
+    line-height: 18px;
+    margin: 0;
+`;
 
 const PDPImages = styled.div`
     flex: 1;
@@ -286,6 +334,16 @@ const PDPDetails = styled.div`
     
 `;
 
+const ReviewsContainer = styled(Flex)`
+    text-decoration: none;
+    justify-content: normal;
+    padding-top: 5px;
+
+    * {
+        text-decoration: none;
+    }
+`;
+
 const PDPCarousel = styled(Carousel)`
     display: none;
     padding: 0;
@@ -293,6 +351,11 @@ const PDPCarousel = styled(Carousel)`
     @media ${device.tablet} {
         display: block;
     }
+`;
+
+const ProductTitle = styled(H2)`
+    padding-bottom: 0;
+    margin-bottom: 0;
 `;
 
 const ProductVariants = styled(Flex)`

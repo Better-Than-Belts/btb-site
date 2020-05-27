@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Flex, P } from '../../styles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class UserReview extends React.Component {
     constructor(props) {
@@ -12,19 +13,21 @@ class UserReview extends React.Component {
     }
     
     render() {
-        const stars = []
+        var stars = []
 
-        for (var i = 0; i < this.props.score; i++) {
-            stars.push(<UserReviewStar>★</UserReviewStar>);
+        for (var i = 0; i < this.props.rating; i++) {
+            stars.push(<FontAwesomeIcon icon="star" />);
           }
 
         return (
             <div>
                 <UserReviewFlex>
-                    {stars}
-                    <UserReviewName>{this.props.name}</UserReviewName>
+                    <Stars>
+                        {stars}
+                    </Stars>
+                    <UserReviewName>{this.props.reviewer.name}</UserReviewName>
                 </UserReviewFlex>
-                <P>{this.props.body}</P>
+                <ReviewBody>{this.props.body}</ReviewBody>
             </div>
         );
     }
@@ -33,6 +36,10 @@ class UserReview extends React.Component {
 
 export default UserReview;
 
+const Stars = styled.div`
+    color: #FDC16E;
+`;
+
 const UserReviewStar = styled.span`
     padding-top: 10px;
     font-size: 14px;
@@ -40,8 +47,18 @@ const UserReviewStar = styled.span`
 
 const UserReviewName = styled(P)`
     padding-left: 10px;
+    line-height: normal;
+    margin-top: 5px;
 `;
 
 const UserReviewFlex = styled(Flex)`
     justify-content: start;
+    padding-bottom: 0;
+`;
+
+const ReviewBody = styled(P)`
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 20px;
+
 `;
