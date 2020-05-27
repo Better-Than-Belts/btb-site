@@ -106,7 +106,7 @@ class NavRouter extends React.Component {
                                 <BTBLogo />
                             </Navbar.Brand>
                         </Link>
-                        <Nav className="mr-auto" style={{ 'flex-wrap': 'wrap' }}>
+                        <Nav className="mr-auto" style={{ 'flex-wrap': 'wrap', 'justify-content': 'center' }}>
                             {this.state.doc ? this.state.doc.data.navbar_items.map((item, index) => {
                                 return <BTBNavLink to={`/` + RichText.asText(item.navbar_link_route)}>{RichText.asText(item.navbar_link_text)}</BTBNavLink>
                             }) : ''}
@@ -271,7 +271,7 @@ const MobileHR = styled.hr`
 
 const BTBNavLink = styled(NavLink)`
     font-family: "Libre Franklin", sans-serif;
-    padding: 0 30px;
+    padding: 5px 30px;
     color: #004669;
     font-weight: 800;
     font-size: 18px;
