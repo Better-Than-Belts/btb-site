@@ -96,7 +96,7 @@ class PDP extends React.Component {
     componentDidUpdate(prevProps) {
         if(this.props.reviewsLoaded != prevProps.reviewsLoaded) {
             console.log("reviewsloaded", this.props.reviews);
-            this.setState({ reviewsForProduct: this.filterReviews(this.props.reviews, this.state.product.handle)}, this.setState({ reviewsForProduct: this.filterReviews(this.props.reviews, this.state.product.handle)}));
+            this.setState({ reviewsForProduct: this.filterReviews(this.props.reviews, this.state.product.handle)});
             console.log(this.state.reviewsForProduct);
         }
     }
