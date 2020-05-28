@@ -38,9 +38,13 @@ class PDP extends React.Component {
     handleCart = (id) => {
         this.props.addItem(id);
     }
+
+    filterFunction = (review) => {
+        return review.product_handle == this.state.product.handle;
+    }
     
     filterReviews = (reviews, handle) => {
-        return reviews.filter(review => review.product_handle == handle);
+        return reviews.filter(this.filterFunction);
     }
     
     componentDidMount() {
@@ -89,10 +93,15 @@ class PDP extends React.Component {
         this.fetchPrismic(this.props);
     }
 
+    componentDidUpdate(prevProps) {
+        if(this.props.reviewsLoaded != prevProps.reviewsLoaded) {
+            console.log("reviewsloaded", this.props.reviews);
+            this.setState({ reviewsForProduct: this.filterReviews(this.props.reviews, this.state.product.handle)}, this.setState({ reviewsForProduct: this.filterReviews(this.props.reviews, this.state.product.handle)}));
+            console.log(this.state.reviewsForProduct);
+        }
+    }
+
     componentWillReceiveProps(props) {
-        if(props.reviews !== this.props.reviews) {
-              this.setState({ reviewsForProduct: this.filterReviews(this.props.reviews, this.state.product.handle)})
-          }
         this.fetchPrismic(props);
     }
 
@@ -250,7 +259,7 @@ class PDP extends React.Component {
                             </PDPButtons>
                             <P>{this.state.product.description}</P>
 
-                            <P3>Free, fast shipping. Always.</P3>
+                            <P3>{ this.props.reviews.length } reviews</P3>
                             <div className="pdp">
                                 <ProductDetails color="#0C1527" accordionData={[{
                                     title: productDetailsTitle,
