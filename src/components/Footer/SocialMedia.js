@@ -12,10 +12,10 @@ const SocialMedia = () => {
     return (
         <div className="col-xs-12 col-sm-8 col-md-12 col-lg-4">
             <SocialMediaContainer>
-                <FacebookIcon target="blank_" href="https://www.facebook.com/betterthanbelts/" />
-                <InstagramIcon target="blank_" href="https://www.instagram.com/betterthanbelts/" />
-                <TwitterIcon target="blank_" href="https://twitter.com/betterthanbelts" />
-                <YoutubeIcon target="blank_" href="https://www.youtube.com/channel/UCN348SBTsDhtthoYibc1XEA" />
+                <a target="blank_" href="https://www.facebook.com/betterthanbelts/"><FacebookIcon /></a>
+                <a target="blank_" href="https://www.instagram.com/betterthanbelts/" ><InstagramIcon /></a>
+                <a target="blank_" href="https://twitter.com/betterthanbelts" ><TwitterIcon /></a>
+                <a target="blank_" href="https://www.youtube.com/channel/UCN348SBTsDhtthoYibc1XEA" ><YoutubeIcon /></a>
             </SocialMediaContainer>
             <CopyrightText style={{ color: "#F9F9FE" }}>© 2020, Better Than Belts</CopyrightText>
         </div>

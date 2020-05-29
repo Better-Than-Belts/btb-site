@@ -167,7 +167,7 @@ class PDP extends React.Component {
         let productDetailsTitle = this.state.doc ?
             RichText.asText(this.state.doc.data.title) : "Product Details";
         let productDetailsText = this.state.doc ?
-            RichText.asText(this.state.doc.data.text) : "";
+            (<P>{RichText.asText(this.state.doc.data.text)}</P>) : "";
         return (
             <BGWhite>
                 <FullPageContainer>
