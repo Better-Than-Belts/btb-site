@@ -52,7 +52,7 @@ class GenericPage extends React.Component {
             (
                 <TextCenter>
                     {
-                    this.state.doc.data.hero ? 
+                    this.state.doc.data.hero.url ? 
                     <HeroBG hero={this.state.doc.data.hero}>
                         <HeroWrapper>
                             <HeroTitle titleWhite={this.state.doc.data.title_white}>

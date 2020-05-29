@@ -89,12 +89,12 @@ class PageContainer extends React.Component {
                             <Route path="/blog"
                                 exact={true}
                                 render={() =>
-                                    <Blogs prismicCtx={this.state.prismicCtx} />
+                                    <Blogs {...this.props} />
                                 } />
                             <Route path="/blog/:id"
                                 exact={true}
                                 render={(props) =>
-                                    <Blog id={props.match.params.id} prismicCtx={this.state.prismicCtx} />
+                                    <Blog {...this.props}  id={props.match.params.id} />
                                 } />
                             <Route path="/faq"
                                 exact={true}
@@ -109,7 +109,7 @@ class PageContainer extends React.Component {
                             <Route path="/:uid"
                                 exact={true}
                                 render={(props) =>
-                                    <GenericPage uid={props.match.params.uid} prismicCtx={this.state.prismicCtx} />
+                                    <GenericPage {...this.props} uid={props.match.params.uid} />
                                 } />
                         </Switch>
                         <Footer {...this.props} />
