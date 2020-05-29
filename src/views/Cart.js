@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { device } from '../device';
-import { P, RouteLink, BGWhite, TextCenter, H2, P2, P3, TextArea, ButtonYellow, ButtonText, A } from '../styles';
+import { Link } from 'react-router-dom';
+import { P, RouteLink, BGWhite, BGBlue, Section, Wave, H1, TextCenter, H2, P2, P3, TextArea, ButtonYellow, ButtonText, A } from '../styles';
 import { connect } from 'react-redux';
 import { removeItem, addQuantity, subtractQuantity } from '../actions/CartActions';
 import RemoveIcon from '../images/RemoveFromCart.svg';
@@ -104,7 +105,7 @@ class Cart extends React.Component {
             RichText.asText(this.state.doc.data.title) :
             "Your Cart";
 
-        return (
+        return (this.props.addedItems.length ? 
             <BGWhite>
                 <SectionContainer>
                     <PageTitle>
@@ -140,10 +141,55 @@ class Cart extends React.Component {
                         </CartInfo>
                     </CartContainer>
                 </SectionContainer>
-            </BGWhite >
+            </BGWhite > : <EmptyCart />
         )
     }
 };
+
+const EmptyCart = () => {
+    return (
+            <div>
+                <BGBlue>
+                    <Section>
+                        <TextCenter>
+                            <EmptyH1>
+                                Your Cart
+                            </EmptyH1>
+                            <EmptyP>Your cart is currently empty</EmptyP>
+                        </TextCenter>
+                    </Section>
+                    <Wave />
+                </BGBlue>
+                <BGWhite>
+                    <ContinueShoppingSection>
+                        <TextCenter>
+                            <Link to="/shop">
+                                <ButtonYellow>
+                                    <ButtonText>
+                                        Continue Shopping
+                                    </ButtonText>
+                                </ButtonYellow>
+                            </Link>
+                        </TextCenter>
+                    </ContinueShoppingSection>
+                </BGWhite>
+            </div>
+    );
+}
+
+//Empty styles
+const EmptyH1 = styled(H1)`
+    margin-bottom: 60px;
+`;
+
+const EmptyP = styled(P)`
+    max-width: 300px;
+    margin: auto;
+`;
+
+const ContinueShoppingSection = styled(Section)`
+    padding: 50px 20px;
+`;
 
 // styles
 
