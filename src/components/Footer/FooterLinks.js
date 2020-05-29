@@ -10,7 +10,7 @@ const FooterLinks = (props) => {
         <div className="col-xs-12 col-sm-4 col-md-4 col-lg-2">
             {props.footer_links.map((item, index) => {
                 return (
-                    <StyledLink to={RichText.asText(item.footer_link)}><LinkText>{RichText.asText(item.footer_link_text)}</LinkText></StyledLink>
+                    <StyledLink to={'/' + RichText.asText(item.footer_link)}><LinkText>{RichText.asText(item.footer_link_text)}</LinkText></StyledLink>
                 )
             })}
         </div>
