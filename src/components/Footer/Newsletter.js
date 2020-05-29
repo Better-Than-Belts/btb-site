@@ -45,7 +45,7 @@ class Newsletter extends React.Component{
         redirect: 'follow'
         };
 
-        fetch("https://cors-anywhere.herokuapp.com/https://better-than-belts.myshopify.com/admin/api/2020-04/customers.json", requestOptions)
+        fetch("https://sleepy-coast-79367.herokuapp.com/https://better-than-belts.myshopify.com/admin/api/2020-04/customers.json", requestOptions)
         .then(response => response.text())
         .then(() => this.setState({loading: false, submitted: true}));
     }
