@@ -8,7 +8,7 @@ const getAllReviews = () => {
         var allReviews = []
         var totalReviews = 0;
 
-        fetch(`https://cors-anywhere.herokuapp.com/https://judge.me/api/v1/reviews/count?&shop_domain=better-than-belts.myshopify.com&api_token=vV2Kjg2yUhD9ZWljyWeljfkC0Ag`, {
+        fetch(`https://sleepy-coast-79367.herokuapp.com/https://judge.me/api/v1/reviews/count?&shop_domain=better-than-belts.myshopify.com&api_token=vV2Kjg2yUhD9ZWljyWeljfkC0Ag`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ const getAllReviews = () => {
 
             for(var i = 1; i <= Math.ceil(totalReviews/25); i++) {
                 promises.push(
-                    fetch(`https://cors-anywhere.herokuapp.com/https://judge.me/api/v1/reviews?&shop_domain=better-than-belts.myshopify.com&api_token=vV2Kjg2yUhD9ZWljyWeljfkC0Ag&per_page=-1&page=${i}`, {
+                    fetch(`https://sleepy-coast-79367.herokuapp.com/https://judge.me/api/v1/reviews?&shop_domain=better-than-belts.myshopify.com&api_token=vV2Kjg2yUhD9ZWljyWeljfkC0Ag&per_page=-1&page=${i}`, {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',

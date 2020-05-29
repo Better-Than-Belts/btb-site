@@ -23,7 +23,7 @@ class PDP extends React.Component {
             product: {},
             images: [],
             products: [],
-            reviewsForProduct: [],
+            reviews: [],
             productVariants: [],
             collections: [],
             suspenders: [],
@@ -38,9 +38,13 @@ class PDP extends React.Component {
     handleCart = (id) => {
         this.props.addItem(id);
     }
+
+    filterFunction = (review) => {
+        return review.product_handle == this.state.product.handle;
+    }
     
     filterReviews = (reviews, handle) => {
-        return reviews.filter(review => review.product_handle == handle);
+        return reviews.filter(this.filterFunction);
     }
     
     componentDidMount() {
@@ -62,7 +66,7 @@ class PDP extends React.Component {
                 selectedVariant: res.variants[0]
             });
         }).then(() => {
-            this.setState({ reviewsForProduct: this.filterReviews(this.props.reviews, this.state.product.handle)});
+            this.setState({ reviews: this.props.reviews });
         });
 
         this.props.client.product.fetchAll().then((res) => {
@@ -89,10 +93,14 @@ class PDP extends React.Component {
         this.fetchPrismic(this.props);
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.reviews !== prevProps.reviews) {
+            this.setState({ reviews: this.props.reviews });
+          
+        }
+    }
+
     componentWillReceiveProps(props) {
-        if(props.reviews !== this.props.reviews) {
-              this.setState({ reviewsForProduct: this.filterReviews(this.props.reviews, this.state.product.handle)})
-          }
         this.fetchPrismic(props);
     }
 
@@ -133,8 +141,7 @@ class PDP extends React.Component {
                 this.setState({
                     currentId: selected.id,
                     product: selected,
-                    images: selected.images,
-                    reviewsForProduct: this.filterReviews(this.props.reviews, selected.handle),
+                    images: selected.images
                 });
             } else {
                 this.setState({
@@ -145,7 +152,8 @@ class PDP extends React.Component {
     }
 
     render() {
-        let userReviews = this.state.reviewsForProduct.map((item, index) => <UserReview {...item} />);
+        let filteredReviews = this.state.reviews.filter((review) => review.product_handle == this.state.product.handle);
+        let userReviews = filteredReviews.map((item, index) => <UserReview {...item} />);
         let isSuspender = this.state.suspenders.find(item => this.state.currentId === item.id);
         let endImageIndex = 0;
         if (isSuspender) {
@@ -186,7 +194,7 @@ class PDP extends React.Component {
                                 }
                             </PDPCarousel>
                             <ProductTitle>{this.state.product.title} - {price}</ProductTitle>
-                            <ReviewAverage reviews={this.props.reviews.length > 0 ? this.state.reviewsForProduct : []} />
+                            <ReviewAverage reviews={filteredReviews.length > 0 ? filteredReviews : []} />
                             {
                                 isSuspender && this.state.suspenders.length > 0 &&
                                 <ProductVariants>
@@ -249,8 +257,6 @@ class PDP extends React.Component {
                                 </BuyNowButton>
                             </PDPButtons>
                             <P>{this.state.product.description}</P>
-
-                            <P3>Free, fast shipping. Always.</P3>
                             <div className="pdp">
                                 <ProductDetails color="#0C1527" accordionData={[{
                                     title: productDetailsTitle,

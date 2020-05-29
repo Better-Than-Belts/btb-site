@@ -27,7 +27,7 @@ class PageContainer extends React.Component {
             shopifyClient: props.client,
             prismicCtx: props.prismicCtx,
             reviews: [],
-            reviewsLoading: true,
+            reviewsLoaded: false,
             collections: [],
             products: []
         }
@@ -42,7 +42,7 @@ class PageContainer extends React.Component {
             });
         });
         getAllReviews().then(res => {
-            this.setState(() => ({ reviews: res, reviewsLoading: false }))
+            this.setState(() => ({ reviews: res, reviewsLoaded: true }))
         });
         this.setState({ prismicCtx: this.props.prismicCtx })
     }
@@ -69,12 +69,12 @@ class PageContainer extends React.Component {
                             <Route path="/shop"
                                 exact={true}
                                 render={(props) =>
-                                    <PLP {...this.props} client={this.state.shopifyClient} reviews={this.state.reviews} products={this.state.products} collections={this.state.collections} />
+                                    <PLP {...this.props} client={this.state.shopifyClient} reviews={this.state.reviews} reviewsLoaded={this.state.reviewsLoaded} products={this.state.products} collections={this.state.collections} />
                                 } />
                             <Route path="/shop/:id"
                                 exact={true}
                                 render={(props) =>
-                                    <PDP {...props} id={props.match.params.id} client={this.state.shopifyClient} prismicCtx={this.state.prismicCtx} reviews={this.state.reviews} />
+                                    <PDP {...props} id={props.match.params.id} client={this.state.shopifyClient} prismicCtx={this.state.prismicCtx} reviews={this.state.reviews} reviewsLoaded={this.state.reviewsLoaded} />
                                 } />
                             <Route path="/why-suspenders"
                                 exact={true}

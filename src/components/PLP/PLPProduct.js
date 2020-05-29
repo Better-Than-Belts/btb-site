@@ -8,7 +8,7 @@ class PLPProduct extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            reviewsForProduct: []
+            reviews: []
         }
     }
 
@@ -17,16 +17,18 @@ class PLPProduct extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({ reviewsForProduct: this.filterReviews(this.props.reviews, this.props.product.handle)})
+        this.setState({ reviews: this.props.reviews })
     }
 
-    componentWillReceiveProps(props) {
-        if(props.reviews !== this.props.reviews) {
-            this.setState({ reviewsForProduct: this.filterReviews(this.props.reviews, this.props.product.handle)})
+    componentDidUpdate(prevProps) {
+        if(this.props.reviews !== prevProps.reviews) {
+            console.log("Updating");
+            this.setState({ reviews: this.props.reviews });
         }
     }
 
     render() {
+        let filteredReviews = this.state.reviews.filter((review) => review.product_handle == this.props.product.handle);
         let hoverImageUrl = ""
         if (this.props.product.images.length > 1) {
             hoverImageUrl = this.props.product.images[1].src
@@ -39,7 +41,7 @@ class PLPProduct extends React.Component {
                     {this.props.product.images.length ?
                         <ProductImage src={this.props.product.images[0].src} alt={this.props.product.title} hoverImage={hoverImageUrl} /> : null}
                     <ProductName>{this.props.product.title} - {this.props.product.variants[0].price}</ProductName>
-                    <ReviewAverage reviews={this.props.reviews.length > 0 ? this.state.reviewsForProduct : []} />
+                    <ReviewAverage reviews={filteredReviews.length > 0 ? filteredReviews : []} />
                 </PDPLink>
             </ProductDiv>
         )
