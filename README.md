@@ -1,4 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Better Than Belts Logo](/src/images/logo.svg)
+
+This is the marketing and e-commerce site for Better Than Belts, developed and designed by Scout.
+This project was created using [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
