@@ -14,7 +14,7 @@ git clone https://github.com/Better-Than-Belts/btb-site.git
 2. Change directories:
 
 ```bash
-cd scout-website-2020
+cd btb-site
 ```
 3. Set up environment variables
 
